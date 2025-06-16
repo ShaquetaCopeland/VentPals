@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VentPals - Speak Freely. Heal Deeply. Together.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VentPals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="VentPals Logo" class="logo" />
     <nav>
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Join</a></li>
-        <li><a href="#">Support</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/get-started">Get Started</a></li>
+        <li><a href="/join">Join</a></li>
+        <li><a href="/signin">Sign In</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1>VentPals</h1>
-      <p>Speak freely. Heal deeply. Together.</p>
-      <a href="#" class="btn">Join the Community</a>
+      <h1>Let’s talk about it.</h1>
+      <p>Vent to a listening ear, anonymously and judgment-free. We’re here when you need someone to just... listen.</p>
+      <a href="/get-started" class="btn">Get Started</a>
+    </section>
+
+    <section class="contact">
+      <h2>Drop us a line</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
