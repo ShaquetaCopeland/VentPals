@@ -2,34 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VentPals - Speak freely. Heal deeply. Together.</title>
-  <link rel="stylesheet" href="VentPals/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VentPals - Speak Freely</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <div class="logo">🕊️ VentPals</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">How it Works</a></li>
+        <li><a href="#">Join Community</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  VentPals
-</header>
+  <main>
+    <section class="vent-section">
+      <h1>Let It Out</h1>
+      <p class="tagline">Speak freely. Heal deeply. Together.</p>
+      <form id="ventForm">
+        <textarea id="ventInput" placeholder="Type your vent here..." required></textarea>
+        <button type="submit">Submit Vent</button>
+      </form>
+      <div id="responseMessage" class="hidden"></div>
+    </section>
+  </main>
 
-<nav>
-  <a href="/VentPals/index.html">Home</a>
-  <a href="/VentPals/about.html">About</a>
-  <a href="/VentPals/vent.html">Vent Anonymously</a>
-</nav>
+  <footer>
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
+  </footer>
 
-<div class="container">
-  <h1>Welcome to VentPals</h1>
-  <p>Your safe space to speak freely and heal deeply together.</p>
-
-  <p>Here you can vent, connect, and find support anonymously.</p>
-
-  <button onclick="window.location.href='/VentPals/vent.html'">Start Venting Now</button>
-</div>
-
-<footer>
-  &copy; 2025 VentPals. All rights reserved.
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
