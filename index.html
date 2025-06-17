@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VentPals - Speak Freely</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="logo">🕊️ VentPals</div>
+    <div class="logo-wrapper">
+      <img src="logo.png" alt="VentPals Logo" class="logo-img" />
+      <div class="tagline-text">
+        <span class="logo-title">VentPals</span>
+        <span class="logo-sub">Speak freely. Heal deeply. Together.</span>
+      </div>
+    </div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
@@ -21,9 +28,9 @@
   <main>
     <section class="vent-section">
       <h1>Let It Out</h1>
-      <p class="tagline">Speak freely. Heal deeply. Together.</p>
+      <p class="vent-tagline">Whatever's on your chest, we're here to hold it gently.</p>
       <form id="ventForm">
-        <textarea id="ventInput" placeholder="Type your vent here..." required></textarea>
+        <textarea id="ventInput" placeholder="What's on your mind? Type it here, no judgment." required></textarea>
         <button type="submit">Submit Vent</button>
       </form>
       <div id="responseMessage" class="hidden"></div>
@@ -32,6 +39,7 @@
 
   <footer>
     <p>&copy; 2025 VentPals. All rights reserved.</p>
+    <p class="footer-quote">Even birds need to vent before they soar. 🕊️</p>
   </footer>
 
   <script src="script.js"></script>
