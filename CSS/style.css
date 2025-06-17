@@ -1,12 +1,14 @@
+/* Header Layout */
 header {
   background: #e3f2fd;
-  padding: 25px 50px;
+  padding: 30px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+/* Left section: logo and tagline */
 .logo-wrapper {
   display: flex;
   align-items: center;
@@ -14,26 +16,50 @@ header {
 }
 
 .logo-img {
-  height: 70px;
+  height: 80px;
   width: auto;
-  flex-shrink: 0;
 }
 
 .tagline-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3px;
+  gap: 6px;
 }
 
 .logo-title {
   font-family: 'Comfortaa', cursive;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #7C4DFF;
+  margin-bottom: 0;
 }
 
 .logo-sub {
   font-size: 1rem;
   color: #555;
+  line-height: 1.2;
+}
+
+/* Right section: navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(124, 77, 255, 0.12);
 }
