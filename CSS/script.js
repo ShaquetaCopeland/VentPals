@@ -11,11 +11,9 @@ document.getElementById('ventForm').addEventListener('submit', function (e) {
     return;
   }
 
-  // Simulated submission success
-  responseBox.textContent = "Thank you for sharing. You’re not alone.";
+  responseBox.textContent = "Thank you for sharing. You’re not alone in this.";
   responseBox.style.color = "#3c763d";
   responseBox.classList.remove('hidden');
 
-  // Reset form
   document.getElementById('ventForm').reset();
 });
