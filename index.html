@@ -2,47 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VentPals - Speak Freely</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VentPals – Welcome</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
-<header>
-  <div class="logo-wrapper">
-    <img src="assets/logo.png" alt="VentPals Logo" class="logo-img" />
-    <div class="tagline-text">
-      <span class="logo-title">VentPals</span>
-      <span class="logo-sub">Speak freely. Heal deeply. Together.</span>
-    </div>
+<body class="welcome-page">
+  <div class="welcome-container">
+    <img src="images/ventpals-logo.png" alt="VentPals Logo" class="logo" />
+    <img src="images/flock.png" alt="VentPals Birds" class="flock" />
+    <h1>Welcome to VentPals</h1>
+    <p>Your safe space to speak freely and heal deeply.</p>
+    <a href="intake.html" class="get-started-btn">Get Started</a>
   </div>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">How it Works</a></li>
-      <li><a href="#">Join Community</a></li>
-    </ul>
-  </nav>
-</header>
-
-
-  <main>
-    <section class="vent-section">
-      <h1>Let It Out</h1>
-      <p class="vent-tagline">Whatever's on your chest, we're here to hold it gently.</p>
-      <form id="ventForm">
-        <textarea id="ventInput" placeholder="What's on your mind? Type it here, no judgment." required></textarea>
-        <button type="submit">Submit Vent</button>
-      </form>
-      <div id="responseMessage" class="hidden"></div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 VentPals. All rights reserved.</p>
-    <p class="footer-quote">Even birds need to vent before they soar. 🕊️</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
