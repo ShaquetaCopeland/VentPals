@@ -42,21 +42,3 @@ function initFlockFeatures() {
 window.addEventListener('DOMContentLoaded', () => {
   initFlockFeatures();
 });
-.vent-toast {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--secondary);
-  color: var(--dark);
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 1000;
-}
-
-.vent-toast.show {
-  opacity: 1;
-}
