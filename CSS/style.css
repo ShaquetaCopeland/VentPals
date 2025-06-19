@@ -1,65 +1,143 @@
-/* Header Layout */
+/* ========= VentPals Branding ========= */
+
+/* Fonts & Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+:root {
+  --primary: #7bb6b1;        /* Calm Teal */
+  --secondary: #ffcdcd;      /* Soft Rose */
+  --accent: #f4e9e2;         /* Blush Beige */
+  --dark: #3a3a3a;           /* Warm Charcoal */
+  --light: #ffffff;
+  --highlight: #ffe48f;      /* Golden Glow */
+
+  --font-body: 'Quicksand', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--accent);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* ========= Layout ========= */
+
 header {
-  background: #e3f2fd;
-  padding: 30px 60px;
+  background-color: var(--primary);
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Left section: logo and tagline */
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+header .logo {
+  height: 60px;
 }
 
-.logo-img {
-  height: 80px;
-  width: auto;
-}
-
-.tagline-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-}
-
-.logo-title {
-  font-family: 'Comfortaa', cursive;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #7C4DFF;
-  margin-bottom: 0;
-}
-
-.logo-sub {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.2;
-}
-
-/* Right section: navigation */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 40px;
-  margin: 0;
-  padding: 0;
+  gap: 1.5rem;
 }
 
 nav a {
-  color: #333;
+  color: var(--light);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  background: rgba(124, 77, 255, 0.12);
+  color: var(--highlight);
+}
+
+/* ========= Hero Section ========= */
+
+.hero {
+  background: url('assets/images/background.jpg') center/cover no-repeat;
+  color: var(--dark);
+  padding: 5rem 2rem;
+  text-align: center;
+  border-bottom: 5px solid var(--secondary);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero .tagline {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background-color: var(--secondary);
+  color: var(--dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+  background-color: var(--highlight);
+}
+
+/* ========= Features Section ========= */
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background-color: var(--light);
+}
+
+.feature-card {
+  background-color: var(--accent);
+  border-left: 5px solid var(--primary);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: scale(1.02);
+}
+
+/* ========= Footer ========= */
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--primary);
+  color: var(--light);
+  font-size: 0.9rem;
+}
+
+/* ========= Responsive ========= */
+
+@media (min-width: 768px) {
+  .features {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .feature-card {
+    width: 30%;
+  }
 }
