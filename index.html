@@ -1,73 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VentPals – Speak Freely. Heal Deeply. Together.</title>
-    <link rel="icon" href="images/logo.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: 'Comfortaa', cursive;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VentPals | Speak Freely. Heal Deeply. Together.</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/topics.html">Topics</a></li>
+        <li><a href="pages/join.html">Join</a></li>
+        <li><a href="pages/influence-center.html">Influence Center</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <body class="bg-[#FCFAF7] text-[#3A3A3A] flex flex-col min-h-screen">
-    <!-- HEADER -->
-    <header class="bg-white shadow-md py-4 px-6 sticky top-0 z-10">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center space-x-3">
-          <img src="images/logo.png" alt="VentPals Logo" class="w-10 h-10" />
-          <span class="text-xl font-bold">VentPals</span>
-        </div>
-        <nav class="hidden md:flex space-x-6 text-sm font-medium">
-          <a href="index.html" class="hover:text-[#87CEEB]">Home</a>
-          <a href="join.html" class="hover:text-[#87CEEB]">Join</a>
-          <a href="about.html" class="hover:text-[#87CEEB]">About</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="text-center py-16 px-4 bg-[#87CEEB] text-white">
-      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Speak Freely. Heal Deeply. Together.</h1>
-      <p class="text-lg max-w-2xl mx-auto mb-6">A safe, anonymous space to vent, connect, and grow—without judgment.</p>
-      <a href="join.html" class="inline-block bg-white text-[#3A3A3A] px-6 py-3 rounded-full shadow hover:bg-[#FFD369] transition">Join the Flock</a>
+  <main>
+    <section class="hero">
+      <h1>Welcome to VentPals</h1>
+      <p class="tagline">Speak freely. Heal deeply. Together.</p>
+      <a href="pages/join.html" class="cta">Join the Flock</a>
     </section>
 
-    <!-- FEATURE SECTION -->
-    <section class="py-16 px-6 bg-[#CAB7FF]">
-      <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10 text-center">
-        <div>
-          <img src="images/pals/clover.png" alt="Clover the Calm" class="w-20 mx-auto mb-4" />
-          <h3 class="text-xl font-bold mb-1">Clover the Calm</h3>
-          <p class="text-sm">Support for anxiety, stress, and overthinking.</p>
-        </div>
-        <div>
-          <img src="images/pals/breezy.png" alt="Breezy the Brave" class="w-20 mx-auto mb-4" />
-          <h3 class="text-xl font-bold mb-1">Breezy the Brave</h3>
-          <p class="text-sm">Helping you through grief, loss, and resilience.</p>
-        </div>
-        <div>
-          <img src="images/pals/solace.png" alt="Solace the Steady" class="w-20 mx-auto mb-4" />
-          <h3 class="text-xl font-bold mb-1">Solace the Steady</h3>
-          <p class="text-sm">Your rock when life feels unsteady or chaotic.</p>
-        </div>
+    <section class="features">
+      <div class="feature-card">
+        <h3>🌱 Safe Space</h3>
+        <p>Vent anonymously and connect with those who understand.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💬 Real Topics</h3>
+        <p>Parenting, marriage, identity, mental health — all welcome.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🕊️ Earn Wings</h3>
+        <p>Connect and level up to become a trusted VentComrade.</p>
       </div>
     </section>
+  </main>
 
-    <!-- COMMUNITY CTA -->
-    <section class="py-16 px-6 text-center bg-white">
-      <h2 class="text-3xl font-bold mb-4">Built for real talk. By real people.</h2>
-      <p class="max-w-xl mx-auto text-gray-600 mb-6">No bots. No judgment. Just honest conversations with people who get it. Whether you’re venting or listening, you're never alone in the flock.</p>
-      <a href="about.html" class="text-[#3A3A3A] border border-[#3A3A3A] px-5 py-2 rounded-full hover:bg-[#FFD369] transition">Learn More</a>
-    </section>
+  <footer>
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
+  </footer>
 
-    <!-- FOOTER -->
-    <footer class="mt-auto bg-[#3A3A3A] text-white py-6 text-center text-sm">
-      <p>&copy; 2025 VentPals. All rights reserved.</p>
-      <p class="mt-1">Made with 💛 for the unheard.</p>
-    </footer>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
