@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Breezy",
+    "fliesFor": "Calm in the chaos",
+    "images": [
+      "images/flock/breezy/breezy1.png",
+      "images/flock/breezy/breezy2.png",
+      "images/flock/breezy/breezy3.png"
+    ]
+  },
+  {
+    "name": "Clover",
+    "fliesFor": "Healing through grief",
+    "images": [
+      "images/flock/clover/clover1.png",
+      "images/flock/clover/clover2.png"
+    ]
+  },
+  {
+    "name": "Solace",
+    "fliesFor": "Quiet strength and safety",
+    "images": [
+      "images/flock/solace/solace1.png"
+    ]
+  }
+]
