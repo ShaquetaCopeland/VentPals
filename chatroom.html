@@ -2,93 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chatroom | VentPals</title>
-  <link rel="stylesheet" href="../style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatroom – VentPals</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
 </head>
 <body>
-
   <header>
-    <a href="../index.html"><img src="../assets/images/logo.png" alt="VentPals Logo" class="logo"></a>
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
     <nav>
       <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="topics.html">Topics</a></li>
-        <li><a href="join.html">Join</a></li>
-        <li><a href="influence-center.html">Influence Center</a></li>
+        <li><a href="chatroom.html" class="active">Chatroom</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="chatroom-page">
-    <section class="chatroom-header">
-      <h1 id="chatroom-title">Vent Room</h1>
-      <p class="tagline" id="chatroom-desc">Feel free to vent. You're not alone.</p>
-    </section>
+  <main>
+    <section class="chatroom-section">
+      <h1>Welcome to the VentRoom</h1>
+      <p class="subtext">Let it out. Support each other. No judgment, just real talk.</p>
 
-    <section class="chat-container">
-      <div class="messages" id="messages">
-        <!-- Messages will appear here -->
-      </div>
-
-      <form id="chat-form" class="chat-form">
-        <input type="text" id="user-message" placeholder="Say what’s on your heart..." autocomplete="off" required />
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 VentPals. All rights reserved.</p>
-  </footer>
-
-  <script src="../script.js"></script>
-  <script>
-    // ========== Chatroom Topic Setup ==========
-    const urlParams = new URLSearchParams(window.location.search);
-    const topic = urlParams.get('topic') || 'general';
-
-    const topicTitles = {
-      "relationships": "💔 Relationships Room",
-      "parenting": "👩‍👧 Parenting Room",
-      "mental-health": "🧠 Mental Health Room",
-      "identity": "🌈 Identity Room",
-      "work-money": "💼 Work & Money Room",
-      "life": "💬 Life Stuff Room",
-      "general": "🌐 General Vent Room"
-    };
-
-    const topicDescriptions = {
-      "relationships": "Talk through heartbreak, love, betrayal or healing.",
-      "parenting": "You're not alone in the chaos or beauty of raising kids.",
-      "mental-health": "A safe space for the invisible battles.",
-      "identity": "Come as you are. No masks. Just truth.",
-      "work-money": "Because adulting is exhausting sometimes.",
-      "life": "When nothing fits in a box — this room gets it.",
-      "general": "Vent about whatever’s on your chest. It matters."
-    };
-
-    document.getElementById('chatroom-title').textContent = topicTitles[topic] || topicTitles.general;
-    document.getElementById('chatroom-desc').textContent = topicDescriptions[topic] || topicDescriptions.general;
-
-    // ========== Basic Chat Logic (Frontend Only) ==========
-    const form = document.getElementById('chat-form');
-    const messageInput = document.getElementById('user-message');
-    const messagesDiv = document.getElementById('messages');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const text = messageInput.value.trim();
-      if (text === '') return;
-
-      const messageEl = document.createElement('div');
-      messageEl.className = 'message';
-      messageEl.textContent = `You: ${text}`;
-      messagesDiv.appendChild(messageEl);
-
-      messageInput.value = '';
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    });
-  </script>
-</body>
-</html>
+      <div class="chatbox">
+        <!-- Chat messages will go here -->
+        <div id="chat-messages" class="messages">
+          <div class="message"><strong>Breezy:</strong> You’re not alone, friend. 🌬</div>
+          <div class="messag
