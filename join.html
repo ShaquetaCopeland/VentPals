@@ -3,54 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Join the Flock | VentPals</title>
-  <link rel="stylesheet" href="../style.css"/>
+  <title>VentPals | Join the Flock</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
   <header>
-    <a href="../index.html"><img src="../assets/images/logo.png" alt="VentPals Logo" class="logo"></a>
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
     <nav>
       <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="topics.html">Topics</a></li>
-        <li><a href="join.html">Join</a></li>
+        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
+        <li><a href="chatroom.html">Chatroom</a></li>
         <li><a href="influence-center.html">Influence Center</a></li>
+        <li><a href="join.html" class="active">Join</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="join-page">
-    <section class="join-hero">
-      <h1>Ready to Join the Flock?</h1>
-      <p class="tagline">It’s free. It’s safe. It’s your space to breathe.</p>
-    </section>
-
-    <section class="join-benefits">
-      <h2>What You’ll Get:</h2>
-      <ul class="benefits-list">
-        <li>🕊️ Private, anonymous chats with real people who understand</li>
-        <li>🌱 A growing support system where you can just *be*</li>
-        <li>🪶 Earn badges & level up with every meaningful connection</li>
-        <li>🔒 A space rooted in emotional safety, maturity & respect</li>
-      </ul>
+  <main class="container">
+    <section class="hero">
+      <h1>Join the Flock</h1>
+      <p>Ready to be heard, supported, and seen? Join VentPals and find your place in the sky.</p>
     </section>
 
     <section class="join-form">
-      <h2>Create Your Free Account</h2>
-      <form action="#" method="POST" class="signup-form">
-        <label for="username">Username (no real names)</label>
+      <h2>Create Your Nest</h2>
+      <form action="signup-success.html" method="POST">
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" required />
 
-        <label for="email">Email (for account access only)</label>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="password">Password</label>
+        <label for="password">Password:</label>
         <input type="password" id="password" name="password" required />
 
-        <button type="submit" class="cta">Join Now</button>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required />
+
+        <button type="submit">Join VentPals</button>
       </form>
-      <p class="form-note">By joining, you agree to keep this space kind, safe, and judgment-free.</p>
     </section>
   </main>
 
@@ -58,6 +52,6 @@
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
 
-  <script src="../script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
