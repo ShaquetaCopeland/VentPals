@@ -34,6 +34,33 @@
     <p>&copy; 2025 VentPals</p>
   </footer>
   <section id="flock-section" class="flock-grid"></section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch('/data/flock.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("flock-section");
+
+        data.forEach(bird => {
+          const birdCard = document.createElement("div");
+          birdCard.className = "bird-card";
+
+          birdCard.innerHTML = `
+            <img src="/assets/flock/${bird.image}" alt="${bird.name}" class="bird-image">
+            <h3>${bird.name}</h3>
+            <p class="bird-role">${bird.role}</p>
+            <p class="bird-bio">${bird.bio}</p>
+          `;
+
+          container.appendChild(birdCard);
+        });
+      })
+      .catch(error => {
+        console.error("Error loading flock:", error);
+        document.getElementById("flock-section").innerHTML = "<p>Failed to load flock.</p>";
+      });
+  });
+</script>
 
 </body>
 </html>
