@@ -2,100 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meet the Flock | VentPals</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f9f6;
-      color: #333;
-      margin: 0;
-      padding: 2rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #2d5c4d;
-    }
-
-    .flock-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .bird-card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      padding: 1rem;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .bird-card:hover {
-      transform: scale(1.03);
-    }
-
-    .bird-card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .bird-name {
-      margin-top: 0.75rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #446b5a;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1 class="page-title">🐦 Meet the Flock</h1>
+    <p class="subtitle">Every bird flies for something special.</p>
+  </header>
 
-  <h1>Meet the Flock</h1>
+  <main id="flock-section" class="flock-grid">
+    <!-- Bird cards will be loaded here by JavaScript -->
+  </main>
 
-  <div class="flock-gallery">
-    <div class="bird-card">
-      <img src="assets/images/clover-main.png" alt="Clover" />
-      <div class="bird-name">Clover</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/breezy-main.png" alt="Breezy" />
-      <div class="bird-name">Breezy</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/echo-main.png" alt="Echo" />
-      <div class="bird-name">Echo</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/flare-main.png" alt="Flare" />
-      <div class="bird-name">Flare</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/guardian-main.png" alt="Guardian" />
-      <div class="bird-name">Guardian</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/nova-main.png" alt="Nova" />
-      <div class="bird-name">Nova</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/pebble-main.png" alt="Pebble" />
-      <div class="bird-name">Pebble</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/solace-main.png" alt="Solace" />
-      <div class="bird-name">Solace</div>
-    </div>
-    <div class="bird-card">
-      <img src="assets/images/aura-main.png" alt="Aura" />
-      <div class="bird-name">Aura</div>
-    </div>
-  </div>
+  <footer>
+    <p>&copy; 2025 VentPals</p>
+  </footer>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('data/flock.json')
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById("flock-section");
+
+          data.forEach(bird => {
+            const birdCard = document.createElement("div");
+            birdCard.className = "bird-card";
+
+            birdCard.innerHTML = `
+              <img src="assets/images/${bird.image}" alt="${bird.name}" class="bird-image">
+              <h3>${bird.name}</h3>
+              <p class="bird-role">Flies for: ${bird.role}</p>
+              <p class="bird-bio">${bird.bio}</p>
+            `;
+
+            container.appendChild(birdCard);
+          });
+        })
+        .catch(error => {
+          console.error("Error loading flock:", error);
+          document.getElementById("flock-section").innerHTML = "<p>Failed to load flock.</p>";
+        });
+    });
+  </script>
 </body>
 </html>
