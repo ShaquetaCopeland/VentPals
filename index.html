@@ -2,129 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VentPals Intake</title>
-
-  <!-- Firebase SDK (modular v9+) -->
-  <script type="module">
-    // Import Firebase modules
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
-
-    // Firebase Config
-    const firebaseConfig = {
-      apiKey: "AIzaSyAugk1ty2eZSpCUWjinqB3ovgqYDzw1Asc",
-      authDomain: "ventpals-e333b.firebaseapp.com",
-      projectId: "ventpals-e333b",
-      storageBucket: "ventpals-e333b.appspot.com",
-      messagingSenderId: "1063757294983",
-      appId: "1:1063757294983:web:cbd20472655dbd82ff3722",
-      measurementId: "G-6HBJD15S2F"
-    };
-
-    // Initialize Firebase services
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    console.log("Firebase initialized successfully.");
-  </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to VentPals</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .bird-box {
-      margin-top: 3rem;
+      overflow: hidden;
       text-align: center;
     }
 
-    .bird-img {
-      width: 160px;
-      height: auto;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-    }
-
-    .chat-box {
-      margin-top: 2rem;
+    .cloud {
+      position: absolute;
+      width: 200px;
+      height: 100px;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      width: 90%;
-      max-width: 500px;
+      border-radius: 100px;
+      box-shadow: 60px 0 #fff, -60px 0 #fff;
+      opacity: 0.8;
+      animation: floatClouds 10s linear infinite;
     }
 
-    .chat-bubble {
-      background: #e0f7fa;
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 0.5rem 0;
+    .cloud.left {
+      top: 80px;
+      left: -300px;
+      animation-name: cloudLeft;
     }
 
-    .button-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
+    .cloud.right {
+      top: 100px;
+      right: -300px;
+      animation-name: cloudRight;
+    }
+
+    @keyframes cloudLeft {
+      0% { left: -300px; }
+      50% { left: 50%; }
+      100% { left: -300px; }
+    }
+
+    @keyframes cloudRight {
+      0% { right: -300px; }
+      50% { right: 50%; }
+      100% { right: -300px; }
+    }
+
+    .clover {
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: flyIn 2s ease-out 3s forwards;
+    }
+
+    @keyframes flyIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .welcome-text {
+      opacity: 0;
+      animation: fadeIn 2s ease-in 5s forwards;
+      font-size: 1.2rem;
+      color: #333;
       margin-top: 1rem;
     }
 
-    button {
-      padding: 0.75rem 1.25rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      background-color: #8eacf3;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
 
-    button:hover {
-      background-color: #6f91e4;
+    .rotating-prompts {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #4a7c59;
+      height: 2rem;
+      opacity: 0;
+      animation: fadeCycle 9s ease-in-out infinite;
+    }
+
+    @keyframes fadeCycle {
+      0%, 100% { opacity: 0; }
+      5%, 30% { opacity: 1; content: 'What\'s on your mind today?'; }
+      35%, 60% { opacity: 1; content: 'Got something bugging you?'; }
+      65%, 90% { opacity: 1; content: 'Need to vent, squawk, or just be heard?'; }
+    }
+
+    .rotating-prompts span {
+      display: inline-block;
+      opacity: 0;
+      animation: promptSlide 9s infinite;
+    }
+
+    @keyframes promptSlide {
+      0%   { opacity: 1; }
+      33%  { opacity: 0; }
+      34%  { opacity: 0; }
+      67%  { opacity: 1; }
+      100% { opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <div class="cloud left"></div>
+  <div class="cloud right"></div>
 
-  <div class="bird-box">
-    <img class="bird-img" src="assets/images/clover-main.png" alt="Clover the Bird" />
-    <h2>Hi, I’m <strong>Clover</strong>! 🌿</h2>
-    <p>I’m here to listen, not to judge. Would you like to chat by voice or by text?</p>
+  <div class="clover">
+    <img src="assets/images/clover-main.png" alt="Clover" width="150" />
+    <h2>Hey there, I’m <strong>Clover</strong>. I fly in when you need a soft place to land. 🕊️</h2>
   </div>
 
-  <div class="button-group">
-    <button onclick="chooseMode('voice')">🎤 Voice Chat</button>
-    <button onclick="chooseMode('text')">💬 Text Only</button>
+  <div class="welcome-text">
+    Welcome to <strong>VentPals</strong> — where you can speak freely, heal deeply, and be heard.
   </div>
 
-  <div id="chatArea" class="chat-box" style="display: none;">
-    <div class="chat-bubble">What’s weighing on your heart today?</div>
-    <div class="chat-bubble">What helps you feel better usually?</div>
-    <div class="chat-bubble">How do you *wish* you felt right now?</div>
+  <div class="rotating-prompts">
+    <span id="prompt"></span>
   </div>
 
   <script>
-    function chooseMode(mode) {
-      document.querySelector('.button-group').style.display = 'none';
-      document.getElementById('chatArea').style.display = 'block';
-      console.log('User selected mode:', mode);
-    }
-  </script>
+    const prompts = [
+      "What’s on your mind today?",
+      "Got something bugging you?",
+      "Need to vent, squawk, or just be heard?"
+    ];
 
+    let currentPrompt = 0;
+    const promptSpan = document.getElementById("prompt");
+
+    function cyclePrompts() {
+      promptSpan.style.opacity = 0;
+      setTimeout(() => {
+        promptSpan.textContent = prompts[currentPrompt];
+        promptSpan.style.opacity = 1;
+        currentPrompt = (currentPrompt + 1) % prompts.length;
+      }, 500);
+    }
+
+    setInterval(cyclePrompts, 4000);
+    cyclePrompts();
+  </script>
 </body>
 </html>
