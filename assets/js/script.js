@@ -1,3 +1,44 @@
+// ========= VentPals Core Script =========
+
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetID = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetID);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Toast Message System (Reusable)
+function showToast(message, duration = 3000) {
+  const toast = document.createElement('div');
+  toast.className = 'vent-toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add('show');
+  }, 100);
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.addEventListener('transitionend', () => toast.remove());
+  }, duration);
+}
+
+// Placeholder Toast Example:
+// showToast("Welcome back to the flock!");
+
+// Future-proof feature init
+function initFlockFeatures() {
+  console.log("VentPals Flock initialized.");
+  // Add logic here later for badges, animations, etc.
+}
+
+// Load startup logic
 window.addEventListener('DOMContentLoaded', () => {
   initFlockFeatures();
 
