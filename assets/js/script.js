@@ -1,66 +1,27 @@
-// ========= VentPals Core Script =========
-
-// Smooth scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetID = this.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetID);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
-
-// Placeholder: VentPals toast alerts (example use)
-function showToast(message, duration = 3000) {
-  const toast = document.createElement('div');
-  toast.className = 'vent-toast';
-  toast.textContent = message;
-  document.body.appendChild(toast);
-
-  setTimeout(() => {
-    toast.classList.add('show');
-  }, 100);
-
-  setTimeout(() => {
-    toast.classList.remove('show');
-    toast.addEventListener('transitionend', () => toast.remove());
-  }, duration);
-}
-
-// Example usage:
-// showToast("Welcome back to the flock!");
-
-// Future-proof for flock behaviors
-function initFlockFeatures() {
-  console.log("VentPals Flock initialized.");
-  // Future interactivity like unlocking badges, chat toggles, avatar animations
-}
-
-// Load all startup functions
 window.addEventListener('DOMContentLoaded', () => {
   initFlockFeatures();
 
-  fetch('data/flock.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('flock-container');
-      data.forEach(bird => {
-        const card = document.createElement('div');
-        card.classList.add('bird-card');
+  const container = document.getElementById('flock-container');
+  if (container) {
+    fetch('data/flock.json')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(bird => {
+          const card = document.createElement('div');
+          card.classList.add('bird-card');
 
-        card.innerHTML = `
-          <img src="assets/images/${bird.image}" alt="${bird.name}">
-          <h3>${bird.name}</h3>
-          <p><em>${bird.title}</em></p>
-          <p>${bird.bio}</p>
-        `;
+          card.innerHTML = `
+            <img src="assets/images/${bird.image}" alt="${bird.name}">
+            <h3>${bird.name}</h3>
+            <p><em>${bird.title}</em></p>
+            <p>${bird.bio}</p>
+          `;
 
-        container.appendChild(card);
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error('Error loading flock:', err);
       });
-    })
-    .catch(err => {
-      console.error('Error loading flock:', err);
-    });
+  }
 });
