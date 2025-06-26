@@ -21,37 +21,47 @@
       border-radius: 100px;
       box-shadow: 60px 0 #fff, -60px 0 #fff;
       opacity: 0.8;
-      animation: floatClouds 10s linear infinite;
     }
 
     .cloud.left {
       top: 80px;
-      left: -300px;
-      animation-name: cloudLeft;
+      left: 0;
+      animation: cloudLeft 6s forwards;
     }
 
     .cloud.right {
       top: 100px;
-      right: -300px;
-      animation-name: cloudRight;
+      right: 0;
+      animation: cloudRight 6s forwards;
     }
 
     @keyframes cloudLeft {
-      0% { left: -300px; }
-      50% { left: 50%; }
-      100% { left: -300px; }
+      0% { left: 0; }
+      100% { left: -300px; opacity: 0; }
     }
 
     @keyframes cloudRight {
-      0% { right: -300px; }
-      50% { right: 50%; }
-      100% { right: -300px; }
+      0% { right: 0; }
+      100% { right: -300px; opacity: 0; }
+    }
+
+    .balloon-text {
+      font-size: 2.5rem;
+      color: purple;
+      font-weight: bold;
+      margin-top: 3rem;
+      animation: floatAway 5s ease-in-out forwards;
+    }
+
+    @keyframes floatAway {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
     }
 
     .clover {
       opacity: 0;
       transform: translateY(-50px);
-      animation: flyIn 2s ease-out 3s forwards;
+      animation: flyIn 2s ease-out 6s forwards;
     }
 
     @keyframes flyIn {
@@ -63,7 +73,7 @@
 
     .welcome-text {
       opacity: 0;
-      animation: fadeIn 2s ease-in 5s forwards;
+      animation: fadeIn 2s ease-in 8s forwards;
       font-size: 1.2rem;
       color: #333;
       margin-top: 1rem;
@@ -82,14 +92,7 @@
       color: #4a7c59;
       height: 2rem;
       opacity: 0;
-      animation: fadeCycle 9s ease-in-out infinite;
-    }
-
-    @keyframes fadeCycle {
-      0%, 100% { opacity: 0; }
-      5%, 30% { opacity: 1; content: 'What\'s on your mind today?'; }
-      35%, 60% { opacity: 1; content: 'Got something bugging you?'; }
-      65%, 90% { opacity: 1; content: 'Need to vent, squawk, or just be heard?'; }
+      animation: fadeCycle 9s ease-in-out 9s infinite;
     }
 
     .rotating-prompts span {
@@ -110,6 +113,8 @@
 <body>
   <div class="cloud left"></div>
   <div class="cloud right"></div>
+
+  <div class="balloon-text">Welcome to VentPals</div>
 
   <div class="clover">
     <img src="assets/images/clover-main.png" alt="Clover" width="150" />
