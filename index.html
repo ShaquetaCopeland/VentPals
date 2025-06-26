@@ -46,43 +46,44 @@
     }
 
     .balloon-text {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: purple;
       font-weight: bold;
-      margin-top: 3rem;
-      animation: floatAway 5s ease-in-out forwards;
+      margin-top: 4rem;
+      text-shadow: 2px 2px #d8b0ff, 4px 4px #aaa;
+      animation: floatBalloons 4s ease-in-out infinite alternate;
+      transform: translateZ(0);
     }
 
-    @keyframes floatAway {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-200px); opacity: 0; }
+    @keyframes floatBalloons {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
     }
 
     .clover {
-      opacity: 0;
-      transform: translateY(-50px);
-      animation: flyIn 2s ease-out 6s forwards;
+      margin-top: 2rem;
+      animation: flyBounce 2s ease-in-out infinite alternate;
     }
 
-    @keyframes flyIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes flyBounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .clover img {
+      width: 160px;
+      animation: flapWings 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes flapWings {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(5deg); }
     }
 
     .welcome-text {
-      opacity: 0;
-      animation: fadeIn 2s ease-in 8s forwards;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #333;
       margin-top: 1rem;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
     }
 
     .rotating-prompts {
@@ -91,28 +92,10 @@
       font-weight: bold;
       color: #4a7c59;
       height: 2rem;
-      opacity: 0;
-      animation: fadeCycle 9s ease-in-out 9s infinite;
-    }
-
-    .rotating-prompts span {
-      display: inline-block;
-      opacity: 0;
-      animation: promptSlide 9s infinite;
-    }
-
-    @keyframes promptSlide {
-      0%   { opacity: 1; }
-      33%  { opacity: 0; }
-      34%  { opacity: 0; }
-      67%  { opacity: 1; }
-      100% { opacity: 0; }
     }
 
     .start-button {
       margin-top: 3rem;
-      opacity: 0;
-      animation: fadeIn 2s ease-in 11s forwards;
     }
 
     .start-button a {
@@ -137,12 +120,12 @@
   <div class="balloon-text">Welcome to VentPals</div>
 
   <div class="clover">
-    <img src="assets/images/clover-main.png" alt="Clover" width="150" />
+    <img src="assets/images/clover-main.png" alt="Clover" />
     <h2>Hey there, I’m <strong>Clover</strong>. I fly in when you need a soft place to land. 🕊️</h2>
   </div>
 
   <div class="welcome-text">
-    Welcome to <strong>VentPals</strong> — where you can speak freely, heal deeply, and be heard.
+    Speak freely. Heal deeply. Together.
   </div>
 
   <div class="rotating-prompts">
