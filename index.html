@@ -21,28 +21,24 @@
       border-radius: 100px;
       box-shadow: 60px 0 #fff, -60px 0 #fff;
       opacity: 0.8;
+      animation: floatClouds 60s linear infinite;
     }
 
     .cloud.left {
       top: 80px;
-      left: 0;
-      animation: cloudLeft 6s forwards;
+      left: -300px;
+      animation-delay: 0s;
     }
 
     .cloud.right {
       top: 100px;
-      right: 0;
-      animation: cloudRight 6s forwards;
+      left: 100vw;
+      animation-delay: 10s;
     }
 
-    @keyframes cloudLeft {
-      0% { left: 0; }
-      100% { left: -300px; opacity: 0; }
-    }
-
-    @keyframes cloudRight {
-      0% { right: 0; }
-      100% { right: -300px; opacity: 0; }
+    @keyframes floatClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-110vw); }
     }
 
     .balloon-text {
@@ -114,6 +110,11 @@
   </style>
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/10/11/audio_2a33e3969a.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <div class="cloud left"></div>
   <div class="cloud right"></div>
 
