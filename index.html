@@ -108,6 +108,26 @@
       67%  { opacity: 1; }
       100% { opacity: 0; }
     }
+
+    .start-button {
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeIn 2s ease-in 11s forwards;
+    }
+
+    .start-button a {
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      background-color: #8eacf3;
+      color: white;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    .start-button a:hover {
+      background-color: #6f91e4;
+    }
   </style>
 </head>
 <body>
@@ -127,6 +147,10 @@
 
   <div class="rotating-prompts">
     <span id="prompt"></span>
+  </div>
+
+  <div class="start-button">
+    <a href="join.html">Let’s Get Started</a>
   </div>
 
   <script>
