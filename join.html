@@ -3,129 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join the Flock | VentPals</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-    }
-
-    header {
-      width: 100%;
-      max-width: 960px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-
-    .logo {
-      height: 60px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #4a4a4a;
-      font-weight: bold;
-    }
-
-    nav a.active {
-      color: #7b4bb7;
-    }
-
-    main.container {
-      width: 100%;
-      max-width: 480px;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-      text-align: center;
-      color: #7b4bb7;
-    }
-
-    .hero p {
-      font-size: 1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .join-form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .join-form label {
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-
-    .join-form input {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-top: 0.25rem;
-    }
-
-    .join-form button {
-      margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #7b4bb7;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .join-form button:hover {
-      background-color: #6841a6;
-    }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    @media screen and (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+  <title>Join VentPals</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
 </head>
 <body>
-
   <header>
     <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
     <nav>
@@ -143,24 +24,24 @@
   <main class="container">
     <section class="hero">
       <h1>Join the Flock</h1>
-      <p>Ready to be heard, supported, and seen? Create your nest with VentPals.</p>
+      <p>Create your nest. Join a healing, honest, and hopeful community.</p>
     </section>
 
-    <section class="join-form">
-      <form action="signup-success.html" method="POST">
-        <label for="username">Username:</label>
+    <section class="form-section">
+      <form action="#" method="POST" class="auth-form">
+        <label for="username">Username</label>
         <input type="text" id="username" name="username" required />
 
-        <label for="email">Email:</label>
+        <label for="email">Email</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="password">Password:</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" required />
 
-        <label for="confirm-password">Confirm Password:</label>
+        <label for="confirm-password">Confirm Password</label>
         <input type="password" id="confirm-password" name="confirm-password" required />
 
-        <button type="submit">Join VentPals</button>
+        <button type="submit" class="button">Join VentPals</button>
       </form>
     </section>
   </main>
@@ -168,7 +49,5 @@
   <footer>
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
-
-  <script src="assets/js/script.js"></script>
 </body>
 </html>
