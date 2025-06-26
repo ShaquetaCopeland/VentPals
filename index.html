@@ -1,28 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VentPals - Your Safe Space to Vent</title>
-  <!-- Link to your CSS styles -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VentPals Intake</title>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
+
+  <script>
+    // Firebase config from Firebase Console
+    const firebaseConfig = {
+      apiKey: "AIzaSyAugk1ty2eZSpCUWjinqB3ovgqYDzw1Asc",
+      authDomain: "ventpals-e333b.firebaseapp.com",
+      projectId: "ventpals-e333b",
+      storageBucket: "ventpals-e333b.firebasestorage.app",
+      messagingSenderId: "1063757294983",
+      appId: "1:1063757294983:web:cbd20472655dbd82ff3722",
+      measurementId: "G-6HBJD15S2F"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .bird-box {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .bird-img {
+      width: 160px;
+      height: auto;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .chat-box {
+      margin-top: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .chat-bubble {
+      background: #e0f7fa;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #8eacf3;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6f91e4;
+    }
+  </style>
 </head>
 <body>
+  <div class="bird-box">
+    <img class="bird-img" src="https://cdn.jsdelivr.net/gh/ventpals-assets/logo-bird.png" alt="Clover the Bird">
+    <h2>Hi, I’m <strong>Clover</strong>! 🌿</h2>
+    <p>I’m here to listen, not to judge. Would you like to chat by voice or by text?</p>
+  </div>
 
-  <!-- Your page content goes here -->
-  <header>
-    <h1>Welcome to VentPals</h1>
-  </header>
+  <div class="button-group">
+    <button onclick="chooseMode('voice')">🎤 Voice Chat</button>
+    <button onclick="chooseMode('text')">💬 Text Only</button>
+  </div>
 
-  <main>
-    <p>This is your safe place to speak freely and heal deeply — together.</p>
-  </main>
+  <div id="chatArea" class="chat-box" style="display: none;">
+    <div class="chat-bubble">What’s weighing on your heart today?</div>
+    <div class="chat-bubble">What helps you feel better usually?</div>
+    <div class="chat-bubble">How do you *wish* you felt right now?</div>
+    <!-- Future: AI response, username generation, bird match shown here -->
+  </div>
 
-  <footer>
-    <p>&copy; 2025 VentPals</p>
-  </footer>
+  <script>
+    function chooseMode(mode) {
+      document.querySelector('.button-group').style.display = 'none';
+      document.getElementById('chatArea').style.display = 'block';
+      // Placeholder — voice activation or text logic can be added later
+      console.log('User selected mode:', mode);
 
-  <!-- Link to your JavaScript -->
-  <script src="script.js" defer></script>
+      // You can store the user choice (e.g., "voice" or "text") in Firestore if needed.
+    }
+  </script>
 </body>
 </html>
