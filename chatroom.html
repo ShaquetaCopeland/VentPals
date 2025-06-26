@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chatroom – VentPals</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <title>Chatroom | VentPals</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
 </head>
 <body>
   <header>
@@ -13,20 +12,50 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
         <li><a href="chatroom.html" class="active">Chatroom</a></li>
+        <li><a href="influence-center.html">Influence Center</a></li>
+        <li><a href="join.html">Join</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="chatroom-section">
-      <h1>Welcome to the VentRoom</h1>
-      <p class="subtext">Let it out. Support each other. No judgment, just real talk.</p>
+  <main class="container">
+    <section class="hero">
+      <h1>Chatroom</h1>
+      <p>Connect anonymously with a fellow VentPal. Let it out, feel heard, and support one another.</p>
+    </section>
 
-      <div class="chatbox">
-        <!-- Chat messages will go here -->
-        <div id="chat-messages" class="messages">
-          <div class="message"><strong>Breezy:</strong> You’re not alone, friend. 🌬</div>
-          <div class="messag
+    <section class="chatroom-box">
+      <div class="chat-log" id="chat-log">
+        <!-- Messages will appear here -->
+      </div>
+      <form id="chat-form">
+        <input type="text" id="message-input" placeholder="Type your message..." required />
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("chat-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const message = document.getElementById("message-input").value.trim();
+      if (message) {
+        const chatLog = document.getElementById("chat-log");
+        const newMessage = document.createElement("div");
+        newMessage.className = "chat-message";
+        newMessage.textContent = message;
+        chatLog.appendChild(newMessage);
+        document.getElementById("message-input").value = "";
+        chatLog.scrollTop = chatLog.scrollHeight;
+      }
+    });
+  </script>
+</body>
+</html>
