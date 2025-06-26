@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VentPals Intake</title>
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
 
-  <script>
-    // Firebase config from Firebase Console
+  <!-- Firebase SDK (modular v9+) -->
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+
+    // Firebase Config
     const firebaseConfig = {
       apiKey: "AIzaSyAugk1ty2eZSpCUWjinqB3ovgqYDzw1Asc",
       authDomain: "ventpals-e333b.firebaseapp.com",
       projectId: "ventpals-e333b",
-      storageBucket: "ventpals-e333b.firebasestorage.app",
+      storageBucket: "ventpals-e333b.appspot.com",
       messagingSenderId: "1063757294983",
       appId: "1:1063757294983:web:cbd20472655dbd82ff3722",
       measurementId: "G-6HBJD15S2F"
     };
 
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase services
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    console.log("Firebase initialized successfully.");
   </script>
 
   <style>
@@ -94,8 +100,9 @@
   </style>
 </head>
 <body>
+
   <div class="bird-box">
-    <img class="bird-img" src="https://cdn.jsdelivr.net/gh/ventpals-assets/logo-bird.png" alt="Clover the Bird">
+    <img class="bird-img" src="assets/images/clover-main.png" alt="Clover the Bird" />
     <h2>Hi, I’m <strong>Clover</strong>! 🌿</h2>
     <p>I’m here to listen, not to judge. Would you like to chat by voice or by text?</p>
   </div>
@@ -109,18 +116,15 @@
     <div class="chat-bubble">What’s weighing on your heart today?</div>
     <div class="chat-bubble">What helps you feel better usually?</div>
     <div class="chat-bubble">How do you *wish* you felt right now?</div>
-    <!-- Future: AI response, username generation, bird match shown here -->
   </div>
 
   <script>
     function chooseMode(mode) {
       document.querySelector('.button-group').style.display = 'none';
       document.getElementById('chatArea').style.display = 'block';
-      // Placeholder — voice activation or text logic can be added later
       console.log('User selected mode:', mode);
-
-      // You can store the user choice (e.g., "voice" or "text") in Firestore if needed.
     }
   </script>
+
 </body>
 </html>
