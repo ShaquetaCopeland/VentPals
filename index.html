@@ -3,38 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals | Home</title>
+  <title>VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .clouds {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/clouds-bg.gif') repeat-x;
+      background-size: cover;
+      z-index: -1;
+      animation: floatClouds 60s linear infinite;
+    }
+
+    @keyframes floatClouds {
+      0% { background-position: 0 0; }
+      100% { background-position: -2000px 0; }
+    }
+
+    .welcome-balloon {
+      font-size: 3rem;
+      color: #8e44ad;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 3rem;
+      animation: floatBalloon 5s ease-in-out infinite;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    @keyframes floatBalloon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .clover-box {
+      text-align: center;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .clover-img {
+      width: 160px;
+      animation: flap 1s infinite ease-in-out;
+    }
+
+    @keyframes flap {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    .intro-message {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .prompt-rotator {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 1.5rem;
+      height: 30px;
+    }
+
+    .start-btn {
+      display: block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background-color: #8eacf3;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .start-btn:hover {
+      background-color: #6f91e4;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
-        <li><a href="chatroom.html">Chatroom</a></li>
-        <li><a href="influence-center.html">Influence Center</a></li>
-        <li><a href="join.html">Join</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="clouds"></div>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Welcome to VentPals</h1>
-      <p>Speak freely. Heal deeply. Together. 🕊️</p>
-    </section>
+  <div class="welcome-balloon">Welcome to VentPals</div>
 
-    <section>
-      <p>VentPals is a place where your voice matters. Whether you're dealing with stress, grief, or just need someone to listen, our community of birds (and humans!) has your back.</p>
-      <p><a href="join.html"><button>Let's Get Started</button></a></p>
-    </section>
-  </main>
+  <div class="clover-box">
+    <img src="assets/images/clover-main.png" alt="Clover" class="clover-img" />
+    <p class="intro-message">Hey there, I’m Clover. I fly in when you need a soft place to land.</p>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 VentPals. All rights reserved.</p>
-  </footer>
+  <div class="prompt-rotator" id="rotator">What would you like to talk about?</div>
+
+  <button class="start-btn" onclick="location.href='join.html'">Let's Get Started</button>
+
+  <audio autoplay loop>
+    <source src="assets/audio/birds-chirping.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const prompts = [
+      "What would you like to talk about?",
+      "What’s on your mind today?",
+      "What bug is eating you?"
+    ];
+    let current = 0;
+    const rotator = document.getElementById('rotator');
+
+    setInterval(() => {
+      current = (current + 1) % prompts.length;
+      rotator.style.opacity = 0;
+      setTimeout(() => {
+        rotator.textContent = prompts[current];
+        rotator.style.opacity = 1;
+      }, 500);
+    }, 4000);
+  </script>
 </body>
 </html>
