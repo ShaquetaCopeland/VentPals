@@ -3,161 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to VentPals</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .cloud {
-      position: absolute;
-      width: 200px;
-      height: 100px;
-      background: #fff;
-      border-radius: 100px;
-      box-shadow: 60px 0 #fff, -60px 0 #fff;
-      opacity: 0.8;
-      animation: floatClouds 60s linear infinite;
-    }
-
-    .cloud.left {
-      top: 80px;
-      left: -300px;
-      animation-delay: 0s;
-    }
-
-    .cloud.right {
-      top: 100px;
-      left: 100vw;
-      animation-delay: 10s;
-    }
-
-    @keyframes floatClouds {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-110vw); }
-    }
-
-    .balloon-text {
-      font-size: 3rem;
-      color: purple;
-      font-weight: bold;
-      margin-top: 4rem;
-      text-shadow: 2px 2px #d8b0ff, 4px 4px #aaa;
-      animation: floatBalloons 4s ease-in-out infinite alternate;
-      transform: translateZ(0);
-    }
-
-    @keyframes floatBalloons {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-10px); }
-    }
-
-    .clover {
-      margin-top: 2rem;
-      animation: flyBounce 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes flyBounce {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-10px); }
-    }
-
-    .clover img {
-      width: 160px;
-      animation: flapWings 1s ease-in-out infinite alternate;
-    }
-
-    @keyframes flapWings {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(5deg); }
-    }
-
-    .welcome-text {
-      font-size: 1.3rem;
-      color: #333;
-      margin-top: 1rem;
-    }
-
-    .rotating-prompts {
-      margin-top: 2rem;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #4a7c59;
-      height: 2rem;
-    }
-
-    .start-button {
-      margin-top: 3rem;
-    }
-
-    .start-button a {
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      background-color: #8eacf3;
-      color: white;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-
-    .start-button a:hover {
-      background-color: #6f91e4;
-    }
-  </style>
+  <title>VentPals | Home</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/audio/2022/10/11/audio_2a33e3969a.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <header>
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
+        <li><a href="chatroom.html">Chatroom</a></li>
+        <li><a href="influence-center.html">Influence Center</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="cloud left"></div>
-  <div class="cloud right"></div>
+  <main class="container">
+    <section class="hero">
+      <h1>Welcome to VentPals</h1>
+      <p>Speak freely. Heal deeply. Together. 🕊️</p>
+    </section>
 
-  <div class="balloon-text">Welcome to VentPals</div>
+    <section>
+      <p>VentPals is a place where your voice matters. Whether you're dealing with stress, grief, or just need someone to listen, our community of birds (and humans!) has your back.</p>
+      <p><a href="join.html"><button>Let's Get Started</button></a></p>
+    </section>
+  </main>
 
-  <div class="clover">
-    <img src="assets/images/clover-main.png" alt="Clover" />
-    <h2>Hey there, I’m <strong>Clover</strong>. I fly in when you need a soft place to land. 🕊️</h2>
-  </div>
-
-  <div class="welcome-text">
-    Speak freely. Heal deeply. Together.
-  </div>
-
-  <div class="rotating-prompts">
-    <span id="prompt"></span>
-  </div>
-
-  <div class="start-button">
-    <a href="join.html">Let’s Get Started</a>
-  </div>
-
-  <script>
-    const prompts = [
-      "What’s on your mind today?",
-      "Got something bugging you?",
-      "Need to vent, squawk, or just be heard?"
-    ];
-
-    let currentPrompt = 0;
-    const promptSpan = document.getElementById("prompt");
-
-    function cyclePrompts() {
-      promptSpan.style.opacity = 0;
-      setTimeout(() => {
-        promptSpan.textContent = prompts[currentPrompt];
-        promptSpan.style.opacity = 1;
-        currentPrompt = (currentPrompt + 1) % prompts.length;
-      }, 500);
-    }
-
-    setInterval(cyclePrompts, 4000);
-    cyclePrompts();
-  </script>
+  <footer>
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
+  </footer>
 </body>
 </html>
