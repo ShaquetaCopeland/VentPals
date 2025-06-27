@@ -3,121 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meet the Flock | VentPals</title>
+  <title>Topics | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
-      background-image: url('assets/images/clouds-bg.png');
-      background-size: cover;
-      background-attachment: fixed;
-      color: #333;
-    }
-
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    .logo {
-      width: 180px;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #6b4ba1;
-      font-size: 1.1rem;
-    }
-
-    nav a.active,
-    nav a:hover {
-      color: #9b6be8;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #8e44ad;
-      text-shadow: 2px 2px #ddd;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #4a4a4a;
-    }
-
-    .flock-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .bird-card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .bird-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .bird-image {
-      width: 100%;
-      max-width: 200px;
-      margin-bottom: 1rem;
-    }
-
-    .bird-role {
-      font-style: italic;
-      color: #6b4ba1;
-    }
-
-    .bird-bio {
-      font-size: 0.95rem;
-      color: #555;
-      margin-top: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -126,7 +13,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="meet-the-flock.html" class="active">Meet the Flock</a></li>
+        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
         <li><a href="chatroom.html">Chatroom</a></li>
         <li><a href="influence-center.html">Influence Center</a></li>
         <li><a href="join.html">Join</a></li>
@@ -136,74 +23,22 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Meet the Flock</h1>
-      <p>Each bird represents a unique strength, emotion, or support style.</p>
+      <h1>Explore Topics</h1>
+      <p>Select a category that resonates with what you’re facing today.</p>
     </section>
 
-    <section class="flock-grid">
-      <!-- Bird Cards -->
-      <div class="bird-card">
-        <img src="assets/images/clover-main.png" alt="Clover" class="bird-image">
-        <h3>Clover</h3>
-        <p class="bird-role">Flies for: Healing through grief</p>
-        <p class="bird-bio">Clover is gentle and calm, offering comfort during life’s heaviest moments.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/breezy-main.png" alt="Breezy" class="bird-image">
-        <h3>Breezy</h3>
-        <p class="bird-role">Flies for: Calm in the chaos</p>
-        <p class="bird-bio">Breezy helps you stay grounded when anxiety kicks up a storm.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/echo-main.png" alt="Echo" class="bird-image">
-        <h3>Echo</h3>
-        <p class="bird-role">Flies for: Feeling heard</p>
-        <p class="bird-bio">Echo repeats back your truth — because sometimes all you need is to be heard.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/flare-main.png" alt="Flare" class="bird-image">
-        <h3>Flare</h3>
-        <p class="bird-role">Flies for: Speaking your truth</p>
-        <p class="bird-bio">Flare brings boldness and fire, cheering you on to say what needs to be said.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/guardian-main.png" alt="Guardian" class="bird-image">
-        <h3>Guardian</h3>
-        <p class="bird-role">Flies for: Safety and protection</p>
-        <p class="bird-bio">Guardian is strong, loyal, and watches over the community with care.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/nova-main.png" alt="Nova" class="bird-image">
-        <h3>Nova</h3>
-        <p class="bird-role">Flies for: Rebuilding after darkness</p>
-        <p class="bird-bio">Nova helps you rise from rock bottom and find your light again.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/pebble-main.png" alt="Pebble" class="bird-image">
-        <h3>Pebble</h3>
-        <p class="bird-role">Flies for: Playfulness and ease</p>
-        <p class="bird-bio">Pebble is light-hearted, silly, and always ready to lift your mood.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/solace-main.png" alt="Solace" class="bird-image">
-        <h3>Solace</h3>
-        <p class="bird-role">Flies for: Grounding and presence</p>
-        <p class="bird-bio">Solace is a soft soul who shows up when you need stillness, peace, or pause.</p>
-      </div>
-
-      <div class="bird-card">
-        <img src="assets/images/aura-main.png" alt="Aura" class="bird-image">
-        <h3>Aura</h3>
-        <p class="bird-role">Flies for: Mindfulness and clarity</p>
-        <p class="bird-bio">Aura helps you tune into your thoughts and breathe through the fog.</p>
-      </div>
+    <section class="content">
+      <ul class="topic-list">
+        <li><a href="#">Relationships</a></li>
+        <li><a href="#">Parenting</a></li>
+        <li><a href="#">Mental Health</a></li>
+        <li><a href="#">Grief & Loss</a></li>
+        <li><a href="#">Work & Career</a></li>
+        <li><a href="#">Loneliness</a></li>
+        <li><a href="#">Identity</a></li>
+        <li><a href="#">Addiction</a></li>
+        <li><a href="#">Personal Growth</a></li>
+      </ul>
     </section>
   </main>
 
