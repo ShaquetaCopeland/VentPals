@@ -2,73 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chatroom | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
-  <style>
-    .chatroom-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 2rem auto;
-    }
-
-    .chatroom-content h1 {
-      font-size: 2.5rem;
-      color: #7b3fe4;
-    }
-
-    .chatroom-content p {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      color: #444;
-    }
-
-    .chat-placeholder {
-      border: 2px dashed #ccc;
-      padding: 2rem;
-      margin-top: 2rem;
-      border-radius: 12px;
-      background-color: #fdfdfd;
-    }
-
-    .random-birds {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .random-birds img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #7b3fe4;
-      object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-      .chatroom-content h1 {
-        font-size: 2rem;
-      }
-
-      .chatroom-content p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
-
-      .random-birds {
-        gap: 1.5rem;
-      }
-
-      .chat-placeholder {
-        padding: 1.5rem;
-      }
-    }
-  </style>
 </head>
 <body>
-
   <header>
     <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
     <nav>
@@ -79,43 +17,29 @@
         <li><a href="chatroom.html" class="active">Chatroom</a></li>
         <li><a href="influence-center.html">Influence Center</a></li>
         <li><a href="join.html">Join</a></li>
-        <li><a href="topics.html">Topics</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container chatroom-content">
-    <h1>Chatroom</h1>
-    <p>Let it out. You’re in a safe place now. Start chatting with your matched VentPal or join an open group.</p>
+  <main class="container">
+    <section class="hero">
+      <h1>Vent Together</h1>
+      <p>Jump into a safe space where feelings take flight. Start chatting in real time or find a friend who gets it.</p>
+    </section>
 
-    <div class="chat-placeholder">
-      <p style="color: #999;">[ Chat interface coming soon... ]</p>
-    </div>
+    <section class="chatroom-intro">
+      <p>Choose a topic that speaks to you and join a live group chat. Or let Pebble pair you with someone who understands what you’re going through.</p>
+      <button onclick="location.href='topics.html'">Browse Topics</button>
+      <button onclick="location.href='join.html'">Get Paired</button>
+    </section>
 
-    <div class="random-birds">
-      <img id="bird1" src="assets/images/bird1.png" alt="Bird 1" />
-      <img id="bird2" src="assets/images/bird2.png" alt="Bird 2" />
-    </div>
+    <section class="chatroom-placeholder">
+      <p><strong>Coming soon:</strong> Real-time chat powered by kindness, care, and maybe a few bird puns.</p>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 VentPals. All rights reserved.
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
-
-  <script>
-    const birdOptions = [
-      "clover.png", "mossy.png", "cricket.png", "solace.png",
-      "ember.png", "lumen.png", "ripple.png", "breezy.png"
-    ];
-
-    function getRandomBird() {
-      const index = Math.floor(Math.random() * birdOptions.length);
-      return "assets/images/" + birdOptions[index];
-    }
-
-    document.getElementById("bird1").src = getRandomBird();
-    document.getElementById("bird2").src = getRandomBird();
-  </script>
-
 </body>
 </html>
