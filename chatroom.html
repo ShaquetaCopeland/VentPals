@@ -6,7 +6,7 @@
   <title>Chatroom | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
 </head>
-<body class="cloud-bg">
+<body>
   <header>
     <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
     <nav>
@@ -23,20 +23,17 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Vent Space</h1>
-      <p>Here’s where the talking begins — judgment-free, anonymous, and real.</p>
+      <h1>Welcome to the Chatroom</h1>
+      <p>Vent, support, and connect — all in a safe and anonymous space.</p>
     </section>
 
-    <section class="chat-interface">
-      <div class="chat-box">
-        <div class="chat-message bot">Hey there, I’m Clover 🕊️ What’s on your mind today?</div>
-        <div class="chat-message user" contenteditable="true" placeholder="Type here..."></div>
-      </div>
+    <section class="content">
+      <p>
+        Choose a topic or let Clover guide you to the right bird for your moment. Whether you’re here to listen or be heard, you’re already one of us.
+      </p>
 
-      <div class="prompt-buttons">
-        <button onclick="insertPrompt('I feel overwhelmed with...')">🌀 I feel overwhelmed with...</button>
-        <button onclick="insertPrompt('Something great happened today...')">🌤️ Something great happened...</button>
-        <button onclick="insertPrompt('I wish someone understood...')">🫧 I wish someone understood...</button>
+      <div class="chat-placeholder">
+        <p><em>(Chat interface will appear here once Firebase is fully integrated.)</em></p>
       </div>
     </section>
   </main>
@@ -44,18 +41,5 @@
   <footer>
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
-
-  <audio autoplay loop>
-    <source src="assets/sounds/birds.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <script>
-    function insertPrompt(text) {
-      const userMessage = document.querySelector('.chat-message.user');
-      userMessage.innerText = text;
-      userMessage.focus();
-    }
-  </script>
 </body>
 </html>
