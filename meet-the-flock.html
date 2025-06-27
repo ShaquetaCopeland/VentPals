@@ -5,6 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meet the Flock | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
+      background-image: url('assets/images/clouds-bg.png');
+      background-size: cover;
+      background-attachment: fixed;
+      color: #333;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 0;
+    }
+
+    header img.logo {
+      width: 140px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #6b4bb6;
+      font-size: 1rem;
+    }
+
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #6b4bb6;
+    }
+
+    .flock-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .bird-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .bird-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .bird-role {
+      font-style: italic;
+      color: #4a7c59;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -32,63 +128,55 @@
         <img src="assets/images/clover-main.png" alt="Clover" class="bird-image">
         <h3>Clover</h3>
         <p class="bird-role">Flies for: Healing through grief</p>
-        <p class="bird-bio">Clover is gentle and calm, offering comfort during life’s heaviest moments.</p>
+        <p>Clover is gentle and calm, offering comfort during life’s heaviest moments.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/breezy-main.png" alt="Breezy" class="bird-image">
         <h3>Breezy</h3>
         <p class="bird-role">Flies for: Calm in the chaos</p>
-        <p class="bird-bio">Breezy helps you stay grounded when anxiety kicks up a storm.</p>
+        <p>Breezy helps you stay grounded when anxiety kicks up a storm.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/echo-main.png" alt="Echo" class="bird-image">
         <h3>Echo</h3>
         <p class="bird-role">Flies for: Feeling heard</p>
-        <p class="bird-bio">Echo repeats back your truth — because sometimes all you need is to be heard.</p>
+        <p>Echo repeats back your truth — because sometimes all you need is to be heard.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/flare-main.png" alt="Flare" class="bird-image">
         <h3>Flare</h3>
         <p class="bird-role">Flies for: Speaking your truth</p>
-        <p class="bird-bio">Flare brings boldness and fire, cheering you on to say what needs to be said.</p>
+        <p>Flare brings boldness and fire, cheering you on to say what needs to be said.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/guardian-main.png" alt="Guardian" class="bird-image">
         <h3>Guardian</h3>
         <p class="bird-role">Flies for: Safety and protection</p>
-        <p class="bird-bio">Guardian is strong, loyal, and watches over the community with care.</p>
+        <p>Guardian is strong, loyal, and watches over the community with care.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/nova-main.png" alt="Nova" class="bird-image">
         <h3>Nova</h3>
         <p class="bird-role">Flies for: Rebuilding after darkness</p>
-        <p class="bird-bio">Nova helps you rise from rock bottom and find your light again.</p>
+        <p>Nova helps you rise from rock bottom and find your light again.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/pebble-main.png" alt="Pebble" class="bird-image">
         <h3>Pebble</h3>
         <p class="bird-role">Flies for: Playfulness and ease</p>
-        <p class="bird-bio">Pebble is light-hearted, silly, and always ready to lift your mood.</p>
+        <p>Pebble is light-hearted, silly, and always ready to lift your mood.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/solace-main.png" alt="Solace" class="bird-image">
         <h3>Solace</h3>
         <p class="bird-role">Flies for: Grounding and presence</p>
-        <p class="bird-bio">Solace is a soft soul who shows up when you need stillness, peace, or pause.</p>
+        <p>Solace is a soft soul who shows up when you need stillness, peace, or pause.</p>
       </div>
-
       <div class="bird-card">
         <img src="assets/images/aura-main.png" alt="Aura" class="bird-image">
         <h3>Aura</h3>
         <p class="bird-role">Flies for: Mindfulness and clarity</p>
-        <p class="bird-bio">Aura helps you tune into your thoughts and breathe through the fog.</p>
+        <p>Aura helps you tune into your thoughts and breathe through the fog.</p>
       </div>
     </section>
   </main>
