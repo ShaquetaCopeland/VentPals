@@ -1,105 +1,338 @@
-/* GLOBAL STYLES */
+/* ======================================= */
+/* GLOBAL STYLES - assets/css/global.css   */
+/* ======================================= */
 
-/* Container layout */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-  box-sizing: border-box;
+/* --- 1. CSS Reset/Box Sizing --- */
+/* A simple reset to remove default browser margins/paddings and set consistent box model */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and border are included in an element's total width/height */
 }
 
-/* Navigation */
+/* --- 2. Base Body Styles --- */
+/* Consistent typography, background, and default text color across all pages */
+body {
+  font-family: 'Arial', sans-serif; /* Use a common, readable font */
+  line-height: 1.6; /* Improve readability for text blocks */
+  color: #333; /* Default dark grey text color */
+  background-color: #f8f8f8; /* A very light off-white background */
+  min-height: 100vh; /* Ensures body takes at least full viewport height */
+  display: flex;
+  flex-direction: column; /* Allows footer to stick to the bottom */
+}
+
+/* --- 3. Container Layout --- */
+/* Used for main content wrapping to centralize and constrain width */
+.container {
+  width: 100%;
+  max-width: 1200px; /* Max width for content, adjust as needed */
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 1.5rem; /* Consistent padding around content */
+  box-sizing: border-box; /* Already included in global reset, good to reiterate for context */
+  flex-grow: 1; /* Allows main content to take up available space */
+}
+
+/* --- 4. Header Styles --- */
+/* Consistent look for the site header on all pages */
+header {
+  background-color: #ffffff; /* White background */
+  padding: 1rem 0; /* Vertical padding, horizontal handled by logo/nav */
+  border-bottom: 1px solid #eee; /* Subtle separator */
+  display: flex; /* Use flexbox for logo and nav alignment */
+  justify-content: space-between; /* Pushes logo to left, nav to right */
+  align-items: center; /* Vertically centers logo and nav */
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+header .logo {
+  height: 60px; /* Consistent height for the logo */
+  margin-left: 1.5rem; /* Left margin to align with container padding */
+  flex-shrink: 0; /* Prevents logo from shrinking on small screens */
+}
+
+/* --- 5. Navigation Styles --- */
+/* Consistent navigation bar across all pages */
+nav {
+  margin-right: 1.5rem; /* Right margin to align with container padding */
+}
+
 nav ul {
-  list-style: none;
+  list-style: none; /* Removes bullet points */
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: flex; /* Horizontal layout for nav items */
+  flex-wrap: wrap; /* Allows nav items to wrap if needed */
+  justify-content: flex-end; /* Align items to the right in the header */
+  gap: 1.2rem; /* Space between nav links */
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #444;
-  padding: 0.5rem 1rem;
+  text-decoration: none; /* Removes underline from links */
+  color: #555; /* Default link color */
+  padding: 0.6rem 1rem; /* Padding inside each link for click area */
   font-size: 1rem;
+  font-weight: 500; /* Slightly bolder for navigation */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transitions for hover/active */
+  border-radius: 6px; /* Slightly rounded corners */
 }
 
-/* Headers & Text */
-h1, h2, h3, p {
-  margin: 0.5rem 0;
-  line-height: 1.4;
-  word-wrap: break-word;
+nav ul li a:hover {
+  color: #007bff; /* Highlight color on hover */
+  background-color: #eaf6ff; /* Light background on hover */
 }
 
-/* Images */
+nav ul li a.active { /* Style for the current page link */
+  color: #ffffff; /* White text for active link */
+  background-color: #007bff; /* Primary blue background for active link */
+  font-weight: bold;
+}
+
+/* --- 6. Headers & Text --- */
+/* Consistent sizing and spacing for all headings and paragraphs */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700; /* Bolder headings */
+  color: #222; /* Darker color for headings */
+}
+
+h1 { font-size: 2.5rem; /* Default H1 size for general page titles */ }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1rem; /* Consistent spacing below paragraphs */
+  line-height: 1.7; /* Better readability for body text */
+  word-wrap: break-word; /* Prevents long words from breaking layout */
+}
+
+/* --- 7. Images --- */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  max-width: 100%; /* Ensures images are responsive and don't overflow their containers */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes extra space below images by default */
 }
 
-/* Hero section */
+/* --- 8. Buttons (General) --- */
+/* Define a consistent style for all buttons */
+button {
+  display: inline-block;
+  background-color: #007bff; /* Primary blue button color */
+  color: #ffffff; /* White text on buttons */
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px; /* Slightly more rounded */
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+button:active {
+  background-color: #004085;
+  transform: translateY(0);
+}
+
+/* --- 9. Hero section --- */
+/* Styles specifically for your main page hero/banner sections */
 .hero {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 4rem 1.5rem; /* More generous padding */
+  background: linear-gradient(to right, #e0f7fa, #c2e9fb); /* Soft gradient background */
+  border-radius: 12px;
+  margin-bottom: 2.5rem; /* Space below the hero section */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow */
 }
 
-/* Flock Grid */
+.hero h1 {
+  font-size: 3.5rem; /* Larger, more impactful H1 for hero */
+  margin-bottom: 1rem;
+  color: #0056b3; /* Darker blue for hero heading */
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.3rem; /* Larger paragraph text in hero */
+  max-width: 800px; /* Limit line length for readability */
+  margin: 0 auto 1.5rem; /* Center the paragraph */
+  color: #444;
+}
+
+/* --- 10. Flock Grid (Meet the Flock Page Specific) --- */
+/* Consistent layout for displaying bird cards */
 .flock-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger min column size */
+  gap: 2rem; /* More space between cards */
+  padding: 2rem 0; /* Padding for the grid container itself */
 }
 
 .bird-card {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Stronger but softer shadow */
+  padding: 1.5rem; /* More padding inside card */
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.bird-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.bird-card img {
+  border-radius: 50%; /* Make bird images circular */
+  width: 120px; /* Fixed size for consistency */
+  height: 120px;
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  margin: 0 auto 1rem; /* Center and space below image */
+  border: 3px solid #007bff; /* Border around circular image */
+}
+
+.bird-card h3 {
+  font-size: 1.5rem;
+  color: #007bff; /* Primary color for bird names */
+  margin-bottom: 0.5rem;
 }
 
 .bird-role {
   font-style: italic;
   color: #6a7c7b;
   margin-top: 0.25rem;
+  font-size: 0.95rem; /* Slightly larger */
 }
 
 .bird-bio {
-  font-size: 0.9rem;
+  font-size: 0.95rem; /* Slightly larger */
   color: #555;
-  margin-top: 0.5rem;
+  margin-top: 1rem; /* More space above bio */
+  text-align: left; /* Align bio text left for readability */
 }
 
-/* Footer */
+/* --- 11. Forms (From your join.html) --- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default: single column */
+  gap: 1.5rem; /* Spacing between form elements */
+  max-width: 600px; /* Max width for forms */
+  margin: 2rem auto; /* Center the form with some top/bottom margin */
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-grid label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block; /* Ensures label takes its own line */
+  color: #333;
+}
+
+.form-grid input[type="text"],
+.form-grid input[type="email"],
+.form-grid input[type="password"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-grid input[type="text"]:focus,
+.form-grid input[type="email"]:focus,
+.form-grid input[type="password"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none; /* Remove default outline */
+}
+
+.form-grid button[type="submit"] {
+  grid-column: 1 / -1; /* Make the button span all columns */
+  margin-top: 1rem;
+  background-color: #28a745; /* A pleasant green for submit */
+}
+
+.form-grid button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* --- 12. Footer --- */
 footer {
   text-align: center;
-  padding: 2rem 0 1rem;
-  font-size: 0.9rem;
-  color: #777;
+  padding: 1.5rem 0; /* Consistent padding */
+  font-size: 0.85rem; /* Slightly smaller font for footer text */
+  color: #888; /* Lighter grey for footer text */
+  background-color: #f0f0f0; /* Light background for footer */
+  border-top: 1px solid #eee; /* Subtle top border */
+  margin-top: auto; /* Pushes footer to the bottom of the page */
 }
 
-/* Responsive Tweaks */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 1.8rem;
+/* --- 13. Responsive Tweaks --- */
+/* Adjustments for smaller screens */
+@media (max-width: 768px) { /* Changed breakpoint slightly */
+  header {
+    flex-direction: column; /* Stack logo and nav vertically */
+    padding: 1rem; /* More padding for smaller screens */
+    align-items: flex-start; /* Align header items to the left */
   }
 
-  .hero p {
-    font-size: 1rem;
+  header .logo {
+    margin-bottom: 1rem; /* Space below logo when stacked */
+    margin-left: 0;
+  }
+
+  nav {
+    width: 100%; /* Nav takes full width */
+    margin-right: 0;
   }
 
   nav ul {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: center; /* Center nav items */
+    gap: 0.5rem; /* Less space between stacked nav items */
   }
 
   nav ul li a {
+    width: 100%; /* Make links full width */
+    text-align: center; /* Center text in full width links */
     padding: 0.75rem;
     font-size: 1.1rem;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem; /* Adjust H1 for smaller screens */
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  /* For forms on smaller screens, potentially have labels on top of inputs */
+  .form-grid {
+    grid-template-columns: 1fr; /* Ensure single column for labels and inputs */
+  }
+}
+
+@media (min-width: 769px) { /* Only for larger screens, align labels with inputs */
+  .form-grid.two-column-layout { /* Apply this class to specific forms if you want this layout */
+    grid-template-columns: 1fr 2fr; /* Labels on left, inputs on right for larger screens */
+    align-items: center; /* Vertically align labels and inputs */
   }
 }
