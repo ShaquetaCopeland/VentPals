@@ -1,149 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VentPals | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
-  <style>
-    body {
-      overflow-x: hidden;
-      background-color: #f0f9ff;
-      position: relative;
-    }
-
-    .clouds-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .cloud {
-      position: absolute;
-      background: url('assets/images/cloud.png') no-repeat;
-      background-size: contain;
-      width: 300px;
-      height: 150px;
-      opacity: 0.5;
-      animation: floatClouds 60s linear infinite;
-    }
-
-    .cloud1 { top: 10%; left: -20%; animation-delay: 0s; }
-    .cloud2 { top: 30%; left: -25%; animation-delay: 10s; }
-    .cloud3 { top: 50%; left: -30%; animation-delay: 20s; }
-
-    @keyframes floatClouds {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(150vw); }
-    }
-
-    .intro {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 5rem 1rem 2rem;
-    }
-
-    .intro img {
-      width: 160px;
-      height: auto;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-
-    .balloon-text {
-      font-size: 3.5rem;
-      color: #7b3fe4;
-      font-weight: bold;
-      text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      transform: scale(1.03);
-    }
-
-    .intro-message {
-      font-size: 1.3rem;
-      margin: 1rem auto 2rem;
-      color: #444;
-      max-width: 600px;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: #007bff;
-      color: #fff;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-align: center;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .btn:hover {
-      background-color: #0056b3;
-      transform: translateY(-2px);
-    }
-
-    .btn:active {
-      background-color: #004085;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-      .balloon-text {
-        font-size: 2.5rem;
-      }
-
-      .intro img {
-        width: 120px;
-      }
-
-      .intro-message {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-      }
-    }
-  </style>
 </head>
 <body>
+  <header>
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
+        <li><a href="chatroom.html">Chatroom</a></li>
+        <li><a href="influence-center.html">Influence Center</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul>
+    </nav>
+  </header>  <main class="container">
+    <section class="hero">
+      <h1>What is VentPals?</h1>
+      <p>VentPals is your soft place to land — an anonymous, emotionally safe space where you can talk freely, be heard, and begin healing. Whether you're carrying grief, stress, or just need a moment to breathe, there's a bird in the flock for you.</p>
+    </section><section class="content-section">
+  <h2>Why We Exist</h2>
+  <p>We believe that everyone deserves a space to be understood. No judgment. No pressure. Just people (and birds) who get it.</p>
+</section>
 
-  <!-- Floating animated clouds -->
-  <div class="clouds-background">
-    <div class="cloud cloud1"></div>
-    <div class="cloud cloud2"></div>
-    <div class="cloud cloud3"></div>
-  </div>
+<section class="content-section">
+  <h2>How It Works</h2>
+  <p>You choose your topic, your bird, or let Pebble guide you. Join rooms, connect with others, or fly solo with gentle prompts and AI-powered reflection tools.</p>
+</section>
 
-  <main class="intro">
-    <img src="assets/images/clover-flying.gif" alt="Clover flying in" />
-    <h1 class="balloon-text">Welcome to VentPals</h1>
-    <p class="intro-message">
-      Hey there, I’m Clover. I fly in when you need a soft place to land.<br/>
-      Speak freely. Heal deeply. Together.
-    </p>
-    <a href="join.html" class="btn">Let's Get Started</a>
-  </main>
+<section class="content-section">
+  <h2>Who Created VentPals?</h2>
+  <p>Shaqueta Norman — founder, dreamer, and storm-survivor — built VentPals after realizing how powerful it can be to simply be heard. Her mission is to bring soft support to those carrying heavy things.</p>
+</section>
 
-  <footer>
-    &copy; 2025 VentPals. All rights reserved.
+  </main>  <footer>
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
-
-  <audio autoplay loop>
-    <source src="assets/audio/birds.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
 </body>
 </html>
