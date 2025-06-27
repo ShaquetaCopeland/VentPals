@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Profile | VentPals</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <style>
+    body {
+      overflow-x: hidden;
+      position: relative;
+      background: #f0f9ff;
+    }
+
+    .clouds-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .cloud {
+      position: absolute;
+      background: url('assets/images/cloud.png') no-repeat;
+      background-size: contain;
+      width: 300px;
+      height: 150px;
+      opacity: 0.5;
+      animation: floatClouds 60s linear infinite;
+    }
+
+    .cloud1 { top: 10%; left: -20%; animation-delay: 0s; }
+    .cloud2 { top: 30%; left: -25%; animation-delay: 10s; }
+    .cloud3 { top: 50%; left: -30%; animation-delay: 20s; }
+
+    @keyframes floatClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(150vw); }
+    }
+
+    .intro {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    .intro img {
+      width: 160px;
+      height: auto;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .balloon-text {
+      font-size: 3.5rem;
+      color: #7b3fe4;
+      font-weight: bold;
+      text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .intro-message {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #444;
+    }
+
+    .form-grid {
+      background: #ffffffcc;
+      padding: 2rem;
+      max-width: 700px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .form-grid label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .form-grid input[type="text"],
+    .form-grid input[type="email"],
+    .form-grid select,
+    .form-grid textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .form-grid textarea {
+      min-height: 100px;
+    }
+
+    .form-grid input[type="file"] {
+      margin-top: 0.5rem;
+    }
+
+    .form-actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .toggle-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .toggle-group input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+
+    .danger {
+      background-color: #dc3545;
+    }
+
+    .danger:hover {
+      background-color: #c82333;
+    }
+
+    @media (max-width: 768px) {
+      .balloon-text {
+        font-size: 2.5rem;
+      }
+
+      .intro-message {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+
+      .intro img {
+        width: 120px;
+      }
+
+      .form-grid {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating clouds -->
+  <div class="clouds-background">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+  </div>
+
+  <!-- Pebble intro -->
+  <main class="intro">
+    <img src="assets/images/pebble-flying.gif" alt="Pebble flying in" />
+    <h1 class="balloon-text">Welcome to VentPals</h1>
+    <p class="intro-message">
+      Pebble here! I keep things grounded while you work on you.
+      <br />Let’s get your space just the way you like it.
+    </p>
+  </main>
+
+  <!-- Edit form -->
+  <section class="form-grid">
+    <form action="#" method="post" enctype="multipart/form-data">
+      <label for="profile-pic">Profile Picture</label>
+      <input type="file" id="profile-pic" name="profile-pic" accept="image/*" />
+
+      <label for="display-name">Display Name</label>
+      <input type="text" id="display-name" name="display-name" placeholder="e.g., SkyFeather89" />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="e.g., you@example.com" />
+
+      <label for="flock-bird">Preferred Flock Bird</label>
+      <select id="flock-bird" name="flock-bird">
+        <option value="clover">Clover</option>
+        <option value="pebble" selected>Pebble</option>
+        <option value="breezy">Breezy</option>
+        <option value="cricket">Cricket</option>
+        <option value="mossy">Mossy</option>
+        <option value="solace">Solace</option>
+      </select>
+
+      <label for="bio">About Me</label>
+      <textarea id="bio" name="bio" placeholder="Tell us a little about you..."></textarea>
+
+      <label for="topics">Topics I Care About Most</label>
+      <input type="text" id="topics" name="topics" placeholder="e.g., parenting, divorce, mental health" />
+
+      <div class="toggle-group">
+        <input type="checkbox" id="availability" name="availability" checked />
+        <label for="availability">Available to Chat</label>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Save Changes</button>
+        <button type="button" class="btn danger">Delete My Account</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 VentPals. All rights reserved.
+  </footer>
+
+  <audio autoplay loop>
+    <source src="assets/audio/birds.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+</body>
+</html>
