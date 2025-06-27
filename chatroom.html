@@ -6,7 +6,7 @@
   <title>Chatroom | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
 </head>
-<body>
+<body class="cloud-bg">
   <header>
     <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
     <nav>
@@ -23,18 +23,21 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Chatroom</h1>
-      <p>Connect anonymously with a fellow VentPal. Let it out, feel heard, and support one another.</p>
+      <h1>Vent Space</h1>
+      <p>Here’s where the talking begins — judgment-free, anonymous, and real.</p>
     </section>
 
-    <section class="chatroom-box">
-      <div class="chat-log" id="chat-log">
-        <!-- Messages will appear here -->
+    <section class="chat-interface">
+      <div class="chat-box">
+        <div class="chat-message bot">Hey there, I’m Clover 🕊️ What’s on your mind today?</div>
+        <div class="chat-message user" contenteditable="true" placeholder="Type here..."></div>
       </div>
-      <form id="chat-form">
-        <input type="text" id="message-input" placeholder="Type your message..." required />
-        <button type="submit">Send</button>
-      </form>
+
+      <div class="prompt-buttons">
+        <button onclick="insertPrompt('I feel overwhelmed with...')">🌀 I feel overwhelmed with...</button>
+        <button onclick="insertPrompt('Something great happened today...')">🌤️ Something great happened...</button>
+        <button onclick="insertPrompt('I wish someone understood...')">🫧 I wish someone understood...</button>
+      </div>
     </section>
   </main>
 
@@ -42,20 +45,17 @@
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
 
+  <audio autoplay loop>
+    <source src="assets/sounds/birds.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
-    document.getElementById("chat-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const message = document.getElementById("message-input").value.trim();
-      if (message) {
-        const chatLog = document.getElementById("chat-log");
-        const newMessage = document.createElement("div");
-        newMessage.className = "chat-message";
-        newMessage.textContent = message;
-        chatLog.appendChild(newMessage);
-        document.getElementById("message-input").value = "";
-        chatLog.scrollTop = chatLog.scrollHeight;
-      }
-    });
+    function insertPrompt(text) {
+      const userMessage = document.querySelector('.chat-message.user');
+      userMessage.innerText = text;
+      userMessage.focus();
+    }
   </script>
 </body>
 </html>
