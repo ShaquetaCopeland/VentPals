@@ -1,3 +1,6 @@
+# Rewriting global.css with logo resizing and previous enhancements included
+
+updated_global_css = """
 /* ======================================= */
 /* GLOBAL STYLES - assets/css/global.css   */
 /* ======================================= */
@@ -12,7 +15,7 @@
   --color-background: #f8f8f8;
 }
 
-/* --- Global Transitions --- */
+/* --- Global Transitions and Reset --- */
 * {
   margin: 0;
   padding: 0;
@@ -65,7 +68,10 @@ header {
 }
 
 header .logo {
-  height: 60px;
+  height: 50px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
   margin-left: 1.5rem;
   flex-shrink: 0;
 }
@@ -133,8 +139,8 @@ img {
   display: block;
 }
 
-/* --- Buttons (General) --- */
-button {
+/* --- Buttons --- */
+button, .btn {
   display: inline-block;
   background-color: var(--color-primary);
   color: #ffffff;
@@ -145,38 +151,15 @@ button {
   font-size: 1.05rem;
   font-weight: 600;
   text-align: center;
-}
-
-button:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-}
-
-button:active {
-  background-color: #004085;
-  transform: translateY(0);
-}
-
-/* --- Button Link Utility Class --- */
-.btn {
-  display: inline-block;
-  background-color: var(--color-primary);
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  text-align: center;
   text-decoration: none;
 }
 
-.btn:hover {
+button:hover, .btn:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
 }
 
-.btn:active {
+button:active, .btn:active {
   background-color: #004085;
   transform: translateY(0);
 }
@@ -205,7 +188,7 @@ button:active {
   color: #444;
 }
 
-/* --- Flock Grid (Meet the Flock Page) --- */
+/* --- Flock Grid --- */
 .flock-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -255,7 +238,7 @@ button:active {
   text-align: left;
 }
 
-/* --- Forms (join.html) --- */
+/* --- Form Grid --- */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -277,7 +260,9 @@ button:active {
 
 .form-grid input[type="text"],
 .form-grid input[type="email"],
-.form-grid input[type="password"] {
+.form-grid input[type="password"],
+.form-grid select,
+.form-grid textarea {
   width: 100%;
   padding: 0.8rem 1rem;
   border: 1px solid #ccc;
@@ -285,9 +270,9 @@ button:active {
   font-size: 1rem;
 }
 
-.form-grid input[type="text"]:focus,
-.form-grid input[type="email"]:focus,
-.form-grid input[type="password"]:focus {
+.form-grid input:focus,
+.form-grid textarea:focus,
+.form-grid select:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   outline: none;
@@ -368,3 +353,10 @@ footer {
     align-items: center;
   }
 }
+"""
+
+# Save to global.css
+global_css_path = Path("/mnt/data/global.css")
+global_css_path.write_text(updated_global_css)
+
+global_css_path.name
