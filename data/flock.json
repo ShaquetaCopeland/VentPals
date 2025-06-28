@@ -1,26 +1,56 @@
 [
   {
-    "name": "Breezy",
-    "fliesFor": "Calm in the chaos",
-    "images": [
-      "images/flock/breezy/breezy1.png",
-      "images/flock/breezy/breezy2.png",
-      "images/flock/breezy/breezy3.png"
-    ]
+    "name": "Clover",
+    "image": "clover-main.png",
+    "title": "Healing through grief",
+    "bio": "Clover is gentle and calm, offering comfort during life’s heaviest moments."
   },
   {
-    "name": "Clover",
-    "fliesFor": "Healing through grief",
-    "images": [
-      "images/flock/clover/clover1.png",
-      "images/flock/clover/clover2.png"
-    ]
+    "name": "Breezy",
+    "image": "breezy-main.png",
+    "title": "Calm in the chaos",
+    "bio": "Breezy helps you stay grounded when anxiety kicks up a storm."
+  },
+  {
+    "name": "Echo",
+    "image": "echo-main.png",
+    "title": "Feeling heard",
+    "bio": "Echo repeats back your truth — because sometimes all you need is to be heard."
+  },
+  {
+    "name": "Flare",
+    "image": "flare-main.png",
+    "title": "Speaking your truth",
+    "bio": "Flare brings boldness and fire, cheering you on to say what needs to be said."
+  },
+  {
+    "name": "Guardian",
+    "image": "guardian-main.png",
+    "title": "Safety and protection",
+    "bio": "Guardian is strong, loyal, and watches over the community with care."
+  },
+  {
+    "name": "Nova",
+    "image": "nova-main.png",
+    "title": "Rebuilding after darkness",
+    "bio": "Nova helps you rise from rock bottom and find your light again."
+  },
+  {
+    "name": "Pebble",
+    "image": "pebble-main.png",
+    "title": "Playfulness and ease",
+    "bio": "Pebble is light-hearted, silly, and always ready to lift your mood."
   },
   {
     "name": "Solace",
-    "fliesFor": "Quiet strength and safety",
-    "images": [
-      "images/flock/solace/solace1.png"
-    ]
+    "image": "solace-main.png",
+    "title": "Grounding and presence",
+    "bio": "Solace is a soft soul who shows up when you need stillness, peace, or pause."
+  },
+  {
+    "name": "Aura",
+    "image": "aura-main.png",
+    "title": "Mindfulness and clarity",
+    "bio": "Aura helps you tune into your thoughts and breathe through the fog."
   }
 ]
