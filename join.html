@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join | VentPals</title>
+  <title>Join the Flock | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
-    <nav>
+    <nav class="nav-menu">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -17,6 +17,7 @@
         <li><a href="chatroom.html">Chatroom</a></li>
         <li><a href="influence-center.html">Influence Center</a></li>
         <li><a href="join.html" class="active">Join</a></li>
+        <li><a href="topics.html">Topics</a></li>
       </ul>
     </nav>
   </header>
@@ -24,11 +25,10 @@
   <main class="container">
     <section class="hero">
       <h1>Join the Flock</h1>
-      <p>Ready to be heard, supported, and seen? Join VentPals and find your place in the sky.</p>
+      <p>VentPals is a safe nest for open-hearted conversations. Sign up and start your journey.</p>
     </section>
 
     <section class="form-section">
-      <h2>Create Your Nest</h2>
       <form action="#" method="POST" class="join-form">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required />
@@ -39,15 +39,15 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required />
 
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" required />
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" required />
 
         <button type="submit">Join VentPals</button>
       </form>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
 </body>
