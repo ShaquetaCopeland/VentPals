@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,41 +17,47 @@
         <li><a href="chatroom.html">Chatroom</a></li>
         <li><a href="influence-center.html">Influence Center</a></li>
         <li><a href="join.html">Join</a></li>
+        <li><a href="edit.html" class="active">Edit Profile</a></li>
       </ul>
     </nav>
-  </header>  <main class="container">
+  </header>
+
+  <main class="container">
     <section class="hero">
-      <h1>Edit Your Profile</h1>
-      <p>Update your details so we know how to better support you.</p>
-    </section><section class="form-section">
-  <form action="#" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required />
+      <h1>Edit Your Nest</h1>
+      <p>Update your VentPals profile to keep your flock in sync with where you are now.</p>
+    </section>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required />
+    <section class="form-section">
+      <form action="#" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="@YourHandle" required />
 
-    <label for="bio">Short Bio:</label>
-    <textarea id="bio" name="bio" rows="4"></textarea>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="you@example.com" required />
 
-    <label for="bird">Choose Your Bird:</label>
-    <select id="bird" name="bird">
-      <option value="clover">Clover</option>
-      <option value="breezy">Breezy</option>
-      <option value="echo">Echo</option>
-      <option value="flare">Flare</option>
-      <option value="guardian">Guardian</option>
-      <option value="nova">Nova</option>
-      <option value="pebble">Pebble</option>
-      <option value="solace">Solace</option>
-      <option value="aura">Aura</option>
-    </select>
+        <label for="bird-match">Your VentPal Match:</label>
+        <select id="bird-match" name="bird-match">
+          <option value="pebble">Pebble</option>
+          <option value="clover">Clover</option>
+          <option value="breezy">Breezy</option>
+          <option value="flare">Flare</option>
+          <option value="guardian">Guardian</option>
+          <option value="echo">Echo</option>
+          <option value="solace">Solace</option>
+          <option value="aura">Aura</option>
+          <option value="nova">Nova</option>
+        </select>
 
-    <button type="submit">Save Changes</button>
-  </form>
-</section>
+        <label for="bio">Short Bio:</label>
+        <textarea id="bio" name="bio" rows="4" placeholder="Tell us a little about yourself..."></textarea>
 
-  </main>  <footer>
+        <button type="submit">Save Changes</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
 </body>
