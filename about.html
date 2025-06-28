@@ -2,64 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | VentPals</title>
   <link rel="stylesheet" href="assets/css/global.css" />
-  <style>
-    .about-content {
-      text-align: center;
-      max-width: 800px;
-      margin: 2rem auto;
-    }
-
-    .about-content h1 {
-      font-size: 2.5rem;
-      color: #7b3fe4;
-    }
-
-    .about-content p {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      color: #444;
-    }
-
-    .random-birds {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .random-birds img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #7b3fe4;
-      object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-      .about-content h1 {
-        font-size: 2rem;
-      }
-
-      .about-content p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
-
-      .random-birds {
-        gap: 1.5rem;
-      }
-    }
-  </style>
 </head>
-<body>
-
-  <header>
+<body class="soft-background">
+  <header class="site-header">
     <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
-    <nav>
+    <nav class="main-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
@@ -67,43 +17,25 @@
         <li><a href="chatroom.html">Chatroom</a></li>
         <li><a href="influence-center.html">Influence Center</a></li>
         <li><a href="join.html">Join</a></li>
-        <li><a href="topics.html">Topics</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container about-content">
-    <h1>About VentPals</h1>
-    <p>
-      VentPals was created to be a soft place to land when the world gets too loud.
-      It's a space to be heard, understood, and lifted — without fear or judgment.
-      Whether you're facing something heavy or just need someone to listen, your flock is here.
-    </p>
+  <main class="container">
+    <section class="hero">
+      <h1>About VentPals</h1>
+      <p>Where emotional freedom meets community. No judgment. Just healing.</p>
+    </section>
 
-    <div class="random-birds">
-      <img id="bird1" src="assets/images/bird1.png" alt="Bird 1" />
-      <img id="bird2" src="assets/images/bird2.png" alt="Bird 2" />
-    </div>
+    <section class="content">
+      <p>VentPals was created to be a soft place to land in a world that often feels too hard. Whether you're grieving, overwhelmed, frustrated, confused, or just tired — we welcome your full story without shame.</p>
+      <p>Through anonymous chatrooms, uplifting guides (our AI birds), and genuine peer support, we’re building a place where it’s okay to feel deeply. It’s okay to speak freely. And it’s okay to ask for help.</p>
+      <p>You don’t need to have it all together. You just need to show up. The flock will meet you where you are.</p>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 VentPals. All rights reserved.
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
-
-  <script>
-    const birdOptions = [
-      "clover.png", "mossy.png", "cricket.png", "solace.png",
-      "ember.png", "lumen.png", "ripple.png", "breezy.png"
-    ];
-
-    function getRandomBird() {
-      const index = Math.floor(Math.random() * birdOptions.length);
-      return "assets/images/" + birdOptions[index];
-    }
-
-    document.getElementById("bird1").src = getRandomBird();
-    document.getElementById("bird2").src = getRandomBird();
-  </script>
-
 </body>
 </html>
