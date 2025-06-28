@@ -1,68 +1,34 @@
-// ========= VentPals Core Script =========
 
-// Smooth scroll for internal links
+// Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const targetID = this.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetID);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById(targetID);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
 
-// Toast Message System (Reusable)
+// Toast alert system
 function showToast(message, duration = 3000) {
   const toast = document.createElement('div');
   toast.className = 'vent-toast';
   toast.textContent = message;
   document.body.appendChild(toast);
 
-  setTimeout(() => {
-    toast.classList.add('show');
-  }, 100);
-
+  setTimeout(() => toast.classList.add('show'), 100);
   setTimeout(() => {
     toast.classList.remove('show');
     toast.addEventListener('transitionend', () => toast.remove());
   }, duration);
 }
 
-// Placeholder Toast Example:
-// showToast("Welcome back to the flock!");
-
-// Future-proof feature init
-function initFlockFeatures() {
-  console.log("VentPals Flock initialized.");
-  // Add logic here later for badges, animations, etc.
+// Future-proof interaction handlers
+function initVentPalsSite() {
+  console.log("VentPals Core JS loaded.");
 }
 
-// Load startup logic
-window.addEventListener('DOMContentLoaded', () => {
-  initFlockFeatures();
-
-  const container = document.getElementById('flock-container');
-  if (container) {
-    fetch('data/flock.json')
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(bird => {
-          const card = document.createElement('div');
-          card.classList.add('bird-card');
-
-          card.innerHTML = `
-            <img src="assets/images/${bird.image}" alt="${bird.name}">
-            <h3>${bird.name}</h3>
-            <p><em>${bird.title}</em></p>
-            <p>${bird.bio}</p>
-          `;
-
-          container.appendChild(card);
-        });
-      })
-      .catch(err => {
-        console.error('Error loading flock:', err);
-      });
-  }
-});
+// Ready
+document.addEventListener('DOMContentLoaded', initVentPalsSite);
