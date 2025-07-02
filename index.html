@@ -3,49 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to VentPals</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>VentPals | Speak Freely. Heal Deeply. Together.</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+
+  <!-- Firebase SDKs (CDN for GitHub Pages) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js"></script>
 </head>
+
 <body>
-  <div class="clouds"></div>
-  <div class="container">
-    <h1 class="title">WELCOME TO<br /><span>VentPals</span></h1>
-    <img src="images/pebble.png" alt="Pebble the bird" class="pebble" />
-    <p class="intro">Hey there, I’m Pebble.<br />I fly in when you need a soft place to land.</p>
-    <a href="join.html" class="get-started">Let's Get Started</a>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Meet the Flock</a>
-      <a href="#">Chatroom</a>
-      <a href="join.html">Join</a>
-    </nav>
-    <section class="flock">
-      <h2>Meet the Flock</h2>
-      <p>Each bird represents a unique strength, emotion, or support style.</p>
-      <div class="birds">
-        <div class="bird">
-          <img src="images/clover.png" alt="Clover" />
-          <h3>Clover</h3>
-          <p>Healing through grief</p>
-        </div>
-        <div class="bird">
-          <img src="images/breezy.png" alt="Breezy" />
-          <h3>Breezy</h3>
-          <p>Calm in the chaos</p>
-        </div>
-        <div class="bird">
-          <img src="images/flare.png" alt="Flare" />
-          <h3>Flare</h3>
-          <p>Speaking your truth</p>
-        </div>
-      </div>
-      <a href="join.html" class="join-button">Join</a>
-    </section>
+  <div class="clouds-bg">
+    <div class="floating-cloud cloud-1"></div>
+    <div class="floating-cloud cloud-2"></div>
+    <div class="floating-cloud cloud-3"></div>
   </div>
-  <audio autoplay loop volume="0.1">
-    <source src="audio/birds.mp3" type="audio/mpeg" />
+
+  <div class="landing-content">
+    <h1 class="balloon-title">Welcome to VentPals</h1>
+    <p class="tagline">Speak freely. Heal deeply. Together.</p>
+    <div class="intro-prompts">
+      <p class="prompt active">What’s on your mind today?</p>
+      <p class="prompt">What bug is eating you?</p>
+      <p class="prompt">What do you *wish* someone asked you?</p>
+    </div>
+    <button class="start-btn" onclick="goToJoin()">Let's Get Started</button>
+  </div>
+
+  <div class="clover-container">
+    <img src="assets/images/pebble-main.png" alt="Pebble the bird" class="flapping-bird" />
+    <p class="clover-intro">Hey there, I’m Pebble. I fly in when you need a soft place to land.</p>
+  </div>
+
+  <audio autoplay loop>
+    <source src="assets/audio/nature-birds.mp3" type="audio/mp3" />
   </audio>
-  <script src="script.js"></script>
+
+  <footer>
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function goToJoin() {
+      window.location.href = "join.html";
+    }
+
+    // Rotate prompts every 4s
+    const prompts = document.querySelectorAll(".prompt");
+    let index = 0;
+    setInterval(() => {
+      prompts.forEach(p => p.classList.remove("active"));
+      index = (index + 1) % prompts.length;
+      prompts[index].classList.add("active");
+    }, 4000);
+  </script>
+
+  <!-- Initialize Firebase -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAugk1ty2eZSpCUWjinqB3ovgqYDzw1Asc",
+      authDomain: "ventpals-e333b.firebaseapp.com",
+      projectId: "ventpals-e333b",
+      storageBucket: "ventpals-e333b.firebasestorage.app",
+      messagingSenderId: "1063757294983",
+      appId: "1:1063757294983:web:cbd20472655dbd82ff3722",
+      measurementId: "G-6HBJD15S2F"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics();
+  </script>
 </body>
 </html>
