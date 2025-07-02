@@ -1,78 +1,100 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals | Speak Freely. Heal Deeply. Together.</title>
-  <link rel="stylesheet" href="assets/css/global.css" />
-
-  <!-- Firebase SDKs (CDN for GitHub Pages) -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js"></script>
-</head>
-
-<body>
-  <div class="clouds-bg">
-    <div class="floating-cloud cloud-1"></div>
-    <div class="floating-cloud cloud-2"></div>
-    <div class="floating-cloud cloud-3"></div>
-  </div>
-
-  <div class="landing-content">
-    <h1 class="balloon-title">Welcome to VentPals</h1>
-    <p class="tagline">Speak freely. Heal deeply. Together.</p>
-    <div class="intro-prompts">
-      <p class="prompt active">What’s on your mind today?</p>
-      <p class="prompt">What bug is eating you?</p>
-      <p class="prompt">What do you *wish* someone asked you?</p>
-    </div>
-    <button class="start-btn" onclick="goToJoin()">Let's Get Started</button>
-  </div>
-
-  <div class="clover-container">
-    <img src="assets/images/pebble-main.png" alt="Pebble the bird" class="flapping-bird" />
-    <p class="clover-intro">Hey there, I’m Pebble. I fly in when you need a soft place to land.</p>
-  </div>
-
-  <audio autoplay loop>
-    <source src="assets/audio/nature-birds.mp3" type="audio/mp3" />
-  </audio>
-
-  <footer>
-    <p>&copy; 2025 VentPals. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function goToJoin() {
-      window.location.href = "join.html";
+  <meta name="description" content="VentPals - Speak freely. Heal deeply. Together.">
+  <meta name="theme-color" content="#B68DF0">
+  <title>Welcome to VentPals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(to bottom, #d8ecff, #ffffff);
+      color: #333;
+      text-align: center;
+      padding: 2rem;
     }
 
-    // Rotate prompts every 4s
-    const prompts = document.querySelectorAll(".prompt");
-    let index = 0;
-    setInterval(() => {
-      prompts.forEach(p => p.classList.remove("active"));
-      index = (index + 1) % prompts.length;
-      prompts[index].classList.add("active");
-    }, 4000);
-  </script>
+    header {
+      background: url('https://ventpals.com/assets/images/clouds-bg.png') no-repeat center top/cover;
+      padding: 4rem 2rem 2rem;
+    }
 
-  <!-- Initialize Firebase -->
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyAugk1ty2eZSpCUWjinqB3ovgqYDzw1Asc",
-      authDomain: "ventpals-e333b.firebaseapp.com",
-      projectId: "ventpals-e333b",
-      storageBucket: "ventpals-e333b.firebasestorage.app",
-      messagingSenderId: "1063757294983",
-      appId: "1:1063757294983:web:cbd20472655dbd82ff3722",
-      measurementId: "G-6HBJD15S2F"
-    };
+    h1 {
+      font-size: 3rem;
+      color: #8248D0;
+      text-shadow: 2px 2px #ffffff;
+      margin: 0;
+    }
 
-    const app = firebase.initializeApp(firebaseConfig);
-    const analytics = firebase.analytics();
-  </script>
+    .subtitle {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .cta-button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background-color: #8248D0;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #6a2ca3;
+    }
+
+    nav {
+      margin: 2rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #4c4c4c;
+      font-weight: 600;
+    }
+
+    .bird {
+      margin-top: 3rem;
+      max-width: 300px;
+      height: auto;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to VentPals</h1>
+    <p class="subtitle">Hey there, I’m Pebble. I fly in when you need a soft place to land.</p>
+    <button class="cta-button" onclick="window.location.href='join.html'">Let’s Get Started</button>
+  </header>
+
+  <nav>
+    <a href="about.html">About</a>
+    <a href="flock.html">Meet the Flock</a>
+    <a href="chatroom.html">Chatroom</a>
+    <a href="join.html">Join</a>
+  </nav>
+
+  <img class="bird" src="https://ventpals.com/assets/images/pebble-main.png" alt="Pebble the Bird">
+
+  <footer>
+    © 2025 VentPals. All rights reserved.
+  </footer>
 </body>
 </html>
