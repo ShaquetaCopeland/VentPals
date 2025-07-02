@@ -1,0 +1,53 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #dff6ff, #f2f9fb);
+  text-align: center;
+  overflow-x: hidden;
+}
+.clouds {
+  background: url('../images/clouds-bg.png') repeat-x;
+  height: 200px;
+  animation: moveClouds 60s linear infinite;
+}
+@keyframes moveClouds {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 0; }
+}
+.balloon-text {
+  font-size: 3rem;
+  color: #a678f3;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #555;
+}
+.pebble-container {
+  margin-top: 2rem;
+}
+.pebble-bird {
+  width: 150px;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.prompt-container {
+  margin-top: 1.5rem;
+  animation: fadeIn 2s ease-in-out;
+}
+.prompt {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+.start-button {
+  display: inline-block;
+  margin-top: 2rem;
+  background: #a678f3;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+}
