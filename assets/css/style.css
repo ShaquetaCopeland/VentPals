@@ -1,0 +1,54 @@
+
+body {
+  margin: 0;
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(to bottom, #dff6ff, #f0f8ff);
+  text-align: center;
+  overflow-x: hidden;
+}
+h1 {
+  font-size: 3rem;
+  color: #8e44ad;
+  text-shadow: 2px 2px #dcd6f7;
+}
+h1 span {
+  font-size: 3rem;
+  color: #a060e8;
+}
+.intro {
+  margin-top: -10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+.prompts p {
+  font-size: 1.1rem;
+  margin: 5px;
+}
+.start-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #a060e8;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.pebble {
+  width: 180px;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.clouds {
+  background: url('clouds.png') repeat-x;
+  height: 120px;
+  animation: moveClouds 60s linear infinite;
+}
+@keyframes moveClouds {
+  from { background-position: 0; }
+  to { background-position: 1000px; }
+}
