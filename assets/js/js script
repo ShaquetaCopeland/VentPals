@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notifications | VentPals</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+</head>
+
+<body>
+  <header>
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
+        <li><a href="chatroom.html">Chatroom</a></li>
+        <li><a href="influence-center.html">Influence Center</a></li>
+        <li><a href="topics.html">Topics</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="notifications.html" class="active">Notifications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Notifications</h1>
+      <p>Stay updated on new messages, replies, and flock activity.</p>
+    </section>
+
+    <section class="notifications">
+      <ul class="notification-list">
+        <li class="notification-item">🔔 You have 3 new replies in your Chatroom.</li>
+        <li class="notification-item">🎉 Pebble just dropped a new vent tip!</li>
+        <li class="notification-item">📬 Your friend Echo sent you a message.</li>
+        <li class="notification-item">🕊️ You earned a new badge: "Nestling"</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 VentPals. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
