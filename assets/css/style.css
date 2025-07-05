@@ -1,210 +1,175 @@
-/* Basic reset and font application */
+/* Base Reset and Font */
 body {
-    margin: 0;
-    font-family: 'Baloo 2', cursive;
-    /* Updated background gradient to better match the vision's sky */
-    background: linear-gradient(to bottom, #dff6ff 0%, #dcd6f7 50%, #f0f8ff 100%);
-    text-align: center;
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
-    min-height: 100vh; /* Ensures body takes full viewport height */
-    display: flex;
-    flex-direction: column; /* Arrange content vertically */
-    align-items: center; /* Center content horizontally */
-    justify-content: flex-start; /* Align content to the top */
+  margin: 0;
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(to bottom, #dff6ff 0%, #dcd6f7 50%, #f0f8ff 100%);
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Styling for the main header/hero section */
+/* Hero Section */
 .hero-section {
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column; /* Stack elements vertically within the header */
-    align-items: center; /* Center items horizontally within the header */
-    width: 100%; /* Take full width */
-    max-width: 900px; /* Limit max width for better readability */
-    margin-bottom: 30px; /* Space below the hero section */
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 960px;
 }
 
-/* Main title styling */
-h1 {
-    font-size: 4.5rem; /* Increased font size for prominence */
-    color: #8e44ad; /* Dark purple */
-    text-shadow: 4px 4px #dcd6f7, 8px 8px rgba(0,0,0,0.1); /* More pronounced shadow for depth */
-    margin-bottom: 20px;
-    line-height: 1; /* Adjust line height for better spacing */
-    letter-spacing: 2px; /* Slight letter spacing */
+.hero-section h1 {
+  font-size: 4.5rem;
+  color: #8e44ad;
+  text-shadow: 4px 4px #dcd6f7, 8px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  letter-spacing: 1.5px;
 }
 
-/* Styling for the 'VentPals' part of the title */
-h1 span {
-    color: #a060e8; /* Lighter purple */
+.hero-section h1 span {
+  color: #a060e8;
 }
 
-/* Container for Pebble and intro text to enable side-by-side layout */
+/* Flex container */
 .hero-main-content {
-    display: flex;
-    flex-direction: column; /* Default to column for small screens */
-    align-items: center;
-    gap: 20px; /* Space between Pebble and text */
-    margin-top: 30px; /* Space below the main title */
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 20px;
 }
 
-/* Styling for Pebble image */
 .pebble {
-    width: 180px; /* Fixed width for Pebble */
-    height: auto;
-    animation: float 4s ease-in-out infinite; /* Floating animation */
-    flex-shrink: 0; /* Prevent Pebble from shrinking */
+  width: 160px;
+  height: auto;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Keyframe animation for floating effect */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
-/* Styling for the intro text from Pebble */
+/* Pebble text & button container */
+.intro-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Text from Pebble */
 .intro {
-    font-size: 1.5rem; /* Larger font size for intro text */
-    color: #333;
-    max-width: 400px; /* Limit width for readability */
-    line-height: 1.4;
+  font-size: 1.5rem;
+  color: #333;
+  max-width: 400px;
+  line-height: 1.4;
 }
 
-/* Styling for the "Let's Get Started" button */
+/* CTA Button */
 .start-btn {
-    display: inline-block;
-    margin-top: 40px; /* More space above the button */
-    padding: 15px 30px; /* Larger padding for a more prominent button */
-    background-color: #a060e8; /* Purple background */
-    color: white;
-    text-decoration: none;
-    border-radius: 25px; /* More rounded corners */
-    font-weight: bold;
-    font-size: 1.3rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition on hover */
+  background-color: #a060e8;
+  color: white;
+  padding: 14px 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .start-btn:hover {
-    transform: translateY(-3px); /* Slight lift on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Styling for the main navigation bar */
+/* Navigation */
 .main-nav {
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
-    padding: 15px 0;
-    width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 15px; /* Rounded corners for the nav bar */
-    margin-top: 30px; /* Space below the hero section */
-    max-width: 800px; /* Limit width */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px 0;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .main-nav ul {
-    list-style: none; /* Remove bullet points */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Use flexbox for horizontal layout */
-    justify-content: center; /* Center the links */
-    gap: 30px; /* Space between links */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .main-nav ul li a {
-    text-decoration: none;
-    color: #6a1b9a; /* Darker purple for links */
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 5px 10px;
-    transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  color: #6a1b9a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .main-nav ul li a:hover {
-    color: #a060e8; /* Lighter purple on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
+  background-color: #f3e5f5;
+  color: #a060e8;
 }
 
-/* Placeholder for clouds - if you have a clouds.png, this will work */
-/* For a more integrated look, consider making the background a single image */
-.clouds {
-    /* Removed from here, as the body background handles the sky now.
-       If you want animated clouds on top of the gradient, you might
-       need to adjust its positioning (e.g., position: absolute) */
-}
-
-/* Keyframe animation for moving clouds (if used) */
-@keyframes moveClouds {
-    from { background-position: 0; }
-    to { background-position: 1000px; }
-}
-
-/* Placeholder styling for the "Meet the Flock" section */
+/* Placeholder Flock Section */
 .meet-the-flock-placeholder {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-    padding: 50px 20px;
-    margin-top: 50px; /* Space above this section */
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
-    width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 50px 20px;
+  margin-top: 40px;
+  border-radius: 20px;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .meet-the-flock-placeholder h2 {
-    font-size: 2.5rem;
-    color: #6a1b9a;
-    margin-bottom: 15px;
+  font-size: 2.5rem;
+  color: #6a1b9a;
+  margin-bottom: 10px;
 }
 
 .meet-the-flock-placeholder p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.5;
+  font-size: 1.1rem;
+  color: #555;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (min-width: 768px) {
-    .hero-main-content {
-        flex-direction: row; /* Arrange Pebble and text side-by-side on larger screens */
-        justify-content: center;
-        gap: 50px; /* More space between them */
-    }
+  .hero-main-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .pebble {
-        order: 2; /* Place Pebble on the right */
-    }
+  .intro-box {
+    text-align: right;
+    align-items: flex-end;
+  }
 
-    .intro {
-        text-align: right; /* Align text to the right when Pebble is on the right */
-        order: 1; /* Place text on the left */
-    }
-
-    h1 {
-        font-size: 5.5rem; /* Even larger title on desktop */
-    }
+  .intro {
+    text-align: right;
+  }
 }
 
 @media (max-width: 767px) {
-    h1 {
-        font-size: 3rem; /* Adjust title size for smaller screens */
-    }
+  .hero-section h1 {
+    font-size: 3rem;
+  }
 
-    .intro {
-        font-size: 1.2rem; /* Adjust intro text size for smaller screens */
-        text-align: center; /* Center text on smaller screens */
-    }
+  .intro {
+    font-size: 1.2rem;
+    text-align: center;
+  }
 
-    .pebble {
-        width: 150px; /* Slightly smaller Pebble on mobile */
-    }
-
-    .start-btn {
-        padding: 12px 25px;
-        font-size: 1.1rem;
-    }
-
-    .main-nav ul {
-        flex-direction: column; /* Stack navigation links vertically on small screens */
-        gap: 10px;
-    }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
