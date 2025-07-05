@@ -1,80 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to VentPals</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons, if needed later for navigation or social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <!-- The main header/hero section of the page -->
-    <header class="hero-section">
-        <!-- Main title for the website -->
-        <h1>Welcome to <span>VentPals</span></h1>
-
-        <!-- Container for the main hero content: Pebble and intro text -->
-        <div class="hero-main-content">
-            <!-- Pebble image, positioned next to the intro text -->
-            <img src="assets/images/pebble-flying.gif" alt="Pebble, a friendly green bird" class="pebble" />
-            <!-- Introduction text from Pebble -->
-            <p class="intro">Hey there, I’m Pebble. I fly in when you need a soft place to land.</p>
-        </div>
-        
-        <!-- Call to action button -->
-        <a href="join.html" class="start-btn">Let’s Get Started</a>
-    </header>
-
-    <!-- Main navigation bar -->
-    <nav class="main-nav">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Meet the Flock</a></li>
-            <li><a href="#">Chatroom</a></li>
-            <li><a href="#">Join</a></li>
-        </ul>
-    </nav>
-
-    <!-- Placeholder for the "Meet the Flock" section -->
-    <section class="meet-the-flock-placeholder">
-        <h2>Meet the Flock</h2>
-        <p>This section will introduce the bird characters.</p>
-        <!-- This will be replaced with actual bird cards later -->
-    </section>
-
-    <!-- Background audio for ambient nature sounds -->
-    <audio autoplay loop>
-        <source src="assets/audio/nature.mp3" type="audio/mpeg" />
-    </audio>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to VentPals</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div class="clouds"></div>
-  <header>
-    <h1>Welcome to <span>VentPals</span></h1>
-    <img src="assets/images/pebble-flying.gif" alt="Pebble" class="pebble" />
-    <p class="intro">Hey there, I’m Pebble. I fly in when you need a soft place to land.</p>
-    <div class="prompts">
-      <p>What’s on your mind?</p>
-      <p>What bug is eating you?</p>
-      <p>What do you *wish* someone asked you?</p>
+
+  <!-- 🌤️ Animated cloud background layer -->
+  <div class="clouds-bg"></div>
+
+  <!-- 🧭 Top Navigation Bar -->
+  <nav class="main-nav">
+    <div class="nav-logo">
+      <img src="assets/images/logo.png" alt="VentPals Logo" />
     </div>
-    <a href="naming.html" class="start-btn">Let’s Get Started</a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Flock</a></li>
+      <li><a href="#">Chatroom</a></li>
+      <li><a href="#">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🟣 Hero Section -->
+  <header class="hero">
+    <h1 class="hero-title">Welcome to <span>VentPals</span></h1>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="intro">Hey there, I’m Pebble.<br />I fly in when you need a soft place to land.</p>
+        <a href="join.html" class="start-btn">Let’s Get Started</a>
+      </div>
+      <div class="hero-image">
+        <img src="assets/images/pebble-flying.gif" alt="Pebble the bird" class="pebble" />
+      </div>
+    </div>
   </header>
+
+  <!-- 🔊 Ambient Background Audio -->
   <audio autoplay loop>
     <source src="assets/audio/nature.mp3" type="audio/mpeg" />
   </audio>
+
 </body>
 </html>
