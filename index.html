@@ -9,42 +9,38 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
-  <!-- 🌤️ Animated cloud background layer -->
-  <div class="clouds-bg"></div>
-
-  <!-- 🧭 Top Navigation Bar -->
-  <nav class="main-nav">
-    <div class="nav-logo">
-      <img src="assets/images/logo.png" alt="VentPals Logo" />
-    </div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Flock</a></li>
-      <li><a href="#">Chatroom</a></li>
-      <li><a href="#">Join</a></li>
-    </ul>
-  </nav>
-
-  <!-- 🟣 Hero Section -->
-  <header class="hero">
-    <h1 class="hero-title">Welcome to <span>VentPals</span></h1>
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="intro">Hey there, I’m Pebble.<br />I fly in when you need a soft place to land.</p>
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <h1>Welcome to <span>VentPals</span></h1>
+    <div class="hero-main-content">
+      <div class="intro-box">
+        <p class="intro">Hey there, I’m Pebble. I fly in when you need a soft place to land.</p>
         <a href="naming.html" class="start-btn">Let’s Get Started</a>
       </div>
-      <div class="hero-image">
-        <img src="assets/images/pebble-flying.gif" alt="Pebble the bird" class="pebble" />
-      </div>
+      <img src="assets/images/pebble-flying.gif" alt="Pebble, a friendly green bird" class="pebble" />
     </div>
   </header>
 
-  <!-- 🔊 Ambient Background Audio -->
+  <!-- Navigation Bar -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="meet-the-flock.html">Meet the Flock</a></li>
+      <li><a href="chatroom.html">Chatroom</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- Optional placeholder for the future flock section -->
+  <section class="meet-the-flock-placeholder">
+    <h2>Meet the Flock</h2>
+    <p>This section will introduce the bird characters.</p>
+  </section>
+
+  <!-- Background Ambient Sound -->
   <audio autoplay loop>
     <source src="assets/audio/nature.mp3" type="audio/mpeg" />
   </audio>
-
 </body>
 </html>
