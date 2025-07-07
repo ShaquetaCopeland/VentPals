@@ -1,4 +1,7 @@
-/* Base Reset and Font */
+/* --------------------- */
+/* Base Setup & Resets   */
+/* --------------------- */
+
 body {
   margin: 0;
   font-family: 'Baloo 2', cursive;
@@ -11,88 +14,79 @@ body {
   align-items: center;
 }
 
-/* Hero Section */
+h1, h2, h3, h4 {
+  margin: 0.5em 0;
+  color: #8e44ad;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --------------------- */
+/* Hero Section & Logo   */
+/* --------------------- */
+
 .hero-section {
   padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  max-width: 960px;
+  max-width: 900px;
+  margin-bottom: 30px;
 }
 
 .hero-section h1 {
   font-size: 4.5rem;
   color: #8e44ad;
   text-shadow: 4px 4px #dcd6f7, 8px 8px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 }
 
 .hero-section h1 span {
   color: #a060e8;
 }
 
-/* Flex container */
-.hero-main-content {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 20px;
-}
-
-.pebble {
-  width: 160px;
+.hero-section .pebble {
+  width: 180px;
   height: auto;
   animation: float 4s ease-in-out infinite;
+  margin-top: 20px;
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
+  0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  100% { transform: translateY(0px); }
 }
 
-/* Pebble text & button container */
-.intro-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Text from Pebble */
-.intro {
+.hero-section .intro {
   font-size: 1.5rem;
   color: #333;
   max-width: 400px;
-  line-height: 1.4;
+  margin-top: 20px;
 }
 
-/* CTA Button */
-.start-btn {
-  background-color: #a060e8;
-  color: white;
-  padding: 14px 30px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.logo-img {
+  width: 160px;
+  height: auto;
+  margin-top: 10px;
 }
 
-.start-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
+/* --------------------- */
+/* Navigation Bar        */
+/* --------------------- */
 
-/* Navigation */
 .main-nav {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px 0;
   width: 100%;
-  max-width: 900px;
-  margin-top: 20px;
-  border-radius: 20px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin-bottom: 30px;
+  max-width: 800px;
 }
 
 .main-nav ul {
@@ -105,67 +99,166 @@ body {
 }
 
 .main-nav ul li a {
-  text-decoration: none;
-  color: #6a1b9a;
   font-size: 1.2rem;
   font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 12px;
-  transition: background 0.3s, color 0.3s;
+  padding: 5px 10px;
+  color: #6a1b9a;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .main-nav ul li a:hover {
-  background-color: #f3e5f5;
+  color: #a060e8;
+  transform: translateY(-2px);
+}
+
+/* --------------------- */
+/* Buttons               */
+/* --------------------- */
+
+.start-btn, .form-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 25px;
+  background-color: #a060e8;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.start-btn:hover, .form-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------- */
+/* Forms (Login/Join)    */
+/* --------------------- */
+
+.form-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  margin-bottom: 50px;
+}
+
+.form-section input, .form-section select {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.form-section label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #6a1b9a;
+}
+
+/* --------------------- */
+/* Dashboard Links       */
+/* --------------------- */
+
+.dashboard-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.dashboard-links li {
+  margin: 15px 0;
+}
+
+.dashboard-links a {
+  font-size: 1.2rem;
+  color: #6a1b9a;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.dashboard-links a:hover {
   color: #a060e8;
 }
 
-/* Placeholder Flock Section */
+/* --------------------- */
+/* "Meet the Flock" Cards */
+/* --------------------- */
+
 .meet-the-flock-placeholder {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 50px 20px;
-  margin-top: 40px;
+  margin-top: 50px;
   border-radius: 20px;
-  max-width: 900px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
 }
 
 .meet-the-flock-placeholder h2 {
   font-size: 2.5rem;
   color: #6a1b9a;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .meet-the-flock-placeholder p {
   font-size: 1.1rem;
   color: #555;
+  line-height: 1.5;
 }
 
+/* --------------------- */
 /* Responsive Adjustments */
+/* --------------------- */
+
 @media (min-width: 768px) {
   .hero-main-content {
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    gap: 50px;
   }
 
-  .intro-box {
-    text-align: right;
-    align-items: flex-end;
+  .pebble {
+    order: 2;
   }
 
   .intro {
     text-align: right;
+    order: 1;
+  }
+
+  h1 {
+    font-size: 5.5rem;
   }
 }
 
 @media (max-width: 767px) {
-  .hero-section h1 {
+  h1 {
     font-size: 3rem;
   }
 
   .intro {
     font-size: 1.2rem;
     text-align: center;
+  }
+
+  .pebble {
+    width: 150px;
+  }
+
+  .start-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
   }
 
   .main-nav ul {
