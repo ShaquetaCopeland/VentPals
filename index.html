@@ -6,22 +6,22 @@
   <title>Welcome to VentPals</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- Hero section with Pebble and Welcome -->
   <header class="hero-section">
     <h1>Welcome to <span>VentPals</span></h1>
     <div class="hero-main-content">
-      <div class="intro-box">
+      <div class="hero-text">
         <p class="intro">Hey there, I’m Pebble. I fly in when you need a soft place to land.</p>
         <a href="naming.html" class="start-btn">Let’s Get Started</a>
       </div>
-      <img src="assets/images/pebble-main.png" alt="Pebble, a friendly green bird" class="pebble" />
+      <img src="assets/images/pebble-flying.gif" alt="Pebble" class="pebble" />
     </div>
   </header>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Menu -->
   <nav class="main-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -32,15 +32,43 @@
     </ul>
   </nav>
 
-  <!-- Optional placeholder for the future flock section -->
+  <!-- Placeholder content below header -->
   <section class="meet-the-flock-placeholder">
     <h2>Meet the Flock</h2>
     <p>This section will introduce the bird characters.</p>
   </section>
 
-  <!-- Background Ambient Sound -->
+  <!-- Background audio -->
   <audio autoplay loop>
     <source src="assets/audio/nature.mp3" type="audio/mpeg" />
   </audio>
+
+  <!-- Firebase SDK (CDN) Setup -->
+  <script type="module">
+    // Import the Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+
+    // Your Firebase project configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAugk1ty2eZSpCUWjinqB3ovgqYDzw1Asc",
+      authDomain: "ventpals-e333b.firebaseapp.com",
+      projectId: "ventpals-e333b",
+      storageBucket: "ventpals-e333b.appspot.com",
+      messagingSenderId: "1063757294983",
+      appId: "1:1063757294983:web:cbd20472655dbd82ff3722",
+      measurementId: "G-6HBJD15S2F"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Make Firebase available globally
+    window.auth = auth;
+    window.db = db;
+  </script>
 </body>
 </html>
