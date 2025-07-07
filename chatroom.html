@@ -3,47 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chatroom | VentPals</title>
+  <title>Live Venting – VentPals</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="hero-section">
-    <h1>Welcome to the <span>Chatroom</span></h1>
-    <div class="hero-main-content">
-      <img src="assets/images/pebble-flying.gif" alt="Pebble flying" class="pebble" />
-      <p class="intro">Talk freely. Be heard. You’ve found your flock.</p>
-    </div>
-    <a href="join.html" class="start-btn">Join the Conversation</a>
+  <header class="page-header">
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
+    <h2>Live Venting Room</h2>
   </header>
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="meet-the-flock.html">Meet the Flock</a></li>
-      <li><a href="chatroom.html" class="active">Chatroom</a></li>
-      <li><a href="join.html">Join</a></li>
-    </ul>
-  </nav>
+  <section class="chatroom-container">
+    <div id="chat-window" class="chat-window"></div>
 
-  <section class="meet-the-flock-placeholder">
-    <h2>Live Venting Area</h2>
-    <div id="chat-window" style="background: #ffffffe6; padding: 20px; border-radius: 15px; max-width: 700px; margin: 0 auto; height: 300px; overflow-y: scroll; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <p><strong>@Nova:</strong> Anyone else feel like they’re stuck in limbo today?</p>
-      <p><strong>@Aura:</strong> Totally… I’ve been meditating more, but the fog is thick lately 😶‍🌫️</p>
-      <p><strong>@Guardian:</strong> Just a reminder you’re safe here. Keep talking. 🛡️</p>
-    </div>
-
-    <form id="chat-form" style="margin-top: 20px; display: flex; flex-direction: column; align-items: center;">
-      <textarea placeholder="Type your vent here..." rows="3" style="width: 100%; max-width: 700px; padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-family: 'Baloo 2', cursive;"></textarea>
-      <button type="submit" class="start-btn" style="margin-top: 15px;">Send</button>
+    <form id="message-form" class="message-form">
+      <input type="text" id="message-input" placeholder="What's on your mind?" required />
+      <button type="submit">Send</button>
     </form>
   </section>
 
   <audio autoplay loop>
     <source src="assets/audio/nature.mp3" type="audio/mpeg" />
   </audio>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="assets/js/chat.js"></script>
 </body>
 </html>
