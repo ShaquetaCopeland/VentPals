@@ -2,53 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Join the Flock | VentPals</title>
-  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #dff6ff 0%, #f0e8ff 100%);
+      font-family: 'Baloo 2', cursive;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #6a1b9a;
+      margin-bottom: 10px;
+    }
+
+    .welcome {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      color: #555;
+    }
+
+    .question {
+      margin-bottom: 30px;
+    }
+
+    .question h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #a060e8;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .option {
+      background: #fff;
+      border: 2px solid #a060e8;
+      border-radius: 20px;
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      color: #6a1b9a;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .option:hover {
+      transform: scale(1.05);
+      background-color: #f5ecff;
+    }
+
+    .option.selected {
+      background-color: #a060e8;
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .submit-btn {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background: #a060e8;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      cursor: not-allowed;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn.enabled {
+      cursor: pointer;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
-    <nav class="nav-menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
-        <li><a href="chatroom.html">Chatroom</a></li>
-        <li><a href="influence-center.html">Influence Center</a></li>
-        <li><a href="join.html" class="active">Join</a></li>
-        <li><a href="topics.html">Topics</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1>Welcome, <span id="screenName">Friend</span>!</h1>
+  <p class="welcome">Let’s get to know you a little so we can place you with the right flock.</p>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Join the Flock</h1>
-      <p>VentPals is a safe nest for open-hearted conversations. Sign up and start your journey.</p>
-    </section>
+  <div class="question" id="q1">
+    <h2>What do you need most right now?</h2>
+    <div class="options">
+      <div class="option" onclick="selectOption(this, 'q1')">Support</div>
+      <div class="option" onclick="selectOption(this, 'q1')">A place to vent</div>
+      <div class="option" onclick="selectOption(this, 'q1')">Connection</div>
+    </div>
+  </div>
 
-    <section class="form-section">
-      <form action="#" method="POST" class="join-form">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required />
+  <div class="question" id="q2">
+    <h2>How do you usually handle emotions?</h2>
+    <div class="options">
+      <div class="option" onclick="selectOption(this, 'q2')">I bottle them up</div>
+      <div class="option" onclick="selectOption(this, 'q2')">I talk to a few people</div>
+      <div class="option" onclick="selectOption(this, 'q2')">I journal or reflect alone</div>
+    </div>
+  </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
+  <div class="question" id="q3">
+    <h2>How open are you to hearing others out?</h2>
+    <div class="options">
+      <div class="option" onclick="selectOption(this, 'q3')">Very open</div>
+      <div class="option" onclick="selectOption(this, 'q3')">Somewhat open</div>
+      <div class="option" onclick="selectOption(this, 'q3')">Depends on my mood</div>
+    </div>
+  </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
+  <a id="submitBtn" class="submit-btn">Join the Flock</a>
 
-        <label for="confirm">Confirm Password</label>
-        <input type="password" id="confirm" name="confirm" required />
+  <script>
+    // Grab screen name from URL
+    const params = new URLSearchParams(window.location.search);
+    const screenName = params.get('screenName') || 'Friend';
+    document.getElementById('screenName').textContent = screenName;
 
-        <button type="submit">Join VentPals</button>
-      </form>
-    </section>
-  </main>
+    // Track answers
+    const answers = {};
 
-  <footer class="site-footer">
-    <p>&copy; 2025 VentPals. All rights reserved.</p>
-  </footer>
+    function selectOption(el, questionId) {
+      const all = document.querySelectorAll(`#${questionId} .option`);
+      all.forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      answers[questionId] = el.textContent;
+
+      checkIfComplete();
+    }
+
+    function checkIfComplete() {
+      if (answers.q1 && answers.q2 && answers.q3) {
+        const btn = document.getElementById('submitBtn');
+        btn.classList.add('enabled');
+        btn.href = `chatroom.html?screenName=${encodeURIComponent(screenName)}&q1=${encodeURIComponent(answers.q1)}&q2=${encodeURIComponent(answers.q2)}&q3=${encodeURIComponent(answers.q3)}`;
+      }
+    }
+  </script>
 </body>
 </html>
