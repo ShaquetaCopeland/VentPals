@@ -1,46 +1,70 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up | VentPals</title>
-  <link rel="stylesheet" href="assets/css/global.css" />
+  <title>Join VentPals</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="meet-the-flock.html">Meet the Flock</a></li>
-        <li><a href="chatroom.html">Chatroom</a></li>
-        <li><a href="influence-center.html">Influence Center</a></li>
-        <li><a href="join.html">Join</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html" class="active">Sign Up</a></li>
-      </ul>
-    </nav>
-  </header>  <main class="container">
-    <section class="form-section">
-      <h1>Create Your Account</h1>
-      <p>Join VentPals and find a safe space to be heard and supported.</p>
-      <form action="#" method="post" class="vent-form">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required /><label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
+  <!-- Header with one of the adult birds or logo -->
+  <header class="hero-section">
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo-img" />
+    <h2>Create Your Nest</h2>
+    <p>Let’s get you signed up to join your flock.</p>
+  </header>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required />
+  <!-- Signup form -->
+  <section class="form-section">
+    <form id="signup-form">
+      <input type="email" id="signup-email" placeholder="Email" required />
+      <input type="password" id="signup-password" placeholder="Password" required />
+      <button type="submit" class="start-btn">Sign Up</button>
+    </form>
+    <p id="signup-message"></p>
+    <p>Already have an account? <a href="login.html">Log In</a></p>
+  </section>
 
-    <label for="confirm-password">Confirm Password</label>
-    <input type="password" id="confirm-password" name="confirm-password" required />
+  <!-- Firebase JS SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
-    <button type="submit" class="primary-btn">Sign Up</button>
-  </form>
-</section>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAugk1ty2eZSpCUWjinqB3ovgqYDzw1Asc",
+      authDomain: "ventpals-e333b.firebaseapp.com",
+      projectId: "ventpals-e333b",
+      storageBucket: "ventpals-e333b.appspot.com",
+      messagingSenderId: "1063757294983",
+      appId: "1:1063757294983:web:cbd20472655dbd82ff3722",
+      measurementId: "G-6HBJD15S2F"
+    };
 
-  </main>  <footer>
-    <p>&copy; 2025 VentPals. All rights reserved.</p>
-  </footer>
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Handle form submission
+    const signupForm = document.getElementById("signup-form");
+    const message = document.getElementById("signup-message");
+
+    signupForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        message.textContent = "🎉 Account created! Redirecting...";
+        message.style.color = "green";
+        setTimeout(() => {
+          window.location.href = "naming.html";
+        }, 1500);
+      } catch (error) {
+        message.textContent = error.message;
+        message.style.color = "red";
+      }
+    });
+  </script>
 </body>
 </html>
