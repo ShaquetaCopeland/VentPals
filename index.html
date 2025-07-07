@@ -1,20 +1,49 @@
-<!-- Top Navigation Bar -->
-<header class="top-bar">
-  <div class="logo-container">
-    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
-  </div>
+<body>
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="meet-the-flock.html">Meet the Flock</a></li>
-      <li><a href="chatroom.html">Chatroom</a></li>
-      <li><a href="join.html">Join</a></li>
-    </ul>
-  </nav>
+  <!-- Top Logo & Navigation Bar -->
+  <header class="top-bar">
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo">
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="meet-the-flock.html">Meet the Flock</a>
+      <a href="chatroom.html">Chatroom</a>
+      <a href="join.html">Join</a>
+    </nav>
+    <a href="login.html" class="login-btn">Login</a>
+  </header>
 
-  <div class="login-link">
-    <a href="login.html">Login</a>
-  </div>
-</header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to <span>VentPals</span></h1>
+    <p class="intro">Hey there, I’m Sable. I fly in when you need a soft place to land.</p>
+    <img src="assets/images/sable-baby.png" alt="Sable Baby" class="baby-bird">
+    <a href="naming.html" class="start-btn">Let’s Get Started</a>
+  </section>
+
+  <!-- Meet the Flock Preview -->
+  <section class="meet-flock-preview">
+    <h2>Meet the Flock</h2>
+    <p class="sub">These baby birds are just the beginning. Come meet the whole flock!</p>
+    <div class="baby-card-container">
+      <a href="meet-the-flock.html" class="baby-card">
+        <img src="assets/images/baby-aura.png" alt="Aura Baby" />
+        <p>Aura</p>
+      </a>
+      <a href="meet-the-flock.html" class="baby-card">
+        <img src="assets/images/baby-drift.png" alt="Drift Baby" />
+        <p>Drift</p>
+      </a>
+      <a href="meet-the-flock.html" class="baby-card">
+        <img src="assets/images/baby-clover.png" alt="Clover Baby" />
+        <p>Clover</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Background audio -->
+  <audio autoplay loop>
+    <source src="assets/audio/nature.mp3" type="audio/mpeg" />
+  </audio>
+
+</body>
