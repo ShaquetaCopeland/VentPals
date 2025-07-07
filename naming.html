@@ -2,287 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals | Name & Growth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Your Screen Name</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #e6f2ff, #f8fcff);
-      color: #333;
+    .screen-name-page {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem;
-    }
-    .bird-box {
-      margin-top: 3rem;
+      padding: 40px 20px;
       text-align: center;
     }
-    .bird-img {
-      width: 160px;
-      height: auto;
-      animation: float 4s ease-in-out infinite;
+
+    .screen-name-page h1 {
+      font-size: 3rem;
+      color: #8e44ad;
+      margin-bottom: 10px;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-    }
-    .chat-box {
-      margin-top: 2rem;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      width: 90%;
-      max-width: 500px;
-    }
-    .chat-bubble {
-      background: #e0f7fa;
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 0.5rem 0;
-    }
-    .button-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    button {
-      padding: 0.75rem 1.25rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      background-color: #8eacf3;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #6f91e4;
-    }
-    .name-options {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .name-btn {
-      padding: 1rem 1.5rem;
+
+    .screen-name-page p {
       font-size: 1.2rem;
-      border: none;
-      border-radius: 12px;
-      background-color: #bba5e0;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      margin-bottom: 30px;
+      color: #333;
     }
-    .name-btn:hover {
-      background-color: #9a7bc0;
+
+    .name-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
     }
-    .egg {
-      width: 120px;
-      height: 160px;
-      margin: 2rem auto;
-      background: radial-gradient(#fff, #ccc);
-      border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
-      box-shadow: inset -4px -4px 8px #aaa;
-      position: relative;
-      animation: heartbeat 1.5s infinite;
-      display: none;
-    }
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    .chosen-name {
-      margin-top: 2rem;
+
+    .name-card {
+      background: #ffffffd9;
+      border: 2px solid #a060e8;
+      border-radius: 20px;
+      padding: 20px 30px;
       font-size: 1.5rem;
       font-weight: bold;
-      color: #6a4c93;
+      color: #6a1b9a;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .baby-bird {
-      width: 120px;
-      height: auto;
-      margin: 1rem auto;
-      display: none;
-      animation: fadeIn 2s ease-in-out forwards;
+
+    .name-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .name-card.selected {
+      background: #a060e8;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     }
-    #textInputArea {
-      margin-top: 1rem;
-      display: flex;
-      gap: 0.5rem;
+
+    .continue-btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background: #a060e8;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: not-allowed;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      text-decoration: none;
     }
-    input[type="text"] {
-      flex: 1;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+
+    .continue-btn.enabled {
+      cursor: pointer;
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <div style="position: absolute; top: 1rem; right: 1rem;">
-    <a href="join.html" style="
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #999;
-      background: #fff;
-      border-radius: 50%;
-      padding: 0.25rem 0.6rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    " title="Skip to Join">×</a>
-  </div>
+  <section class="screen-name-page">
+    <h1>Pick Your Screen Name</h1>
+    <p>Choose the name that feels most like you today. This will be your anonymous identity in the flock.</p>
 
-  <div class="bird-box">
-    <img class="bird-img" src="https://share1.cloudhq-mkt3.net/24f3b928da80e3.png" alt="Clover the Bird">
-    <h2>Hi, I’m <strong>Pebble</strong>! 🌿</h2>
-    <p>I’m here to listen, not to judge. Would you like to chat by voice or by text?</p>
-  </div>
-
-  <div class="button-group" id="modeButtons">
-    <button onclick="initChat('voice')">🎤 Voice Chat</button> 
-    <button onclick="initChat('text')">💬 Text Only</button>
-  </div>
-
-  <div id="chatArea" class="chat-box" style="display: none;">
-    <div id="chatFlow"></div>
-    <div id="textInputArea" style="display:none">
-      <input type="text" id="textInput" placeholder="Type your response...">
-      <button onclick="handleTextSubmit()">Send</button>
+    <div class="name-options">
+      <div class="name-card" onclick="selectName(this)">RobinHope</div>
+      <div class="name-card" onclick="selectName(this)">WrenStrength</div>
+      <div class="name-card" onclick="selectName(this)">FinchLight</div>
     </div>
-    <div class="name-options" id="nameOptions">
-      <button class="name-btn" onclick="selectName('DovePeace')">DovePeace</button>
-      <button class="name-btn" onclick="selectName('DoveGrace')">DoveGrace</button>
-      <button class="name-btn" onclick="selectName('DoveWarmth')">DoveWarmth</button>
-    </div>
-    <div class="egg" id="growthEgg"></div>
-    <img src="baby-dove.png" alt="Baby Dove" class="baby-bird" id="babyBird">
-    <div class="chosen-name" id="chosenName"></div>
-  </div>
+
+    <a id="continueBtn" href="#" class="continue-btn">Continue</a>
+  </section>
 
   <script>
-    const questions = [
-      "What’s weighing on your heart today?",
-      "What helps you feel better usually?",
-      "How do you *wish* you felt right now?"
-    ];
-    let currentQuestion = 0;
-    let mode = '';
+    let selectedName = null;
 
-    function initChat(selectedMode) {
-      mode = selectedMode;
-      document.getElementById('chatArea').style.display = 'block';
-      document.getElementById('modeButtons').style.display = 'none';
-      nextQuestion();
+    function selectName(card) {
+      const allCards = document.querySelectorAll('.name-card');
+      allCards.forEach(c => c.classList.remove('selected'));
 
-      if (mode === 'text') {
-        document.getElementById('textInputArea').style.display = 'flex';
-      } else if (mode === 'voice') {
-        startVoiceRecognition();
-      }
-    }
+      card.classList.add('selected');
+      selectedName = card.textContent;
 
-    function nextQuestion() {
-      if (currentQuestion < questions.length) {
-        const bubble = document.createElement('div');
-        bubble.className = 'chat-bubble';
-        bubble.innerText = questions[currentQuestion];
-        document.getElementById('chatFlow').appendChild(bubble);
-      } else {
-        showBirdAndNames();
-      }
-    }
-
-    function handleTextSubmit() {
-      const input = document.getElementById('textInput');
-      const response = input.value.trim();
-      if (!response) return;
-
-      const bubble = document.createElement('div');
-      bubble.className = 'chat-bubble';
-      bubble.innerText = response;
-      document.getElementById('chatFlow').appendChild(bubble);
-
-      input.value = '';
-      currentQuestion++;
-      nextQuestion();
-    }
-
-    function startVoiceRecognition() {
-      if (!('webkitSpeechRecognition' in window)) {
-        alert('Voice recognition not supported in this browser.');
-        return;
-      }
-
-      const recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'en-US';
-
-      recognition.start();
-
-      recognition.onresult = function(event) {
-        const transcript = event.results[0][0].transcript;
-
-        const confirmBubble = document.createElement('div');
-        confirmBubble.className = 'chat-bubble';
-        confirmBubble.innerHTML = `You said: "${transcript}"<br><button onclick=\"confirmVoiceResponse('${transcript}')\">Yes</button> <button onclick=\"startVoiceRecognition()\">Try Again</button>`;
-        document.getElementById('chatFlow').appendChild(confirmBubble);
-      };
-
-      recognition.onerror = function(event) {
-        alert('Voice recognition error: ' + event.error);
-      };
-    }
-
-    function confirmVoiceResponse(transcript) {
-      const bubble = document.createElement('div');
-      bubble.className = 'chat-bubble';
-      bubble.innerText = transcript;
-      document.getElementById('chatFlow').appendChild(bubble);
-
-      currentQuestion++;
-      nextQuestion();
-      startVoiceRecognition();
-    }
-
-    function showBirdAndNames() {
-      const matchBubble = document.createElement('div');
-      matchBubble.className = 'chat-bubble';
-      matchBubble.innerHTML = "Based on that, I think you might be a <strong>Dove</strong>. 🕊️";
-      document.getElementById('chatFlow').appendChild(matchBubble);
-
-      const promptBubble = document.createElement('div');
-      promptBubble.className = 'chat-bubble';
-      promptBubble.innerText = "Now let’s choose the energy you want to carry with you:";
-      document.getElementById('chatFlow').appendChild(promptBubble);
-
-      document.getElementById('nameOptions').style.display = 'flex';
-    }
-
-    function selectName(name) {
-      const egg = document.getElementById('growthEgg');
-      const babyBird = document.getElementById('babyBird');
-      const nameBox = document.getElementById('chosenName');
-
-      egg.style.display = 'block';
-      nameBox.innerText = `Welcome, ${name}. That name carries a quiet power.`;
-      egg.style.animation = 'none';
-      egg.style.background = 'radial-gradient(#fffacd, #f5deb3)';
-      egg.style.boxShadow = '0 0 12px #e6c972';
-
-      setTimeout(() => {
-        egg.style.display = 'none';
-        babyBird.style.display = 'block';
-      }, 1500);
+      const continueBtn = document.getElementById('continueBtn');
+      continueBtn.classList.add('enabled');
+      continueBtn.href = 'join.html?screenName=' + encodeURIComponent(selectedName);
     }
   </script>
 </body>
