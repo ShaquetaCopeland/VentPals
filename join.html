@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,12 +120,10 @@
   <a id="submitBtn" class="submit-btn">Join the Flock</a>
 
   <script>
-    // Grab screen name from URL
     const params = new URLSearchParams(window.location.search);
     const screenName = params.get('screenName') || 'Friend';
     document.getElementById('screenName').textContent = screenName;
 
-    // Track answers
     const answers = {};
 
     function selectOption(el, questionId) {
@@ -132,7 +131,6 @@
       all.forEach(opt => opt.classList.remove('selected'));
       el.classList.add('selected');
       answers[questionId] = el.textContent;
-
       checkIfComplete();
     }
 
