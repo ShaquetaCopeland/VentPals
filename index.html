@@ -1,60 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentPals - Anonymous Community Venting Platform</title>
+    <link rel="icon" href="favicon.ico">
+    <meta name="description" content="VentPals is an anonymous community venting platform where users connect, grow, and support one another in safe bird-themed chatrooms.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        html {
+            scroll-padding-top: 100px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .badge-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
+    <!-- Background Audio -->
+    <audio autoplay loop hidden>
+        <source src="ventpals-ambient.mp3" type="audio/mpeg">
+    </audio>
 
-  <!-- Top Logo & Navigation Bar -->
-  <header class="top-bar">
-    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo">
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="meet-the-flock.html">Meet the Flock</a>
-      <a href="chatroom.html">Chatroom</a>
-      <a href="join.html">Join</a>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <img src="ventpals-logo.png" alt="VentPals Logo" class="h-8 w-auto">
+                    <span class="text-xl font-bold text-gray-800">VentPals</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-purple-600 transition-colors">Features</a>
+                    <a href="#friendship" class="text-gray-600 hover:text-purple-600 transition-colors">Friendship Levels</a>
+                    <a href="#badges" class="text-gray-600 hover:text-purple-600 transition-colors">Badges</a>
+                    <a href="#community" class="text-gray-600 hover:text-purple-600 transition-colors">Community</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="signin.html" class="px-4 py-2 text-purple-600 hover:text-purple-700 transition-colors">Sign In</a>
+                    <a href="join.html" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">Join Now</a>
+                </div>
+            </div>
+        </div>
     </nav>
-    <a href="login.html" class="login-btn">Login</a>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to <span>VentPals</span></h1>
-    <p class="intro">Hey there, I’m Sable. I fly in when you need a soft place to land.</p>
-    <img src="assets/images/sable-baby.png" alt="Sable Baby" class="baby-bird">
-    <a href="naming.html" class="start-btn">Let’s Get Started</a>
-  </section>
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <img src="pebble-animated.gif" alt="Pebble Animation" class="mx-auto w-24 h-24 mb-4">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Welcome to VentPals</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+                    Connect anonymously, vent freely, and build meaningful friendships in our supportive community
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="chatroom.html" class="px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+                    Start Venting Now
+                </a>
+                <a href="#features" class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors text-lg">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Meet the Flock Preview -->
-  <section class="meet-flock-preview">
-    <h2>Meet the Flock</h2>
-    <p class="sub">These baby birds are just the beginning. Come meet the whole flock!</p>
-    <div class="baby-card-container">
-      <a href="meet-the-flock.html" class="baby-card">
-        <img src="assets/images/aura-baby.png" alt="Aura Baby" />
-        <p>Aura</p>
-      </a>
-      <a href="meet-the-flock.html" class="baby-card">
-        <img src="assets/images/drift-baby.png" alt="Drift Baby" />
-        <p>Drift</p>
-      </a>
-      <a href="meet-the-flock.html" class="baby-card">
-        <img src="assets/images/clover-baby.png" alt="Clover Baby" />
-        <p>Clover</p>
-      </a>
+    <!-- Main Content (from canvas) -->
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Core Features</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Everything you need for meaningful anonymous connections and support
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-white text-2xl">💬</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Anonymous Chat Rooms</h3>
+                <p class="text-gray-600">Join categorized discussions on marriage, parenting, divorce, and more in a safe, anonymous environment.</p>
+            </div>
+            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-white text-2xl">🤝</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Friendship Progression</h3>
+                <p class="text-gray-600">Build meaningful connections through our unique bird-themed friendship levels system.</p>
+            </div>
+            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-white text-2xl">🛡️</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Safe Moderation</h3>
+                <p class="text-gray-600">Our dedicated moderation system ensures a supportive and harassment-free environment.</p>
+            </div>
+            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-white text-2xl">🤖</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">AI-Powered Suggestions</h3>
+                <p class="text-gray-600">Get personalized chat room recommendations based on your interests and needs.</p>
+            </div>
+            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-white text-2xl">👥</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Pairing System</h3>
+                <p class="text-gray-600">Get matched for one-on-one venting sessions with compatible community members.</p>
+            </div>
+            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-white text-2xl">🔒</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Private Messaging</h3>
+                <p class="text-gray-600">Communicate privately with trusted connections you've built over time.</p>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Background audio -->
-  <audio autoplay loop>
-    <source src="assets/audio/nature.mp3" type="audio/mpeg" />
-  </audio>
+    <!-- Friendship Levels Section -->
+    <section id="friendship" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Friendship Journey</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Watch your connections grow through meaningful interactions
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-8 rounded-xl text-center card-hover">
+                <div class="text-4xl mb-4 badge-float">🥚</div>
+                <h3 class="text-xl font-semibold mb-2">Hatchling</h3>
+                <p class="text-purple-600 font-medium mb-3">VentPals</p>
+                <p class="text-gray-600 text-sm">New connection formed</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl text-center card-hover">
+                <div class="text-4xl mb-4 badge-float" style="animation-delay: 0.5s;">🐣</div>
+                <h3 class="text-xl font-semibold mb-2">Nestling</h3>
+                <p class="text-purple-600 font-medium mb-3">VentBuddies</p>
+                <p class="text-gray-600 text-sm">150+ interactions</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl text-center card-hover">
+                <div class="text-4xl mb-4 badge-float" style="animation-delay: 1s;">🕊️</div>
+                <h3 class="text-xl font-semibold mb-2">Feathered Friend</h3>
+                <p class="text-purple-600 font-medium mb-3">VentFriends</p>
+                <p class="text-gray-600 text-sm">300+ interactions</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl text-center card-hover border-2 border-purple-200">
+                <div class="text-4xl mb-4 badge-float" style="animation-delay: 1.5s;">🦜</div>
+                <h3 class="text-xl font-semibold mb-2">Lifelong Percher</h3>
+                <p class="text-purple-600 font-medium mb-3">VentComrades</p>
+                <p class="text-gray-600 text-sm">450+ interactions</p>
+                <div class="mt-4 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                    Unlock Helper Status
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+    <!-- Badges Section -->
+    <section id="badges" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Badge Collection</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Earn recognition for your contributions and time in the community
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-center">Time-Based</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🍂</span>
+                        <div><div class="font-semibold">Forager</div><div class="text-sm text-gray-600">1 month in community</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🌿</span>
+                        <div><div class="font-semibold">Nest Builder</div><div class="text-sm text-gray-600">3 months in community</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🌳</span>
+                        <div><div class="font-semibold">Tree Percher</div><div class="text-sm text-gray-600">6 months in community</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">☀️</span>
+                        <div><div class="font-semibold">Sky Soarer</div><div class="text-sm text-gray-600">1 year in community</div></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-center">Engagement</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🪱</span>
+                        <div><div class="font-semibold">Worm Gatherer</div><div class="text-sm text-gray-600">100 messages sent</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🦗</span>
+                        <div><div class="font-semibold">Bug Sharer</div><div class="text-sm text-gray-600">500 messages sent</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🦋</span>
+                        <div><div class="font-semibold">Butterfly Feeder</div><div class="text-sm text-gray-600">1,000 messages sent</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🏆</span>
+                        <div><div class="font-semibold">Flock Guardian</div><div class="text-sm text-gray-600">Supportive VentComrade</div></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-center">Special Awards</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🕊️</span>
+                        <div><div class="font-semibold">Peacemaker</div><div class="text-sm text-gray-600">Conflict resolution</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🛡️</span>
+                        <div><div class="font-semibold">Flock Protector</div><div class="text-sm text-gray-600">Reported verified issues</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🍎</span>
+                        <div><div class="font-semibold">Feathered Mentor</div><div class="text-sm text-gray-600">Guided new users</div></div>
+                    </div>
+                    <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                        <span class="text-2xl">🌟</span>
+                        <div><div class="font-semibold">Guiding Star</div><div class="text-sm text-gray-600">Highlighted messages</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Join Our Flock</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    A welcoming space where you can express yourself freely and form meaningful connections
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Why Choose VentPals?</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="text-purple-600 mt-1">✓</div>
+                            <div>
+                                <div class="font-semibold">Complete Anonymity</div>
+                                <div class="text-gray-600">Express yourself without fear of judgment</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-purple-600 mt-1">✓</div>
+                            <div>
+                                <div class="font-semibold">Meaningful Connections</div>
+                                <div class="text-gray-600">Build lasting friendships through shared experiences</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-purple-600 mt-1">✓</div>
+                            <div>
+                                <div class="font-semibold">Safe Environment</div>
+                                <div class="text-gray-600">Moderated spaces ensure respectful interactions</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-purple-600 mt-1">✓</div>
+                            <div>
+                                <div class="font-semibold">Personal Growth</div>
+                                <div class="text-gray-600">Learn and grow through community support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-center">Ready to Start?</h3>
+                    <div class="space-y-4">
+                        <a href="naming.html" class="w-full block text-center py-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors text-lg">
+                            Join VentPals Free
+                        </a>
+                        <div class="text-center text-sm text-gray-600">
+                            Email and login required • Private and secure • Start venting after sign-up
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <h4 class="font-semibold mb-4 text-center">Popular Categories</h4>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Marriage</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Parenting</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Work Stress</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Relationships</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Life Changes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="ventpals-logo.png" alt="VentPals Logo" class="h-8 w-auto">
+                        <span class="text-xl font-bold">VentPals</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Anonymous community venting platform where meaningful connections take flight.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Community</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <div>Chat Rooms</div>
+                        <div>Find Friends</div>
+                        <div>Support Groups</div>
+                        <div>Moderation</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Features</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <div>Friendship Levels</div>
+                        <div>Badge System</div>
+                        <div>Private Messaging</div>
+                        <div>AI Suggestions</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <div>Help Center</div>
+                        <div>Community Guidelines</div>
+                        <div>Privacy Policy</div>
+                        <div>Contact Us</div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 VentPals. All rights reserved. A safe space for anonymous connections.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
