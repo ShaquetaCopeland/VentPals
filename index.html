@@ -14,6 +14,10 @@
         }
         body {
             font-family: 'Inter', sans-serif;
+            background-image: url('ventpals-clouds.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
         }
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -66,8 +70,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="gradient-bg text-white py-20 relative overflow-hidden">
+        <!-- Floating Clouds Layer -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+            <img src="cloud1.svg" class="absolute top-4 left-0 w-48 animate-pulse" alt="Cloud 1">
+            <img src="cloud2.svg" class="absolute top-16 right-0 w-64 animate-pulse" alt="Cloud 2">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div class="mb-8">
                 <img src="pebble-animated.gif" alt="Pebble Animation" class="mx-auto w-24 h-24 mb-4">
                 <h1 class="text-5xl md:text-6xl font-bold mb-6">Welcome to VentPals</h1>
@@ -86,9 +95,8 @@
         </div>
     </section>
 
-    <!-- Main Content (from canvas) -->
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-white">
+<!-- Features Section -->
+<section id="features" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">Core Features</h2>
@@ -143,8 +151,8 @@
     </div>
 </section>
 
-    <!-- Friendship Levels Section -->
-    <section id="friendship" class="py-20 bg-gray-50">
+<!-- Friendship Levels Section -->
+<section id="friendship" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">Friendship Journey</h2>
@@ -184,8 +192,8 @@
     </div>
 </section>
 
-    <!-- Badges Section -->
-    <section id="badges" class="py-20 bg-white">
+<!-- Badges Section -->
+<section id="badges" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">Badge Collection</h2>
@@ -199,19 +207,31 @@
                 <div class="space-y-4">
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🍂</span>
-                        <div><div class="font-semibold">Forager</div><div class="text-sm text-gray-600">1 month in community</div></div>
+                        <div>
+                            <div class="font-semibold">Forager</div>
+                            <div class="text-sm text-gray-600">1 month in community</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🌿</span>
-                        <div><div class="font-semibold">Nest Builder</div><div class="text-sm text-gray-600">3 months in community</div></div>
+                        <div>
+                            <div class="font-semibold">Nest Builder</div>
+                            <div class="text-sm text-gray-600">3 months in community</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🌳</span>
-                        <div><div class="font-semibold">Tree Percher</div><div class="text-sm text-gray-600">6 months in community</div></div>
+                        <div>
+                            <div class="font-semibold">Tree Percher</div>
+                            <div class="text-sm text-gray-600">6 months in community</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">☀️</span>
-                        <div><div class="font-semibold">Sky Soarer</div><div class="text-sm text-gray-600">1 year in community</div></div>
+                        <div>
+                            <div class="font-semibold">Sky Soarer</div>
+                            <div class="text-sm text-gray-600">1 year in community</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -220,19 +240,31 @@
                 <div class="space-y-4">
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🪱</span>
-                        <div><div class="font-semibold">Worm Gatherer</div><div class="text-sm text-gray-600">100 messages sent</div></div>
+                        <div>
+                            <div class="font-semibold">Worm Gatherer</div>
+                            <div class="text-sm text-gray-600">100 messages sent</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🦗</span>
-                        <div><div class="font-semibold">Bug Sharer</div><div class="text-sm text-gray-600">500 messages sent</div></div>
+                        <div>
+                            <div class="font-semibold">Bug Sharer</div>
+                            <div class="text-sm text-gray-600">500 messages sent</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🦋</span>
-                        <div><div class="font-semibold">Butterfly Feeder</div><div class="text-sm text-gray-600">1,000 messages sent</div></div>
+                        <div>
+                            <div class="font-semibold">Butterfly Feeder</div>
+                            <div class="text-sm text-gray-600">1,000 messages sent</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🏆</span>
-                        <div><div class="font-semibold">Flock Guardian</div><div class="text-sm text-gray-600">Supportive VentComrade</div></div>
+                        <div>
+                            <div class="font-semibold">Flock Guardian</div>
+                            <div class="text-sm text-gray-600">Supportive VentComrade</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,141 +273,34 @@
                 <div class="space-y-4">
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🕊️</span>
-                        <div><div class="font-semibold">Peacemaker</div><div class="text-sm text-gray-600">Conflict resolution</div></div>
+                        <div>
+                            <div class="font-semibold">Peacemaker</div>
+                            <div class="text-sm text-gray-600">Conflict resolution</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🛡️</span>
-                        <div><div class="font-semibold">Flock Protector</div><div class="text-sm text-gray-600">Reported verified issues</div></div>
+                        <div>
+                            <div class="font-semibold">Flock Protector</div>
+                            <div class="text-sm text-gray-600">Reported verified issues</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🍎</span>
-                        <div><div class="font-semibold">Feathered Mentor</div><div class="text-sm text-gray-600">Guided new users</div></div>
+                        <div>
+                            <div class="font-semibold">Feathered Mentor</div>
+                            <div class="text-sm text-gray-600">Guided new users</div>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
                         <span class="text-2xl">🌟</span>
-                        <div><div class="font-semibold">Guiding Star</div><div class="text-sm text-gray-600">Highlighted messages</div></div>
+                        <div>
+                            <div class="font-semibold">Guiding Star</div>
+                            <div class="text-sm text-gray-600">Highlighted messages</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-    <!-- Community Section -->
-    <section id="community" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Join Our Flock</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    A welcoming space where you can express yourself freely and form meaningful connections
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Why Choose VentPals?</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="text-purple-600 mt-1">✓</div>
-                            <div>
-                                <div class="font-semibold">Complete Anonymity</div>
-                                <div class="text-gray-600">Express yourself without fear of judgment</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="text-purple-600 mt-1">✓</div>
-                            <div>
-                                <div class="font-semibold">Meaningful Connections</div>
-                                <div class="text-gray-600">Build lasting friendships through shared experiences</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="text-purple-600 mt-1">✓</div>
-                            <div>
-                                <div class="font-semibold">Safe Environment</div>
-                                <div class="text-gray-600">Moderated spaces ensure respectful interactions</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="text-purple-600 mt-1">✓</div>
-                            <div>
-                                <div class="font-semibold">Personal Growth</div>
-                                <div class="text-gray-600">Learn and grow through community support</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold mb-6 text-center">Ready to Start?</h3>
-                    <div class="space-y-4">
-                        <a href="naming.html" class="w-full block text-center py-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors text-lg">
-                            Join VentPals Free
-                        </a>
-                        <div class="text-center text-sm text-gray-600">
-                            Email and login required • Private and secure • Start venting after sign-up
-                        </div>
-                    </div>
-
-                    <div class="mt-8 pt-8 border-t border-gray-200">
-                        <h4 class="font-semibold mb-4 text-center">Popular Categories</h4>
-                        <div class="flex flex-wrap gap-2 justify-center">
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Marriage</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Parenting</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Work Stress</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Relationships</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Life Changes</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <img src="ventpals-logo.png" alt="VentPals Logo" class="h-8 w-auto">
-                        <span class="text-xl font-bold">VentPals</span>
-                    </div>
-                    <p class="text-gray-400">
-                        Anonymous community venting platform where meaningful connections take flight.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Community</h4>
-                    <div class="space-y-2 text-gray-400">
-                        <div>Chat Rooms</div>
-                        <div>Find Friends</div>
-                        <div>Support Groups</div>
-                        <div>Moderation</div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Features</h4>
-                    <div class="space-y-2 text-gray-400">
-                        <div>Friendship Levels</div>
-                        <div>Badge System</div>
-                        <div>Private Messaging</div>
-                        <div>AI Suggestions</div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Support</h4>
-                    <div class="space-y-2 text-gray-400">
-                        <div>Help Center</div>
-                        <div>Community Guidelines</div>
-                        <div>Privacy Policy</div>
-                        <div>Contact Us</div>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 VentPals. All rights reserved. A safe space for anonymous connections.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
