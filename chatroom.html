@@ -5,21 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VentPals Chatrooms</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY_HERE",
+      authDomain: "YOUR_AUTH_DOMAIN_HERE",
+      projectId: "YOUR_PROJECT_ID_HERE",
+      storageBucket: "YOUR_STORAGE_BUCKET_HERE",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID_HERE",
+      appId: "YOUR_APP_ID_HERE"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "signin.html";
+      } else {
+        document.getElementById('authLinks').classList.remove('hidden');
+      }
+    });
+
+    window.logout = () => {
+      signOut(auth).then(() => window.location.href = "signin.html");
+    };
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Inter', sans-serif;
-      background-image: url('ventpals-chatroom-bg.png');
+      background-image: url('ventpals-clouds.svg');
       background-repeat: no-repeat;
       background-size: cover;
       background-attachment: fixed;
-    }
-    .badge-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
     }
     .card-hover {
       transition: all 0.3s ease;
@@ -31,20 +52,38 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+  <!-- Background Audio -->
+  <audio id="ambientAudio" autoplay loop>
+    <source src="ventpals-ambient.mp3" type="audio/mpeg">
+  </audio>
+  <button aria-label="Toggle ambient audio" onclick="toggleAudio(event)" class="fixed top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded text-sm z-50">🔈 Mute</button>
+  <script>
+    function toggleAudio(event) {
+      const audio = document.getElementById('ambientAudio');
+      if (audio.paused) {
+        audio.play();
+        event.target.textContent = '🔈 Mute';
+      } else {
+        audio.pause();
+        event.target.textContent = '🔇 Unmute';
+      }
+    }
+  </script>
+
   <!-- Navigation -->
-  <nav class="bg-white shadow-sm sticky top-0 z-50">
+  <nav class="bg-white shadow-sm sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center gap-2">
-        <img src="ventpals-logo.png" alt="VentPals Logo" class="h-8">
+        <img src="ventpals-logo.png" alt="VentPals site logo" class="h-8">
         <span class="font-bold text-lg">VentPals</span>
       </div>
-      <div>
-        <a href="logout.html" class="text-purple-600 hover:text-purple-800">Sign Out</a>
+      <div id="authLinks" class="hidden">
+        <a href="#" onclick="logout()" class="text-purple-600 hover:text-purple-800">Sign Out</a>
       </div>
     </div>
   </nav>
 
-  <!-- Chatroom Header -->
+  <!-- Header -->
   <section class="text-center py-10">
     <h1 class="text-4xl font-bold text-purple-700 mb-2">Welcome to the Flock</h1>
     <p class="text-gray-700 max-w-xl mx-auto">Choose the flock that fits your current mood or need. Each one offers a unique space to connect.</p>
@@ -53,120 +92,54 @@
   <!-- Chatroom Grid -->
   <section class="max-w-7xl mx-auto px-4 pb-20">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-      <!-- Begin 16 Bird Cards Alphabetically -->
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="aura.png" alt="Aura" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Aura's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Comfort and gentle support</p>
-        <a href="room-aura.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="breezy.png" alt="Breezy" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Breezy's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Lighthearted depression</p>
-        <a href="room-breezy.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="clover.png" alt="Clover" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Clover's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Healing through grief</p>
-        <a href="room-clover.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="cove.png" alt="Cove" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Cove's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Rebuilding trust</p>
-        <a href="room-cove.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="drift.png" alt="Drift" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Drift's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Navigating life changes</p>
-        <a href="room-drift.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="echo.png" alt="Echo" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Echo's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Being heard & understood</p>
-        <a href="room-echo.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="ember.png" alt="Ember" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Ember's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Letting go & rising again</p>
-        <a href="room-ember.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="flare.png" alt="Flare" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Flare's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Finding your voice</p>
-        <a href="room-flare.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="flicker.png" alt="Flicker" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Flicker's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Managing burnout</p>
-        <a href="room-flicker.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="guardian.png" alt="Guardian" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Guardian's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Protection & safety</p>
-        <a href="room-guardian.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="lumen.png" alt="Lumen" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Lumen's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Moments of stillness</p>
-        <a href="room-lumen.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="nova.png" alt="Nova" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Nova's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Rising from darkness</p>
-        <a href="room-nova.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="pebble.png" alt="Pebble" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Pebble's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Gentle grounding & soft landing</p>
-        <a href="room-pebble.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="sable.png" alt="Sable" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Sable's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Grief and remembrance</p>
-        <a href="room-sable.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="solace.png" alt="Solace" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Solace's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Safe emotional release</p>
-        <a href="room-solace.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-        <img src="twig.png" alt="Twig" class="mx-auto h-16 mb-2">
-        <h3 class="font-semibold text-lg">Twig's Flock</h3>
-        <p class="text-sm text-gray-600 mb-3">Feeling like you belong</p>
-        <a href="room-twig.html" class="bg-purple-600 text-white px-4 py-2 rounded text-sm">Enter Room</a>
-      </div>
-
+      <a href="aura.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Aura's Flock</h2>
+      </a>
+      <a href="breezy.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Breezy's Flock</h2>
+      </a>
+      <a href="clover.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Clover's Flock</h2>
+      </a>
+      <a href="cove.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Cove's Flock</h2>
+      </a>
+      <a href="drift.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Drift's Flock</h2>
+      </a>
+      <a href="echo.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Echo's Flock</h2>
+      </a>
+      <a href="ember.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Ember's Flock</h2>
+      </a>
+      <a href="flicker.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Flicker's Flock</h2>
+      </a>
+      <a href="flare.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Flare's Flock</h2>
+      </a>
+      <a href="guardian.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Guardian's Flock</h2>
+      </a>
+      <a href="lumen.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Lumen's Flock</h2>
+      </a>
+      <a href="nova.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Nova's Flock</h2>
+      </a>
+      <a href="pebble.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Pebble's Flock</h2>
+      </a>
+      <a href="sable.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Sable's Flock</h2>
+      </a>
+      <a href="solace.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Solace's Flock</h2>
+      </a>
+      <a href="twig.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700">Twig's Flock</h2>
+      </a>
     </div>
   </section>
 
@@ -180,7 +153,7 @@
       <div>
         <h4 class="font-semibold mb-2">Community</h4>
         <ul class="space-y-1">
-          <li><a href="#" class="hover:underline">Chat Rooms</a></li>
+          <li><a href="chatroom.html" class="hover:underline">Chat Rooms</a></li>
           <li><a href="#" class="hover:underline">Find Friends</a></li>
           <li><a href="#" class="hover:underline">Support Groups</a></li>
         </ul>
@@ -203,37 +176,5 @@
       </div>
     </div>
   </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Live Venting – VentPals</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header class="page-header">
-    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
-    <h2>Live Venting Room</h2>
-  </header>
-
-  <section class="chatroom-container">
-    <div id="chat-window" class="chat-window"></div>
-
-    <form id="message-form" class="message-form">
-      <input type="text" id="message-input" placeholder="What's on your mind?" required />
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <audio autoplay loop>
-    <source src="assets/audio/nature.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script type="module" src="firebase-config.js"></script>
-  <script type="module" src="assets/js/chat.js"></script>
 </body>
 </html>
