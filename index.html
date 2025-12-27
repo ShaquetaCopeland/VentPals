@@ -2,236 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VentPals | Emotional Literacy for Children</title>
+  <meta name="description" content="VentPals is a nonprofit emotional literacy platform helping children recognize feelings, understand where they come from, and learn how to respond — not react." />
 
-  <title>VentPals | Learning Feelings Together</title>
-
-  <meta name="description" content="VentPals helps children recognize emotions, express them safely, and connect with peers through guided, moderated VentPals Circles." />
-
-  <link rel="icon" href="favicon.ico" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-image: url('ventpals-clouds.svg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-    }
-    .soft-gradient {
-      background: linear-gradient(135deg, #A7C7E7 0%, #C3B7E2 100%);
-    }
-    .card {
-      transition: all 0.25s ease;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-<!-- NAVIGATION -->
-<nav class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-    <div class="flex items-center space-x-2">
-      <img src="ventpals-logo.png" alt="VentPals Logo" class="h-8">
-      <span class="font-bold text-lg">VentPals</span>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-area">
+      <img src="images/ventpals-logo.png" alt="VentPals Logo" />
     </div>
+    <nav class="main-nav">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#circles">Circles</a>
+      <a href="parents.html">Parents & Schools</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
-    <div class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="#learn" class="hover:text-purple-600">What Kids Learn</a>
-      <a href="#circles" class="hover:text-purple-600">VentPals Circles</a>
-      <a href="#how" class="hover:text-purple-600">How It Works</a>
-      <a href="#safety" class="hover:text-purple-600">Safety</a>
-      <a href="#parents" class="hover:text-purple-600">For Adults</a>
-    </div>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Helping children understand themselves before the world tells them who to be.</h1>
 
-    <div class="space-x-3">
-      <a href="parent-info.html" class="text-purple-600 font-medium">Parent Info</a>
-      <a href="join.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-purple-700">
-        Get Started
-      </a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="soft-gradient text-white py-24 text-center">
-  <img src="pebble-animated.gif" alt="Pebble" class="mx-auto w-24 mb-6">
-  <h1 class="text-5xl font-bold mb-6">Big feelings are part of growing up.</h1>
-  <p class="max-w-3xl mx-auto text-xl opacity-95 mb-8">
-    VentPals helps children learn to recognize emotions, talk about them safely,
-    and connect with peers who understand — one feeling at a time.
-  </p>
-  <p class="text-sm opacity-85 mb-10">
-    Designed for children • Guided Circles • Moderated & safe
-  </p>
-
-  <div class="flex justify-center gap-4 flex-wrap">
-    <a href="join.html" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100">
-      Explore Feelings
-    </a>
-    <a href="#parents" class="border border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600">
-      For Parents & Educators
-    </a>
-  </div>
-</section>
-
-<!-- WHAT KIDS LEARN -->
-<section id="learn" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-16">What Kids Learn at VentPals</h2>
-
-    <div class="grid md:grid-cols-4 gap-8">
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-4xl mb-4">🧠</div>
-        <h3 class="font-semibold text-lg mb-2">Name the Feeling</h3>
-        <p class="text-gray-600 text-sm">
-          Kids learn to recognize emotions like anger, sadness, excitement, fear, and worry.
-        </p>
-      </div>
-
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-4xl mb-4">💬</div>
-        <h3 class="font-semibold text-lg mb-2">Express It Safely</h3>
-        <p class="text-gray-600 text-sm">
-          Guided prompts help kids put feelings into words instead of actions.
-        </p>
-      </div>
-
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-4xl mb-4">🌱</div>
-        <h3 class="font-semibold text-lg mb-2">Choose a Response</h3>
-        <p class="text-gray-600 text-sm">
-          Children explore calming tools and healthy ways to respond to emotions.
-        </p>
-      </div>
-
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-4xl mb-4">🐦</div>
-        <h3 class="font-semibold text-lg mb-2">Feel Less Alone</h3>
-        <p class="text-gray-600 text-sm">
-          Kids learn that others feel this way too — without pressure or comparison.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CIRCLES -->
-<section id="circles" class="py-20 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-8">VentPals Circles</h2>
-
-    <p class="max-w-3xl mx-auto text-xl text-gray-600 mb-12">
-      VentPals Circles are small, anonymous groups where children can share feelings,
-      listen to others, and practice empathy — all within a guided, moderated space.
+    <p class="hero-subtext">
+      VentPals is a nonprofit emotional literacy platform that helps children recognize their feelings,
+      understand where they come from, and learn how to respond — not react.
     </p>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="card bg-white p-8 rounded-xl">
-        <div class="text-3xl mb-4">👥</div>
-        <h3 class="font-semibold mb-2">Small Groups</h3>
-        <p class="text-sm text-gray-600">
-          Each Circle includes a limited number of children to keep conversations calm and focused.
-        </p>
+    <p class="hero-trust">
+      Designed for children • Trusted by parents & schools • Built for prevention, not crisis
+    </p>
+
+    <div class="hero-buttons">
+      <a href="start.html" class="btn-primary">Start With a Feeling</a>
+      <a href="parents.html" class="btn-secondary">For Parents & Schools</a>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <h2>Kids Are Having Big Feelings — With No Instruction Manual</h2>
+
+    <p>
+      Children experience anger, sadness, excitement, fear, and frustration long before they’re taught what those feelings mean.
+      Schools focus on academics. Parents are overwhelmed. And kids are left to guess.
+    </p>
+
+    <p>
+      When children don’t understand their emotions, they don’t learn self-control — they learn to react.
+    </p>
+  </section>
+
+  <!-- ROOT CAUSE -->
+  <section class="root-cause">
+    <h2>The Problem Isn’t the Feelings. It’s the Missing Education.</h2>
+
+    <ul class="cause-list">
+      <li>Feelings are treated as problems instead of signals</li>
+      <li>Emotional responses are dismissed or punished</li>
+      <li>Children aren’t taught where feelings come from</li>
+      <li>Kids aren’t shown how to regulate instead of suppress</li>
+    </ul>
+
+    <p class="anchor-quote">
+      “When kids don’t understand their feelings, they learn shame or avoidance — not awareness.”
+    </p>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution">
+    <h2>VentPals Teaches Emotional Literacy — Not Just Expression</h2>
+
+    <p>
+      VentPals meets children where they are — quietly, playfully, and safely — and helps them build
+      emotional skills they’ll use for life.
+    </p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <h3>AI-Guided Self-Expression</h3>
+        <p>Journaling, drawing, and voice tools help kids express feelings they don’t yet have words for.</p>
       </div>
 
-      <div class="card bg-white p-8 rounded-xl">
-        <div class="text-3xl mb-4">🧭</div>
-        <h3 class="font-semibold mb-2">Guided Conversations</h3>
-        <p class="text-sm text-gray-600">
-          Prompts and boundaries help kids share without oversharing or harm.
-        </p>
+      <div class="pillar">
+        <h3>Gamified Emotional Learning</h3>
+        <p>Birds, growth stages, and progress celebrate awareness — not performance.</p>
       </div>
 
-      <div class="card bg-white p-8 rounded-xl">
-        <div class="text-3xl mb-4">🎭</div>
-        <h3 class="font-semibold mb-2">Anonymous & Safe</h3>
-        <p class="text-sm text-gray-600">
-          No real names, no private messages, and active moderation at all times.
-        </p>
+      <div class="pillar">
+        <h3>VentPals Circles (Optional)</h3>
+        <p>Small, anonymous peer groups that help children realize they’re not alone — introduced only when ready.</p>
+      </div>
+
+      <div class="pillar">
+        <h3>Parent Support Without Invasion</h3>
+        <p>Parents receive insight and guidance without access to private thoughts or conversations.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">How VentPals Works</h2>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="how-it-works">
+    <h2>Private → Supported → Confident</h2>
 
-    <div class="grid md:grid-cols-4 gap-8 text-center">
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-3xl mb-4">🎨</div>
-        <h3 class="font-semibold mb-2">Pick a Feeling</h3>
-        <p class="text-sm text-gray-600">
-          Kids start by choosing how they feel today.
-        </p>
+    <ol class="journey">
+      <li>
+        <strong>Check In With a Feeling</strong>
+        <p>The child chooses a bird that reflects how they feel.</p>
+      </li>
+      <li>
+        <strong>Understand the Source</strong>
+        <p>AI helps explore where the feeling came from.</p>
+      </li>
+      <li>
+        <strong>Learn Emotional Choices</strong>
+        <p>Visual games teach how feelings inform choices — not control them.</p>
+      </li>
+      <li>
+        <strong>Progress Is Celebrated</strong>
+        <p>Growth is tracked privately with no comparison or judgment.</p>
+      </li>
+      <li>
+        <strong>Circles (When Ready)</strong>
+        <p>Optional small-group sharing builds confidence and empathy.</p>
+      </li>
+    </ol>
+
+    <p class="journey-quote">
+      “We don’t force expression. We build confidence until kids are ready.”
+    </p>
+  </section>
+
+  <!-- CIRCLES -->
+  <section id="circles" class="circles">
+    <h2>VentPals Circles</h2>
+
+    <p>
+      Circles are small, anonymous peer groups designed to help children see that others experience
+      similar emotions — without pressure, oversharing, or comparison.
+    </p>
+
+    <ul>
+      <li>No private one-on-one messaging</li>
+      <li>Moderated and structured conversations</li>
+      <li>Participation unlocked through readiness, not age alone</li>
+    </ul>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <h2>Support Without Surveillance</h2>
+
+    <div class="trust-columns">
+      <div>
+        <h3>For Parents</h3>
+        <ul>
+          <li>Milestone updates</li>
+          <li>Conversation starters</li>
+          <li>Encouragement prompts</li>
+          <li>No access to private journals or Circles</li>
+        </ul>
       </div>
 
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-3xl mb-4">🧩</div>
-        <h3 class="font-semibold mb-2">Join a Circle</h3>
-        <p class="text-sm text-gray-600">
-          They’re placed into a small VentPals Circle focused on that feeling.
-        </p>
-      </div>
-
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-3xl mb-4">💬</div>
-        <h3 class="font-semibold mb-2">Share & Listen</h3>
-        <p class="text-sm text-gray-600">
-          Kids respond to guided prompts and see peer support in action.
-        </p>
-      </div>
-
-      <div class="card bg-gray-50 p-8 rounded-xl">
-        <div class="text-3xl mb-4">🧘</div>
-        <h3 class="font-semibold mb-2">Calm & Reflect</h3>
-        <p class="text-sm text-gray-600">
-          Each session ends with grounding or reflection tools.
-        </p>
+      <div>
+        <h3>For Schools</h3>
+        <ul>
+          <li>Optional Circles programs</li>
+          <li>Emotionally safer classrooms</li>
+          <li>Improved engagement and focus</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- SAFETY -->
-<section id="safety" class="py-20 bg-gray-50">
-  <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-10">Safety Comes First</h2>
+    <p class="trust-quote">
+      VentPals supports parenting — it doesn’t interfere with it.
+    </p>
+  </section>
 
-    <div class="grid md:grid-cols-2 gap-8 text-left text-gray-600">
-      <ul class="space-y-4">
-        <li>• Adult moderation in every Circle</li>
-        <li>• No private messaging</li>
-        <li>• Age-appropriate language filters</li>
-      </ul>
-      <ul class="space-y-4">
-        <li>• Clear kindness rules</li>
-        <li>• Escalation to trusted adults when needed</li>
-        <li>• Designed to support — not replace — caregivers</li>
-      </ul>
+  <!-- IMPACT -->
+  <section class="impact">
+    <h2>What Success Looks Like</h2>
+
+    <ul>
+      <li>Kids understand where feelings come from</li>
+      <li>Kids respond instead of react</li>
+      <li>Stronger emotional regulation</li>
+      <li>Healthier conversations at home</li>
+      <li>Prevention before crisis</li>
+    </ul>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Let’s Teach Kids the Skills We Were Never Given</h2>
+
+    <div class="cta-buttons">
+      <a href="start.html" class="btn-primary">Start With a Feeling</a>
+      <a href="parents.html" class="btn-secondary">Learn More for Parents & Schools</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PARENTS -->
-<section id="parents" class="py-20 bg-white text-center">
-  <h2 class="text-4xl font-bold mb-6">For Parents & Educators</h2>
-  <p class="max-w-3xl mx-auto text-xl text-gray-600 mb-10">
-    VentPals is built to support children while keeping adults informed, involved, and confident.
-  </p>
-  <a href="parent-info.html" class="bg-purple-600 text-white px-10 py-4 rounded-lg font-semibold hover:bg-purple-700">
-    Learn How VentPals Protects Kids
-  </a>
-</section>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© VentPals • A Nonprofit Initiative</p>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </footer>
 
 </body>
 </html>
