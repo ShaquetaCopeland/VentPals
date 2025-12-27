@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals | You Don’t Have to Carry It Alone</title>
-  <meta name="description" content="VentPals is a nonprofit peer-support community where adults can express themselves anonymously, feel heard, and find emotional support without judgment." />
+
+  <title>VentPals | Learning Feelings Together</title>
+
+  <meta name="description" content="VentPals helps children recognize emotions, express them safely, and connect with peers through guided, moderated VentPals Circles." />
+
   <link rel="icon" href="favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -17,15 +20,15 @@
       background-size: cover;
       background-attachment: fixed;
     }
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    .soft-gradient {
+      background: linear-gradient(135deg, #A7C7E7 0%, #C3B7E2 100%);
     }
-    .card-hover {
-      transition: all 0.3s ease;
+    .card {
+      transition: all 0.25s ease;
     }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
     }
   </style>
 </head>
@@ -39,109 +42,194 @@
       <img src="ventpals-logo.png" alt="VentPals Logo" class="h-8">
       <span class="font-bold text-lg">VentPals</span>
     </div>
+
     <div class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="#mission" class="hover:text-purple-600">Our Mission</a>
+      <a href="#learn" class="hover:text-purple-600">What Kids Learn</a>
+      <a href="#circles" class="hover:text-purple-600">VentPals Circles</a>
       <a href="#how" class="hover:text-purple-600">How It Works</a>
-      <a href="#safety" class="hover:text-purple-600">Safety & Trust</a>
-      <a href="#community" class="hover:text-purple-600">Community</a>
+      <a href="#safety" class="hover:text-purple-600">Safety</a>
+      <a href="#parents" class="hover:text-purple-600">For Adults</a>
     </div>
-    <div class="space-x-4">
-      <a href="signin.html" class="text-purple-600 font-medium">Sign In</a>
-      <a href="join.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-purple-700">Get Support</a>
+
+    <div class="space-x-3">
+      <a href="parent-info.html" class="text-purple-600 font-medium">Parent Info</a>
+      <a href="join.html" class="bg-purple-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-purple-700">
+        Get Started
+      </a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="gradient-bg text-white py-24 text-center">
+<section class="soft-gradient text-white py-24 text-center">
   <img src="pebble-animated.gif" alt="Pebble" class="mx-auto w-24 mb-6">
-  <h1 class="text-5xl font-bold mb-6">You don’t have to carry it alone.</h1>
-  <p class="max-w-3xl mx-auto text-xl opacity-90 mb-8">
-    VentPals is a nonprofit peer-support community where adults can express themselves anonymously, feel heard, and find steady emotional support—without judgment or pressure.
+  <h1 class="text-5xl font-bold mb-6">Big feelings are part of growing up.</h1>
+  <p class="max-w-3xl mx-auto text-xl opacity-95 mb-8">
+    VentPals helps children learn to recognize emotions, talk about them safely,
+    and connect with peers who understand — one feeling at a time.
   </p>
-  <p class="text-sm opacity-80 mb-10">Anonymous • Peer-Led • Moderated • 18+</p>
+  <p class="text-sm opacity-85 mb-10">
+    Designed for children • Guided Circles • Moderated & safe
+  </p>
+
   <div class="flex justify-center gap-4 flex-wrap">
     <a href="join.html" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100">
-      Find Support Now
+      Explore Feelings
     </a>
-    <a href="#how" class="border border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600">
-      How VentPals Works
+    <a href="#parents" class="border border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600">
+      For Parents & Educators
     </a>
   </div>
 </section>
 
-<!-- MISSION -->
-<section id="mission" class="py-20 bg-white">
-  <div class="max-w-4xl mx-auto text-center px-6">
-    <h2 class="text-4xl font-bold mb-6">Why VentPals Exists</h2>
-    <p class="text-xl text-gray-600 leading-relaxed">
-      Emotional isolation is one of the most common—and least addressed—human struggles.
-      VentPals was created to offer a place where people can release what they’re holding
-      before it becomes overwhelming.
-      <br><br>
-      We are not therapy. We are not social media.
-      We are a structured, anonymous peer-support space designed to help people feel less alone—one conversation at a time.
+<!-- WHAT KIDS LEARN -->
+<section id="learn" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-16">What Kids Learn at VentPals</h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="card bg-gray-50 p-8 rounded-xl">
+        <div class="text-4xl mb-4">🧠</div>
+        <h3 class="font-semibold text-lg mb-2">Name the Feeling</h3>
+        <p class="text-gray-600 text-sm">
+          Kids learn to recognize emotions like anger, sadness, excitement, fear, and worry.
+        </p>
+      </div>
+
+      <div class="card bg-gray-50 p-8 rounded-xl">
+        <div class="text-4xl mb-4">💬</div>
+        <h3 class="font-semibold text-lg mb-2">Express It Safely</h3>
+        <p class="text-gray-600 text-sm">
+          Guided prompts help kids put feelings into words instead of actions.
+        </p>
+      </div>
+
+      <div class="card bg-gray-50 p-8 rounded-xl">
+        <div class="text-4xl mb-4">🌱</div>
+        <h3 class="font-semibold text-lg mb-2">Choose a Response</h3>
+        <p class="text-gray-600 text-sm">
+          Children explore calming tools and healthy ways to respond to emotions.
+        </p>
+      </div>
+
+      <div class="card bg-gray-50 p-8 rounded-xl">
+        <div class="text-4xl mb-4">🐦</div>
+        <h3 class="font-semibold text-lg mb-2">Feel Less Alone</h3>
+        <p class="text-gray-600 text-sm">
+          Kids learn that others feel this way too — without pressure or comparison.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIRCLES -->
+<section id="circles" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-8">VentPals Circles</h2>
+
+    <p class="max-w-3xl mx-auto text-xl text-gray-600 mb-12">
+      VentPals Circles are small, anonymous groups where children can share feelings,
+      listen to others, and practice empathy — all within a guided, moderated space.
     </p>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card bg-white p-8 rounded-xl">
+        <div class="text-3xl mb-4">👥</div>
+        <h3 class="font-semibold mb-2">Small Groups</h3>
+        <p class="text-sm text-gray-600">
+          Each Circle includes a limited number of children to keep conversations calm and focused.
+        </p>
+      </div>
+
+      <div class="card bg-white p-8 rounded-xl">
+        <div class="text-3xl mb-4">🧭</div>
+        <h3 class="font-semibold mb-2">Guided Conversations</h3>
+        <p class="text-sm text-gray-600">
+          Prompts and boundaries help kids share without oversharing or harm.
+        </p>
+      </div>
+
+      <div class="card bg-white p-8 rounded-xl">
+        <div class="text-3xl mb-4">🎭</div>
+        <h3 class="font-semibold mb-2">Anonymous & Safe</h3>
+        <p class="text-sm text-gray-600">
+          No real names, no private messages, and active moderation at all times.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how" class="py-20 bg-gray-50">
+<section id="how" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-4xl font-bold text-center mb-16">How VentPals Works</h2>
+
     <div class="grid md:grid-cols-4 gap-8 text-center">
-      <div class="card-hover bg-white p-8 rounded-xl">
-        <div class="text-3xl mb-4">🕶️</div>
-        <h3 class="font-semibold text-lg mb-2">Join Anonymously</h3>
-        <p class="text-gray-600 text-sm">No real names. No profiles to curate. Just show up as you are.</p>
+      <div class="card bg-gray-50 p-8 rounded-xl">
+        <div class="text-3xl mb-4">🎨</div>
+        <h3 class="font-semibold mb-2">Pick a Feeling</h3>
+        <p class="text-sm text-gray-600">
+          Kids start by choosing how they feel today.
+        </p>
       </div>
-      <div class="card-hover bg-white p-8 rounded-xl">
+
+      <div class="card bg-gray-50 p-8 rounded-xl">
+        <div class="text-3xl mb-4">🧩</div>
+        <h3 class="font-semibold mb-2">Join a Circle</h3>
+        <p class="text-sm text-gray-600">
+          They’re placed into a small VentPals Circle focused on that feeling.
+        </p>
+      </div>
+
+      <div class="card bg-gray-50 p-8 rounded-xl">
         <div class="text-3xl mb-4">💬</div>
-        <h3 class="font-semibold text-lg mb-2">Share or Listen</h3>
-        <p class="text-gray-600 text-sm">Vent in topic-based rooms or quietly support others.</p>
+        <h3 class="font-semibold mb-2">Share & Listen</h3>
+        <p class="text-sm text-gray-600">
+          Kids respond to guided prompts and see peer support in action.
+        </p>
       </div>
-      <div class="card-hover bg-white p-8 rounded-xl">
-        <div class="text-3xl mb-4">🕊️</div>
-        <h3 class="font-semibold text-lg mb-2">Build Trust Gradually</h3>
-        <p class="text-gray-600 text-sm">Connections unlock over time to protect emotional boundaries.</p>
-      </div>
-      <div class="card-hover bg-white p-8 rounded-xl">
-        <div class="text-3xl mb-4">🤝</div>
-        <h3 class="font-semibold text-lg mb-2">Give & Receive Support</h3>
-        <p class="text-gray-600 text-sm">Long-term members help keep the space grounded and safe.</p>
+
+      <div class="card bg-gray-50 p-8 rounded-xl">
+        <div class="text-3xl mb-4">🧘</div>
+        <h3 class="font-semibold mb-2">Calm & Reflect</h3>
+        <p class="text-sm text-gray-600">
+          Each session ends with grounding or reflection tools.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SAFETY -->
-<section id="safety" class="py-20 bg-white">
+<section id="safety" class="py-20 bg-gray-50">
   <div class="max-w-5xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold mb-10">Safety Comes First</h2>
-    <div class="grid md:grid-cols-2 gap-8 text-left">
-      <ul class="space-y-4 text-gray-600">
-        <li>• Anonymous by design</li>
-        <li>• Moderated peer discussions</li>
-        <li>• Clear community guidelines</li>
+
+    <div class="grid md:grid-cols-2 gap-8 text-left text-gray-600">
+      <ul class="space-y-4">
+        <li>• Adult moderation in every Circle</li>
+        <li>• No private messaging</li>
+        <li>• Age-appropriate language filters</li>
       </ul>
-      <ul class="space-y-4 text-gray-600">
-        <li>• Crisis redirection when needed</li>
-        <li>• AI-assisted monitoring tools</li>
-        <li>• Not a replacement for professional care</li>
+      <ul class="space-y-4">
+        <li>• Clear kindness rules</li>
+        <li>• Escalation to trusted adults when needed</li>
+        <li>• Designed to support — not replace — caregivers</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- COMMUNITY -->
-<section id="community" class="py-20 bg-gray-50 text-center">
-  <h2 class="text-4xl font-bold mb-6">A Community Built on Care</h2>
+<!-- PARENTS -->
+<section id="parents" class="py-20 bg-white text-center">
+  <h2 class="text-4xl font-bold mb-6">For Parents & Educators</h2>
   <p class="max-w-3xl mx-auto text-xl text-gray-600 mb-10">
-    VentPals grows through consistency, respect, and compassion.
-    Recognition systems exist to honor contribution—not popularity.
+    VentPals is built to support children while keeping adults informed, involved, and confident.
   </p>
-  <a href="join.html" class="bg-purple-600 text-white px-10 py-4 rounded-lg font-semibold hover:bg-purple-700">
-    Join the Flock
+  <a href="parent-info.html" class="bg-purple-600 text-white px-10 py-4 rounded-lg font-semibold hover:bg-purple-700">
+    Learn How VentPals Protects Kids
   </a>
 </section>
 
