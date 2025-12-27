@@ -2,100 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VentPals – Big Feelings Welcome</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
   </style>
 </head>
 
 <body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 overflow-x-hidden">
 
-<!-- 🌈 HERO: INVITATION -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
+<!-- 🌈 NAV -->
+<nav class="flex items-center justify-between px-6 py-4">
+  <div class="flex items-center gap-2">
+    <img src="ventpals-logo.png" alt="VentPals Logo" class="h-10" />
+    <span class="font-bold text-purple-700 text-xl">VentPals</span>
+  </div>
+  <div class="hidden md:flex gap-6 text-purple-600 font-semibold">
+    <a href="#how">How It Works</a>
+    <a href="#circles">Circles</a>
+    <a href="#parents">Parents & Schools</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
 
-  <!-- Floating birds / emotion bubbles -->
+<!-- 🐦 HERO -->
+<section class="relative text-center px-6 py-24">
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-20 left-10 text-4xl animate-bounce">🐦</div>
-    <div class="absolute top-40 right-16 text-4xl animate-pulse">😡</div>
-    <div class="absolute bottom-32 left-20 text-4xl animate-pulse">😢</div>
-    <div class="absolute bottom-24 right-24 text-4xl animate-bounce">😄</div>
+    <div class="absolute top-16 left-10 text-5xl float">🐦</div>
+    <div class="absolute top-32 right-16 text-4xl float">😡</div>
+    <div class="absolute bottom-24 left-24 text-4xl float">😢</div>
+    <div class="absolute bottom-32 right-20 text-4xl float">😄</div>
   </div>
 
-  <h1 class="text-4xl md:text-6xl font-extrabold text-purple-700 mb-6">
-    Hey. Something feels big today, huh?
+  <h1 class="text-4xl md:text-6xl font-extrabold text-purple-800 mb-6">
+    Big feelings live here.
   </h1>
 
-  <p class="text-lg md:text-2xl text-gray-700 max-w-xl mb-10">
-    You don’t have to figure it out alone.
+  <p class="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto mb-8">
+    We help kids understand themselves before the world tells them who to be.
   </p>
 
-  <div class="flex flex-col sm:flex-row gap-4">
-    <button class="bg-yellow-300 hover:bg-yellow-400 text-purple-800 font-bold py-4 px-8 rounded-full text-xl shadow-lg transition">
+  <div class="flex flex-col sm:flex-row justify-center gap-4">
+    <button class="bg-yellow-300 hover:bg-yellow-400 text-purple-800 font-bold py-4 px-8 rounded-full text-xl shadow-lg">
       🎈 Start With a Feeling
     </button>
-    <button class="bg-white hover:bg-purple-100 text-purple-700 font-bold py-4 px-8 rounded-full text-xl shadow-lg transition">
+    <button class="bg-white hover:bg-purple-100 text-purple-700 font-bold py-4 px-8 rounded-full text-xl shadow-lg">
       🐦 Meet the Birds
     </button>
   </div>
 </section>
 
-<!-- 💛 FEELINGS LIVE HERE -->
-<section class="py-20 px-6 text-center">
+<!-- 💛 FEELINGS -->
+<section class="py-20 text-center">
   <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
-    All feelings are welcome here.
+    All feelings are welcome.
   </h2>
   <p class="text-lg text-gray-700 mb-10">Even the confusing ones.</p>
 
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
-    <div class="bg-blue-200 rounded-3xl p-6 text-3xl hover:scale-105 transition">😢</div>
-    <div class="bg-red-200 rounded-3xl p-6 text-3xl hover:scale-105 transition">😡</div>
-    <div class="bg-yellow-200 rounded-3xl p-6 text-3xl hover:scale-105 transition">😄</div>
-    <div class="bg-green-200 rounded-3xl p-6 text-3xl hover:scale-105 transition">😰</div>
+    <div class="bg-red-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😡</div>
+    <div class="bg-blue-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😢</div>
+    <div class="bg-yellow-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😄</div>
+    <div class="bg-green-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😰</div>
   </div>
 </section>
 
-<!-- 🐦 THE BIRDS GUIDE YOU -->
-<section class="py-20 px-6 bg-white bg-opacity-60">
+<!-- 🧠 PROBLEM (VISUALIZED) -->
+<section class="py-20 bg-white bg-opacity-60">
   <h2 class="text-3xl md:text-4xl font-bold text-center text-purple-700 mb-12">
-    The birds help you figure things out.
+    The problem isn’t feelings.  
+    <span class="block">It’s the missing education.</span>
   </h2>
 
-  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
-    <div class="bg-pink-100 rounded-3xl p-8 shadow hover:scale-105 transition">
-      <div class="text-5xl mb-4">🐥</div>
-      <p class="text-lg text-gray-700">I help when things feel loud.</p>
+  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-6">
+    <div class="bg-red-100 rounded-3xl p-8 shadow">
+      <h3 class="font-bold text-lg mb-2">❌ What kids learn now</h3>
+      <ul class="space-y-2 text-gray-700">
+        <li>Feelings are bad</li>
+        <li>Reactions get punished</li>
+        <li>Big emotions mean trouble</li>
+      </ul>
     </div>
-    <div class="bg-blue-100 rounded-3xl p-8 shadow hover:scale-105 transition">
-      <div class="text-5xl mb-4">🕊️</div>
-      <p class="text-lg text-gray-700">I help when you feel sad.</p>
-    </div>
-    <div class="bg-yellow-100 rounded-3xl p-8 shadow hover:scale-105 transition">
-      <div class="text-5xl mb-4">🦜</div>
-      <p class="text-lg text-gray-700">I help when you don’t know why.</p>
+    <div class="bg-green-100 rounded-3xl p-8 shadow">
+      <h3 class="font-bold text-lg mb-2">✅ What VentPals teaches</h3>
+      <ul class="space-y-2 text-gray-700">
+        <li>Feelings are signals</li>
+        <li>You can pause & choose</li>
+        <li>Understanding builds control</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- 🎮 HOW IT WORKS -->
-<section class="py-20 px-6">
+<section id="how" class="py-20">
   <h2 class="text-3xl md:text-4xl font-bold text-center text-purple-700 mb-12">
-    Here’s how VentPals works
+    How VentPals works
   </h2>
 
-  <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto text-center">
+  <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto px-6 text-center">
     <div class="bg-white rounded-3xl p-6 shadow">
       <div class="text-4xl mb-4">🐦</div>
-      <p>Pick how you feel</p>
+      <p>Pick a feeling</p>
     </div>
     <div class="bg-white rounded-3xl p-6 shadow">
       <div class="text-4xl mb-4">🎨</div>
-      <p>Talk it out your way</p>
+      <p>Express it your way</p>
     </div>
     <div class="bg-white rounded-3xl p-6 shadow">
       <div class="text-4xl mb-4">🧠</div>
@@ -108,45 +131,41 @@
   </div>
 </section>
 
-<!-- 🌈 VENTPALS CIRCLES -->
-<section class="py-20 px-6 bg-gradient-to-r from-green-100 to-blue-100">
-  <h2 class="text-3xl md:text-4xl font-bold text-center text-purple-700 mb-4">
-    Sometimes it helps to talk together.
+<!-- 🌈 CIRCLES -->
+<section id="circles" class="py-20 bg-gradient-to-r from-green-100 to-blue-100 text-center">
+  <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
+    You’re not the only one.
   </h2>
-  <p class="text-lg text-center text-gray-700 mb-10">
-    Circles are small, kind groups for kids who feel the same way.
+  <p class="text-lg text-gray-700 mb-10">
+    Circles are small, kind groups where kids share feelings safely.
   </p>
 
-  <div class="text-center">
-    <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transition">
-      🌈 Join a Circle
-    </button>
-  </div>
+  <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg">
+    🌈 Join a Circle
+  </button>
 </section>
 
-<!-- 🛡️ ADULT TRUST (QUIET) -->
-<section class="py-16 px-6 bg-gray-100 text-center">
+<!-- 🛡️ PARENTS -->
+<section id="parents" class="py-16 bg-gray-100 text-center">
   <h3 class="text-2xl font-bold text-gray-700 mb-6">
     Built with care. Designed for safety.
   </h3>
 
-  <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-sm text-gray-600">
-    <p>Guided emotional learning</p>
-    <p>Moderated & age-appropriate</p>
-    <p>Privacy-first by design</p>
+  <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-sm text-gray-600">
+    <p>No private messaging</p>
+    <p>Guided & moderated spaces</p>
+    <p>Supports — not replaces — adults</p>
   </div>
 
-  <div class="mt-8 flex justify-center gap-6 text-purple-600 font-semibold">
+  <div class="mt-8 flex justify-center gap-6 font-semibold text-purple-600">
     <a href="#">For Parents</a>
-    <a href="#">For Educators</a>
-    <a href="#">Safety & Privacy</a>
+    <a href="#">For Schools</a>
+    <a href="#">Privacy & Safety</a>
   </div>
 </section>
 
-<!-- 🌱 FOOTER -->
 <footer class="py-8 text-center text-gray-600 text-sm">
-  <p>VentPals • Helping kids understand their feelings</p>
-  <p class="mt-2">A nonprofit initiative</p>
+  <p>VentPals • A nonprofit initiative</p>
 </footer>
 
 </body>
