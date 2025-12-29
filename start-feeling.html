@@ -1,14 +1,130 @@
-<!-- start-feeling.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Start With a Feeling – VentPals</title>
-<link href="https://cdn.tailwindcss.com" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  .float {
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>
 </head>
-<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 flex flex-col items-center justify-center min-h-screen">
-  <h1 class="text-5xl font-bold text-purple-700 mb-4">Start With a Feeling</h1>
-  <p class="text-xl text-gray-700 mb-10">Here’s where the kid would pick their feeling. (Demo page)</p>
-  <a href="index.html" class="bg-purple-600 text-white py-3 px-6 rounded-full hover:bg-purple-700">Back to Home</a>
+
+<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
+
+  <!-- Floating emojis -->
+  <div class="absolute inset-0 pointer-events-none opacity-40">
+    <div class="absolute top-10 left-10 text-5xl float">💖</div>
+    <div class="absolute top-20 right-16 text-4xl float">😶‍🌫️</div>
+    <div class="absolute bottom-24 left-20 text-4xl float">😢</div>
+    <div class="absolute bottom-32 right-24 text-5xl float">😡</div>
+  </div>
+
+  <!-- Card container -->
+  <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-10 max-w-xl w-full text-center relative z-10">
+
+    <h1 class="text-5xl font-extrabold text-purple-700 mb-4">
+      Start With a Feeling
+    </h1>
+
+    <p class="text-lg text-gray-700 mb-10">
+      Pick the feeling that matches your moment.
+      <span class="block text-purple-600 font-semibold mt-1">(Demo version)</span>
+    </p>
+
+    <!-- Feeling Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10">
+
+      <button onclick="openFeeling('Angry', '😡', 'Flare', 'Your fire is trying to tell you something important.')"
+              class="feeling-btn bg-red-200 hover:bg-red-300">😡</button>
+
+      <button onclick="openFeeling('Sad', '😢', 'Clover', 'Your sadness is a signal that something mattered.')"
+              class="feeling-btn bg-blue-200 hover:bg-blue-300">😢</button>
+
+      <button onclick="openFeeling('Happy', '😄', 'Pebble', 'Joy is a moment worth noticing and savoring.')"
+              class="feeling-btn bg-yellow-200 hover:bg-yellow-300">😄</button>
+
+      <button onclick="openFeeling('Anxious', '😰', 'Breezy', 'Your body is trying to protect you from something uncertain.')"
+              class="feeling-btn bg-green-200 hover:bg-green-300">😰</button>
+
+    </div>
+
+    <!-- Back button -->
+    <a href="index.html"
+       class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition inline-block">
+      ⬅ Back to Home
+    </a>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-6">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full fade-in">
+
+      <div class="text-center mb-6">
+        <div id="modalEmoji" class="text-6xl mb-4"></div>
+        <h2 id="modalFeeling" class="text-3xl font-bold text-purple-700"></h2>
+      </div>
+
+      <p id="modalMessage" class="text-gray-700 text-lg mb-6"></p>
+
+      <div class="bg-purple-100 rounded-2xl p-4 mb-6">
+        <p class="text-purple-700 font-semibold">
+          Your companion for this feeling:
+        </p>
+        <p id="modalBird" class="text-purple-900 text-2xl font-bold mt-1"></p>
+      </div>
+
+      <div class="space-y-4">
+        <button onclick="closeModal()"
+                class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full shadow-md transition">
+          Okay
+        </button>
+
+        <button onclick="closeModal()"
+                class="w-full bg-white hover:bg-purple-100 text-purple-700 font-bold py-3 rounded-full shadow-md transition">
+          Try a different feeling
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Tailwind component class -->
+  <style>
+    .feeling-btn {
+      @apply text-4xl p-6 rounded-3xl shadow-md transition transform hover:-translate-y-1;
+    }
+  </style>
+
+  <script>
+    function openFeeling(name, emoji, bird, message) {
+      document.getElementById('modalFeeling').textContent = name;
+      document.getElementById('modalEmoji').textContent = emoji;
+      document.getElementById('modalBird').textContent = bird;
+      document.getElementById('modalMessage').textContent = message;
+
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+
 </body>
 </html>
