@@ -4,97 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meet the Flock | VentPals</title>
-  <link rel="stylesheet" href="assets/css/global.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <img src="assets/images/logo.png" alt="VentPals Logo" class="logo" />
+
+<body class="bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 min-h-screen text-center relative overflow-hidden">
+
+  <!-- Floating emojis -->
+  <div class="absolute inset-0 pointer-events-none opacity-40">
+    <div class="absolute top-10 left-10 text-5xl float">🪽</div>
+    <div class="absolute top-20 right-16 text-4xl float">✨</div>
+    <div class="absolute bottom-24 left-20 text-4xl float">💛</div>
+    <div class="absolute bottom-32 right-24 text-5xl float">🌈</div>
+  </div>
+
+  <!-- Header -->
+  <header class="py-8 relative z-10">
+    <img src="assets/images/logo.png" alt="VentPals Logo" class="w-32 mx-auto mb-4" />
+
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="meet-the-flock.html" class="active">Meet the Flock</a></li>
-        <li><a href="chatroom.html">Chatroom</a></li>
-        <li><a href="influence-center.html">Influence Center</a></li>
-        <li><a href="join.html">Join</a></li>
+      <ul class="flex justify-center gap-6 text-purple-700 font-semibold text-lg">
+        <li><a href="index.html" class="hover:text-purple-900">Home</a></li>
+        <li><a href="about.html" class="hover:text-purple-900">About</a></li>
+        <li><a href="meet-the-flock.html" class="text-purple-900 underline">Meet the Flock</a></li>
+        <li><a href="chatroom.html" class="hover:text-purple-900">Chatroom</a></li>
+        <li><a href="influence-center.html" class="hover:text-purple-900">Influence Center</a></li>
+        <li><a href="join.html" class="hover:text-purple-900">Join</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Meet the Flock</h1>
-      <p>Each bird represents a unique strength, emotion, or support style.</p>
-    </section>
+  <!-- Hero -->
+  <section class="relative z-10 px-6 py-12">
+    <h1 class="text-5xl font-extrabold text-purple-800 mb-4">Meet the Flock</h1>
+    <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+      Each bird is an emotional companion — a gentle guide who helps you understand a part of yourself.
+    </p>
+  </section>
 
-    <section class="flock-grid">
-      <div class="bird-card">
-        <img src="assets/images/clover-main.png" alt="Clover" class="bird-image">
-        <h3>Clover</h3>
-        <p class="bird-role">Flies for: Healing through grief</p>
-        <p class="bird-bio">Clover is gentle and calm, offering comfort during life’s heaviest moments.</p>
+  <!-- Flock Grid -->
+  <main class="relative z-10 max-w-6xl mx-auto px-6 pb-20">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Bird Card Template -->
+      <!-- Clover -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/clover-main.png" alt="Clover" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Clover</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Healing through grief</p>
+        <p class="text-gray-700 mt-3">Clover is gentle and calm, offering comfort during life’s heaviest moments.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/breezy-main.png" alt="Breezy" class="bird-image">
-        <h3>Breezy</h3>
-        <p class="bird-role">Flies for: Calm in the chaos</p>
-        <p class="bird-bio">Breezy helps you stay grounded when anxiety kicks up a storm.</p>
+      <!-- Breezy -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/breezy-main.png" alt="Breezy" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Breezy</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Calm in the chaos</p>
+        <p class="text-gray-700 mt-3">Breezy helps you stay grounded when anxiety kicks up a storm.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/echo-main.png" alt="Echo" class="bird-image">
-        <h3>Echo</h3>
-        <p class="bird-role">Flies for: Feeling heard</p>
-        <p class="bird-bio">Echo repeats back your truth — because sometimes all you need is to be heard.</p>
+      <!-- Echo -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/echo-main.png" alt="Echo" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Echo</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Feeling heard</p>
+        <p class="text-gray-700 mt-3">Echo repeats back your truth — because sometimes all you need is to be heard.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/flare-main.png" alt="Flare" class="bird-image">
-        <h3>Flare</h3>
-        <p class="bird-role">Flies for: Speaking your truth</p>
-        <p class="bird-bio">Flare brings boldness and fire, cheering you on to say what needs to be said.</p>
+      <!-- Flare -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/flare-main.png" alt="Flare" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Flare</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Speaking your truth</p>
+        <p class="text-gray-700 mt-3">Flare brings boldness and fire, cheering you on to say what needs to be said.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/guardian-main.png" alt="Guardian" class="bird-image">
-        <h3>Guardian</h3>
-        <p class="bird-role">Flies for: Safety and protection</p>
-        <p class="bird-bio">Guardian is strong, loyal, and watches over the community with care.</p>
+      <!-- Guardian -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/guardian-main.png" alt="Guardian" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Guardian</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Safety and protection</p>
+        <p class="text-gray-700 mt-3">Guardian is strong, loyal, and watches over the community with care.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/nova-main.png" alt="Nova" class="bird-image">
-        <h3>Nova</h3>
-        <p class="bird-role">Flies for: Rebuilding after darkness</p>
-        <p class="bird-bio">Nova helps you rise from rock bottom and find your light again.</p>
+      <!-- Nova -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/nova-main.png" alt="Nova" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Nova</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Rebuilding after darkness</p>
+        <p class="text-gray-700 mt-3">Nova helps you rise from rock bottom and find your light again.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/pebble-main.png" alt="Pebble" class="bird-image">
-        <h3>Pebble</h3>
-        <p class="bird-role">Flies for: Playfulness and ease</p>
-        <p class="bird-bio">Pebble is light-hearted, silly, and always ready to lift your mood.</p>
+      <!-- Pebble -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/pebble-main.png" alt="Pebble" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Pebble</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Playfulness and ease</p>
+        <p class="text-gray-700 mt-3">Pebble is light-hearted, silly, and always ready to lift your mood.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/solace-main.png" alt="Solace" class="bird-image">
-        <h3>Solace</h3>
-        <p class="bird-role">Flies for: Grounding and presence</p>
-        <p class="bird-bio">Solace is a soft soul who shows up when you need stillness, peace, or pause.</p>
+      <!-- Solace -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/solace-main.png" alt="Solace" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Solace</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Grounding and presence</p>
+        <p class="text-gray-700 mt-3">Solace is a soft soul who shows up when you need stillness, peace, or pause.</p>
       </div>
 
-      <div class="bird-card">
-        <img src="assets/images/aura-main.png" alt="Aura" class="bird-image">
-        <h3>Aura</h3>
-        <p class="bird-role">Flies for: Mindfulness and clarity</p>
-        <p class="bird-bio">Aura helps you tune into your thoughts and breathe through the fog.</p>
+      <!-- Aura -->
+      <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-1">
+        <img src="assets/images/aura-main.png" alt="Aura" class="w-40 mx-auto mb-4">
+        <h3 class="text-2xl font-bold text-purple-700">Aura</h3>
+        <p class="text-purple-600 font-semibold mt-1">Flies for: Mindfulness and clarity</p>
+        <p class="text-gray-700 mt-3">Aura helps you tune into your thoughts and breathe through the fog.</p>
       </div>
-    </section>
+
+    </div>
   </main>
 
-  <footer>
+  <footer class="py-8 text-gray-600 text-sm relative z-10">
     <p>&copy; 2025 VentPals. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
