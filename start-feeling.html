@@ -1,185 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Start With a Feeling – VentPals</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start With a Feeling – VentPals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-  .float {
-    animation: float 4s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .fade-in {
-    animation: fadeIn 0.4s ease-out forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  .breathing {
-    animation: breathe 6s ease-in-out infinite;
-  }
-  @keyframes breathe {
-    0% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.25); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.7; }
-  }
-</style>
-</head>
-
-<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 min-h-screen px-6 relative overflow-x-hidden">
-
-  <!-- Floating emojis -->
-  <div class="absolute inset-0 pointer-events-none opacity-40">
-    <div class="absolute top-10 left-10 text-5xl float">💖</div>
-    <div class="absolute top-20 right-16 text-4xl float">😶‍🌫️</div>
-    <div class="absolute bottom-24 left-20 text-4xl float">😢</div>
-    <div class="absolute bottom-32 right-24 text-5xl float">😡</div>
-  </div>
-
-  <!-- Card container -->
-  <div class="bg-white bg-opacity-70 backdrop-blur-xl rounded-3xl shadow-xl p-10 max-w-xl w-full text-center mx-auto mt-20 mb-20 relative z-10">
-
-    <h1 class="text-5xl font-extrabold text-purple-700 mb-4">
-      Start With a Feeling
-    </h1>
-
-    <p class="text-lg text-gray-700 mb-10">
-      Pick the feeling that matches your moment.
-      <span class="block text-purple-600 font-semibold mt-1">(Demo version)</span>
-    </p>
-
-    <!-- Feeling Grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10">
-
-      <button onclick="openFeeling('Angry', '😡', 'Flare', 'Your fire is trying to tell you something important.', 'assets/images/flare-baby.png')"
-              class="feeling-btn bg-red-200 hover:bg-red-300">😡</button>
-
-      <button onclick="openFeeling('Sad', '😢', 'Clover', 'Your sadness is a signal that something mattered.', 'assets/images/clover-baby.png')"
-              class="feeling-btn bg-blue-200 hover:bg-blue-300">😢</button>
-
-      <button onclick="openFeeling('Happy', '😄', 'Pebble', 'Joy is a moment worth noticing and savoring.', 'assets/images/pebble-baby.png')"
-              class="feeling-btn bg-yellow-200 hover:bg-yellow-300">😄</button>
-
-      <button onclick="openFeeling('Anxious', '😰', 'Breezy', 'Your body is trying to protect you from something uncertain.', 'assets/images/breezy-baby.png')"
-              class="feeling-btn bg-green-200 hover:bg-green-300">😰</button>
-
-    </div>
-
-    <!-- Back button -->
-    <a href="index.html"
-       class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition inline-block">
-      ⬅ Back to Home
-    </a>
-
-  </div>
-
-  <!-- Modal -->
-  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-6 z-[9999] overflow-y-auto">
-    <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full fade-in">
-
-      <div class="text-center mb-6">
-        <div id="modalEmoji" class="text-6xl mb-4"></div>
-        <h2 id="modalFeeling" class="text-3xl font-bold text-purple-700"></h2>
-      </div>
-
-      <!-- Bird companion -->
-      <div class="flex flex-col items-center mb-6">
-        <img id="modalBirdImg" src="" class="w-40 h-40 object-contain breathing mb-4">
-        <p class="text-purple-900 text-2xl font-bold" id="modalBird"></p>
-      </div>
-
-      <!-- Body signal -->
-      <div class="bg-purple-100 rounded-2xl p-4 mb-6">
-        <p class="text-purple-700 font-semibold mb-1">What your body might be telling you:</p>
-        <p id="modalBody" class="text-gray-700"></p>
-      </div>
-
-      <!-- Thought awareness -->
-      <div class="bg-blue-100 rounded-2xl p-4 mb-6">
-        <p class="text-blue-700 font-semibold mb-1">A thought to notice:</p>
-        <p id="modalThought" class="text-gray-700"></p>
-      </div>
-
-      <!-- Choose what to do next -->
-      <div class="bg-green-100 rounded-2xl p-4 mb-6">
-        <p class="text-green-700 font-semibold mb-2">What you can choose next:</p>
-        <ul id="modalNext" class="text-gray-700 space-y-1 text-left"></ul>
-      </div>
-
-      <div class="space-y-4">
-        <button onclick="closeModal()"
-                class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full shadow-md transition">
-          Okay
-        </button>
-
-        <button onclick="closeModal()"
-                class="w-full bg-white hover:bg-purple-100 text-purple-700 font-bold py-3 rounded-full shadow-md transition">
-          Try a different feeling
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Tailwind component class -->
   <style>
-    .feeling-btn {
-      @apply text-4xl p-6 rounded-3xl shadow-md transition transform hover:-translate-y-1;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #fdf2f8, #e0f2fe);
+    }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
   </style>
+</head>
 
-  <script>
-    const bodySignals = {
-      Angry: "Your muscles might feel tight, your face warm, or your chest full of energy.",
-      Sad: "Your body may feel heavy, slow, or like it wants to curl inward.",
-      Happy: "You might feel light, open, warm, or full of energy.",
-      Anxious: "Your heart may beat faster, your stomach may flutter, or your breath may feel tight."
-    };
+<body class="text-gray-800">
 
-    const thoughts = {
-      Angry: "Something important to you might feel crossed or ignored.",
-      Sad: "You may be missing something or someone that mattered.",
-      Happy: "You might be noticing something good or meaningful.",
-      Anxious: "You may be imagining something uncertain or unfamiliar."
-    };
+  <!-- NAV -->
+  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
+        <span class="font-bold text-lg text-purple-700">VentPals</span>
+      </a>
+      <a href="index.html" class="text-purple-600 hover:text-purple-800 text-sm">
+        ← Back Home
+      </a>
+    </div>
+  </nav>
 
-    const nextSteps = {
-      Angry: ["Take 3 deep breaths", "Move your body gently", "Talk to someone you trust"],
-      Sad: ["Hold something soft", "Listen to calming music", "Write or draw your feeling"],
-      Happy: ["Share your joy with someone", "Take a photo or memory snapshot", "Do something playful"],
-      Anxious: ["Try a grounding exercise", "Place your hand on your heart", "Name 3 things you can see"]
-    };
+  <!-- HEADER -->
+  <section class="text-center py-10 px-4">
+    <div class="text-5xl mb-4 float">🎭</div>
+    <h1 class="text-4xl font-bold text-purple-700 mb-2">Start With a Feeling</h1>
+    <p class="text-gray-600 max-w-xl mx-auto text-sm">
+      Every journey begins with a feeling.  
+      Pick the one that feels closest to you right now — even if you’re not sure yet.
+    </p>
+  </section>
 
-    function openFeeling(name, emoji, bird, message, imgPath) {
-      document.getElementById('modalFeeling').textContent = name;
-      document.getElementById('modalEmoji').textContent = emoji;
-      document.getElementById('modalBird').textContent = bird;
-      document.getElementById('modalBirdImg').src = imgPath;
-      document.getElementById('modalBody').textContent = bodySignals[name];
-      document.getElementById('modalThought').textContent = thoughts[name];
+  <!-- FEELING GRID -->
+  <section class="max-w-4xl mx-auto px-4 pb-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
 
-      const nextList = document.getElementById('modalNext');
-      nextList.innerHTML = "";
-      nextSteps[name].forEach(step => {
-        const li = document.createElement("li");
-        li.textContent = "• " + step;
-        nextList.appendChild(li);
-      });
+    <!-- Feeling Option -->
+    <a href="choose-bird.html?feeling=happy"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">😄</div>
+      <p class="font-semibold text-purple-700">Happy</p>
+    </a>
 
-      document.getElementById('modal').classList.remove('hidden');
-    }
+    <a href="choose-bird.html?feeling=sad"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">😢</div>
+      <p class="font-semibold text-purple-700">Sad</p>
+    </a>
 
-    function closeModal() {
-      document.getElementById('modal').classList.add('hidden');
-    }
-  </script>
+    <a href="choose-bird.html?feeling=angry"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">😡</div>
+      <p class="font-semibold text-purple-700">Angry</p>
+    </a>
+
+    <a href="choose-bird.html?feeling=scared"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">😨</div>
+      <p class="font-semibold text-purple-700">Scared</p>
+    </a>
+
+    <a href="choose-bird.html?feeling=confused"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">🤔</div>
+      <p class="font-semibold text-purple-700">Confused</p>
+    </a>
+
+    <a href="choose-bird.html?feeling=overwhelmed"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">😵‍💫</div>
+      <p class="font-semibold text-purple-700">Overwhelmed</p>
+    </a>
+
+    <a href="choose-bird.html?feeling=excited"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">🤩</div>
+      <p class="font-semibold text-purple-700">Excited</p>
+    </a>
+
+    <a href="choose-bird.html?feeling=idk"
+       class="bg-white rounded-3xl shadow p-6 text-center hover:shadow-lg transition">
+      <div class="text-3xl mb-2">❓</div>
+      <p class="font-semibold text-purple-700">I Don’t Know</p>
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-gray-500 text-xs">
+    VentPals • The Journey of Growing Up.
+  </footer>
 
 </body>
 </html>
