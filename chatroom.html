@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals Chatrooms</title>
+  <title>VentPals Trusted Circles</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -75,70 +75,126 @@
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center gap-2">
         <img src="ventpals-logo.png" alt="VentPals site logo" class="h-8">
-        <span class="font-bold text-lg">VentPals</span>
+        <span class="font-bold text-lg text-purple-700">VentPals</span>
       </div>
-      <div id="authLinks" class="hidden">
-        <a href="#" onclick="logout()" class="text-purple-600 hover:text-purple-800">Sign Out</a>
+      <div id="authLinks" class="hidden flex items-center gap-4">
+        <span class="text-xs text-gray-500">Trusted Circles • Safe, guided spaces</span>
+        <a href="#" onclick="logout()" class="text-purple-600 hover:text-purple-800 text-sm">Sign Out</a>
       </div>
     </div>
   </nav>
 
   <!-- Header -->
-  <section class="text-center py-10">
-    <h1 class="text-4xl font-bold text-purple-700 mb-2">Welcome to the Flock</h1>
-    <p class="text-gray-700 max-w-xl mx-auto">Choose the flock that fits your current mood or need. Each one offers a unique space to connect.</p>
+  <section class="text-center py-10 px-4">
+    <h1 class="text-4xl font-bold text-purple-700 mb-3">Welcome to Trusted Circles</h1>
+    <p class="text-gray-700 max-w-2xl mx-auto mb-2">
+      Each Circle is a guided space connected to a VentPal bird, where kids can share feelings,
+      listen, and learn together with clear rules and gentle support.
+    </p>
+    <p class="text-xs text-gray-500 max-w-xl mx-auto">
+      Some Circles are open and moderated, others are private and invite‑only. Every Circle is designed
+      to keep kids emotionally safe.
+    </p>
   </section>
 
-  <!-- Chatroom Grid -->
+  <!-- Circles Grid -->
   <section class="max-w-7xl mx-auto px-4 pb-20">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <a href="aura.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Aura's Flock</h2>
+
+      <!-- Aura Circle -->
+      <a href="circle-aura.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-700 mb-1">Aura Circle</h2>
+        <p class="text-xs text-gray-600">Self‑discovery, uniqueness & feeling “different”.</p>
       </a>
-      <a href="breezy.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Breezy's Flock</h2>
+
+      <!-- Breezy Circle -->
+      <a href="circle-breezy.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-sky-700 mb-1">Breezy Circle</h2>
+        <p class="text-xs text-gray-600">Invisible struggles, misunderstood needs, quiet challenges.</p>
       </a>
-      <a href="clover.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Clover's Flock</h2>
+
+      <!-- Clover Circle -->
+      <a href="circle-clover.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-green-700 mb-1">Clover Circle</h2>
+        <p class="text-xs text-gray-600">Safety, calming down, feeling steady again.</p>
       </a>
-      <a href="cove.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Cove's Flock</h2>
+
+      <!-- Cove Circle -->
+      <a href="circle-cove.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-sky-800 mb-1">Cove Circle</h2>
+        <p class="text-xs text-gray-600">Quiet company for kids who don’t want to talk yet.</p>
       </a>
-      <a href="drift.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Drift's Flock</h2>
+
+      <!-- Drift Circle -->
+      <a href="circle-drift.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-slate-700 mb-1">Drift Circle</h2>
+        <p class="text-xs text-gray-600">Sorting thoughts, slowing down, making sense of things.</p>
       </a>
-      <a href="echo.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Echo's Flock</h2>
+
+      <!-- Echo Circle -->
+      <a href="circle-echo.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-gray-700 mb-1">Echo Circle</h2>
+        <p class="text-xs text-gray-600">Feeling seen, heard, and understood.</p>
       </a>
-      <a href="ember.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Ember's Flock</h2>
+
+      <!-- Flamez Circle -->
+      <a href="circle-flamez.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-red-700 mb-1">Flamez Circle</h2>
+        <p class="text-xs text-gray-600">Rising after hard times, rebuilding confidence.</p>
       </a>
-      <a href="flicker.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Flicker's Flock</h2>
+
+      <!-- Flicker Circle -->
+      <a href="circle-flicker.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-yellow-600 mb-1">Flicker Circle</h2>
+        <p class="text-xs text-gray-600">Big energy, big love, big feelings.</p>
       </a>
-      <a href="flare.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Flare's Flock</h2>
+
+      <!-- Flare Circle -->
+      <a href="circle-flare.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-orange-700 mb-1">Flare Circle</h2>
+        <p class="text-xs text-gray-600">Finding your voice and speaking up safely.</p>
       </a>
-      <a href="guardian.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Guardian's Flock</h2>
+
+      <!-- Guardian Circle -->
+      <a href="circle-guardian.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-blue-900 mb-1">Guardian Circle</h2>
+        <p class="text-xs text-gray-600">Boundaries, safety, and knowing “this isn’t okay”.</p>
       </a>
-      <a href="lumen.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Lumen's Flock</h2>
+
+      <!-- Lumen Circle -->
+      <a href="circle-lumen.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-slate-600 mb-1">Lumen Circle</h2>
+        <p class="text-xs text-gray-600">Understanding how your mind works and why things feel hard.</p>
       </a>
-      <a href="nova.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Nova's Flock</h2>
+
+      <!-- Nova Circle -->
+      <a href="circle-nova.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-teal-700 mb-1">Nova Circle</h2>
+        <p class="text-xs text-gray-600">Seeing the bigger picture and growing through change.</p>
       </a>
-      <a href="pebble.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Pebble's Flock</h2>
+
+      <!-- Pebble Circle -->
+      <a href="circle-pebble.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-emerald-700 mb-1">Pebble Circle</h2>
+        <p class="text-xs text-gray-600">Gentle questions, soft support, next tiny steps.</p>
       </a>
-      <a href="sable.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Sable's Flock</h2>
+
+      <!-- Sable Circle -->
+      <a href="circle-sable.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-purple-900 mb-1">Sable Circle</h2>
+        <p class="text-xs text-gray-600">Strength after hard experiences, breaking old cycles.</p>
       </a>
-      <a href="solace.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Solace's Flock</h2>
+
+      <!-- Solace Circle -->
+      <a href="circle-solace.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-amber-800 mb-1">Solace Circle</h2>
+        <p class="text-xs text-gray-600">Comfort, soothing, and emotional rest.</p>
       </a>
-      <a href="twig.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700">Twig's Flock</h2>
+
+      <!-- Twig Circle -->
+      <a href="circle-twig.html" class="card-hover p-4 bg-white rounded shadow text-center">
+        <h2 class="text-xl font-semibold text-stone-700 mb-1">Twig Circle</h2>
+        <p class="text-xs text-gray-600">Learning feelings from the beginning, tiny emotional steps.</p>
       </a>
     </div>
   </section>
@@ -148,30 +204,30 @@
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
       <div>
         <img src="ventpals-logo.png" alt="VentPals Logo" class="h-6 mb-2">
-        <p class="opacity-70">Anonymous community venting platform where meaningful connections take flight.</p>
+        <p class="opacity-70">Trusted Circles — guided emotional spaces for kids, shaped by the VentPals flock.</p>
       </div>
       <div>
-        <h4 class="font-semibold mb-2">Community</h4>
+        <h4 class="font-semibold mb-2">Circles</h4>
         <ul class="space-y-1">
-          <li><a href="chatroom.html" class="hover:underline">Chat Rooms</a></li>
-          <li><a href="#" class="hover:underline">Find Friends</a></li>
-          <li><a href="#" class="hover:underline">Support Groups</a></li>
+          <li><a href="circles-dashboard.html" class="hover:underline">All Circles</a></li>
+          <li><a href="#" class="hover:underline">Open Circles</a></li>
+          <li><a href="#" class="hover:underline">Private Circles</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-semibold mb-2">Features</h4>
+        <h4 class="font-semibold mb-2">For Grown‑Ups</h4>
         <ul class="space-y-1">
-          <li><a href="#" class="hover:underline">Friendship Levels</a></li>
-          <li><a href="#" class="hover:underline">Badge System</a></li>
-          <li><a href="#" class="hover:underline">Private Messaging</a></li>
+          <li><a href="#" class="hover:underline">For Parents & Caregivers</a></li>
+          <li><a href="#" class="hover:underline">For Schools</a></li>
+          <li><a href="#" class="hover:underline">Using Trusted Circles Safely</a></li>
         </ul>
       </div>
       <div>
         <h4 class="font-semibold mb-2">Support</h4>
         <ul class="space-y-1">
-          <li><a href="#" class="hover:underline">Help Center</a></li>
           <li><a href="#" class="hover:underline">Community Guidelines</a></li>
-          <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+          <li><a href="#" class="hover:underline">Safety & Moderation</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
         </ul>
       </div>
     </div>
