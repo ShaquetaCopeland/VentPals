@@ -3,234 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals Trusted Circles</title>
+  <title>Your Circles – VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY_HERE",
-      authDomain: "YOUR_AUTH_DOMAIN_HERE",
-      projectId: "YOUR_PROJECT_ID_HERE",
-      storageBucket: "YOUR_STORAGE_BUCKET_HERE",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID_HERE",
-      appId: "YOUR_APP_ID_HERE"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.href = "signin.html";
-      } else {
-        document.getElementById('authLinks').classList.remove('hidden');
-      }
-    });
-
-    window.logout = () => {
-      signOut(auth).then(() => window.location.href = "signin.html");
-    };
-  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Inter', sans-serif;
-      background-image: url('ventpals-clouds.svg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
+      background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
     }
-    .card-hover {
-      transition: all 0.3s ease;
+    .float {
+      animation: float 4s ease-in-out infinite;
     }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Background Audio -->
-  <audio id="ambientAudio" autoplay loop>
-    <source src="ventpals-ambient.mp3" type="audio/mpeg">
-  </audio>
-  <button aria-label="Toggle ambient audio" onclick="toggleAudio(event)" class="fixed top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded text-sm z-50">🔈 Mute</button>
-  <script>
-    function toggleAudio(event) {
-      const audio = document.getElementById('ambientAudio');
-      if (audio.paused) {
-        audio.play();
-        event.target.textContent = '🔈 Mute';
-      } else {
-        audio.pause();
-        event.target.textContent = '🔇 Unmute';
-      }
-    }
-  </script>
 
-  <!-- Navigation -->
-  <nav class="bg-white shadow-sm sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <img src="ventpals-logo.png" alt="VentPals site logo" class="h-8">
+<body class="text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
         <span class="font-bold text-lg text-purple-700">VentPals</span>
-      </div>
-      <div id="authLinks" class="hidden flex items-center gap-4">
-        <span class="text-xs text-gray-500">Trusted Circles • Safe, guided spaces</span>
-        <a href="#" onclick="logout()" class="text-purple-600 hover:text-purple-800 text-sm">Sign Out</a>
-      </div>
+      </a>
+
+      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
+
+      <ul id="mobileMenu"
+          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
+        <li><a href="profile.html" class="hover:text-purple-900">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Header -->
-  <section class="text-center py-10 px-4">
-    <h1 class="text-4xl font-bold text-purple-700 mb-3">Welcome to Trusted Circles</h1>
-    <p class="text-gray-700 max-w-2xl mx-auto mb-2">
-      Each Circle is a guided space connected to a VentPal bird, where kids can share feelings,
-      listen, and learn together with clear rules and gentle support.
-    </p>
-    <p class="text-xs text-gray-500 max-w-xl mx-auto">
-      Some Circles are open and moderated, others are private and invite‑only. Every Circle is designed
-      to keep kids emotionally safe.
+  <script>
+    document.getElementById('menuToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+  </script>
+
+  <!-- HEADER -->
+  <section class="text-center py-10 px-6">
+    <div class="text-6xl float mb-4">🫶</div>
+
+    <h1 class="text-3xl font-bold text-purple-700 mb-2">Your Circles</h1>
+    <p class="text-gray-600 text-sm max-w-xl mx-auto">
+      Circles are safe places you create to share, reflect, and connect with people you trust.
     </p>
   </section>
 
-  <!-- Circles Grid -->
-  <section class="max-w-7xl mx-auto px-4 pb-20">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <!-- MAIN CONTENT -->
+  <section class="max-w-xl mx-auto px-6 pb-20 space-y-12">
 
-      <!-- Aura Circle -->
-      <a href="circle-aura.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-700 mb-1">Aura Circle</h2>
-        <p class="text-xs text-gray-600">Self‑discovery, uniqueness & feeling “different”.</p>
-      </a>
+    <!-- OPEN CIRCLES -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-4">Open Circles</h2>
+      <p class="text-gray-600 text-sm mb-6">
+        These circles are guided and safe. Everyone follows the same gentle rules.
+      </p>
 
-      <!-- Breezy Circle -->
-      <a href="circle-breezy.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-sky-700 mb-1">Breezy Circle</h2>
-        <p class="text-xs text-gray-600">Invisible struggles, misunderstood needs, quiet challenges.</p>
-      </a>
+      <div class="space-y-4">
 
-      <!-- Clover Circle -->
-      <a href="circle-clover.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-green-700 mb-1">Clover Circle</h2>
-        <p class="text-xs text-gray-600">Safety, calming down, feeling steady again.</p>
-      </a>
+        <!-- Example Open Circle -->
+        <a href="circle-aura.html"
+           class="block bg-purple-50 border border-purple-200 rounded-2xl p-4 hover:bg-purple-100 transition">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl">🕊️</div>
+            <div>
+              <p class="font-semibold text-purple-700">Aura Circle</p>
+              <p class="text-xs text-gray-600">Calm, steady, gentle</p>
+            </div>
+          </div>
+        </a>
 
-      <!-- Cove Circle -->
-      <a href="circle-cove.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-sky-800 mb-1">Cove Circle</h2>
-        <p class="text-xs text-gray-600">Quiet company for kids who don’t want to talk yet.</p>
-      </a>
+        <a href="flamez-circle.html"
+           class="block bg-purple-50 border border-purple-200 rounded-2xl p-4 hover:bg-purple-100 transition">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl">🔥</div>
+            <div>
+              <p class="font-semibold text-purple-700">Flamez Circle</p>
+              <p class="text-xs text-gray-600">Bold, expressive, bright</p>
+            </div>
+          </div>
+        </a>
 
-      <!-- Drift Circle -->
-      <a href="circle-drift.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-slate-700 mb-1">Drift Circle</h2>
-        <p class="text-xs text-gray-600">Sorting thoughts, slowing down, making sense of things.</p>
-      </a>
+        <a href="breezy-circle.html"
+           class="block bg-purple-50 border border-purple-200 rounded-2xl p-4 hover:bg-purple-100 transition">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl">🍃</div>
+            <div>
+              <p class="font-semibold text-purple-700">Breezy Circle</p>
+              <p class="text-xs text-gray-600">Thoughtful, observant, quiet</p>
+            </div>
+          </div>
+        </a>
 
-      <!-- Echo Circle -->
-      <a href="circle-echo.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-gray-700 mb-1">Echo Circle</h2>
-        <p class="text-xs text-gray-600">Feeling seen, heard, and understood.</p>
-      </a>
+      </div>
+    </div>
 
-      <!-- Flamez Circle -->
-      <a href="circle-flamez.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-red-700 mb-1">Flamez Circle</h2>
-        <p class="text-xs text-gray-600">Rising after hard times, rebuilding confidence.</p>
-      </a>
+    <!-- PRIVATE CIRCLES -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-4">Private Circles</h2>
+      <p class="text-gray-600 text-sm mb-6">
+        Private Circles are special spaces you create with people you trust.
+      </p>
 
-      <!-- Flicker Circle -->
-      <a href="circle-flicker.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-yellow-600 mb-1">Flicker Circle</h2>
-        <p class="text-xs text-gray-600">Big energy, big love, big feelings.</p>
-      </a>
+      <div class="space-y-4">
 
-      <!-- Flare Circle -->
-      <a href="circle-flare.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-orange-700 mb-1">Flare Circle</h2>
-        <p class="text-xs text-gray-600">Finding your voice and speaking up safely.</p>
-      </a>
+        <!-- Example Private Circle -->
+        <a href="circle-hub.html"
+           class="block bg-blue-50 border border-blue-200 rounded-2xl p-4 hover:bg-blue-100 transition">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl">💙</div>
+            <div>
+              <p class="font-semibold text-blue-700">Family Circle</p>
+              <p class="text-xs text-gray-600">A safe place with your trusted grown‑ups</p>
+            </div>
+          </div>
+        </a>
 
-      <!-- Guardian Circle -->
-      <a href="circle-guardian.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-blue-900 mb-1">Guardian Circle</h2>
-        <p class="text-xs text-gray-600">Boundaries, safety, and knowing “this isn’t okay”.</p>
-      </a>
+      </div>
 
-      <!-- Lumen Circle -->
-      <a href="circle-lumen.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-slate-600 mb-1">Lumen Circle</h2>
-        <p class="text-xs text-gray-600">Understanding how your mind works and why things feel hard.</p>
-      </a>
+      <p class="text-xs text-gray-500 mt-4">
+        You choose who can join your circles.
+      </p>
+    </div>
 
-      <!-- Nova Circle -->
-      <a href="circle-nova.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-teal-700 mb-1">Nova Circle</h2>
-        <p class="text-xs text-gray-600">Seeing the bigger picture and growing through change.</p>
-      </a>
+    <!-- RECENT ACTIVITY -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-4">Recent Activity</h2>
 
-      <!-- Pebble Circle -->
-      <a href="circle-pebble.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-emerald-700 mb-1">Pebble Circle</h2>
-        <p class="text-xs text-gray-600">Gentle questions, soft support, next tiny steps.</p>
-      </a>
+      <div class="space-y-4">
 
-      <!-- Sable Circle -->
-      <a href="circle-sable.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-purple-900 mb-1">Sable Circle</h2>
-        <p class="text-xs text-gray-600">Strength after hard experiences, breaking old cycles.</p>
-      </a>
+        <div class="bg-purple-50 border border-purple-200 rounded-2xl p-4">
+          <p class="text-xs text-gray-500 mb-1">Today</p>
+          <p class="text-sm text-gray-700">
+            You added a reflection in the Aura Circle.
+          </p>
+        </div>
 
-      <!-- Solace Circle -->
-      <a href="circle-solace.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-amber-800 mb-1">Solace Circle</h2>
-        <p class="text-xs text-gray-600">Comfort, soothing, and emotional rest.</p>
-      </a>
+        <div class="bg-purple-50 border border-purple-200 rounded-2xl p-4">
+          <p class="text-xs text-gray-500 mb-1">Yesterday</p>
+          <p class="text-sm text-gray-700">
+            You shared a calming moment in the Breezy Circle.
+          </p>
+        </div>
 
-      <!-- Twig Circle -->
-      <a href="circle-twig.html" class="card-hover p-4 bg-white rounded shadow text-center">
-        <h2 class="text-xl font-semibold text-stone-700 mb-1">Twig Circle</h2>
-        <p class="text-xs text-gray-600">Learning feelings from the beginning, tiny emotional steps.</p>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="text-center">
+      <a href="dashboard.html"
+         class="inline-block text-purple-600 hover:text-purple-800 font-semibold text-sm">
+        ← Back to Dashboard
       </a>
     </div>
+
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-8">
-    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
-      <div>
-        <img src="ventpals-logo.png" alt="VentPals Logo" class="h-6 mb-2">
-        <p class="opacity-70">Trusted Circles — guided emotional spaces for kids, shaped by the VentPals flock.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Circles</h4>
-        <ul class="space-y-1">
-          <li><a href="circles-dashboard.html" class="hover:underline">All Circles</a></li>
-          <li><a href="#" class="hover:underline">Open Circles</a></li>
-          <li><a href="#" class="hover:underline">Private Circles</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">For Grown‑Ups</h4>
-        <ul class="space-y-1">
-          <li><a href="#" class="hover:underline">For Parents & Caregivers</a></li>
-          <li><a href="#" class="hover:underline">For Schools</a></li>
-          <li><a href="#" class="hover:underline">Using Trusted Circles Safely</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold mb-2">Support</h4>
-        <ul class="space-y-1">
-          <li><a href="#" class="hover:underline">Community Guidelines</a></li>
-          <li><a href="#" class="hover:underline">Safety & Moderation</a></li>
-          <li><a href="#" class="hover:underline">Contact</a></li>
-        </ul>
-      </div>
-    </div>
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-gray-500 text-xs">
+    VentPals • The Journey of Growing Up.
   </footer>
+
 </body>
 </html>
