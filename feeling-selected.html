@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Feeling – VentPals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #fdf2f8, #e0f2fe);
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
+        <span class="font-bold text-lg text-purple-700">VentPals</span>
+      </a>
+
+      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
+
+      <ul id="mobileMenu"
+          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
+        <li><a href="profile.html" class="hover:text-purple-900">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    document.getElementById('menuToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+  </script>
+
+  <!-- HEADER -->
+  <section class="text-center py-10 px-4">
+    <div class="relative overflow-visible h-24 sm:h-32">
+      <div class="absolute top-6 left-4 sm:top-10 sm:left-20 text-4xl sm:text-6xl float">💛</div>
+    </div>
+
+    <h1 class="text-3xl font-bold text-purple-700 mb-2">You Picked a Feeling</h1>
+    <p class="text-gray-600 max-w-xl mx-auto text-sm">
+      Your bird is listening. Let’s take a moment to understand this feeling together.
+    </p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-10">
+
+    <!-- FEELING DISPLAY -->
+    <div class="bg-white rounded-3xl shadow p-6 text-center">
+      <div class="text-5xl mb-2">😊</div>
+      <p class="text-xl font-bold text-purple-700">Happy</p>
+      <p class="text-gray-600 text-sm mt-2">
+        It’s great to notice when your body feels good.
+      </p>
+    </div>
+
+    <!-- REFLECTION PROMPT -->
+    <div class="bg-white rounded-3xl shadow p-6">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Want to Share More?</h2>
+      <p class="text-gray-600 text-sm mb-4">
+        You can write a little about why you feel this way.
+      </p>
+
+      <textarea placeholder="Write something here..."
+                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4"
+                rows="4"></textarea>
+
+      <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
+        Save My Reflection
+      </button>
+    </div>
+
+    <!-- CALMING SKILLS -->
+    <div class="bg-white rounded-3xl shadow p-6">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Need a Calming Skill?</h2>
+      <p class="text-gray-600 text-sm mb-4">
+        Even happy bodies sometimes need a moment to breathe.
+      </p>
+
+      <a href="calming-skills.html"
+         class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-full">
+        Try a Calming Skill
+      </a>
+    </div>
+
+    <!-- SHARE WITH CIRCLE -->
+    <div class="bg-white rounded-3xl shadow p-6">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Share With Your Circle</h2>
+      <p class="text-gray-600 text-sm mb-4">
+        If you want, you can share this feeling with the grown‑ups you trust.
+      </p>
+
+      <a href="circles.html"
+         class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-full">
+        Go to My Circle
+      </a>
+    </div>
+
+    <!-- REWARDS -->
+    <div class="bg-white rounded-3xl shadow p-6 text-center">
+      <p class="text-gray-600 text-sm mb-4">
+        Checking in helps your bird grow.
+      </p>
+
+      <a href="rewards.html"
+         class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full">
+        See My Feathers
+      </a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-gray-500 text-xs">
+    VentPals • The Journey of Growing Up.
+  </footer>
+
+</body>
+</html>
