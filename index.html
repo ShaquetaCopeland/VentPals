@@ -8,19 +8,9 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
-    }
-
-    .float {
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
@@ -31,7 +21,7 @@
   <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="dashboard.html" class="flex items-center gap-2">
-        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
+        <img src="assets/images/aura-baby.png" class="h-8" alt="VentPals Logo">
         <span class="font-bold text-lg text-purple-700">VentPals</span>
       </a>
 
@@ -52,11 +42,7 @@
   </script>
 
   <!-- HERO -->
-  <section class="text-center py-16 px-6 relative overflow-hidden">
-
-    <!-- Floating Emoji -->
-    <div class="absolute top-6 left-6 text-5xl float opacity-70 select-none">🕊️</div>
-    <div class="absolute bottom-10 right-6 text-6xl float opacity-70 select-none">✨</div>
+  <section class="text-center py-16 px-6">
 
     <h1 class="text-4xl sm:text-5xl font-bold text-purple-700 mb-4">
       Welcome to VentPals
@@ -67,7 +53,7 @@
       and build your own safe emotional world.
     </p>
 
-    <!-- BUTTON ROW (Home removed) -->
+    <!-- BUTTON ROW -->
     <div class="flex flex-wrap justify-center gap-4 mt-8">
 
       <a href="start-with-a-feeling.html"
@@ -82,7 +68,7 @@
 
       <a href="rewards.html"
          class="px-6 py-3 bg-pink-600 text-white font-semibold rounded-full hover:bg-pink-700 transition">
-        Earn Rewards
+        Keepsakes
       </a>
 
       <a href="join.html"
@@ -93,31 +79,43 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="max-w-4xl mx-auto px-6 pb-20 space-y-10">
+  <!-- CORE 6 BIRDS PREVIEW -->
+  <section class="max-w-4xl mx-auto px-6 pb-20 grid grid-cols-2 sm:grid-cols-3 gap-6">
 
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Explore Your Feelings</h2>
-      <p class="text-gray-700 text-sm leading-relaxed">
-        VentPals helps you understand your feelings with gentle prompts, calming tools,  
-        and a magical bird companion who grows with you.
-      </p>
+    <!-- Aura -->
+    <div class="bg-white rounded-3xl shadow p-4 text-center">
+      <img src="assets/images/aura-baby.png" class="w-20 mx-auto mb-2" alt="Aura the calm and gentle VentPal">
+      <p class="font-semibold text-purple-700 text-sm">Aura</p>
     </div>
 
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your VentPal Bird</h2>
-      <p class="text-gray-700 text-sm leading-relaxed">
-        Each VentPal bird has its own personality and emotional style.  
-        Choose the one that feels right for you and grow together.
-      </p>
+    <!-- Breezy -->
+    <div class="bg-white rounded-3xl shadow p-4 text-center">
+      <img src="assets/images/breezy-baby.png" class="w-20 mx-auto mb-2" alt="Breezy the thoughtful and observant VentPal">
+      <p class="font-semibold text-purple-700 text-sm">Breezy</p>
     </div>
 
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Safe Circles</h2>
-      <p class="text-gray-700 text-sm leading-relaxed">
-        Create your own Circles and invite trusted people.  
-        Share reflections, calming moments, and gentle updates — all in a safe space you control.
-      </p>
+    <!-- Clover -->
+    <div class="bg-white rounded-3xl shadow p-4 text-center">
+      <img src="assets/images/clover-baby.png" class="w-20 mx-auto mb-2" alt="Clover the steady and comforting VentPal">
+      <p class="font-semibold text-purple-700 text-sm">Clover</p>
+    </div>
+
+    <!-- Cove -->
+    <div class="bg-white rounded-3xl shadow p-4 text-center">
+      <img src="assets/images/cove-baby.png" class="w-20 mx-auto mb-2" alt="Cove the soft and soothing VentPal">
+      <p class="font-semibold text-purple-700 text-sm">Cove</p>
+    </div>
+
+    <!-- Flamez -->
+    <div class="bg-white rounded-3xl shadow p-4 text-center">
+      <img src="assets/images/flamez-baby.png" class="w-20 mx-auto mb-2" alt="Flamez the bold and expressive VentPal">
+      <p class="font-semibold text-purple-700 text-sm">Flamez</p>
+    </div>
+
+    <!-- Guardian -->
+    <div class="bg-white rounded-3xl shadow p-4 text-center">
+      <img src="assets/images/guardian-baby.png" class="w-20 mx-auto mb-2" alt="Guardian the protective and loyal VentPal">
+      <p class="font-semibold text-purple-700 text-sm">Guardian</p>
     </div>
 
   </section>
