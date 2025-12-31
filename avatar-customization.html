@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Your Avatar – VentPals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
+        <span class="font-bold text-lg text-purple-700">VentPals</span>
+      </a>
+
+      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
+
+      <ul id="mobileMenu"
+          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
+        <li><a href="profile.html" class="hover:text-purple-900">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    document.getElementById('menuToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+  </script>
+
+  <!-- HEADER -->
+  <section class="text-center py-10 px-4">
+    <div class="relative overflow-visible h-24 sm:h-32">
+      <div class="absolute top-6 left-4 sm:top-10 sm:left-20 text-4xl sm:text-6xl float">🎨</div>
+    </div>
+
+    <h1 class="text-3xl font-bold text-purple-700 mb-2">Create Your Avatar</h1>
+    <p class="text-gray-600 max-w-xl mx-auto text-sm">
+      Choose a nickname, customize your look, and let your VentPal help you discover your PowerWord.
+    </p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-10">
+
+    <!-- NICKNAME -->
+    <div class="bg-white rounded-3xl shadow p-6">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Nickname</h2>
+      <p class="text-gray-600 text-sm mb-4">
+        Pick a name you feel comfortable being called. It doesn’t have to be your real name.
+      </p>
+
+      <input id="nicknameInput"
+             type="text"
+             placeholder="Enter your nickname..."
+             class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4" />
+
+      <button id="generatePowerWord"
+              class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
+        Generate My PowerWord
+      </button>
+    </div>
+
+    <!-- POWERWORD -->
+    <div id="powerWordCard" class="bg-white rounded-3xl shadow p-6 hidden">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your PowerWord</h2>
+      <p class="text-gray-600 text-sm mb-4">
+        This magical word is inspired by your VentPal and your emotional style.
+      </p>
+
+      <div id="powerWordDisplay"
+           class="text-center text-2xl font-bold text-purple-700 mb-4">
+      </div>
+    </div>
+
+    <!-- APPEARANCE -->
+    <div class="bg-white rounded-3xl shadow p-6 space-y-6">
+      <h2 class="text-xl font-semibold text-purple-700">Customize Your Look</h2>
+
+      <!-- Bird Color -->
+      <div>
+        <p class="text-sm font-semibold text-gray-700 mb-2">Bird Color</p>
+        <select id="colorSelect"
+                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="default">Default</option>
+          <option value="blue">Blue</option>
+          <option value="pink">Pink</option>
+          <option value="green">Green</option>
+          <option value="gold">Gold</option>
+        </select>
+      </div>
+
+      <!-- Accessories -->
+      <div>
+        <p class="text-sm font-semibold text-gray-700 mb-2">Accessories</p>
+        <select id="accessorySelect"
+                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="none">None</option>
+          <option value="scarf">Scarf</option>
+          <option value="hat">Hat</option>
+          <option value="glasses">Glasses</option>
+        </select>
+      </div>
+
+      <!-- Background -->
+      <div>
+        <p class="text-sm font-semibold text-gray-700 mb-2">Background</p>
+        <select id="backgroundSelect"
+                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="soft">Soft Gradient</option>
+          <option value="forest">Forest</option>
+          <option value="sky">Sky</option>
+          <option value="sparkles">Sparkles</option>
+        </select>
+      </div>
+
+      <!-- Pronouns -->
+      <div>
+        <p class="text-sm font-semibold text-gray-700 mb-2">Pronouns (Optional)</p>
+        <select id="pronounSelect"
+                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option value="">Prefer not to say</option>
+          <option value="she/her">She/Her</option>
+          <option value="he/him">He/Him</option>
+          <option value="they/them">They/Them</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="bg-white rounded-3xl shadow p-6 text-center">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Avatar Preview</h2>
+
+      <div id="avatarPreview"
+           class="bg-purple-50 border border-purple-200 rounded-3xl p-6">
+        <img id="avatarBird" src="assets/images/aura-percher.png"
+             class="h-32 mx-auto mb-4" alt="Avatar Bird">
+
+        <p id="avatarName"
+           class="text-xl font-bold text-purple-700">
+          Your Name Will Appear Here
+        </p>
+
+        <p id="avatarPronouns"
+           class="text-sm text-gray-600 mt-1"></p>
+      </div>
+    </div>
+
+    <!-- SAVE -->
+    <button id="saveAvatar"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-full">
+      Save My Avatar
+    </button>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-gray-500 text-xs">
+    VentPals • The Journey of Growing Up.
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const nicknameInput = document.getElementById("nicknameInput");
+    const powerWordCard = document.getElementById("powerWordCard");
+    const powerWordDisplay = document.getElementById("powerWordDisplay");
+    const avatarName = document.getElementById("avatarName");
+    const avatarPronouns = document.getElementById("avatarPronouns");
+
+    document.getElementById("generatePowerWord").onclick = () => {
+      const nickname = nicknameInput.value.trim();
+      if (!nickname) return;
+
+      const powerWords = ["Brightwing", "Softglow", "Embercrest", "Starstep", "Willowcrest"];
+      const randomWord = powerWords[Math.floor(Math.random() * powerWords.length)];
+
+      powerWordDisplay.textContent = randomWord;
+      powerWordCard.classList.remove("hidden");
+
+      avatarName.textContent = nickname + " " + randomWord;
+    };
+
+    document.getElementById("pronounSelect").onchange = (e) => {
+      avatarPronouns.textContent = e.target.value;
+    };
+  </script>
+
+</body>
+</html>
