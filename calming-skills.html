@@ -8,14 +8,16 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #fdf2f8, #e0f2fe);
+      background: linear-gradient(to bottom right, #fdf2f8, #f0f9ff);
     }
 
     .float {
       animation: float 4s ease-in-out infinite;
     }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
@@ -25,102 +27,78 @@
 
 <body class="text-gray-800">
 
-  <!-- NAV -->
-  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="dashboard.html" class="flex items-center gap-2">
-        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
-        <span class="font-bold text-lg text-purple-700">VentPals</span>
-      </a>
-
-      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
-
-      <ul id="mobileMenu"
-          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
-        <li><a href="profile.html" class="hover:text-purple-900">Profile</a></li>
-        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <script>
-    document.getElementById('menuToggle').onclick = () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    };
-  </script>
-
   <!-- HEADER -->
-  <section class="text-center py-10 px-4">
-    <div class="relative overflow-visible h-24 sm:h-32">
-      <div class="absolute top-6 left-4 sm:top-10 sm:left-20 text-4xl sm:text-6xl float">🌬️</div>
-    </div>
+  <section class="text-center py-12 px-6">
+    <div class="text-6xl float mb-4">🌬️</div>
 
     <h1 class="text-3xl font-bold text-purple-700 mb-2">Calming Skills</h1>
-    <p class="text-gray-600 max-w-xl mx-auto text-sm">
-      These skills help your body feel safe again. Try one and see how your bird reacts.
+    <p class="text-gray-600 text-sm max-w-md mx-auto">
+      These gentle skills can help your body and mind slow down.  
+      Try any one you like — or none at all. It’s always your choice.
     </p>
   </section>
 
   <!-- MAIN CONTENT -->
-  <section class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-10">
+  <section class="max-w-md mx-auto px-6 pb-20 space-y-10">
 
-    <!-- SKILL: DEEP BREATH -->
-    <div class="bg-white rounded-3xl shadow p-6">
+    <!-- DEEP BREATHING -->
+    <div class="bg-white rounded-3xl shadow p-8">
       <h2 class="text-xl font-semibold text-purple-700 mb-3">Deep Breathing</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Breathe in slowly… and out slowly. Try it three times.
+      <p class="text-gray-700 text-sm leading-relaxed mb-4">
+        A slow breath can help your body feel a little lighter.
       </p>
 
-      <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        I Used This Skill
-      </button>
+      <a href="breathing.html"
+         class="block w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full text-center">
+        Try Deep Breathing
+      </a>
     </div>
 
-    <!-- SKILL: BUTTERFLY HUG -->
-    <div class="bg-white rounded-3xl shadow p-6">
+    <!-- BUTTERFLY HUG -->
+    <div class="bg-white rounded-3xl shadow p-8">
       <h2 class="text-xl font-semibold text-purple-700 mb-3">Butterfly Hug</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Cross your arms and tap your shoulders gently, one side at a time.
+      <p class="text-gray-700 text-sm leading-relaxed mb-4">
+        A gentle self‑hug that can help you feel steady and safe.
       </p>
 
-      <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        I Used This Skill
-      </button>
+      <a href="butterfly-hug.html"
+         class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full text-center">
+        Try Butterfly Hug
+      </a>
     </div>
 
-    <!-- SKILL: GROUNDING -->
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">5‑4‑3‑2‑1 Grounding</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Look around and name things you can see, hear, and feel.
+    <!-- 5 SENSES GROUNDING -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">5 Senses Grounding</h2>
+      <p class="text-gray-700 text-sm leading-relaxed mb-4">
+        Notice what’s around you using your senses.  
+        It can help bring your mind back to the present moment.
       </p>
 
-      <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        I Used This Skill
-      </button>
+      <a href="grounding.html"
+         class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-full text-center">
+        Try Grounding
+      </a>
     </div>
 
-    <!-- SKILL: DRINK WATER -->
-    <div class="bg-white rounded-3xl shadow p-6">
+    <!-- DRINK OF WATER -->
+    <div class="bg-white rounded-3xl shadow p-8">
       <h2 class="text-xl font-semibold text-purple-700 mb-3">Sip of Water</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        A small drink can help your body reset.
+      <p class="text-gray-700 text-sm leading-relaxed mb-4">
+        A small sip of water can help your body reset and slow down.
       </p>
 
-      <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        I Used This Skill
-      </button>
+      <a href="water.html"
+         class="block w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-full text-center">
+        Try a Sip of Water
+      </a>
     </div>
 
-    <!-- CTA -->
-    <div class="bg-white rounded-3xl shadow p-6 text-center">
-      <p class="text-gray-600 text-sm mb-4">
-        Using calming skills helps your bird grow stronger.
-      </p>
-
-      <a href="rewards.html"
-         class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full">
-        See My Feathers
+    <!-- BACK -->
+    <div class="text-center">
+      <a href="dashboard.html"
+         class="inline-block text-purple-600 hover:text-purple-800 font-semibold text-sm">
+        ← Back to Dashboard
       </a>
     </div>
 
