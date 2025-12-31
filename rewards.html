@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Earn Rewards – VentPals</title>
+  <title>Keepsakes – VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #fdf2f8, #e0f2fe);
+      background: linear-gradient(to bottom right, #fdf2f8, #f0f9ff);
     }
+
     .float {
       animation: float 4s ease-in-out infinite;
     }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
@@ -24,93 +27,73 @@
 
 <body class="text-gray-800">
 
-  <!-- NAV -->
-  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="dashboard.html" class="flex items-center gap-2">
-        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
-        <span class="font-bold text-lg text-purple-700">VentPals</span>
-      </a>
-      <a href="profile.html" class="text-purple-600 hover:text-purple-800 text-sm">
-        Profile
-      </a>
-    </div>
-  </nav>
-
   <!-- HEADER -->
-  <section class="text-center py-10 px-4">
-    <div class="text-5xl mb-4 float">🎉</div>
-    <h1 class="text-3xl font-bold text-purple-700 mb-2">Earn Rewards</h1>
-    <p class="text-gray-600 max-w-xl mx-auto text-sm">
-      Every time you learn something new about your feelings, your bird grows — and you earn something special.
+  <section class="text-center py-12 px-6">
+    <div class="text-6xl float mb-4">🎁</div>
+
+    <h1 class="text-3xl font-bold text-purple-700 mb-2">Your Keepsakes</h1>
+    <p class="text-gray-600 text-sm max-w-md mx-auto">
+      Keepsakes are special items you earn by growing with your VentPal.  
+      Each one represents a real moment of courage, calm, or understanding.
     </p>
   </section>
 
   <!-- MAIN CONTENT -->
-  <section class="max-w-xl mx-auto px-4 pb-20 space-y-10">
+  <section class="max-w-md mx-auto px-6 pb-20 space-y-10">
 
-    <!-- DAILY FEELING CHECK -->
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Daily Feeling Check</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Check in with your feelings each day to earn feathers.
+    <!-- WHAT ARE KEEPSAKES -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">What Are Keepsakes?</h2>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Keepsakes are gentle reminders of how far you’ve come.  
+        They aren’t prizes or points — they’re symbols of real emotional moments you’ve had with your VentPal.
       </p>
-
-      <a href="start-with-a-feeling.html"
-         class="block text-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        Start a Feeling Check
-      </a>
     </div>
 
-    <!-- CALMING SKILLS -->
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Calming Skills</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        When you use a calming skill in real life, you can earn a special feather.
-      </p>
+    <!-- EXAMPLE KEEPSAKE -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Latest Keepsake</h2>
 
-      <a href="keepsakes.html"
-         class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-full">
-        View Your Feathers
-      </a>
-    </div>
-
-    <!-- CIRCLE PARTICIPATION -->
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Circle Participation</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Sharing in your private circle helps your bird grow stronger.
-      </p>
-
-      <a href="circles.html"
-         class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-full">
-        Go to Your Circle
-      </a>
-    </div>
-
-    <!-- BIRD GROWTH -->
-    <div class="bg-white rounded-3xl shadow p-6 text-center">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Bird’s Growth</h2>
-
-      <div class="w-32 h-32 mx-auto mb-4">
-        <img src="assets/birds/aura.png" alt="Your Bird" class="w-full h-full object-contain float">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="text-4xl">🪶</div>
+        <div>
+          <p class="font-semibold text-purple-700">Feather of Calm</p>
+          <p class="text-xs text-gray-600">Earned after practicing a calming skill</p>
+        </div>
       </div>
 
-      <p class="font-semibold text-purple-700">Aura Bird</p>
-      <p class="text-gray-600 text-sm mb-4">Baby Stage</p>
+      <p class="text-gray-700 text-sm leading-relaxed mb-4">
+        This keepsake shows a moment when you slowed down, breathed, and took care of yourself.
+      </p>
 
       <a href="keepsakes.html"
-         class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full">
-        View Growth Milestones
+         class="inline-block text-purple-700 font-semibold text-sm hover:text-purple-900">
+        View All Keepsakes →
       </a>
     </div>
 
-    <!-- FUTURE REWARDS -->
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">More Rewards Coming Soon</h2>
-      <p class="text-gray-700 text-sm">
-        New feathers, stickers, and milestones will appear as you keep growing with your bird.
+    <!-- HOW TO EARN -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">How You Earn Them</h2>
+
+      <ul class="text-sm text-gray-700 space-y-3">
+        <li>🌱 When you reflect on a feeling</li>
+        <li>🪶 When you practice a calming skill</li>
+        <li>💬 When you share in a Circle</li>
+        <li>✨ When you notice something new about yourself</li>
+      </ul>
+
+      <p class="text-xs text-gray-500 mt-4">
+        You don’t earn keepsakes by being perfect — you earn them by growing.
       </p>
+    </div>
+
+    <!-- BACK -->
+    <div class="text-center">
+      <a href="dashboard.html"
+         class="inline-block text-purple-600 hover:text-purple-800 font-semibold text-sm">
+        ← Back to Dashboard
+      </a>
     </div>
 
   </section>
