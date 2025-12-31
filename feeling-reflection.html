@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflect on Your Feeling – VentPals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
+        <span class="font-bold text-lg text-purple-700">VentPals</span>
+      </a>
+
+      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
+
+      <ul id="mobileMenu"
+          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
+        <li><a href="profile.html" class="hover:text-purple-900">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    document.getElementById('menuToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+  </script>
+
+  <!-- HEADER -->
+  <section class="text-center py-10 px-4">
+    <div class="relative overflow-visible h-24 sm:h-32">
+      <div id="feelingEmoji"
+           class="absolute top-6 left-4 sm:top-10 sm:left-20 text-4xl sm:text-6xl float">
+        😊
+      </div>
+    </div>
+
+    <h1 id="feelingName" class="text-3xl font-bold text-purple-700 mb-2">
+      How Are You Feeling?
+    </h1>
+
+    <p class="text-gray-600 max-w-xl mx-auto text-sm">
+      Take a moment to think about your feeling. You can write anything — a thought, a moment, or what your feeling is trying to tell you.
+    </p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-10">
+
+    <!-- REFLECTION CARD -->
+    <div class="bg-white rounded-3xl shadow p-6">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Reflection</h2>
+
+      <textarea id="reflectionInput"
+                placeholder="Write about your feeling here..."
+                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4"
+                rows="5"></textarea>
+
+      <button id="saveReflection"
+              class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
+        Save Reflection
+      </button>
+    </div>
+
+    <!-- WHAT NEXT -->
+    <div class="bg-white rounded-3xl shadow p-6 space-y-4">
+      <h2 class="text-xl font-semibold text-purple-700">What would you like to do next?</h2>
+
+      <a href="calming-skills.html"
+         class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-full">
+        Try a Calming Skill
+      </a>
+
+      <a href="dashboard.html"
+         class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-full">
+        Go Back to Dashboard
+      </a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-gray-500 text-xs">
+    VentPals • The Journey of Growing Up.
+  </footer>
+
+  <!-- SCRIPT: Inject feeling name + emoji from URL params -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const feeling = params.get("feeling");
+    const emoji = params.get("emoji");
+
+    if (feeling) {
+      document.getElementById("feelingName").textContent = feeling;
+    }
+    if (emoji) {
+      document.getElementById("feelingEmoji").textContent = emoji;
+    }
+  </script>
+
+</body>
+</html>
