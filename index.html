@@ -2,220 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>VentPals – Big Feelings Welcome</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #fdf2f8, #f0f9ff);
-      overflow-x: hidden;
     }
-
-    /* FLOATING FEELINGS EMOJIS */
-    .float-emoji {
-      position: absolute;
-      font-size: 2.5rem;
-      opacity: 0.35;
-      animation: float 8s ease-in-out infinite;
-      pointer-events: none;
+    .float {
+      animation: float 4s ease-in-out infinite;
     }
-
     @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-25px) rotate(6deg); }
-    }
-
-    /* FLIP CARD */
-    .flip-card {
-      perspective: 1000px;
-    }
-
-    .flip-inner {
-      transition: transform 0.7s;
-      transform-style: preserve-3d;
-    }
-
-    .flip-card:hover .flip-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-front, .flip-back {
-      backface-visibility: hidden;
-    }
-
-    .flip-back {
-      transform: rotateY(180deg);
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
   </style>
 </head>
 
-<body class="text-gray-800 relative">
+<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 overflow-x-hidden">
 
-  <!-- FLOATING EMOJIS -->
-  <div class="float-emoji" style="top: 10%; left: 5%;">💛</div>
-  <div class="float-emoji" style="top: 20%; left: 80%;">😡</div>
-  <div class="float-emoji" style="top: 40%; left: 15%;">😢</div>
-  <div class="float-emoji" style="top: 60%; left: 75%;">😨</div>
-  <div class="float-emoji" style="top: 70%; left: 30%;">😴</div>
-  <div class="float-emoji" style="top: 85%; left: 60%;">😃</div>
-  <div class="float-emoji" style="top: 50%; left: 45%;">🌈</div>
+  <!-- 🌍 NAV -->
+  <nav class="flex items-center justify-between px-6 py-4">
+    <div class="flex items-center gap-2">
+      <!-- Keep your logo exactly as-is; swap this file in your repo if you update branding -->
+      <img src="ventpals-logo.png" alt="VentPals logo" class="h-10" />
+      <span class="font-bold text-purple-700 text-xl">VentPals</span>
+    </div>
 
-  <!-- HERO -->
-  <section class="text-center py-20 px-6 relative z-10">
-    <h1 class="text-5xl font-extrabold text-purple-700 mb-4 drop-shadow">
-      Welcome to VentPals
+    <div class="hidden md:flex gap-6 text-purple-600 font-semibold text-sm">
+      <a href="#how" class="hover:text-purple-800">How It Works</a>
+      <a href="#circles" class="hover:text-purple-800">Circles</a>
+      <a href="#parents" class="hover:text-purple-800">Parents &amp; Schools</a>
+      <a href="#about" class="hover:text-purple-800">About</a>
+    </div>
+  </nav>
+
+  <!-- 🐣 HERO -->
+  <section class="relative text-center px-6 py-24">
+    <!-- floating icons -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-16 left-10 text-5xl float">🐣</div>
+      <div class="absolute top-32 right-16 text-4xl float">😡</div>
+      <div class="absolute bottom-24 left-24 text-4xl float">😢</div>
+      <div class="absolute bottom-32 right-20 text-4xl float">😄</div>
+    </div>
+
+    <!-- HERO TEXT -->
+    <h1 class="text-5xl md:text-7xl font-extrabold text-purple-800 mb-4">
+      VentPals
     </h1>
 
-    <p class="text-gray-700 text-base max-w-md mx-auto leading-relaxed">
-      A gentle, magical world where your feelings matter,  
-      your VentPal grows with you,  
-      and every emotion has a place to land softly.
+    <p class="text-2xl md:text-3xl font-bold text-purple-600 mb-6">
+      Big feelings live here.
     </p>
 
-    <div class="mt-8 flex flex-wrap justify-center gap-4">
+    <p class="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto mb-10">
+      A gentle place where kids can explore their feelings,
+      grow with their VentPal birds,
+      and understand themselves before the world tells them who to be.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
       <a href="start-with-a-feeling.html"
-         class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-full shadow hover:bg-purple-700 transition">
-        Start With a Feeling
+         class="bg-yellow-300 hover:bg-yellow-400 text-purple-800 font-bold py-4 px-8 rounded-full text-xl shadow-lg text-center">
+        😶‍🌫️ Start With a Feeling
       </a>
-
       <a href="meet-the-flock.html"
-         class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition">
-        Meet the Flock
+         class="bg-white hover:bg-purple-100 text-purple-700 font-bold py-4 px-8 rounded-full text-xl shadow-lg text-center">
+        🐣 Meet the Birds
       </a>
     </div>
   </section>
 
-  <!-- HOW VENTPALS WORK -->
-  <section class="max-w-3xl mx-auto px-6 py-12 space-y-8 relative z-10">
-    <h2 class="text-3xl font-bold text-purple-700 text-center mb-6">
-      How VentPals Work
+  <!-- 💛 FEELINGS -->
+  <section class="py-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
+      All feelings are welcome.
     </h2>
+    <p class="text-lg text-gray-700 mb-10">
+      Even the confusing, mixed, or “too big” ones.
+    </p>
 
-    <div class="grid sm:grid-cols-3 gap-6">
-
-      <div class="bg-white rounded-3xl shadow p-6 text-center">
-        <div class="text-4xl mb-2">💛</div>
-        <p class="font-semibold text-purple-700 mb-1">Pick a Feeling</p>
-        <p class="text-sm text-gray-600">Start by choosing how you feel today.</p>
-      </div>
-
-      <div class="bg-white rounded-3xl shadow p-6 text-center">
-        <div class="text-4xl mb-2">🪽</div>
-        <p class="font-semibold text-purple-700 mb-1">Meet Your VentPal</p>
-        <p class="text-sm text-gray-600">A bird appears who understands that feeling.</p>
-      </div>
-
-      <div class="bg-white rounded-3xl shadow p-6 text-center">
-        <div class="text-4xl mb-2">🌈</div>
-        <p class="font-semibold text-purple-700 mb-1">Grow Together</p>
-        <p class="text-sm text-gray-600">Your VentPal grows as you explore your emotions.</p>
-      </div>
-
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      <div class="bg-red-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😡</div>
+      <div class="bg-blue-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😢</div>
+      <div class="bg-yellow-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😄</div>
+      <div class="bg-green-200 rounded-3xl p-8 text-3xl hover:scale-110 transition">😰</div>
     </div>
   </section>
 
-  <!-- CORE 6 BIRDS WITH FLIP CARDS -->
-  <section class="max-w-4xl mx-auto px-6 pb-20 relative z-10">
-    <h2 class="text-3xl font-bold text-purple-700 text-center mb-10">
-      Meet the Core Flock
+  <!-- 🧠 PROBLEM -->
+  <section class="py-20 bg-white bg-opacity-60">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-purple-700 mb-12">
+      The problem isn’t feelings.
+      <span class="block">It’s the missing education.</span>
     </h2>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
-
-      <!-- Aura -->
-      <div class="flip-card w-36 h-48 mx-auto">
-        <div class="flip-inner relative w-full h-full">
-          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <img src="assets/images/aura-baby.png" class="w-20 h-20 mb-2" alt="Aura">
-            <p class="text-purple-700 font-bold text-lg">Aura</p>
-          </div>
-          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <p class="text-purple-700 font-bold text-lg mb-1">Aura</p>
-            <p class="text-gray-700 text-sm text-center">Calm • Steady • Gentle</p>
-          </div>
-        </div>
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-6">
+      <div class="bg-red-100 rounded-3xl p-8 shadow">
+        <h3 class="font-bold text-lg mb-2">❌ What kids absorb now</h3>
+        <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+          <li>“Big feelings are bad.”</li>
+          <li>Reactions get punished, not understood.</li>
+          <li>Kids learn to hide instead of ask for help.</li>
+        </ul>
       </div>
 
-      <!-- Breezy -->
-      <div class="flip-card w-36 h-48 mx-auto">
-        <div class="flip-inner relative w-full h-full">
-          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <img src="assets/images/breezy-baby.png" class="w-20 h-20 mb-2" alt="Breezy">
-            <p class="text-purple-700 font-bold text-lg">Breezy</p>
-          </div>
-          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <p class="text-purple-700 font-bold text-lg mb-1">Breezy</p>
-            <p class="text-gray-700 text-sm text-center">Thoughtful • Observant • Quiet</p>
-          </div>
-        </div>
+      <div class="bg-green-100 rounded-3xl p-8 shadow">
+        <h3 class="font-bold text-lg mb-2">✅ What VentPals teaches</h3>
+        <ul class="space-y-2 text-gray-700 text-sm md:text-base">
+          <li>Feelings are signals, not failures.</li>
+          <li>You can pause, notice, and choose your next move.</li>
+          <li>Understanding your inner world builds real self-control.</li>
+        </ul>
       </div>
-
-      <!-- Clover -->
-      <div class="flip-card w-36 h-48 mx-auto">
-        <div class="flip-inner relative w-full h-full">
-          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <img src="assets/images/clover-baby.png" class="w-20 h-20 mb-2" alt="Clover">
-            <p class="text-purple-700 font-bold text-lg">Clover</p>
-          </div>
-          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <p class="text-purple-700 font-bold text-lg mb-1">Clover</p>
-            <p class="text-gray-700 text-sm text-center">Steady • Comforting • Warm</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cove -->
-      <div class="flip-card w-36 h-48 mx-auto">
-        <div class="flip-inner relative w-full h-full">
-          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <img src="assets/images/cove-baby.png" class="w-20 h-20 mb-2" alt="Cove">
-            <p class="text-purple-700 font-bold text-lg">Cove</p>
-          </div>
-          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <p class="text-purple-700 font-bold text-lg mb-1">Cove</p>
-            <p class="text-gray-700 text-sm text-center">Soft • Deep • Safe</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Flamez -->
-      <div class="flip-card w-36 h-48 mx-auto">
-        <div class="flip-inner relative w-full h-full">
-          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <img src="assets/images/flamez-baby.png" class="w-20 h-20 mb-2" alt="Flamez">
-            <p class="text-purple-700 font-bold text-lg">Flamez</p>
-          </div>
-          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <p class="text-purple-700 font-bold text-lg mb-1">Flamez</p>
-            <p class="text-gray-700 text-sm text-center">Bold • Expressive • Bright</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Guardian -->
-      <div class="flip-card w-36 h-48 mx-auto">
-        <div class="flip-inner relative w-full h-full">
-          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <img src="assets/images/guardian-baby.png" class="w-20 h-20 mb-2" alt="Guardian">
-            <p class="text-purple-700 font-bold text-lg">Guardian</p>
-          </div>
-          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
-            <p class="text-purple-700 font-bold text-lg mb-1">Guardian</p>
-            <p class="text-gray-700 text-sm text-center">Protective • Loyal • Grounded</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-6 text-center text-gray-500 text-xs">
-    VentPals • The Journey of Growing Up.
+  <!-- 🎮 HOW IT WORKS -->
+  <section id="how" class="py-20">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-purple-700 mb-12">
+      How VentPals works
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto px-6 text-center text-sm md:text-base">
+      <div class="bg-white rounded-3xl p-6 shadow">
+        <div class="text-4xl mb-4">🐣</div>
+        <p>Pick a feeling and let your VentPal meet you there.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 shadow">
+        <div class="text-4xl mb-4">🎨</div>
+        <p>Express it through words, colors, drawing, or simple check-ins.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 shadow">
+        <div class="text-4xl mb-4">🧠</div>
+        <p>Learn what the feeling is trying to tell you.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 shadow">
+        <div class="text-4xl mb-4">🌱</div>
+        <p>Choose a next step that feels safe and kind to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⭕ CIRCLES -->
+  <section id="circles" class="py-20 bg-gradient-to-r from-green-100 to-blue-100 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
+      Share your feelings with people you trust.
+    </h2>
+
+    <p class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
+      Circles are child-created safe spaces where kids choose who gets to see
+      their feelings — trusted adults, siblings, or close friends they invite in.
+    </p>
+
+    <a href="create-circle.html"
+       class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg inline-block">
+      ⭕ Create a Circle
+    </a>
+  </section>
+
+  <!-- 🛡️ PARENTS -->
+  <section id="parents" class="py-16 bg-gray-100 text-center">
+    <h3 class="text-2xl font-bold text-gray-700 mb-6">
+      Built with care. Designed for safety.
+    </h3>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-sm text-gray-600">
+      <p>Child-created Circles keep kids in charge of who they share with.</p>
+      <p>Guided, structured prompts to support healthy expression, not venting without tools.</p>
+      <p>VentPals supports — not replaces — parents, caregivers, and schools.</p>
+    </div>
+
+    <div class="mt-8 flex justify-center gap-6 font-semibold text-purple-600 text-sm">
+      <a href="#" class="hover:text-purple-800">For Parents</a>
+      <a href="#" class="hover:text-purple-800">For Schools</a>
+      <a href="#" class="hover:text-purple-800">Privacy &amp; Safety</a>
+    </div>
+  </section>
+
+  <!-- ABOUT ANCHOR (for nav) -->
+  <section id="about" class="py-10 text-center text-gray-600 text-sm max-w-xl mx-auto px-6">
+    <p>
+      VentPals is an emotional literacy world for kids, built to make big feelings less scary
+      and self-understanding more normal. Kids grow alongside their birds, one feeling at a time.
+    </p>
+  </section>
+
+  <footer class="py-8 text-center text-gray-600 text-sm">
+    <p>VentPals • A nonprofit initiative</p>
   </footer>
 
 </body>
