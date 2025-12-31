@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About – VentPals</title>
+  <title>About VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #fdf2f8, #e0f2fe);
+      background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
     }
     .float {
       animation: float 4s ease-in-out infinite;
@@ -26,98 +26,95 @@
 
   <!-- NAV -->
   <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-2">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="dashboard.html" class="flex items-center gap-2">
         <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
         <span class="font-bold text-lg text-purple-700">VentPals</span>
       </a>
-      <a href="index.html" class="text-purple-600 hover:text-purple-800 text-sm">
-        ← Back Home
-      </a>
+
+      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
+
+      <ul id="mobileMenu"
+          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
+        <li><a href="profile.html" class="hover:text-purple-900">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
+      </ul>
     </div>
   </nav>
 
+  <script>
+    document.getElementById('menuToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+  </script>
+
   <!-- HEADER -->
-  <section class="text-center py-10 px-4">
-    <div class="text-5xl mb-4 float">💛</div>
-    <h1 class="text-4xl font-bold text-purple-700 mb-2">About VentPals</h1>
-    <p class="text-gray-600 max-w-xl mx-auto text-sm">
-      A gentle emotional companion for kids — and a safe place to learn the skills of growing up.
+  <section class="text-center py-12 px-6">
+    <div class="text-6xl float mb-4">🪶</div>
+
+    <h1 class="text-3xl font-bold text-purple-700 mb-2">About VentPals</h1>
+    <p class="text-gray-600 text-sm max-w-xl mx-auto">
+      VentPals is a gentle emotional companion for kids — a place to explore feelings, grow with a magical bird friend, and build emotional skills in a safe, supportive world.
     </p>
   </section>
 
-  <!-- SECTION 1: WHAT WE BELIEVE -->
-  <section class="max-w-4xl mx-auto px-4 pb-12">
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-2xl font-semibold text-purple-700 mb-3">What We Believe</h2>
+  <!-- MAIN CONTENT -->
+  <section class="max-w-3xl mx-auto px-6 pb-20 space-y-12">
+
+    <!-- WHAT WE DO -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">What VentPals Does</h2>
       <p class="text-gray-700 text-sm leading-relaxed">
-        Every child deserves a safe place to understand their feelings, practice emotional skills,
-        and learn how to communicate with the people they trust.  
-        VentPals was created to give kids their voice back — gently, safely, and at their own pace.
+        VentPals helps kids understand and express their feelings through gentle prompts, calming activities, and a magical bird companion who grows with them.  
+        Every interaction is designed to be safe, supportive, and developmentally appropriate.
       </p>
     </div>
-  </section>
 
-  <!-- SECTION 2: THE JOURNEY OF GROWING UP -->
-  <section class="max-w-4xl mx-auto px-4 pb-12">
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-2xl font-semibold text-purple-700 mb-3">The Journey of Growing Up</h2>
+    <!-- THE BIRD CIRCLES -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">The Bird Circles</h2>
       <p class="text-gray-700 text-sm leading-relaxed mb-4">
-        VentPals is built around a simple truth:  
-        <span class="font-semibold text-purple-700">kids grow — and they’re meant to.</span>
+        Each child chooses a VentPal bird — a companion that reflects their emotional style.  
+        The Bird Circles help kids feel seen, understood, and supported.
       </p>
-      <p class="text-gray-700 text-sm leading-relaxed">
-        Every child begins as a baby bird, unsure of their feelings.  
-        As they learn to name their emotions, ask for help, and understand themselves,
-        their bird grows too — from baby, to nestling, to fledgling, to percher.  
-        When a child reaches the percher stage, they no longer need VentPals.  
-        That’s not a failure.  
-        <span class="font-semibold text-purple-700">That’s the win.</span>
-      </p>
-    </div>
-  </section>
 
-  <!-- SECTION 3: WHY BIRDS -->
-  <section class="max-w-4xl mx-auto px-4 pb-12">
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-2xl font-semibold text-purple-700 mb-3">Why Birds?</h2>
-      <p class="text-gray-700 text-sm leading-relaxed">
-        Birds grow in stages, just like kids.  
-        They learn, they wobble, they try again, and eventually — they fly.  
-        Each VentPal bird represents a different emotional style, helping kids feel seen,
-        understood, and proud of who they are.
-      </p>
-    </div>
-  </section>
-
-  <!-- SECTION 4: SAFETY FIRST -->
-  <section class="max-w-4xl mx-auto px-4 pb-12">
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-2xl font-semibold text-purple-700 mb-3">Safety Comes First</h2>
-      <p class="text-gray-700 text-sm leading-relaxed mb-4">
-        VentPals is designed with safety at the center:
-      </p>
-      <ul class="text-gray-700 text-sm space-y-2">
-        <li>• Kids create private Circles — grown‑ups cannot join unless invited.</li>
-        <li>• No conversations are stored.</li>
-        <li>• No public messaging.</li>
-        <li>• No searchable users.</li>
-        <li>• No ads, no pressure, no manipulation.</li>
-        <li>• Kids stay in control of their emotional space.</li>
+      <ul class="text-sm text-gray-700 space-y-2">
+        <li>🕊️ Aura — calm, steady, gentle</li>
+        <li>🔥 Flamez — energetic, expressive, bold</li>
+        <li>🍃 Breezy — thoughtful, observant, quiet</li>
+        <li>🌱 Twig — growing, curious, learning</li>
+        <li>🛡️ Guardian — protective, loyal, grounded</li>
+        <li>✨ Nova — imaginative, bright, creative</li>
       </ul>
     </div>
-  </section>
 
-  <!-- SECTION 5: THE KEEPSAKES -->
-  <section class="max-w-4xl mx-auto px-4 pb-20">
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-2xl font-semibold text-purple-700 mb-3">Keepsakes That Matter</h2>
+    <!-- SAFETY -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Safety First</h2>
       <p class="text-gray-700 text-sm leading-relaxed">
-        As kids grow, they earn keepsakes — emotional feathers that remind them of who they are,
-        what they’ve learned, and how brave they’ve been.  
-        These keepsakes stay with them long after they’ve outgrown VentPals.
+        VentPals is designed with emotional safety at its core.  
+        Kids never share personal information, never message strangers, and never see anything outside their own circles.  
+        Adults stay connected through gentle notifications and optional keepsake approvals.
       </p>
     </div>
+
+    <!-- OUR APPROACH -->
+    <div class="bg-white rounded-3xl shadow p-8">
+      <h2 class="text-xl font-semibold text-purple-700 mb-3">Our Approach</h2>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        We believe emotional growth happens through small, meaningful moments.  
+        VentPals supports kids with calming tools, reflection prompts, and a companion who celebrates their progress — not with points or streaks, but with gentle keepsakes and growth stages.
+      </p>
+    </div>
+
+    <!-- BACK -->
+    <div class="text-center">
+      <a href="dashboard.html"
+         class="inline-block text-purple-600 hover:text-purple-800 font-semibold text-sm">
+        ← Back to Dashboard
+      </a>
+    </div>
+
   </section>
 
   <!-- FOOTER -->
