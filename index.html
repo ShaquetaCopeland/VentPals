@@ -8,116 +8,209 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
+      background: linear-gradient(to bottom right, #fdf2f8, #f0f9ff);
+      overflow-x: hidden;
+    }
+
+    /* FLOATING FEELINGS EMOJIS */
+    .float-emoji {
+      position: absolute;
+      font-size: 2.5rem;
+      opacity: 0.35;
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-25px) rotate(6deg); }
+    }
+
+    /* FLIP CARD */
+    .flip-card {
+      perspective: 1000px;
+    }
+
+    .flip-inner {
+      transition: transform 0.7s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      backface-visibility: hidden;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
     }
   </style>
 </head>
 
-<body class="text-gray-800">
+<body class="text-gray-800 relative">
 
-  <!-- NAV -->
-  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="dashboard.html" class="flex items-center gap-2">
-        <img src="assets/images/aura-baby.png" class="h-8" alt="VentPals Logo">
-        <span class="font-bold text-lg text-purple-700">VentPals</span>
-      </a>
-
-      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
-
-      <ul id="mobileMenu"
-          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
-        <li><a href="join.html" class="hover:text-purple-900">Join</a></li>
-        <li><a href="login.html" class="hover:text-purple-900">Log In</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <script>
-    document.getElementById('menuToggle').onclick = () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    };
-  </script>
+  <!-- FLOATING EMOJIS -->
+  <div class="float-emoji" style="top: 10%; left: 5%;">💛</div>
+  <div class="float-emoji" style="top: 20%; left: 80%;">😡</div>
+  <div class="float-emoji" style="top: 40%; left: 15%;">😢</div>
+  <div class="float-emoji" style="top: 60%; left: 75%;">😨</div>
+  <div class="float-emoji" style="top: 70%; left: 30%;">😴</div>
+  <div class="float-emoji" style="top: 85%; left: 60%;">😃</div>
+  <div class="float-emoji" style="top: 50%; left: 45%;">🌈</div>
 
   <!-- HERO -->
-  <section class="text-center py-16 px-6">
-
-    <h1 class="text-4xl sm:text-5xl font-bold text-purple-700 mb-4">
+  <section class="text-center py-20 px-6 relative z-10">
+    <h1 class="text-5xl font-extrabold text-purple-700 mb-4 drop-shadow">
       Welcome to VentPals
     </h1>
 
-    <p class="text-gray-600 text-sm max-w-md mx-auto">
-      A gentle place to explore your feelings, grow with your VentPal bird,  
-      and build your own safe emotional world.
+    <p class="text-gray-700 text-base max-w-md mx-auto leading-relaxed">
+      A gentle, magical world where your feelings matter,  
+      your VentPal grows with you,  
+      and every emotion has a place to land softly.
     </p>
 
-    <!-- BUTTON ROW -->
-    <div class="flex flex-wrap justify-center gap-4 mt-8">
-
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
       <a href="start-with-a-feeling.html"
-         class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition">
+         class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-full shadow hover:bg-purple-700 transition">
         Start With a Feeling
       </a>
 
       <a href="meet-the-flock.html"
-         class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition">
+         class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition">
         Meet the Flock
       </a>
+    </div>
+  </section>
 
-      <a href="rewards.html"
-         class="px-6 py-3 bg-pink-600 text-white font-semibold rounded-full hover:bg-pink-700 transition">
-        Keepsakes
-      </a>
+  <!-- HOW VENTPALS WORK -->
+  <section class="max-w-3xl mx-auto px-6 py-12 space-y-8 relative z-10">
+    <h2 class="text-3xl font-bold text-purple-700 text-center mb-6">
+      How VentPals Work
+    </h2>
 
-      <a href="join.html"
-         class="px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
-        Join / Sign Up
-      </a>
+    <div class="grid sm:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-3xl shadow p-6 text-center">
+        <div class="text-4xl mb-2">💛</div>
+        <p class="font-semibold text-purple-700 mb-1">Pick a Feeling</p>
+        <p class="text-sm text-gray-600">Start by choosing how you feel today.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow p-6 text-center">
+        <div class="text-4xl mb-2">🪽</div>
+        <p class="font-semibold text-purple-700 mb-1">Meet Your VentPal</p>
+        <p class="text-sm text-gray-600">A bird appears who understands that feeling.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow p-6 text-center">
+        <div class="text-4xl mb-2">🌈</div>
+        <p class="font-semibold text-purple-700 mb-1">Grow Together</p>
+        <p class="text-sm text-gray-600">Your VentPal grows as you explore your emotions.</p>
+      </div>
 
     </div>
   </section>
 
-  <!-- CORE 6 BIRDS PREVIEW -->
-  <section class="max-w-4xl mx-auto px-6 pb-20 grid grid-cols-2 sm:grid-cols-3 gap-6">
+  <!-- CORE 6 BIRDS WITH FLIP CARDS -->
+  <section class="max-w-4xl mx-auto px-6 pb-20 relative z-10">
+    <h2 class="text-3xl font-bold text-purple-700 text-center mb-10">
+      Meet the Core Flock
+    </h2>
 
-    <!-- Aura -->
-    <div class="bg-white rounded-3xl shadow p-4 text-center">
-      <img src="assets/images/aura-baby.png" class="w-20 mx-auto mb-2" alt="Aura the calm and gentle VentPal">
-      <p class="font-semibold text-purple-700 text-sm">Aura</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+
+      <!-- Aura -->
+      <div class="flip-card w-36 h-48 mx-auto">
+        <div class="flip-inner relative w-full h-full">
+          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <img src="assets/images/aura-baby.png" class="w-20 h-20 mb-2" alt="Aura">
+            <p class="text-purple-700 font-bold text-lg">Aura</p>
+          </div>
+          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <p class="text-purple-700 font-bold text-lg mb-1">Aura</p>
+            <p class="text-gray-700 text-sm text-center">Calm • Steady • Gentle</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breezy -->
+      <div class="flip-card w-36 h-48 mx-auto">
+        <div class="flip-inner relative w-full h-full">
+          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <img src="assets/images/breezy-baby.png" class="w-20 h-20 mb-2" alt="Breezy">
+            <p class="text-purple-700 font-bold text-lg">Breezy</p>
+          </div>
+          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <p class="text-purple-700 font-bold text-lg mb-1">Breezy</p>
+            <p class="text-gray-700 text-sm text-center">Thoughtful • Observant • Quiet</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clover -->
+      <div class="flip-card w-36 h-48 mx-auto">
+        <div class="flip-inner relative w-full h-full">
+          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <img src="assets/images/clover-baby.png" class="w-20 h-20 mb-2" alt="Clover">
+            <p class="text-purple-700 font-bold text-lg">Clover</p>
+          </div>
+          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <p class="text-purple-700 font-bold text-lg mb-1">Clover</p>
+            <p class="text-gray-700 text-sm text-center">Steady • Comforting • Warm</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cove -->
+      <div class="flip-card w-36 h-48 mx-auto">
+        <div class="flip-inner relative w-full h-full">
+          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <img src="assets/images/cove-baby.png" class="w-20 h-20 mb-2" alt="Cove">
+            <p class="text-purple-700 font-bold text-lg">Cove</p>
+          </div>
+          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <p class="text-purple-700 font-bold text-lg mb-1">Cove</p>
+            <p class="text-gray-700 text-sm text-center">Soft • Deep • Safe</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flamez -->
+      <div class="flip-card w-36 h-48 mx-auto">
+        <div class="flip-inner relative w-full h-full">
+          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <img src="assets/images/flamez-baby.png" class="w-20 h-20 mb-2" alt="Flamez">
+            <p class="text-purple-700 font-bold text-lg">Flamez</p>
+          </div>
+          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <p class="text-purple-700 font-bold text-lg mb-1">Flamez</p>
+            <p class="text-gray-700 text-sm text-center">Bold • Expressive • Bright</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guardian -->
+      <div class="flip-card w-36 h-48 mx-auto">
+        <div class="flip-inner relative w-full h-full">
+          <div class="flip-front absolute inset-0 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <img src="assets/images/guardian-baby.png" class="w-20 h-20 mb-2" alt="Guardian">
+            <p class="text-purple-700 font-bold text-lg">Guardian</p>
+          </div>
+          <div class="flip-back absolute inset-0 bg-purple-50 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4">
+            <p class="text-purple-700 font-bold text-lg mb-1">Guardian</p>
+            <p class="text-gray-700 text-sm text-center">Protective • Loyal • Grounded</p>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Breezy -->
-    <div class="bg-white rounded-3xl shadow p-4 text-center">
-      <img src="assets/images/breezy-baby.png" class="w-20 mx-auto mb-2" alt="Breezy the thoughtful and observant VentPal">
-      <p class="font-semibold text-purple-700 text-sm">Breezy</p>
-    </div>
-
-    <!-- Clover -->
-    <div class="bg-white rounded-3xl shadow p-4 text-center">
-      <img src="assets/images/clover-baby.png" class="w-20 mx-auto mb-2" alt="Clover the steady and comforting VentPal">
-      <p class="font-semibold text-purple-700 text-sm">Clover</p>
-    </div>
-
-    <!-- Cove -->
-    <div class="bg-white rounded-3xl shadow p-4 text-center">
-      <img src="assets/images/cove-baby.png" class="w-20 mx-auto mb-2" alt="Cove the soft and soothing VentPal">
-      <p class="font-semibold text-purple-700 text-sm">Cove</p>
-    </div>
-
-    <!-- Flamez -->
-    <div class="bg-white rounded-3xl shadow p-4 text-center">
-      <img src="assets/images/flamez-baby.png" class="w-20 mx-auto mb-2" alt="Flamez the bold and expressive VentPal">
-      <p class="font-semibold text-purple-700 text-sm">Flamez</p>
-    </div>
-
-    <!-- Guardian -->
-    <div class="bg-white rounded-3xl shadow p-4 text-center">
-      <img src="assets/images/guardian-baby.png" class="w-20 mx-auto mb-2" alt="Guardian the protective and loyal VentPal">
-      <p class="font-semibold text-purple-700 text-sm">Guardian</p>
-    </div>
-
   </section>
 
   <!-- FOOTER -->
