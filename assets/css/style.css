@@ -266,3 +266,45 @@ a {
     gap: 10px;
   }
 }
+
+/* -------------------------------------------------- */
+/* HOMEPAGE ADDITIONS (Flip Cards, Floating Birds)    */
+/* -------------------------------------------------- */
+
+/* Floating birds (decorative + hero Flicker) */
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Flip card system */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Optional soft shadow for birds */
+.bird-shadow {
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));
+}
