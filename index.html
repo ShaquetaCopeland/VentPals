@@ -16,6 +16,25 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
+
+    /* Flip card styles */
+    .flip-card {
+      perspective: 1000px;
+    }
+    .flip-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front,
+    .flip-back {
+      backface-visibility: hidden;
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+    }
   </style>
 </head>
 
@@ -36,9 +55,15 @@
 
   <img src="assets/images/twig-baby.png"
        class="h-24 sm:h-28 opacity-80 float absolute top-[3000px] left-4 sm:left-6 pointer-events-none" />
+  
+  <img src="assets/images/nova-percher.png"
+     class="h-32 sm:h-36 opacity-80 float absolute top-[3200px] right-4 sm:right-10 transform scale-x-[-1] pointer-events-none" />
 
+  <!-- Changed the far-below nova to avoid footer misalignment -->
+  <!--
   <img src="assets/images/nova-percher.png"
        class="h-32 sm:h-36 opacity-80 float absolute top-[3600px] right-4 sm:right-10 transform scale-x-[-1] pointer-events-none" />
+  -->
 
   <!-- 🌍 NAV -->
   <nav class="flex items-center justify-between px-4 sm:px-6 py-4 max-w-6xl mx-auto">
@@ -91,27 +116,86 @@
       </a>
     </div>
 
-    <!-- HERO MASCOT (CORRECT PLACEMENT) -->
-    <div class="mt-12 flex justify-center pointer-events-none">
+    <!-- HERO MASCOT (TIGHTER GAP) -->
+    <div class="mt-6 flex justify-center pointer-events-none">
       <img src="assets/images/flicker-percher.png"
            class="h-32 sm:h-40 md:h-48 opacity-90 float" />
     </div>
   </section>
 
-  <!-- 💛 FEELINGS -->
+  <!-- 💛 FEELINGS (UPGRADED WITH FLIP CARDS + LABELS) -->
   <section class="py-20 sm:py-24 text-center">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-700 mb-4">
-      All feelings are welcome.
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-700 mb-2">
+      All feelings are welcome. 💛
     </h2>
     <p class="text-base sm:text-lg text-gray-700 mb-10">
-      Even the confusing, mixed, or “too big” ones.
+      Tap a feeling to see what it means with a VentPal by your side.
     </p>
 
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto px-4">
-      <div class="bg-red-200 rounded-3xl p-6 sm:p-8 text-2xl sm:text-3xl hover:scale-110 transition">😡</div>
-      <div class="bg-blue-200 rounded-3xl p-6 sm:p-8 text-2xl sm:text-3xl hover:scale-110 transition">😢</div>
-      <div class="bg-yellow-200 rounded-3xl p-6 sm:p-8 text-2xl sm:text-3xl hover:scale-110 transition">😄</div>
-      <div class="bg-green-200 rounded-3xl p-6 sm:p-8 text-2xl sm:text-3xl hover:scale-110 transition">😰</div>
+      <!-- ANGRY – using Lumen (percher) -->
+      <div class="flip-card">
+        <div class="flip-inner bg-red-200 rounded-3xl p-6 sm:p-8 shadow cursor-pointer">
+          <div class="flip-front flex flex-col items-center justify-center h-full">
+            <div class="text-3xl sm:text-4xl mb-2">😡</div>
+            <div class="font-semibold text-sm sm:text-base text-red-800">Angry</div>
+          </div>
+          <div class="flip-back flex flex-col items-center justify-center h-full">
+            <img src="assets/images/lumen-percher.png" class="h-16 mb-2" alt="Angry VentPal (Lumen)" />
+            <p class="text-xs sm:text-sm text-red-900 px-1">
+              Anger shows up when something feels unfair, blocked, or not okay.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAD – using Echo (baby) -->
+      <div class="flip-card">
+        <div class="flip-inner bg-blue-200 rounded-3xl p-6 sm:p-8 shadow cursor-pointer">
+          <div class="flip-front flex flex-col items-center justify-center h-full">
+            <div class="text-3xl sm:text-4xl mb-2">😢</div>
+            <div class="font-semibold text-sm sm:text-base text-blue-900">Sad</div>
+          </div>
+          <div class="flip-back flex flex-col items-center justify-center h-full">
+            <img src="assets/images/echo-baby.png" class="h-16 mb-2" alt="Sad VentPal (Echo)" />
+            <p class="text-xs sm:text-sm text-blue-900 px-1">
+              Sadness shows up when something or someone important feels missing or changed.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HAPPY – using Nova (percher) -->
+      <div class="flip-card">
+        <div class="flip-inner bg-yellow-200 rounded-3xl p-6 sm:p-8 shadow cursor-pointer">
+          <div class="flip-front flex flex-col items-center justify-center h-full">
+            <div class="text-3xl sm:text-4xl mb-2">😄</div>
+            <div class="font-semibold text-sm sm:text-base text-yellow-900">Happy</div>
+          </div>
+          <div class="flip-back flex flex-col items-center justify-center h-full">
+            <img src="assets/images/nova-percher.png" class="h-16 mb-2" alt="Happy VentPal (Nova)" />
+            <p class="text-xs sm:text-sm text-yellow-900 px-1">
+              Happiness shows up when something feels right, fun, or really you.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANXIOUS – using Sable (baby) -->
+      <div class="flip-card">
+        <div class="flip-inner bg-green-200 rounded-3xl p-6 sm:p-8 shadow cursor-pointer">
+          <div class="flip-front flex flex-col items-center justify-center h-full">
+            <div class="text-3xl sm:text-4xl mb-2">😰</div>
+            <div class="font-semibold text-sm sm:text-base text-green-900">Anxious</div>
+          </div>
+          <div class="flip-back flex flex-col items-center justify-center h-full">
+            <img src="assets/images/sable-baby.png" class="h-16 mb-2" alt="Anxious VentPal (Sable)" />
+            <p class="text-xs sm:text-sm text-green-900 px-1">
+              Anxiety shows up when your brain is trying to protect you from “what ifs.”
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
