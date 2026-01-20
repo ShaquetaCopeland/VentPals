@@ -2,125 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Dashboard • VentPals</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Dashboard – VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
-    }
-
-    .float {
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="text-gray-800">
+<body class="bg-white overflow-x-hidden">
 
-  <!-- HEADER -->
-  <section class="text-center py-10 px-6">
-    <div class="text-6xl float mb-4">🪶</div>
+  <!-- HEADER (Gradient) -->
+  <header class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 py-10 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
-    <h1 class="text-3xl font-bold text-purple-700 mb-2">Welcome Back</h1>
-    <p class="text-gray-600 text-sm max-w-md mx-auto">
-      Your VentPal is happy to see you.  
-      Here’s your gentle space to explore, grow, and check in with yourself.
-    </p>
-  </section>
-
-  <!-- MAIN CONTENT -->
-  <section class="max-w-md mx-auto px-6 pb-20 space-y-10">
-
-    <!-- FEELING PICKER -->
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">How Are You Feeling?</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Choose a feeling to start your journey today.
-      </p>
-
-      <a href="start-with-a-feeling.html"
-         class="block w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full text-center">
-        Start With a Feeling
-      </a>
-    </div>
-
-    <!-- YOUR VENTPAL -->
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your VentPal</h2>
-
-      <div class="flex items-center gap-4 mb-4">
-        <div class="text-5xl">🕊️</div>
+      <!-- Avatar + Welcome -->
+      <div class="flex items-center gap-4">
+        <img src="assets/images/avatar-placeholder.png" class="h-20 w-20 rounded-full border-4 border-white shadow-md">
         <div>
-          <p class="font-semibold text-purple-700">Aura</p>
-          <p class="text-xs text-gray-600">Calm • Steady • Gentle</p>
+          <h1 class="text-3xl font-extrabold text-purple-800">Welcome back, Friend!</h1>
+          <p class="text-purple-700 text-base">Your VentPal is excited to see you.</p>
         </div>
       </div>
 
-      <p class="text-gray-700 text-sm leading-relaxed mb-4">
-        Your VentPal grows with you.  
-        Every reflection, calming moment, and circle share helps them understand you better.
-      </p>
+      <!-- VentPal (Nestling Flicker) -->
+      <div class="flex flex-col items-center">
+        <img src="assets/images/flicker-nestling.png" class="h-24">
+        <p class="text-purple-700 font-semibold mt-2">Flicker • Nestling Stage</p>
+      </div>
 
-      <a href="bird-growth.html"
-         class="inline-block text-purple-700 font-semibold text-sm hover:text-purple-900">
-        View Growth →
-      </a>
     </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- VENTPAL JOURNEY -->
+    <section class="bg-white rounded-3xl shadow-md p-6">
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">Your VentPal’s Journey</h2>
+
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <img src="assets/images/flicker-nestling.png" class="h-24">
+
+        <div class="flex-1">
+          <p class="text-gray-700 mb-3">
+            Flicker grows with you as you explore your feelings. Keep reflecting to help your VentPal grow from baby → nestling → feathered → percher.
+          </p>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-purple-100 rounded-full h-4 mb-4">
+            <div class="bg-purple-400 h-4 rounded-full" style="width: 35%;"></div>
+          </div>
+
+          <button class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
+            Grow Together
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEELINGS TODAY -->
+    <section class="bg-white rounded-3xl shadow-md p-6">
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">Your Feelings Today</h2>
+
+      <p class="text-gray-700 mb-4">How are you feeling right now?</p>
+
+      <!-- Feeling Picker -->
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-4 mb-6">
+        <button class="bg-yellow-100 hover:bg-yellow-200 p-4 rounded-xl text-center">😊</button>
+        <button class="bg-blue-100 hover:bg-blue-200 p-4 rounded-xl text-center">😢</button>
+        <button class="bg-red-100 hover:bg-red-200 p-4 rounded-xl text-center">😡</button>
+        <button class="bg-purple-100 hover:bg-purple-200 p-4 rounded-xl text-center">😰</button>
+        <button class="bg-green-100 hover:bg-green-200 p-4 rounded-xl text-center">😶</button>
+        <button class="bg-pink-100 hover:bg-pink-200 p-4 rounded-xl text-center">🤗</button>
+      </div>
+
+      <button class="bg-yellow-300 hover:bg-yellow-400 text-purple-800 font-bold py-3 px-6 rounded-full shadow">
+        Reflect with Flicker
+      </button>
+    </section>
 
     <!-- CIRCLES -->
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Circles</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Safe spaces you create with people you trust.
-      </p>
+    <section class="bg-white rounded-3xl shadow-md p-6">
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">Your Safe Circles</h2>
 
-      <a href="circles-dashboard.html"
-         class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full text-center">
-        Go to Circles
-      </a>
-    </div>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Circle Card -->
+        <div class="bg-purple-50 rounded-2xl p-4 shadow">
+          <h3 class="text-lg font-bold text-purple-800">Mom</h3>
+          <p class="text-gray-700 text-sm mb-3">Always here to listen.</p>
+          <button class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
+            Share a Reflection
+          </button>
+        </div>
+
+        <div class="bg-purple-50 rounded-2xl p-4 shadow">
+          <h3 class="text-lg font-bold text-purple-800">Mr. Lopez</h3>
+          <p class="text-gray-700 text-sm mb-3">Your favorite teacher.</p>
+          <button class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
+            Share a Reflection
+          </button>
+        </div>
+
+      </div>
+
+      <button class="mt-6 bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
+        Add a Circle
+      </button>
+    </section>
 
     <!-- KEEPSAKES -->
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Keepsakes</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Gentle reminders of your emotional growth.
-      </p>
+    <section class="bg-white rounded-3xl shadow-md p-6">
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">Your Keepsakes</h2>
 
-      <a href="rewards.html"
-         class="block w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-full text-center">
-        View Keepsakes
+      <p class="text-gray-700 mb-4">These keepsakes celebrate your emotional growth.</p>
+
+      <!-- Keepsake Scroll -->
+      <div class="flex gap-4 overflow-x-auto pb-2">
+        <img src="assets/images/keepsake-1.png" class="h-20">
+        <img src="assets/images/keepsake-2.png" class="h-20">
+        <img src="assets/images/keepsake-3.png" class="h-20">
+      </div>
+
+      <a href="https://ventpals-keepsakes-marketplace.myshopify.com"
+         class="inline-block mt-4 bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
+        Visit the Keepsakes Marketplace
       </a>
-    </div>
+    </section>
 
-    <!-- AVATAR -->
-    <div class="bg-white rounded-3xl shadow p-8">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Avatar</h2>
-      <p class="text-gray-600 text-sm mb-4">
-        Make your space feel like you.
-      </p>
+    <!-- QUICK ACTIONS -->
+    <section class="bg-white rounded-3xl shadow-md p-6">
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">Quick Actions</h2>
 
-      <a href="avatar.html"
-         class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-full text-center">
-        Customize Avatar
-      </a>
-    </div>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="start-with-a-feeling.html" class="bg-yellow-200 hover:bg-yellow-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+          Start With a Feeling
+        </a>
+        <a href="meet-the-birds.html" class="bg-blue-200 hover:bg-blue-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+          Meet the Birds
+        </a>
+        <a href="how-it-works.html" class="bg-pink-200 hover:bg-pink-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+          How It Works
+        </a>
+        <a href="https://ventpals-keepsakes-marketplace.myshopify.com" class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+          Marketplace
+        </a>
+      </div>
+    </section>
 
-  </section>
+  </main>
 
-  <!-- FOOTER -->
-  <footer class="py-6 text-center text-gray-500 text-xs">
-    VentPals • The Journey of Growing Up.
+  <footer class="py-8 text-center text-gray-600 text-sm">
+    <p>VentPals • Helping kids understand their feelings, one bird at a time.</p>
   </footer>
 
 </body>
