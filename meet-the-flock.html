@@ -2,124 +2,276 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Meet the Birds • VentPals</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reflect on Your Feeling – VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f0f9ff, #fdf2f8);
-    }
-
-    .float {
-      animation: float 4s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="text-gray-800">
+<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 overflow-x-hidden">
 
   <!-- NAV -->
-  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="dashboard.html" class="flex items-center gap-2">
-        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
-        <span class="font-bold text-lg text-purple-700">VentPals</span>
-      </a>
+  <nav class="w-full max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <img src="assets/images/logo.png" class="h-10" alt="VentPals logo">
+      <span class="font-bold text-purple-700 text-xl">VentPals</span>
+    </div>
 
-      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">☰</button>
-
-      <ul id="mobileMenu"
-          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
-        <li><a href="profile.html" class="hover:text-purple-900">Profile</a></li>
-        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
-      </ul>
+    <div class="hidden md:flex gap-6 text-purple-600 font-semibold">
+      <a href="index.html" class="hover:text-purple-800">Home</a>
+      <a href="start-with-a-feeling.html" class="hover:text-purple-800">Feelings</a>
+      <a href="circle-hub.html" class="hover:text-purple-800">Circles</a>
+      <a href="about.html" class="hover:text-purple-800">About</a>
     </div>
   </nav>
 
-  <script>
-    document.getElementById('menuToggle').onclick = () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    };
-  </script>
-
-  <!-- HEADER -->
-  <section class="text-center py-10 px-4">
-    <div class="relative overflow-visible h-24 sm:h-32">
-      <div id="feelingEmoji"
-           class="absolute top-6 left-4 sm:top-10 sm:left-20 text-4xl sm:text-6xl float">
-        😊
-      </div>
-    </div>
-
-    <h1 id="feelingName" class="text-3xl font-bold text-purple-700 mb-2">
-      How Are You Feeling?
+  <!-- HERO -->
+  <section class="text-center px-4 pt-10 pb-6 max-w-3xl mx-auto">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-purple-800 mb-3">
+      Meet the Birds
     </h1>
-
-    <p class="text-gray-600 max-w-xl mx-auto text-sm">
-      Take a moment to think about your feeling. You can write anything — a thought, a moment, or what your feeling is trying to tell you.
+    <p class="text-lg sm:text-xl text-purple-700 mb-4">
+      Every VentPal bird has a special way of helping with feelings.
+    </p>
+    <p class="text-base sm:text-lg text-gray-700">
+      These are the nestlings — small, curious, and ready to grow with you.
     </p>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <section class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-10">
+  <!-- BIRD GRID -->
+  <section class="py-8 px-4 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    <!-- REFLECTION CARD -->
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Reflection</h2>
+      <!-- AURA -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/aura-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Aura</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Emotional Awareness</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Aura helps you notice what’s happening inside and understand your feelings gently.
+        </p>
+        <a href="join.html?bird=aura"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Aura’s Circle
+        </a>
+      </div>
 
-      <textarea id="reflectionInput"
-                placeholder="Write about your feeling here..."
-                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4"
-                rows="5"></textarea>
+      <!-- BREEZY -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/breezy-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Breezy</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Hidden Struggles & Understanding</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Breezy supports kids with invisible challenges and helps them feel truly seen.
+        </p>
+        <a href="join.html?bird=breezy"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Breezy’s Circle
+        </a>
+      </div>
 
-      <button id="saveReflection"
-              class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        Save Reflection
-      </button>
+      <!-- CLOVER -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/clover-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Clover</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Safety & Grounding</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Clover brings warmth, steadiness, and a sense of belonging.
+        </p>
+        <a href="join.html?bird=clover"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Clover’s Circle
+        </a>
+      </div>
+
+      <!-- COVE -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/cove-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Cove</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Emotional Shelter</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Cove offers quiet comfort and a soft place to rest your feelings.
+        </p>
+        <a href="join.html?bird=cove"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Cove’s Circle
+        </a>
+      </div>
+
+      <!-- DRIFT -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/drift-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Drift</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Reflection & Processing</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Drift helps you sort through thoughts and feelings at your own pace.
+        </p>
+        <a href="join.html?bird=drift"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Drift’s Circle
+        </a>
+      </div>
+
+      <!-- ECHO -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/echo-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Echo</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Validation</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Echo listens deeply and helps you feel understood.
+        </p>
+        <a href="join.html?bird=echo"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Echo’s Circle
+        </a>
+      </div>
+
+      <!-- FLAMEZ -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/flamez-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Flamez</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Emotional Release</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Flamez helps you let out big feelings safely.
+        </p>
+        <a href="join.html?bird=flamez"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Flamez’s Circle
+        </a>
+      </div>
+
+      <!-- FLARE -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/flare-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Flare</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Motivation & Action</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Flare helps you take brave steps and try new things.
+        </p>
+        <a href="join.html?bird=flare"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Flare’s Circle
+        </a>
+      </div>
+
+      <!-- FLICKER -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/flicker-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Flicker</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Hope & Curiosity</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Flicker brings tiny sparks of possibility and wonder.
+        </p>
+        <a href="join.html?bird=flicker"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Flicker’s Circle
+        </a>
+      </div>
+
+      <!-- GUARDIAN -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/guardian-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Guardian</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Protection & Boundaries</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Guardian helps you feel safe and stand up for yourself.
+        </p>
+        <a href="join.html?bird=guardian"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Guardian’s Circle
+        </a>
+      </div>
+
+      <!-- LUMEN -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/lumen-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Lumen</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Insight & Clarity</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Lumen helps you understand what’s really going on inside.
+        </p>
+        <a href="join.html?bird=lumen"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Lumen’s Circle
+        </a>
+      </div>
+
+      <!-- NOVA -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/nova-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Nova</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Perspective & Growth</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Nova helps you see things in new ways and grow into yourself.
+        </p>
+        <a href="join.html?bird=nova"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Nova’s Circle
+        </a>
+      </div>
+
+      <!-- PEBBLE -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/pebble-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Pebble</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Gentle Guidance</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Pebble helps you take small steps when things feel big.
+        </p>
+        <a href="join.html?bird=pebble"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Pebble’s Circle
+        </a>
+      </div>
+
+      <!-- SABLE -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/sable-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Sable</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Resilience & Strength</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Sable helps you stay strong during hard moments.
+        </p>
+        <a href="join.html?bird=sable"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Sable’s Circle
+        </a>
+      </div>
+
+      <!-- SOLACE -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/solace-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Solace</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Comfort & Soothing</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Solace brings warmth and calm when everything feels too heavy.
+        </p>
+        <a href="join.html?bird=solace"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Solace’s Circle
+        </a>
+      </div>
+
+      <!-- TWIG -->
+      <div class="bg-white/90 rounded-2xl shadow-md p-4 flex flex-col items-center text-center">
+        <img src="assets/images/twig-nestling.png" class="h-20 mb-3">
+        <h2 class="font-bold text-purple-800 text-lg">Twig</h2>
+        <p class="text-sm text-purple-600 font-semibold mb-1">Early Growth & Learning</p>
+        <p class="text-sm text-gray-700 mb-3">
+          Twig helps you explore new ideas and learn gently.
+        </p>
+        <a href="join.html?bird=twig"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full text-sm">
+          Join Twig’s Circle
+        </a>
+      </div>
+
     </div>
-
-    <!-- WHAT NEXT -->
-    <div class="bg-white rounded-3xl shadow p-6 space-y-4">
-      <h2 class="text-xl font-semibold text-purple-700">What would you like to do next?</h2>
-
-      <a href="calming-skills.html"
-         class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-full">
-        Try a Calming Skill
-      </a>
-
-      <a href="dashboard.html"
-         class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-full">
-        Go Back to Dashboard
-      </a>
-    </div>
-
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-6 text-center text-gray-500 text-xs">
-    VentPals • The Journey of Growing Up.
+  <footer class="py-8 text-center text-gray-600 text-sm">
+    <p>VentPals • Every bird has a story.</p>
   </footer>
-
-  <!-- SCRIPT: Inject feeling name + emoji from URL params -->
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const feeling = params.get("feeling");
-    const emoji = params.get("emoji");
-
-    if (feeling) {
-      document.getElementById("feelingName").textContent = feeling;
-    }
-    if (emoji) {
-      document.getElementById("feelingEmoji").textContent = emoji;
-    }
-  </script>
 
 </body>
 </html>
