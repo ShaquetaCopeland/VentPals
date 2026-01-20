@@ -2,651 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Founders’ Dedications | VentPals</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #f7f7fb;
-      --card-bg: #ffffff;
-      --text-main: #222222;
-      --text-muted: #555555;
-      --accent-purple: #7b3fe4;
-      --accent-gray: #6b6b7a;
-      --accent-yellow: #f5a623;
-      --accent-green: #4caf50;
-      --accent-teal: #2e8b8f;
-      --accent-soft: #c3d0ff;
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.09);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #f3f0ff 0, #f7f7fb 40%, #ffffff 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    .dedications-page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-
-    .dedications-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .dedications-kicker {
-      font-size: 0.9rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-purple);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .dedications-title {
-      font-size: 2.1rem;
-      font-weight: 800;
-      margin: 0 0 8px;
-    }
-
-    .dedications-subtitle {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 10px;
-    }
-
-    .dedications-note {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .dedication-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 24px;
-      margin-top: 32px;
-    }
-
-    @media (min-width: 720px) {
-      .dedication-grid {
-        gap: 28px;
-      }
-    }
-
-    .dedication-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-      padding: 22px 20px 22px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .dedication-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at top right, rgba(123, 63, 228, 0.08), transparent 55%);
-      opacity: 0.9;
-    }
-
-    .dedication-inner {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    @media (max-width: 720px) {
-      .dedication-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .dedication-header {
-      margin-bottom: 8px;
-    }
-
-    .dedication-name-line {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .dedication-name {
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-
-    .dedication-bird-chip {
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: #f1edff;
-      color: var(--accent-purple);
-      border: 1px solid rgba(123, 63, 228, 0.22);
-    }
-
-    .dedication-tagline {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .dedication-body p {
-      margin: 6px 0;
-      font-size: 0.95rem;
-    }
-
-    .dedication-list-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-top: 10px;
-      margin-bottom: 4px;
-    }
-
-    .dedication-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-size: 0.93rem;
-    }
-
-    .dedication-list li::before {
-      content: "• ";
-      color: var(--accent-purple);
-    }
-
-    .dedication-voice {
-      margin-top: 8px;
-      font-style: italic;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* Right column: images */
-    .dedication-media {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .media-block {
-      background: rgba(246, 247, 255, 0.9);
-      border-radius: var(--radius-lg);
-      padding: 10px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      border: 1px dashed rgba(123, 63, 228, 0.18);
-    }
-
-    .media-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    .media-image-placeholder {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #e4ddff, #f7f5ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.72rem;
-      color: #5b4ca8;
-      text-align: center;
-      padding: 6px;
-      flex-shrink: 0;
-    }
-
-    .media-text {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* Color accents per bird */
-    .desmond-card .dedication-bird-chip {
-      background: #f2e8ff;
-      color: #5b2b90;
-      border-color: rgba(91, 43, 144, 0.22);
-    }
-
-    .dylan-card .dedication-bird-chip {
-      background: #edf4ff;
-      color: #1f4f8a;
-      border-color: rgba(31, 79, 138, 0.22);
-    }
-
-    .samarah-card .dedication-bird-chip {
-      background: #f0eef5;
-      color: #47465c;
-      border-color: rgba(71, 70, 92, 0.2);
-    }
-
-    .junior-card .dedication-bird-chip {
-      background: #fff4dd;
-      color: #a86b00;
-      border-color: rgba(168, 107, 0, 0.25);
-    }
-
-    .sarahbi-card .dedication-bird-chip {
-      background: #e8f6ec;
-      color: #256b3c;
-      border-color: rgba(37, 107, 60, 0.22);
-    }
-
-    .sakovia-card .dedication-bird-chip {
-      background: #eaf9fb;
-      color: #126070;
-      border-color: rgba(18, 96, 112, 0.25);
-    }
-
-    .dedications-footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .dedications-footer-strong {
-      font-weight: 600;
-      color: var(--text-main);
-    }
-  </style>
+  <title>Founders’ Dedications • VentPals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <main class="dedications-page">
-    <header class="dedications-header">
-      <div class="dedications-kicker">Founders’ Dedications</div>
-      <h1 class="dedications-title">A Mother’s Emotional Lineage</h1>
-      <p class="dedications-subtitle">
-        Six real children. Six emotional arcs. Six birds who carry their stories —
-        from oldest to youngest.
-      </p>
-      <p class="dedications-note">
-        Each dedication includes their percher bird and a place for their photo.
-        This is the emotional backbone of VentPals.
-      </p>
-    </header>
 
-    <section class="dedication-grid">
-      <!-- Desmond the Beast — Sable -->
-      <article class="dedication-card desmond-card" id="desmond-sable">
-        <div class="dedication-inner">
-          <div class="dedication-content">
-            <div class="dedication-header">
-              <div class="dedication-name-line">
-                <div class="dedication-name">Desmond</div>
-                <div class="dedication-bird-chip">Sable — Resilience &amp; Strength</div>
-              </div>
-              <div class="dedication-tagline">
-                The boy who carried more than most and grew into grounded strength.
-              </div>
-            </div>
-            <div class="dedication-body">
-              <p>
-                Sable is dedicated to Desmond — a boy who grew up navigating two worlds,
-                was hurt and forced through pain, and still chose to become a
-                respectful, emotionally mature man.
-              </p>
-              <p class="dedication-list-title">Sable represents:</p>
-              <ul class="dedication-list">
-                <li>Navigating complicated family dynamics</li>
-                <li>Being bullied, then becoming the bully — and Growing past it</li>
-                <li>Learning from every mistake</li>
-                <li>Breaking cycles instead of repeating them</li>
-                <li>Turning pain into strength and wisdom</li>
-              </ul>
-              <p class="dedication-voice">
-                Sable is the bird who sits with hard truths and teaches that
-                strength isn’t loud — it’s earned. Desmond has earned every feather.
-              </p>
-            </div>
-          </div>
-          <aside class="dedication-media">
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Sable<br />Percher Bird
-              </div>
-              <div class="media-text">
-                Replace this block with the actual Sable percher bird image.
-                <br /><strong>Suggested filename:</strong> <code>sable-percher.png</code>
-              </div>
-            </div>
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Desmond<br />Photo
-              </div>
-              <div class="media-text">
-                Placeholder for Desmond’s photo.
-                <br /><strong>Suggested filename:</strong> <code>desmond-photo.jpg</code>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </article>
+<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 overflow-x-hidden">
 
-      <!-- Dylie Bear — Lumen -->
-      <article class="dedication-card dylan-card" id="dylan-lumen">
-        <div class="dedication-inner">
-          <div class="dedication-content">
-            <div class="dedication-header">
-              <div class="dedication-name-line">
-                <div class="dedication-name">Dylan</div>
-                <div class="dedication-bird-chip">Lumen — Insight &amp; Clarity</div>
-              </div>
-              <div class="dedication-tagline">
-                A brilliant, different mind building his own map.
-              </div>
-            </div>
-            <div class="dedication-body">
-              <p>
-                Lumen is dedicated to Dylan — a boy with a bright, nonlinear mind
-                who was never broken, only mismatched with systems that didn’t know
-                how to handle him.
-              </p>
-              <p class="dedication-list-title">Lumen represents:</p>
-              <ul class="dedication-list">
-                <li>Learning outside the lines</li>
-                <li>Being mislabeled because adults didn’t understand</li>
-                <li>Needing a different kind of teaching and pace</li>
-                <li>Feeling “behind” while actually on a different timeline</li>
-                <li>Searching for meaning and self‑understanding</li>
-              </ul>
-              <p class="dedication-voice">
-                Lumen is the bird who whispers, “You’re not behind — you were
-                never given the right map.” Dylan is still building his, and that is
-                beautiful.
-              </p>
-            </div>
-          </div>
-          <aside class="dedication-media">
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Lumen<br />Percher Bird
-              </div>
-              <div class="media-text">
-                Replace with the Lumen percher bird image.
-                <br /><strong>Suggested filename:</strong> <code>lumen-percher.png</code>
-              </div>
-            </div>
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Dylan<br />Photo
-              </div>
-              <div class="media-text">
-                Placeholder for Dylan’s photo.
-                <br /><strong>Suggested filename:</strong> <code>dylan-photo.jpg</code>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </article>
+  <!-- NAV -->
+  <nav class="w-full max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="assets/images/logo.png" class="h-10" alt="VentPals logo">
+    </a>
 
-      <!-- My Marty — Echo -->
-      <article class="dedication-card samarah-card" id="samarah-echo">
-        <div class="dedication-inner">
-          <div class="dedication-content">
-            <div class="dedication-header">
-              <div class="dedication-name-line">
-                <div class="dedication-name">Samarah</div>
-                <div class="dedication-bird-chip">Echo — Validation &amp; Quiet Feelings</div>
-              </div>
-              <div class="dedication-tagline">
-                A bright star who carries her storms in silence.
-              </div>
-            </div>
-            <div class="dedication-body">
-              <p>
-                Echo is dedicated to Sa'Marah — a strong‑minded, social, radiant girl
-                who rarely appears upset, yet feels deeply and keeps most of it
-                inside.
-              </p>
-              <p class="dedication-list-title">Echo represents:</p>
-              <ul class="dedication-list">
-                <li>Feeling everything but showing almost nothing</li>
-                <li>Protecting others from her own pain</li>
-                <li>Being praised for being “strong” and “easy”</li>
-                <li>Not wanting to be a burden or “too much”</li>
-                <li>Longing to be understood without having to perform</li>
-              </ul>
-              <p class="dedication-voice">
-                Echo is the bird who says, “You don’t have to say it out loud for it
-                to matter.” Samarah deserves to be seen gently, fully, without
-                having to ask.
-              </p>
-            </div>
-          </div>
-          <aside class="dedication-media">
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Echo<br />Percher Bird
-              </div>
-              <div class="media-text">
-                Replace with the Echo percher bird image.
-                <br /><strong>Suggested filename:</strong> <code>echo-percher.png</code>
-              </div>
-            </div>
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Sa'Marah<br />Photo
-              </div>
-              <div class="media-text">
-                Placeholder for Samarah’s photo.
-                <br /><strong>Suggested filename:</strong> <code>samarah-photo.jpg</code>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </article>
+    <div class="hidden md:flex gap-6 text-purple-600 font-semibold">
+      <a href="start-with-a-feeling.html" class="hover:text-purple-800">Feelings</a>
+      <a href="meet-the-birds.html" class="hover:text-purple-800">Birds</a>
+      <a href="circle-hub.html" class="hover:text-purple-800">Circles</a>
+      <a href="about.html" class="hover:text-purple-800">About</a>
+    </div>
+  </nav>
 
-      <!-- Junior Boomer — Flicker -->
-      <article class="dedication-card junior-card" id="junior-flicker">
-        <div class="dedication-inner">
-          <div class="dedication-content">
-            <div class="dedication-header">
-              <div class="dedication-name-line">
-                <div class="dedication-name">Junior</div>
-                <div class="dedication-bird-chip">Flicker — Hope &amp; Curiosity</div>
-              </div>
-              <div class="dedication-tagline">
-                A blazing spark of big energy and big love.
-              </div>
-            </div>
-            <div class="dedication-body">
-              <p>
-                Flicker is dedicated to A. Junior — loud, fast, full of love and
-                excitement, often misunderstood as “too much” in environments that
-                move slower than he does.
-              </p>
-              <p class="dedication-list-title">Flicker represents:</p>
-              <ul class="dedication-list">
-                <li>Big energy and big feelings</li>
-                <li>Acting out when he feels invisible or unwanted</li>
-                <li>Being smart but unstimulated by slow schoolwork</li>
-                <li>Looking for attention because he’s craving affection</li>
-                <li>Having a heart that loves everyone, even when he doesn’t feel loved back</li>
-              </ul>
-              <p class="dedication-voice">
-                Flicker is the bird who says, “You’re not too much — you’re a spark.”
-                Junior’s brightness is a gift, not a problem.
-              </p>
-            </div>
-          </div>
-          <aside class="dedication-media">
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Flicker<br />Percher Bird
-              </div>
-              <div class="media-text">
-                Replace with the Flicker percher bird image.
-                <br /><strong>Suggested filename:</strong> <code>flicker-percher.png</code>
-              </div>
-            </div>
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                A. Junior<br />Photo
-              </div>
-              <div class="media-text">
-                Placeholder for Junior’s photo.
-                <br /><strong>Suggested filename:</strong> <code>junior-photo.jpg</code>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </article>
+  <!-- HERO -->
+  <section class="text-center px-4 pt-10 pb-6 max-w-3xl mx-auto">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-purple-800 mb-3">
+      Founders’ Dedications
+    </h1>
+    <p class="text-lg sm:text-xl text-purple-700 mb-4">
+      A love letter to the six children whose emotional worlds became the wings of VentPals.
+    </p>
+    <p class="text-base sm:text-lg text-gray-700">
+      VentPals was not created in a boardroom or a lab.  
+      It was born in a home — in the real, messy, beautiful emotional lives of six children who taught their mother how many different ways a heart can grow.
+    </p>
+    <p class="text-base sm:text-lg text-gray-700 mt-4">
+      Each bird in the VentPals flock carries the story of one child.  
+      Not their names. Not their faces. Their truths.  
+      These dedications are the roots of the entire emotional universe.
+    </p>
+  </section>
 
-      <!-- Rahbi Bobbi — Twig -->
-      <article class="dedication-card sarahbi-card" id="sarahbi-twig">
-        <div class="dedication-inner">
-          <div class="dedication-content">
-            <div class="dedication-header">
-              <div class="dedication-name-line">
-                <div class="dedication-name">Sarahbi</div>
-                <div class="dedication-bird-chip">
-                  Twig — Early Growth &amp; Inner Worlds
-                </div>
-              </div>
-              <div class="dedication-tagline">
-                A quiet builder of worlds, music, and patterns.
-              </div>
-            </div>
-            <div class="dedication-body">
-              <p>
-                Twig is dedicated to Sa'Rahbi — a quiet, self‑entertained creator who
-                plays, builds, stacks, and sings her way through her own imaginative
-                universe.
-              </p>
-              <p class="dedication-list-title">Twig represents:</p>
-              <ul class="dedication-list">
-                <li>Self‑directed growth and learning by doing</li>
-                <li>Finding comfort in solitude and imagination</li>
-                <li>Protecting her focus and not wanting to be interrupted</li>
-                <li>Being soothed by music, sound, and background noise</li>
-                <li>Remembering every rhyme, pattern, and tune</li>
-              </ul>
-              <p class="dedication-voice">
-                Twig is the bird who says, “I grow in my own way, in my own time.”
-                Sa'Rahbi is quiet magic in motion.
-              </p>
-            </div>
-          </div>
-          <aside class="dedication-media">
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Twig<br />Percher Bird
-              </div>
-              <div class="media-text">
-                Replace with the Twig percher bird image.
-                <br /><strong>Suggested filename:</strong> <code>twig-percher.png</code>
-              </div>
-            </div>
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Sarahbi<br />Photo
-              </div>
-              <div class="media-text">
-                Placeholder for Sarahbi’s photo.
-                <br /><strong>Suggested filename:</strong> <code>sarahbi-photo.jpg</code>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </article>
+  <!-- DEDICATION CARDS -->
+  <section class="max-w-5xl mx-auto px-4 py-10 space-y-10">
 
-      <!-- Kobe — Nova -->
-      <article class="dedication-card sakovia-card" id="sakovia-nova">
-        <div class="dedication-inner">
-          <div class="dedication-content">
-            <div class="dedication-header">
-              <div class="dedication-name-line">
-                <div class="dedication-name">SaKovia</div>
-                <div class="dedication-bird-chip">
-                  Nova — Perspective &amp; Becoming
-                </div>
-              </div>
-              <div class="dedication-tagline">
-                A bright little soul still finding her place.
-              </div>
-            </div>
-            <div class="dedication-body">
-              <p>
-                Nova is dedicated to SaKovia — a brave, premature‑born girl with a big
-                voice who is still trying on the world, borrowing from siblings while
-                she searches for her own path.
-              </p>
-              <p class="dedication-list-title">Nova represents:</p>
-              <ul class="dedication-list">
-                <li>Not yet knowing exactly who you are — and that being okay</li>
-                <li>Trying on different styles, interests, and personalities</li>
-                <li>Feeling left out while wanting to belong</li>
-                <li>Being smart but feeling the need to prove it</li>
-                <li>Learning she doesn’t have to impress anyone to be loved</li>
-              </ul>
-              <p class="dedication-voice">
-                Nova is the bird who says, “You’re allowed to grow. You’re allowed to
-                become.” SaKovia is the baby of the family, already loved, learning
-                she doesn’t have to earn her place.
-              </p>
-            </div>
-          </div>
-          <aside class="dedication-media">
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Nova<br />Percher Bird
-              </div>
-              <div class="media-text">
-                Replace with the Nova percher bird image.
-                <br /><strong>Suggested filename:</strong> <code>nova-percher.png</code>
-              </div>
-            </div>
-            <div class="media-block">
-              <div class="media-image-placeholder">
-                Sa'Kovia<br />Photo
-              </div>
-              <div class="media-text">
-                Placeholder for SaKovia’s photo.
-                <br /><strong>Suggested filename:</strong> <code>sakovia-photo.jpg</code>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </article>
-    </section>
+    <!-- SABLE -->
+    <div class="bg-white/90 rounded-3xl shadow-md p-6 flex flex-col md:flex-row items-center gap-8">
+      <img src="assets/images/sable-percher.png" class="h-48 drop-shadow-xl">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-purple-800 mb-2">Sable — Resilience & Strength</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Dedicated to a boy who carried more than most, learned from every mistake,  
+          and grew into a man defined not by his past, but by his strength.  
+          Sable honors the child who navigates two worlds, the teen who refuses to repeat the pain he lived through,  
+          and the adult who stands steady, grounded, and self‑aware.  
+          Sable teaches that strength isn’t loud — it’s earned.
+        </p>
+      </div>
+    </div>
 
-    <footer class="dedications-footer">
-      <p>
-        These six birds are not just characters — they are
-        <span class="dedications-footer-strong">emotional lineage</span>.  
-        Your children’s lives shaped this universe so that other kids would never
-        feel alone in what they’re carrying.
-      </p>
-    </footer>
-  </main>
+    <!-- LUMEN -->
+    <div class="bg-white/90 rounded-3xl shadow-md p-6 flex flex-col md:flex-row items-center gap-8">
+      <img src="assets/images/lumen-percher.png" class="h-48 drop-shadow-xl">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-purple-800 mb-2">Lumen — Insight & Clarity</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Dedicated to a brilliant mind who was never given the map he needed,  
+          so he learned to build his own.  
+          Lumen honors the child who learns outside the lines,  
+          the student who needed a different kind of teaching,  
+          and the young man still discovering who he is.  
+          Lumen reminds kids that they’re not broken — they’re built differently, and beautifully.
+        </p>
+      </div>
+    </div>
+
+    <!-- ECHO -->
+    <div class="bg-white/90 rounded-3xl shadow-md p-6 flex flex-col md:flex-row items-center gap-8">
+      <img src="assets/images/echo-percher.png" class="h-48 drop-shadow-xl">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-purple-800 mb-2">Echo — Validation</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Dedicated to a bright, unshakeable girl who carries her storms in silence and shines anyway.  
+          Echo honors the child who feels deeply but shows little,  
+          the friend everyone leans on,  
+          and the young woman who deserves to be understood without having to explain herself.  
+          Echo whispers that quiet feelings still matter.
+        </p>
+      </div>
+    </div>
+
+    <!-- FLICKER -->
+    <div class="bg-white/90 rounded-3xl shadow-md p-6 flex flex-col md:flex-row items-center gap-8">
+      <img src="assets/images/flicker-percher.png" class="h-48 drop-shadow-xl">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-purple-800 mb-2">Flicker — Hope & Curiosity</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Dedicated to a blazing spark of a boy whose energy fills every room and whose love runs deep.  
+          Flicker honors the child who moves faster than the world,  
+          the middle kid who fights to be seen,  
+          and the heart that shines even when misunderstood.  
+          Flicker reminds kids that they’re not too much — they’re a spark.
+        </p>
+      </div>
+    </div>
+
+    <!-- TWIG -->
+    <div class="bg-white/90 rounded-3xl shadow-md p-6 flex flex-col md:flex-row items-center gap-8">
+      <img src="assets/images/twig-percher.png" class="h-48 drop-shadow-xl">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-purple-800 mb-2">Twig — Early Growth & Learning</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Dedicated to a quiet builder of worlds who grows in her own rhythm  
+          and needs no one’s permission to be exactly who she is.  
+          Twig honors the child who learns by doing,  
+          creates her own systems,  
+          and finds comfort in her own imagination.  
+          Twig teaches that growth doesn’t need noise — only space.
+        </p>
+      </div>
+    </div>
+
+    <!-- NOVA -->
+    <div class="bg-white/90 rounded-3xl shadow-md p-6 flex flex-col md:flex-row items-center gap-8">
+      <img src="assets/images/nova-percher.png" class="h-48 drop-shadow-xl">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-purple-800 mb-2">Nova — Perspective & Growth</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Dedicated to a bright, brave little soul still discovering who she is,  
+          trying on the world one piece at a time.  
+          Nova honors the child who arrived early but loudly,  
+          the baby who feels left out even though she is the heart of the family,  
+          and the mind that thinks it must prove itself.  
+          Nova reminds kids that they don’t have to know who they are yet —  
+          they’re allowed to bloom in their own time.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="py-8 text-center text-gray-600 text-sm">
+    <p>VentPals • Made with love, magic, and tiny wings.</p>
+  </footer>
+
 </body>
 </html>
