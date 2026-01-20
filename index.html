@@ -2,177 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>VentPals – Big Feelings Welcome</title>
+  <title>VentPals • Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 overflow-x-hidden relative">
+<body class="bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 overflow-x-hidden">
 
-<!-- DECORATIVE BIRDS (MOBILE + DESKTOP POSITIONS) -->
-<img src="assets/images/sable-baby.png"
-     class="absolute float opacity-80 h-16 top-[200px] left-2
-            sm:h-24 sm:top-[400px] sm:left-6 pointer-events-none" />
+  <!-- NAVIGATION -->
+  <nav class="w-full max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    
+    <!-- Clickable Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="assets/images/logo.png" class="h-10" alt="VentPals logo">
+    </a>
 
-<img src="assets/images/lumen-percher.png"
-     class="absolute float opacity-80 h-20 top-[600px] right-2
-            sm:h-32 sm:top-[900px] sm:right-6 transform scale-x-[-1] pointer-events-none" />
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex gap-6 text-purple-700 font-semibold">
+      <a href="how-it-works.html" class="hover:text-purple-900">How It Works</a>
+      <a href="start-with-a-feeling.html" class="hover:text-purple-900">Feelings</a>
+      <a href="meet-the-birds.html" class="hover:text-purple-900">Meet the Birds</a>
+      <a href="dedications.html" class="hover:text-purple-900">Dedications</a>
+      <a href="circle-hub.html" class="hover:text-purple-900">Circles</a>
+      <a href="https://ventpals-keepsakes-marketplace.myshopify.com" class="hover:text-purple-900">Keepsakes Marketplace</a>
+    </div>
 
-<img src="assets/images/echo-baby.png"
-     class="absolute float opacity-80 h-16 top-[1100px] left-4
-            sm:h-24 sm:top-[1500px] sm:left-10 pointer-events-none" />
+  </nav>
 
-<img src="assets/images/flicker-percher.png"
-     class="absolute float opacity-80 h-20 top-[1700px] right-4
-            sm:h-32 sm:top-[2200px] sm:right-8 transform scale-x-[-1] pointer-events-none" />
+  <!-- HERO SECTION -->
+  <section class="text-center px-4 pt-10 pb-6 max-w-3xl mx-auto">
+    <h1 class="text-5xl font-extrabold text-purple-800 mb-4">
+      Welcome to VentPals
+    </h1>
+    <p class="text-lg sm:text-xl text-purple-700 mb-4">
+      A playful, safe space where kids explore their feelings with the help of magical birds.
+    </p>
+    <p class="text-base sm:text-lg text-gray-700">
+      Every VentPal understands a different feeling.  
+      Every child grows at their own pace.  
+      Every emotion has a place here.
+    </p>
+  </section>
 
-<img src="assets/images/twig-baby.png"
-     class="absolute float opacity-80 h-16 top-[2400px] left-4
-            sm:h-24 sm:top-[3000px] sm:left-6 pointer-events-none" />
+  <!-- MAIN BUTTONS -->
+  <section class="max-w-4xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-<img src="assets/images/nova-percher.png"
-     class="absolute float opacity-80 h-20 top-[2600px] right-4
-            sm:h-32 sm:top-[3200px] sm:right-10 transform scale-x-[-1] pointer-events-none" />
-
-<!-- NAVIGATION -->
-<nav class="w-full max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-  <div class="flex items-center gap-2">
-    <img src="assets/images/logo.png" class="h-10">
-    <span class="font-bold text-purple-700 text-xl">VentPals</span>
-  </div>
-
-  <!-- Desktop Nav -->
-  <div class="hidden md:flex gap-6 text-purple-600 font-semibold">
-    <a href="#how" class="hover:text-purple-800">How It Works</a>
-    <a href="circle-hub.html" class="hover:text-purple-800">Circles</a>
-    <a href="adult-signup.html" class="hover:text-purple-800">Grown-Ups</a>
-    <a href="about.html" class="hover:text-purple-800">About</a>
-  </div>
-
-  <!-- Mobile Hamburger (Flamez-percher) -->
-  <button id="menuBtn" class="md:hidden">
-    <img src="assets/images/flamez-percher.png" class="h-10 float">
-  </button>
-</nav>
-
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="mobile-menu bg-white rounded-xl shadow-md mx-4 mt-2 md:hidden">
-  <div class="flex flex-col text-purple-700 font-semibold p-4 gap-3">
-    <a href="#how">How It Works</a>
-    <a href="circle-hub.html">Circles</a>
-    <a href="adult-signup.html">Grown-Ups</a>
-    <a href="about.html">About</a>
-  </div>
-</div>
-
-<script>
-  const btn = document.getElementById('menuBtn');
-  const menu = document.getElementById('mobileMenu');
-  btn.addEventListener('click', () => menu.classList.toggle('open'));
-</script>
-
-<!-- HERO -->
-<section class="text-center px-4 py-20 max-w-5xl mx-auto">
-  <h1 class="text-5xl sm:text-7xl font-extrabold text-purple-800 mb-4">VentPals</h1>
-  <p class="text-2xl text-purple-600 mb-6">Big feelings live here.</p>
-  <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-10">
-    A gentle place where kids can explore their feelings,
-    grow with their VentPal birds,
-    and understand themselves before the world tells them who to be.
-  </p>
-
-  <div class="flex flex-col sm:flex-row justify-center gap-4">
     <a href="start-with-a-feeling.html"
-       class="bg-yellow-300 hover:bg-yellow-400 text-purple-800 font-bold py-4 px-8 rounded-full text-xl shadow-lg">
-      😶‍🌫️ Start With a Feeling
+       class="bg-yellow-200 hover:bg-yellow-300 text-purple-800 font-bold py-6 px-6 rounded-3xl text-center shadow-lg text-xl">
+      Start With a Feeling
     </a>
 
-    <a href="meet-the-flock.html"
-       class="bg-white hover:bg-purple-100 text-purple-700 font-bold py-4 px-8 rounded-full text-xl shadow-lg">
-      🐣 Meet the Birds
+    <a href="meet-the-birds.html"
+       class="bg-blue-200 hover:bg-blue-300 text-purple-800 font-bold py-6 px-6 rounded-3xl text-center shadow-lg text-xl">
+      Meet the Birds
     </a>
-  </div>
 
-  <div class="mt-6 flex justify-center pointer-events-none">
-    <img src="assets/images/flicker-percher.png" class="h-40 opacity-90 float">
-  </div>
-</section>
+    <a href="how-it-works.html"
+       class="bg-pink-200 hover:bg-pink-300 text-purple-800 font-bold py-6 px-6 rounded-3xl text-center shadow-lg text-xl">
+      How It Works
+    </a>
 
-<!-- FEELINGS SECTION -->
-<section class="py-20 text-center">
-  <h2 class="text-3xl font-bold text-purple-700 mb-2">All feelings are welcome. 💛</h2>
-  <p class="text-lg text-gray-700 mb-10">Tap a feeling to see what it means with a VentPal by your side.</p>
+    <a href="circle-hub.html"
+       class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-6 px-6 rounded-3xl text-center shadow-lg text-xl">
+      Circles
+    </a>
 
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 justify-center max-w-4xl mx-auto">
+    <a href="dedications.html"
+       class="bg-green-200 hover:bg-green-300 text-purple-800 font-bold py-6 px-6 rounded-3xl text-center shadow-lg text-xl">
+      Dedications
+    </a>
 
-    <!-- ANGRY -->
-    <div class="flip-card mx-auto">
-      <div class="flip-inner relative">
-        <div class="flip-front circle-card bg-red-200 shadow flex flex-col items-center justify-center">
-          <div class="text-6xl mb-2">😡</div>
-          <div class="font-semibold text-red-800">Angry</div>
-        </div>
-        <div class="flip-back bg-red-100 shadow flex flex-col items-center justify-center p-4">
-          <h3 class="font-bold text-red-800 mb-2">Lumen says…</h3>
-          <img src="assets/images/flare-feathered.png" class="h-16 mb-2">
-          <p class="text-sm text-red-900 px-2">Anger shows up when something feels unfair or not okay.</p>
-        </div>
-      </div>
-    </div>
+    <a href="https://ventpals-keepsakes-marketplace.myshopify.com"
+       class="bg-indigo-200 hover:bg-indigo-300 text-purple-800 font-bold py-6 px-6 rounded-3xl text-center shadow-lg text-xl">
+      Keepsakes Marketplace
+    </a>
 
-    <!-- SAD -->
-    <div class="flip-card mx-auto">
-      <div class="flip-inner relative">
-        <div class="flip-front circle-card bg-blue-200 shadow flex flex-col items-center justify-center">
-          <div class="text-6xl mb-2">😢</div>
-          <div class="font-semibold text-blue-900">Sad</div>
-        </div>
-        <div class="flip-back bg-blue-100 shadow flex flex-col items-center justify-center p-4">
-          <h3 class="font-bold text-blue-900 mb-2">Echo says…</h3>
-          <img src="assets/images/drift-baby.png" class="h-16 mb-2">
-          <p class="text-sm text-blue-900 px-2">Sadness shows up when something important feels missing.</p>
-        </div>
-      </div>
-    </div>
+  </section>
 
-    <!-- HAPPY -->
-    <div class="flip-card mx-auto">
-      <div class="flip-inner relative">
-        <div class="flip-front circle-card bg-yellow-200 shadow flex flex-col items-center justify-center">
-          <div class="text-6xl mb-2">😄</div>
-          <div class="font-semibold text-yellow-900">Happy</div>
-        </div>
-        <div class="flip-back bg-yellow-100 shadow flex flex-col items-center justify-center p-4">
-          <h3 class="font-bold text-yellow-900 mb-2">Nova says…</h3>
-          <img src="assets/images/flicker-feathered.png" class="h-16 mb-2">
-          <p class="text-sm text-yellow-900 px-2">Happiness shows up when something feels right and joyful.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ANXIOUS -->
-    <div class="flip-card mx-auto">
-      <div class="flip-inner relative">
-        <div class="flip-front circle-card bg-green-200 shadow flex flex-col items-center justify-center">
-          <div class="text-6xl mb-2">😰</div>
-          <div class="font-semibold text-green-900">Anxious</div>
-        </div>
-        <div class="flip-back bg-green-100 shadow flex flex-col items-center justify-center p-4">
-          <h3 class="font-bold text-green-900 mb-2">Sable says…</h3>
-          <img src="assets/images/cove-baby.png" class="h-16 mb-2">
-          <p class="text-sm text-green-900 px-2">Anxiety shows up when your brain is trying to protect you.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="py-8 text-center text-gray-600 text-sm">
-  <p>VentPals • A nonprofit initiative</p>
-</footer>
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-gray-600 text-sm">
+    <p>VentPals • Helping kids understand their feelings, one bird at a time.</p>
+  </footer>
 
 </body>
 </html>
