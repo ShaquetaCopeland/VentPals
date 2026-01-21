@@ -394,6 +394,237 @@
     </div>
   </div>
   <!-- END VENTPALS FEELING POPUP -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ----------------------------------------------------------
+     FEELING → BIRD MAPPING (your canon)
+  ---------------------------------------------------------- */
+  const feelingMap = {
+    "Angry":       { emoji: "😡", bird: "flamez" },
+    "Sad":         { emoji: "😢", bird: "echo" },
+    "Scared":      { emoji: "😨", bird: "guardian" },
+    "Worried":     { emoji: "😰", bird: "sable" },
+    "Invisible":   { emoji: "👤", bird: "breezy" },
+    "Left Out":    { emoji: "😞", bird: "clover" },
+    "Lonely":      { emoji: "😔", bird: "cove" },
+    "Overwhelmed": { emoji: "😵‍💫", bird: "solace" },
+    "Confused":    { emoji: "🤔", bird: "drift" },
+    "Embarrassed": { emoji: "😳", bird: "pebble" },
+    "Hopeful":     { emoji: "🌟", bird: "flicker" },
+    "Curious":     { emoji: "🧐", bird: "twig" },
+    "Proud":       { emoji: "🏅", bird: "flare" },
+    "Calm":        { emoji: "😌", bird: "aura" },
+    "Growing":     { emoji: "🌱", bird: "nova" },
+    "Stuck":       { emoji: "🪨", bird: "lumen" }
+  };
+
+  /* ----------------------------------------------------------
+     ALL BIRDS LIST (for "See All Birds")
+  ---------------------------------------------------------- */
+  const allBirds = [
+    { name: "Flamez",   id: "flamez",   img: "assets/images/flamez-nestling.png" },
+    { name: "Echo",     id: "echo",     img: "assets/images/echo-nestling.png" },
+    { name: "Guardian", id: "guardian", img: "assets/images/guardian-nestling.png" },
+    { name: "Sable",    id: "sable",    img: "assets/images/sable-nestling.png" },
+    { name: "Breezy",   id: "breezy",   img: "assets/images/breezy-nestling.png" },
+    { name: "Clover",   id: "clover",   img: "assets/images/clover-nestling.png" },
+    { name: "Cove",     id: "cove",     img: "assets/images/cove-nestling.png" },
+    { name: "Solace",   id: "solace",   img: "assets/images/solace-nestling.png" },
+    { name: "Drift",    id: "drift",    img: "assets/images/drift-nestling.png" },
+    { name: "Pebble",   id: "pebble",   img: "assets/images/pebble-nestling.png" },
+    { name: "Flicker",  id: "flicker",  img: "assets/images/flicker-nestling.png" },
+    { name: "Twig",     id: "twig",     img: "assets/images/twig-nestling.png" },
+    { name: "Flare",    id: "flare",    img: "assets/images/flare-nestling.png" },
+    { name: "Aura",     id: "aura",     img: "assets/images/aura-nestling.png" },
+    { name: "Nova",     id: "nova",     img: "assets/images/nova-nestling.png" },
+    { name: "Lumen",    id: "lumen",    img: "assets/images/lumen-nestling.png" }
+  ];
+
+  /* ----------------------------------------------------------
+     DOM ELEMENTS
+  ---------------------------------------------------------- */
+  const overlay = document.getElementById("feeling-popup-overlay");
+  const popup = document.getElementById("feeling-popup");
+  const closeBtn = document.getElementById("feeling-popup-close");
+
+  const emojiLayer = document.getElementById("floating-emoji-layer");
+  const popupEmoji = document.getElementById("popup-feeling-emoji");
+  const popupTitle = document.getElementById("popup-feeling-title");
+
+  const clarityPanel = document.getElementById("clarity-panel");
+  const justNowMessage = document.getElementById("just-now-message");
+  const backToFeelingsBtn = document.getElementById("back-to-feelings");
+
+  const recommendedPanel = document.getElementById("recommended-birds-panel");
+  const recommendedList = document.getElementById("recommended-birds-list");
+  const seeAllBtn = document.getElementById("see-all-birds");
+
+  const allBirdsPanel = document.getElementById("all-birds-panel");
+  const allBirdsList = document.getElementById("all-birds-list");
+  const backToRecommendedBtn = document.getElementById("back-to-recommended");
+
+  let currentFeeling = null;
+
+  /* ----------------------------------------------------------
+     OPEN POPUP
+  ---------------------------------------------------------- */
+  function openPopup(feelingName) {
+    currentFeeling = feelingName;
+    const data = feelingMap[feelingName];
+
+    popupEmoji.textContent = data.emoji;
+    popupTitle.textContent = feelingName;
+
+    // Reset panels
+    clarityPanel.classList.remove("hidden");
+    recommendedPanel.classList.add("hidden");
+    allBirdsPanel.classList.add("hidden");
+    justNowMessage.classList.add("hidden");
+
+    // Clear floating emojis
+    emojiLayer.innerHTML = "";
+    spawnFloatingEmojis(data.emoji);
+
+    // Show overlay
+    overlay.classList.remove("hidden");
+
+    // Storybook zoom-in
+    setTimeout(() => popup.classList.add("show"), 10);
+  }
+
+  /* ----------------------------------------------------------
+     CLOSE POPUP
+  ---------------------------------------------------------- */
+  function closePopup() {
+    popup.classList.remove("show");
+    setTimeout(() => overlay.classList.add("hidden"), 200);
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+
+  /* ----------------------------------------------------------
+     FLOATING EMOJIS
+  ---------------------------------------------------------- */
+  function spawnFloatingEmojis(emoji) {
+    for (let i = 0; i < 12; i++) {
+      const span = document.createElement("span");
+      span.className = "floating-emoji";
+      span.textContent = emoji;
+      span.style.left = Math.random() * 90 + "%";
+      span.style.animationDelay = (Math.random() * 3) + "s";
+      emojiLayer.appendChild(span);
+    }
+  }
+
+  /* ----------------------------------------------------------
+     CLARITY CHECK HANDLERS
+  ---------------------------------------------------------- */
+  clarityPanel.querySelectorAll("button[data-clarity]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const type = btn.dataset.clarity;
+
+      if (type === "just-now") {
+        clarityPanel.classList.add("hidden");
+        justNowMessage.classList.remove("hidden");
+        return;
+      }
+
+      // Show recommended birds
+      clarityPanel.classList.add("hidden");
+      loadRecommendedBird();
+      recommendedPanel.classList.remove("hidden");
+    });
+  });
+
+  backToFeelingsBtn.addEventListener("click", () => {
+    closePopup();
+  });
+
+  /* ----------------------------------------------------------
+     LOAD RECOMMENDED BIRD
+  ---------------------------------------------------------- */
+  function loadRecommendedBird() {
+    const data = feelingMap[currentFeeling];
+    const birdId = data.bird;
+
+    recommendedList.innerHTML = "";
+
+    const bird = allBirds.find(b => b.id === birdId);
+
+    const card = document.createElement("div");
+    card.className = "bg-white/90 rounded-2xl shadow p-3 flex flex-col items-center text-center bird-breathing";
+
+    card.innerHTML = `
+      <img src="${bird.img}" class="h-20 mb-2">
+      <p class="font-bold text-purple-800">${bird.name}</p>
+      <button class="mt-2 px-4 py-2 rounded-full bg-purple-200 hover:bg-purple-300 text-purple-800 font-semibold text-sm">
+        Choose Me
+      </button>
+    `;
+
+    card.querySelector("button").addEventListener("click", () => {
+      window.location.href = "join.html?bird=" + bird.id;
+    });
+
+    recommendedList.appendChild(card);
+  }
+
+  /* ----------------------------------------------------------
+     SEE ALL BIRDS
+  ---------------------------------------------------------- */
+  seeAllBtn.addEventListener("click", () => {
+    recommendedPanel.classList.add("hidden");
+    loadAllBirds();
+    allBirdsPanel.classList.remove("hidden");
+  });
+
+  backToRecommendedBtn.addEventListener("click", () => {
+    allBirdsPanel.classList.add("hidden");
+    recommendedPanel.classList.remove("hidden");
+  });
+
+  function loadAllBirds() {
+    allBirdsList.innerHTML = "";
+
+    allBirds.forEach(bird => {
+      const card = document.createElement("div");
+      card.className = "bg-white/90 rounded-2xl shadow p-3 flex flex-col items-center text-center bird-breathing";
+
+      card.innerHTML = `
+        <img src="${bird.img}" class="h-16 mb-1">
+        <p class="font-bold text-purple-800 text-sm">${bird.name}</p>
+        <button class="mt-1 px-3 py-1.5 rounded-full bg-purple-200 hover:bg-purple-300 text-purple-800 font-semibold text-xs">
+          Choose Me
+        </button>
+      `;
+
+      card.querySelector("button").addEventListener("click", () => {
+        window.location.href = "join.html?bird=" + bird.id;
+      });
+
+      allBirdsList.appendChild(card);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     MAKE ALL FEELING CARDS CLICKABLE
+  ---------------------------------------------------------- */
+  document.querySelectorAll(".grid > div").forEach(card => {
+    const title = card.querySelector("h2");
+    if (!title) return;
+
+    const feelingName = title.textContent.trim();
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", () => {
+      openPopup(feelingName);
+    });
+  });
+
+});
+</script>
 
 </body>
 </html>
