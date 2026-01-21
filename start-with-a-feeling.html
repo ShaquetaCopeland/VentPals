@@ -607,24 +607,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ----------------------------------------------------------
-     MAKE ALL FEELING CARDS CLICKABLE
-  ---------------------------------------------------------- */
-  document.querySelectorAll(".grid > div").forEach(card => {
-    const title = card.querySelector("h2");
-    if (!title) return;
+/* ----------------------------------------------------------
+   MAKE ALL FEELING CARDS CLICKABLE (corrected selector)
+---------------------------------------------------------- */
+document.querySelectorAll(".grid .bg-white\\/90").forEach(card => {
+  const title = card.querySelector("h2");
+  if (!title) return;
 
-    const feelingName = title.textContent.trim();
+  const feelingName = title.textContent.trim();
 
-    card.style.cursor = "pointer";
+  card.style.cursor = "pointer";
 
-    card.addEventListener("click", () => {
-      openPopup(feelingName);
-    });
+  card.addEventListener("click", () => {
+    openPopup(feelingName);
   });
-
 });
-</script>
+
 
 </body>
 </html>
