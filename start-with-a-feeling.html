@@ -276,3 +276,124 @@
         </p>
         <img src="assets/images/lumen-nestling.png" class="h-20 mb-2">
         <p class="text-sm text-purple-800 font-semibold mb-3">Lumen can help!</p>
+        <!-- Missing closing tags for Lumen card -->
+      </div>
+
+    </div> <!-- end grid -->
+  </section> <!-- end feeling grid section -->
+
+  <!-- FOOTER (optional, can be empty or removed) -->
+  <footer class="py-8 text-center text-gray-500 text-sm">
+    <!-- You can add footer content later if you want -->
+  </footer>
+  <!-- VENTPALS FEELING POPUP -->
+  <div id="feeling-popup-overlay"
+       class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm">
+    
+    <!-- Popup inner wrapper (for zoom + centering) -->
+    <div id="feeling-popup"
+         class="relative w-full max-w-lg mx-4 bg-white/95 rounded-3xl shadow-2xl p-6 sm:p-8 transform scale-95 opacity-0 transition-all duration-250 ease-out">
+
+      <!-- Floating feeling emojis (background layer) -->
+      <div id="floating-emoji-layer" class="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl"></div>
+
+      <!-- Close button (top-right, explicit only) -->
+      <button id="feeling-popup-close"
+              class="absolute top-3 right-3 sm:top-4 sm:right-4 h-8 w-8 rounded-full bg-white/80 shadow-md flex items-center justify-center text-purple-700 hover:bg-purple-100 text-lg font-bold"
+              aria-label="Close">
+        ×
+      </button>
+
+      <!-- POPUP CONTENT -->
+      <div class="relative z-10 flex flex-col items-center text-center gap-4">
+
+        <!-- Feeling emoji + title -->
+        <div class="flex flex-col items-center gap-1">
+          <div id="popup-feeling-emoji" class="text-5xl mb-1">😢</div>
+          <h2 id="popup-feeling-title" class="text-xl sm:text-2xl font-extrabold text-purple-800">
+            This Feeling
+          </h2>
+        </div>
+
+        <!-- Gentle intro text -->
+        <p id="popup-feeling-intro"
+           class="text-sm sm:text-base text-gray-700 max-w-md">
+          Let’s take a moment together and understand this feeling a little more.
+        </p>
+
+        <!-- CLARITY CHECK PANEL -->
+        <div id="clarity-panel" class="w-full mt-2">
+          <p class="text-sm sm:text-base text-purple-800 font-semibold mb-3">
+            Do you feel this feeling a lot, sometimes, or just right now?
+          </p>
+
+          <div class="flex flex-col gap-2">
+            <button data-clarity="all"
+                    class="w-full py-2.5 px-4 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-800 font-semibold text-sm sm:text-base">
+              All of the time
+            </button>
+
+            <button data-clarity="sometimes"
+                    class="w-full py-2.5 px-4 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-800 font-semibold text-sm sm:text-base">
+              Sometimes
+            </button>
+
+            <button data-clarity="just-now"
+                    class="w-full py-2.5 px-4 rounded-full bg-pink-100 hover:bg-pink-200 text-pink-800 font-semibold text-sm sm:text-base">
+              Just right now
+            </button>
+          </div>
+
+          <!-- Gentle explanation for "just now" (hidden until needed) -->
+          <div id="just-now-message" class="hidden mt-4 text-xs sm:text-sm text-gray-700 max-w-md mx-auto">
+            <p class="mb-3">
+              I know you’re feeling this right now, and this bird can help when you feel this way.
+              But for choosing your VentPal — let’s find the bird that reminds you of <span class="font-semibold">you</span>
+              when you feel like <span class="font-semibold">you</span> the most.
+            </p>
+            <button id="back-to-feelings"
+                    class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-800 font-semibold text-xs sm:text-sm">
+              Go back to feelings
+            </button>
+          </div>
+        </div>
+
+        <!-- RECOMMENDED BIRDS PANEL -->
+        <div id="recommended-birds-panel" class="w-full mt-4 hidden">
+          <p class="text-sm sm:text-base text-purple-800 font-semibold mb-3">
+            Here are some nestlings who understand this feeling:
+          </p>
+
+          <div id="recommended-birds-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- JS will inject recommended birds here -->
+          </div>
+
+          <button id="see-all-birds"
+                  class="mt-4 w-full py-2.5 px-4 rounded-full bg-white border border-purple-200 text-purple-700 hover:bg-purple-50 text-sm sm:text-base font-semibold">
+            Not feeling these? See all birds.
+          </button>
+        </div>
+
+        <!-- ALL BIRDS PANEL -->
+        <div id="all-birds-panel" class="w-full mt-4 hidden">
+          <p class="text-sm sm:text-base text-purple-800 font-semibold mb-3">
+            Here’s the whole flock. Pick the nestling that feels most like you.
+          </p>
+
+          <div id="all-birds-list" class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-72 overflow-y-auto pr-1">
+            <!-- JS will inject all 16 birds here -->
+          </div>
+
+          <button id="back-to-recommended"
+                  class="mt-4 w-full py-2.5 px-4 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-800 text-sm sm:text-base font-semibold">
+            Back to recommended birds
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- END VENTPALS FEELING POPUP -->
+
+</body>
+</html>
