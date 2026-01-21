@@ -397,9 +397,10 @@
       </div>
     </div>
   </div>
-  <!-- END VENTPALS FEELING POPUP -->
+ <!-- END VENTPALS FEELING POPUP -->
+
 <script>
-document.querySelectorAll(".grid .bg-white\\/90")
+document.addEventListener("DOMContentLoaded", () => {
 
   /* ----------------------------------------------------------
      FEELING → BIRD MAPPING (your canon)
@@ -480,20 +481,15 @@ document.querySelectorAll(".grid .bg-white\\/90")
     popupEmoji.textContent = data.emoji;
     popupTitle.textContent = feelingName;
 
-    // Reset panels
     clarityPanel.classList.remove("hidden");
     recommendedPanel.classList.add("hidden");
     allBirdsPanel.classList.add("hidden");
     justNowMessage.classList.add("hidden");
 
-    // Clear floating emojis
     emojiLayer.innerHTML = "";
     spawnFloatingEmojis(data.emoji);
 
-    // Show overlay
     overlay.classList.remove("hidden");
-
-    // Storybook zoom-in
     setTimeout(() => popup.classList.add("show"), 10);
   }
 
@@ -534,7 +530,6 @@ document.querySelectorAll(".grid .bg-white\\/90")
         return;
       }
 
-      // Show recommended birds
       clarityPanel.classList.add("hidden");
       loadRecommendedBird();
       recommendedPanel.classList.remove("hidden");
@@ -611,22 +606,24 @@ document.querySelectorAll(".grid .bg-white\\/90")
     });
   }
 
-/* ----------------------------------------------------------
-   MAKE ALL FEELING CARDS CLICKABLE (corrected selector)
----------------------------------------------------------- */
-document.querySelectorAll(".grid .bg-white\\/90").forEach(card => {
-  const title = card.querySelector("h2");
-  if (!title) return;
+  /* ----------------------------------------------------------
+     MAKE ALL FEELING CARDS CLICKABLE (corrected selector)
+  ---------------------------------------------------------- */
+  document.querySelectorAll(".grid .bg-white\\/90").forEach(card => {
+    const title = card.querySelector("h2");
+    if (!title) return;
 
-  const feelingName = title.textContent.trim();
+    const feelingName = title.textContent.trim();
 
-  card.style.cursor = "pointer";
+    card.style.cursor = "pointer";
 
-  card.addEventListener("click", () => {
-    openPopup(feelingName);
+    card.addEventListener("click", () => {
+      openPopup(feelingName);
+    });
   });
-});
 
+});
+</script>
 
 </body>
 </html>
