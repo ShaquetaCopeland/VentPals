@@ -10,19 +10,17 @@ body {
   min-height: 100vh;
 }
 
-/* Headings */
 h1, h2, h3, h4 {
   margin: 0.5em 0;
 }
 
-/* Links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* -------------------------------------------------- */
-/* TWO-TONE LOGO                                       */
+/* TWO-TONE LOGO (LOCKED CANON COLORS)                */
 /* -------------------------------------------------- */
 
 .logo {
@@ -31,11 +29,11 @@ a {
 }
 
 .logo .vent {
-  color: #22c55e; /* green */
+  color: #22c55e !important; /* green */
 }
 
 .logo .pals {
-  color: #7c3aed; /* purple */
+  color: #7c3aed !important; /* purple */
 }
 
 /* -------------------------------------------------- */
@@ -51,7 +49,6 @@ a {
   50% { transform: translateY(-12px); }
 }
 
-/* Optional soft shadow */
 .bird-shadow {
   filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));
 }
@@ -124,14 +121,12 @@ a {
 /* FEELING POPUP SYSTEM                                */
 /* -------------------------------------------------- */
 
-/* Base state */
 #feeling-popup {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
-/* Visible state */
 #feeling-popup.show {
   transform: scale(1);
   opacity: 1;
