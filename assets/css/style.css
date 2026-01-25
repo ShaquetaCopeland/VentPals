@@ -1,277 +1,47 @@
-/* --------------------- */
-/* Base Setup & Resets   */
-/* --------------------- */
+/* -------------------------------------------------- */
+/* BASE SETUP                                          */
+/* -------------------------------------------------- */
 
 body {
   margin: 0;
   font-family: 'Baloo 2', cursive;
-  background: linear-gradient(to bottom, #dff6ff 0%, #dcd6f7 50%, #f0f8ff 100%);
   text-align: center;
   overflow-x: hidden;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
+/* Headings */
 h1, h2, h3, h4 {
   margin: 0.5em 0;
-  color: #8e44ad;
 }
 
+/* Links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* --------------------- */
-/* Hero Section & Logo   */
-/* --------------------- */
+/* -------------------------------------------------- */
+/* TWO-TONE LOGO                                       */
+/* -------------------------------------------------- */
 
-.hero-section {
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 900px;
-  margin-bottom: 30px;
+.logo {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
 }
 
-.hero-section h1 {
-  font-size: 4.5rem;
-  color: #8e44ad;
-  text-shadow: 4px 4px #dcd6f7, 8px 8px rgba(0,0,0,0.1);
-  letter-spacing: 2px;
+.logo .vent {
+  color: #22c55e; /* green */
 }
 
-.hero-section h1 span {
-  color: #a060e8;
-}
-
-.hero-section .pebble {
-  width: 180px;
-  height: auto;
-  animation: float 4s ease-in-out infinite;
-  margin-top: 20px;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-.hero-section .intro {
-  font-size: 1.5rem;
-  color: #333;
-  max-width: 400px;
-  margin-top: 20px;
-}
-
-.logo-img {
-  width: 160px;
-  height: auto;
-  margin-top: 10px;
-}
-
-/* --------------------- */
-/* Navigation Bar        */
-/* --------------------- */
-
-.main-nav {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 15px 0;
-  width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  margin-bottom: 30px;
-  max-width: 800px;
-}
-
-.main-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.main-nav ul li a {
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 5px 10px;
-  color: #6a1b9a;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.main-nav ul li a:hover {
-  color: #a060e8;
-  transform: translateY(-2px);
-}
-
-/* --------------------- */
-/* Buttons               */
-/* --------------------- */
-
-.start-btn, .form-btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 25px;
-  background-color: #a060e8;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  border-radius: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.start-btn:hover, .form-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* --------------------- */
-/* Forms (Login/Join)    */
-/* --------------------- */
-
-.form-section {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 90%;
-  margin-bottom: 50px;
-}
-
-.form-section input, .form-section select {
-  width: 90%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-}
-
-.form-section label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-  color: #6a1b9a;
-}
-
-/* --------------------- */
-/* Dashboard Links       */
-/* --------------------- */
-
-.dashboard-links {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
-
-.dashboard-links li {
-  margin: 15px 0;
-}
-
-.dashboard-links a {
-  font-size: 1.2rem;
-  color: #6a1b9a;
-  font-weight: bold;
-  transition: color 0.2s ease;
-}
-
-.dashboard-links a:hover {
-  color: #a060e8;
-}
-
-/* --------------------- */
-/* "Meet the Flock" Cards */
-/* --------------------- */
-
-.meet-the-flock-placeholder {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 50px 20px;
-  margin-top: 50px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  width: 100%;
-}
-
-.meet-the-flock-placeholder h2 {
-  font-size: 2.5rem;
-  color: #6a1b9a;
-  margin-bottom: 15px;
-}
-
-.meet-the-flock-placeholder p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-/* --------------------- */
-/* Responsive Adjustments */
-/* --------------------- */
-
-@media (min-width: 768px) {
-  .hero-main-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 50px;
-  }
-
-  .pebble {
-    order: 2;
-  }
-
-  .intro {
-    text-align: right;
-    order: 1;
-  }
-
-  h1 {
-    font-size: 5.5rem;
-  }
-}
-
-@media (max-width: 767px) {
-  h1 {
-    font-size: 3rem;
-  }
-
-  .intro {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-
-  .pebble {
-    width: 150px;
-  }
-
-  .start-btn {
-    padding: 12px 25px;
-    font-size: 1.1rem;
-  }
-
-  .main-nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
+.logo .pals {
+  color: #7c3aed; /* purple */
 }
 
 /* -------------------------------------------------- */
-/* HOMEPAGE ADDITIONS (Flip Cards, Floating Birds)    */
+/* FLOATING BIRDS                                      */
 /* -------------------------------------------------- */
 
-/* Floating birds (decorative + hero Flicker) */
 .float {
   animation: float 4s ease-in-out infinite;
 }
@@ -281,70 +51,35 @@ a {
   50% { transform: translateY(-12px); }
 }
 
-/* Flip card system */
-.flip-card {
-  perspective: 1000px;
-}
-
-.flip-inner {
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front,
-.flip-back {
-  backface-visibility: hidden;
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
-
-/* Optional soft shadow for birds */
+/* Optional soft shadow */
 .bird-shadow {
   filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));
 }
+
 /* -------------------------------------------------- */
-/* HOMEPAGE ADDITIONS (Flip Cards, Floating Birds)    */
+/* FLIP CARD SYSTEM                                    */
 /* -------------------------------------------------- */
 
-/* Floating birds */
-.float {
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-/* Circle flip cards */
-.circle-card {
+.flip-card {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  perspective: 1000px;
+  position: relative;
 }
 
 @media (min-width: 640px) {
-  .circle-card {
+  .flip-card {
     width: 180px;
     height: 180px;
   }
 }
 
-.flip-card {
-  perspective: 1000px;
-}
-
 .flip-inner {
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
   width: 100%;
   height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
 .flip-card:hover .flip-inner {
@@ -353,10 +88,15 @@ a {
 
 .flip-front,
 .flip-back {
-  backface-visibility: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
+  backface-visibility: hidden;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .flip-back {
@@ -364,35 +104,40 @@ a {
   border-radius: 20px;
 }
 
-/* Mobile nav menu */
+/* -------------------------------------------------- */
+/* MOBILE NAV MENU                                     */
+/* -------------------------------------------------- */
+
 .mobile-menu {
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
 }
 
 .mobile-menu.open {
-  max-height: 300px;
+  max-height: 500px;
   opacity: 1;
 }
-/* ----------------------------------------------------------
-   VENTPALS POPUP ANIMATIONS & STYLING
----------------------------------------------------------- */
 
-/* Storybook calm zoom-in */
+/* -------------------------------------------------- */
+/* FEELING POPUP SYSTEM                                */
+/* -------------------------------------------------- */
+
+/* Base state */
 #feeling-popup {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
+/* Visible state */
 #feeling-popup.show {
   transform: scale(1);
   opacity: 1;
 }
 
-/* Floating emoji bubble animation */
+/* Floating emoji animation */
 @keyframes floatUp {
   0% {
     transform: translateY(20px) scale(1);
@@ -407,7 +152,15 @@ a {
   }
 }
 
-/* Breathing bird animation */
+.floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0;
+  animation: floatUp 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Breathing bird */
 @keyframes birdBreathing {
   0% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
@@ -418,16 +171,7 @@ a {
   animation: birdBreathing 3s ease-in-out infinite;
 }
 
-/* Floating emoji elements */
-.floating-emoji {
-  position: absolute;
-  font-size: 2rem;
-  opacity: 0;
-  animation: floatUp 4s linear infinite;
-  pointer-events: none;
-}
-
-/* Smooth panel transitions */
+/* Panel transitions */
 #clarity-panel,
 #recommended-birds-panel,
 #all-birds-panel {
@@ -440,7 +184,7 @@ a {
   pointer-events: none;
 }
 
-/* Scroll styling for all-birds list */
+/* Scroll styling */
 #all-birds-list::-webkit-scrollbar {
   width: 6px;
 }
@@ -453,6 +197,3 @@ a {
 #all-birds-list::-webkit-scrollbar-track {
   background: transparent;
 }
-/* ----------------------------------------------------------
-   VENTPALS FEELING POPUP SYSTEM
----------------------------------------------------------- */
