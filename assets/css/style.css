@@ -1,10 +1,23 @@
 /* -------------------------------------------------- */
+/* GLOBAL RESET + TAILWIND OVERRIDE PROTECTION        */
+/* -------------------------------------------------- */
+
+/* Prevent Tailwind from killing 3D transforms */
+* {
+  backface-visibility: hidden;
+}
+
+/* Ensure Baloo 2 always wins */
+body, .logo {
+  font-family: 'Baloo 2', cursive !important;
+}
+
+/* -------------------------------------------------- */
 /* BASE SETUP                                          */
 /* -------------------------------------------------- */
 
 body {
   margin: 0;
-  font-family: 'Baloo 2', cursive;
   text-align: center;
   overflow-x: hidden;
   min-height: 100vh;
@@ -24,16 +37,16 @@ a {
 /* -------------------------------------------------- */
 
 .logo {
-  font-family: "Baloo 2", sans-serif;
-  font-weight: 700;
+  font-weight: 700 !important;
+  letter-spacing: -1px;
 }
 
 .logo .vent {
-  color: #22c55e !important;
+  color: #22c55e !important; /* green */
 }
 
 .logo .pals {
-  color: #7c3aed !important;
+  color: #7c3aed !important; /* purple */
 }
 
 /* -------------------------------------------------- */
@@ -54,13 +67,13 @@ a {
 }
 
 /* -------------------------------------------------- */
-/* FLIP CARD SYSTEM (FIXED + MOBILE TAP SUPPORT)       */
+/* FLIP CARD SYSTEM (FULLY FIXED)                     */
 /* -------------------------------------------------- */
 
 .flip-card {
   width: 150px;
   height: 150px;
-  perspective: 1000px;
+  perspective: 1200px;
   position: relative;
   cursor: pointer;
 }
@@ -76,17 +89,18 @@ a {
   width: 100%;
   height: 100%;
   transition: transform 0.6s ease;
-  transform-style: preserve-3d;
+  transform-style: preserve-3d !important;
   position: relative;
 }
 
+/* Desktop hover */
 .flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) !important;
 }
 
-/* Mobile tap support */
+/* Mobile tap */
 .flip-card.flip-active .flip-inner {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) !important;
 }
 
 .flip-front,
@@ -94,17 +108,26 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
   border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  backface-visibility: hidden !important;
 }
 
+/* Back side */
 .flip-back {
   transform: rotateY(180deg);
-  border-radius: 20px;
+  border-radius: 24px;
+}
+
+/* Ensure birds inside flip cards are centered */
+.flip-back img,
+.flip-front img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* -------------------------------------------------- */
