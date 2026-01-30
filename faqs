@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VentPals FAQs</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7faff;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #4a6fa5;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .question {
+      font-weight: 600;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Parent FAQ -->
+  <section id="parent-faq">
+    <h1>VentPals — Parent FAQ</h1>
+
+    <p class="question">What is VentPals?</p>
+    <p>VentPals is a child‑friendly emotional support platform that helps kids understand their feelings, express themselves safely, and build emotional independence.</p>
+
+    <p class="question">Is VentPals therapy?</p>
+    <p>No. VentPals is not therapy and does not replace mental‑health care. It’s an emotional learning tool designed to help kids build healthy emotional habits.</p>
+
+    <p class="question">Is VentPals safe for my child?</p>
+    <p>Yes. VentPals includes a required privacy module, no public posting, no strangers, no ads, and parent‑controlled Circles.</p>
+
+    <p class="question">What information does VentPals collect?</p>
+    <p>Only the minimum needed to operate the platform. Children’s entries stay private unless they choose to share them.</p>
+
+    <p class="question">Can I see what my child writes?</p>
+    <p>Only if your child chooses to share it with you. VentPals encourages healthy communication while respecting a child’s emotional autonomy.</p>
+
+    <p class="question">How does VentPals teach privacy?</p>
+    <p>Kids complete a short, interactive Privacy & Safe‑Sharing Module before using any tools.</p>
+
+    <p class="question">What ages is VentPals for?</p>
+    <p>VentPals is designed for children ages 6–12.</p>
+
+    <p class="question">What if my child shares something concerning?</p>
+    <p>VentPals guides children toward trusted adults and provides tools like the Ask‑With‑Courage Letter Generator.</p>
+
+    <p class="question">Does VentPals replace talking to my child?</p>
+    <p>No. VentPals strengthens communication by giving kids the words and confidence to start conversations.</p>
+
+    <p class="question">How much does VentPals cost?</p>
+    <p>The core experience is free. Optional keepsakes and parent tools support the nonprofit mission.</p>
+
+    <p class="question">Why does VentPals use characters?</p>
+    <p>Children learn best through play. Characters help them feel safe, engaged, and understood.</p>
+
+    <p class="question">How do I get started?</p>
+    <p>Create a parent account, set up your Circle, connect your child, and review safety settings.</p>
+  </section>
+
+  <!-- Kid FAQ -->
+  <section id="kid-faq">
+    <h1>VentPals — Kid FAQ</h1>
+
+    <p class="question">What is VentPals?</p>
+    <p>VentPals is a cozy place where you can learn about your feelings and use fun tools to help your heart feel calmer and stronger.</p>
+
+    <p class="question">Do I have to talk about my feelings?</p>
+    <p>Nope! You get to choose what you want to do. VentPals never rushes you.</p>
+
+    <p class="question">Who can see what I write?</p>
+    <p>Only the people you choose. Your feelings stay private unless you decide to share them.</p>
+
+    <p class="question">What’s a Circle?</p>
+    <p>Your Circle is your group of trusted grown‑ups who can help you when you want support.</p>
+
+    <p class="question">What if I don’t know how to explain my feelings?</p>
+    <p>VentPals has tools and characters that help you find the right words.</p>
+
+    <p class="question">What if I feel something really big?</p>
+    <p>VentPals helps you choose a trusted grown‑up and even write a letter if you want.</p>
+
+    <p class="question">Is VentPals a game?</p>
+    <p>Not exactly — but it is fun! You’ll meet friendly characters and explore calming tools.</p>
+
+    <p class="question">Why do I have to learn about privacy?</p>
+    <p>Because your feelings are important, and you deserve to stay safe online.</p>
+
+    <p class="question">Can I use VentPals every day?</p>
+    <p>Yes! You can visit anytime.</p>
+
+    <p class="question">What if I make a mistake?</p>
+    <p>VentPals is a no‑judgment zone. You can always try again.</p>
+  </section>
+
+</body>
+</html>
