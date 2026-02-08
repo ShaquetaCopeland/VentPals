@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>VentPals – Big Feelings Welcome</title>
+  <title>VentPals – Big Feelings Live Here</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- PicoCSS -->
@@ -12,224 +12,231 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 
-<body style="background: linear-gradient(to bottom right, #fce7f3, #e0f2fe, #ede9fe); overflow-x:hidden;">
+<body class="vp-body">
 
-<!-- DECORATIVE BIRDS -->
-<img src="assets/images/sable-baby.png" class="float" style="position:absolute; top:40px; left:20px; height:90px; opacity:0.8;">
-<img src="assets/images/lumen-percher.png" class="float" style="position:absolute; top:650px; right:20px; height:120px; opacity:0.8; transform:scaleX(-1);">
-<img src="assets/images/echo-baby.png" class="float" style="position:absolute; top:1200px; left:40px; height:90px; opacity:0.8;">
-<img src="assets/images/flicker-percher.png" class="float" style="position:absolute; top:1850px; right:40px; height:120px; opacity:0.8; transform:scaleX(-1);">
+  <!-- DECORATIVE BIRDS -->
+  <img src="assets/images/sable-baby.png" class="float vp-bird-top-left" alt="Sable bird">
+  <img src="assets/images/lumen-percher.png" class="float vp-bird-top-right" alt="Lumen bird">
+  <img src="assets/images/echo-baby.png" class="float vp-bird-mid-left" alt="Echo bird">
+  <img src="assets/images/flicker-percher.png" class="float vp-bird-mid-right" alt="Flicker bird">
 
-<!-- NAVIGATION -->
-<nav style="max-width:1100px; margin:auto; padding:2rem; display:flex; justify-content:space-between; align-items:center;">
-  <a href="index.html" style="display:flex; align-items:center; gap:1rem;">
-    <img src="assets/images/logo.png" style="height:60px;">
-    <span class="logo" style="font-size:2.8rem;">
-      <span class="vent">Vent</span><span class="pals">Pals</span>
-    </span>
-  </a>
-
-  <ul style="display:flex; gap:2rem; list-style:none; margin:0; padding:0;">
-    <li><a href="how-it-works.html">How It Works</a></li>
-    <li><a href="circle-hub.html">Circles</a></li>
-    <li><a href="dedications.html">Dedications</a></li>
-    <li><a href="https://keepsakes.ventpals.com">Keepsakes</a></li>
-    <li><a href="adult-signup.html">Grown-Ups</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section style="max-width:900px; margin:auto; padding:6rem 2rem; text-align:center;">
-  <h1 class="logo" style="font-size:4rem;">
-    <span class="vent">Vent</span><span class="pals">Pals</span>
-  </h1>
-
-  <p style="font-size:1.8rem; color:#6b21a8; margin-top:1rem;">Big feelings live here.</p>
-
-  <p style="max-width:600px; margin:1.5rem auto; font-size:1.1rem; color:#444;">
-    A gentle place where kids can explore their feelings,
-    grow with their VentPal birds,
-    and understand themselves before the world tells them who to be.
-  </p>
-
-  <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
-    <a href="start-with-a-feeling.html" class="contrast" style="background:#fde047; color:#4c1d95; padding:1rem 2rem; border-radius:50px; font-size:1.2rem; font-weight:700;">
-      😶‍🌫️ Start With a Feeling
+  <!-- NAVIGATION -->
+  <nav class="vp-nav">
+    <a href="index.html" class="vp-nav-logo">
+      <img src="assets/images/logo.png" class="vp-logo-img" alt="VentPals logo">
+      <span class="logo vp-logo-text">
+        <span class="vent">Vent</span><span class="pals">Pals</span>
+      </span>
     </a>
 
-    <a href="meet-the-flock.html" class="secondary" style="background:white; color:#6b21a8; padding:1rem 2rem; border-radius:50px; font-size:1.2rem; font-weight:700;">
-      🐣 Meet the Birds
+    <ul class="vp-nav-links">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="circle-hub.html">Circles</a></li>
+      <li><a href="dedications.html">Dedications</a></li>
+      <li><a href="https://keepsakes.ventpals.com">Keepsakes</a></li>
+      <li><a href="adult-signup.html">Grown-Ups</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO: PEBBLE INTRO -->
+  <section class="vp-hero">
+    <div class="vp-hero-inner">
+      <div class="vp-hero-cloud">
+        <div class="vp-hero-bird-wrap">
+          <!-- Using an existing bird asset; text introduces Pebble -->
+          <img src="assets/images/echo-baby.png" class="vp-hero-bird bird-breathing" alt="Pebble bird">
+        </div>
+        <div class="vp-hero-bubble">
+          <p class="vp-hero-welcome">WELCOME TO</p>
+          <h1 class="logo vp-hero-title">
+            <span class="vent">Vent</span><span class="pals">Pals</span>
+          </h1>
+          <p class="vp-hero-pebble-line">
+            Hey there, I’m Pebble.<br>
+            I’m here when you need a soft place to land.
+          </p>
+          <a href="start-with-a-feeling.html" class="vp-btn-primary">
+            Let’s Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL FEELINGS WELCOME -->
+  <section class="vp-section">
+    <h2 class="vp-section-title">All feelings are welcome. 💛</h2>
+    <p class="vp-section-subtitle">
+      Tap a feeling to see what it means with a VentPal by your side.
+    </p>
+
+    <div class="vp-feelings-grid">
+      <!-- ANGRY -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front vp-feeling-front-angry">
+            <div class="vp-feeling-emoji">😡</div>
+            <div class="vp-feeling-label-angry">Angry</div>
+          </div>
+          <div class="flip-back vp-feeling-back-angry">
+            <h3 class="vp-feeling-back-title-angry">Lumen says…</h3>
+            <img src="assets/images/flare-feathered.png" class="vp-feeling-bird" alt="Lumen bird">
+            <p class="vp-feeling-back-text-angry">
+              Anger shows up when something feels unfair or not okay.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAD -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front vp-feeling-front-sad">
+            <div class="vp-feeling-emoji">😢</div>
+            <div class="vp-feeling-label-sad">Sad</div>
+          </div>
+          <div class="flip-back vp-feeling-back-sad">
+            <h3 class="vp-feeling-back-title-sad">Echo says…</h3>
+            <img src="assets/images/drift-baby.png" class="vp-feeling-bird" alt="Echo bird">
+            <p class="vp-feeling-back-text-sad">
+              Sadness shows up when something important feels missing.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HAPPY -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front vp-feeling-front-happy">
+            <div class="vp-feeling-emoji">😄</div>
+            <div class="vp-feeling-label-happy">Happy</div>
+          </div>
+          <div class="flip-back vp-feeling-back-happy">
+            <h3 class="vp-feeling-back-title-happy">Nova says…</h3>
+            <img src="assets/images/flicker-feathered.png" class="vp-feeling-bird" alt="Nova bird">
+            <p class="vp-feeling-back-text-happy">
+              Happiness shows up when something feels right and joyful.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANXIOUS -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front vp-feeling-front-anxious">
+            <div class="vp-feeling-emoji">😰</div>
+            <div class="vp-feeling-label-anxious">Anxious</div>
+          </div>
+          <div class="flip-back vp-feeling-back-anxious">
+            <h3 class="vp-feeling-back-title-anxious">Sable says…</h3>
+            <img src="assets/images/cove-baby.png" class="vp-feeling-bird" alt="Sable bird">
+            <p class="vp-feeling-back-text-anxious">
+              Anxiety shows up when your brain is trying to protect you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="vp-section vp-section-cloud">
+    <h2 class="vp-section-title">How VentPals Works</h2>
+    <p class="vp-section-subtitle-wide">
+      Every child chooses a VentPal bird who helps them understand their feelings,
+      build emotional skills, and grow in a safe, gentle space made just for them.
+    </p>
+
+    <div class="vp-steps-grid">
+      <article class="vp-step-card">
+        <img src="assets/images/lumen-baby.png" class="vp-step-bird" alt="VentPal bird">
+        <h3>1. Pick Your Bird</h3>
+        <p>Kids choose the VentPal that matches how they feel.</p>
+      </article>
+
+      <article class="vp-step-card">
+        <img src="assets/images/echo-baby.png" class="vp-step-bird" alt="VentPal bird">
+        <h3>2. Join Their Circle</h3>
+        <p>A private emotional home where kids grow at their own pace.</p>
+      </article>
+
+      <article class="vp-step-card">
+        <img src="assets/images/flicker-baby.png" class="vp-step-bird" alt="VentPal bird">
+        <h3>3. Explore Feelings Safely</h3>
+        <p>Kids learn emotional skills and join kid‑only spaces.</p>
+      </article>
+    </div>
+
+    <a href="how-it-works.html" class="vp-btn-secondary">
+      Learn More
     </a>
-  </div>
+  </section>
 
-  <div style="margin-top:3rem;">
-    <img src="assets/images/flicker-percher.png" class="float" style="height:150px; opacity:0.9;">
-  </div>
-</section>
+  <!-- KEEPSAKES MARKETPLACE -->
+  <section class="vp-section">
+    <img src="assets/images/keepsakes-logo.png" class="vp-keepsakes-logo" alt="VentPals Keepsakes logo">
 
-<!-- FEELINGS SECTION -->
-<section style="padding:6rem 2rem; text-align:center;">
-  <h2 style="font-size:2.2rem; color:#6b21a8;">All feelings are welcome. 💛</h2>
-  <p style="color:#555; margin-bottom:3rem;">Tap a feeling to see what it means with a VentPal by your side.</p>
+    <h2 class="vp-section-title">VentPals Keepsakes Marketplace</h2>
+    <p class="vp-section-subtitle-wide">
+      A cozy shop filled with symbolic treasures inspired by the VentPal birds.
+      Each keepsake celebrates your child's emotional growth and milestones.
+    </p>
 
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:2rem; max-width:800px; margin:auto;">
+    <div class="vp-keepsakes-grid">
+      <article class="vp-keepsake-card">
+        <img src="assets/images/keepsake-sticker.png" class="vp-keepsake-img" alt="Flock stickers">
+        <h3>Flock Stickers</h3>
+        <p>Symbols of courage, calm, and growth.</p>
+      </article>
 
-    <!-- ANGRY -->
-    <div class="flip-card">
-      <div class="flip-inner">
-        <div class="flip-front" style="background:#fecaca;">
-          <div style="font-size:3rem;">😡</div>
-          <div style="color:#7f1d1d; font-weight:600;">Angry</div>
-        </div>
-        <div class="flip-back" style="background:#fee2e2;">
-          <h3 style="color:#7f1d1d;">Lumen says…</h3>
-          <img src="assets/images/flare-feathered.png" style="height:60px;">
-          <p style="color:#7f1d1d; font-size:0.9rem;">Anger shows up when something feels unfair or not okay.</p>
-        </div>
-      </div>
+      <article class="vp-keepsake-card">
+        <img src="assets/images/keepsake-pins.png" class="vp-keepsake-img" alt="Collectable pins">
+        <h3>Collectable Pins</h3>
+        <p>Inspired by each VentPal bird’s unique strengths.</p>
+      </article>
+
+      <article class="vp-keepsake-card">
+        <img src="assets/images/keepsake-tee.png" class="vp-keepsake-img" alt="Flock tees">
+        <h3>Flock Tees</h3>
+        <p>A wearable reminder of your child’s emotional journey.</p>
+      </article>
     </div>
 
-    <!-- SAD -->
-    <div class="flip-card">
-      <div class="flip-inner">
-        <div class="flip-front" style="background:#bfdbfe;">
-          <div style="font-size:3rem;">😢</div>
-          <div style="color:#1e3a8a; font-weight:600;">Sad</div>
-        </div>
-        <div class="flip-back" style="background:#dbeafe;">
-          <h3 style="color:#1e3a8a;">Echo says…</h3>
-          <img src="assets/images/drift-baby.png" style="height:60px;">
-          <p style="color:#1e3a8a; font-size:0.9rem;">Sadness shows up when something important feels missing.</p>
-        </div>
-      </div>
+    <a href="https://keepsakes.ventpals.com" class="vp-btn-green">
+      Visit the Marketplace
+    </a>
+  </section>
+
+  <!-- FOOTER WITH SOCIALS -->
+  <footer class="vp-footer">
+    <p class="logo vp-footer-logo">
+      <span class="vent">Vent</span><span class="pals">Pals</span> • A nonprofit initiative
+    </p>
+
+    <div class="vp-footer-socials">
+      <a href="https://facebook.com/ventpals" class="vp-social-btn vp-social-fb" target="_blank" rel="noopener noreferrer">
+        fb
+      </a>
+      <a href="https://instagram.com/ventpals" class="vp-social-btn vp-social-ig" target="_blank" rel="noopener noreferrer">
+        ig
+      </a>
     </div>
+  </footer>
 
-    <!-- HAPPY -->
-    <div class="flip-card">
-      <div class="flip-inner">
-        <div class="flip-front" style="background:#fef08a;">
-          <div style="font-size:3rem;">😄</div>
-          <div style="color:#854d0e; font-weight:600;">Happy</div>
-        </div>
-        <div class="flip-back" style="background:#fef9c3;">
-          <h3 style="color:#854d0e;">Nova says…</h3>
-          <img src="assets/images/flicker-feathered.png" style="height:60px;">
-          <p style="color:#854d0e; font-size:0.9rem;">Happiness shows up when something feels right and joyful.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ANXIOUS -->
-    <div class="flip-card">
-      <div class="flip-inner">
-        <div class="flip-front" style="background:#bbf7d0;">
-          <div style="font-size:3rem;">😰</div>
-          <div style="color:#065f46; font-weight:600;">Anxious</div>
-        </div>
-        <div class="flip-back" style="background:#dcfce7;">
-          <h3 style="color:#065f46;">Sable says…</h3>
-          <img src="assets/images/cove-baby.png" style="height:60px;">
-          <p style="color:#065f46; font-size:0.9rem;">Anxiety shows up when your brain is trying to protect you.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section style="padding:6rem 2rem; text-align:center;">
-  <h2 style="font-size:2.4rem; color:#6b21a8;">How VentPals Works</h2>
-
-  <p style="max-width:600px; margin:1rem auto 3rem; color:#444;">
-    Every child chooses a VentPal bird who helps them understand their feelings,
-    build emotional skills, and grow in a safe, gentle space made just for them.
-  </p>
-
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:2rem; max-width:900px; margin:auto;">
-
-    <article style="padding:2rem; background:white; border-radius:20px;">
-      <img src="assets/images/lumen-baby.png" style="height:80px; margin-bottom:1rem;">
-      <h3 style="color:#6b21a8;">1. Pick Your Bird</h3>
-      <p>Kids choose the VentPal that matches how they feel.</p>
-    </article>
-
-    <article style="padding:2rem; background:white; border-radius:20px;">
-      <img src="assets/images/echo-baby.png" style="height:80px; margin-bottom:1rem;">
-      <h3 style="color:#6b21a8;">2. Join Their Circle</h3>
-      <p>A private emotional home where kids grow at their own pace.</p>
-    </article>
-
-    <article style="padding:2rem; background:white; border-radius:20px;">
-      <img src="assets/images/flicker-baby.png" style="height:80px; margin-bottom:1rem;">
-      <h3 style="color:#6b21a8;">3. Explore Feelings Safely</h3>
-      <p>Kids learn emotional skills and join kid‑only spaces.</p>
-    </article>
-
-  </div>
-
-  <a href="how-it-works.html" class="contrast" style="margin-top:3rem; display:inline-block; padding:1rem 2.5rem; background:#6b21a8; color:white; border-radius:50px; font-size:1.2rem; font-weight:700;">
-    Learn More
-  </a>
-</section>
-
-<!-- KEEPSAKES MARKETPLACE -->
-<section style="padding:6rem 2rem; text-align:center;">
-  <img src="assets/images/keepsakes-logo.png" style="height:150px; margin-bottom:2rem; opacity:0.9;">
-
-  <h2 style="font-size:2.4rem; color:#6b21a8;">VentPals Keepsakes Marketplace</h2>
-
-  <p style="max-width:600px; margin:1rem auto 3rem; color:#444;">
-    A cozy shop filled with symbolic treasures inspired by the VentPal birds.
-    Each keepsake celebrates your child's emotional growth and milestones.
-  </p>
-
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:2rem; max-width:900px; margin:auto;">
-
-    <article style="padding:2rem; background:white; border-radius:20px;">
-      <img src="assets/images/keepsake-sticker.png" style="height:80px; margin-bottom:1rem;">
-      <h3 style="color:#6b21a8;">Flock Stickers</h3>
-      <p>Symbols of courage, calm, and growth.</p>
-    </article>
-
-    <article style="padding:2rem; background:white; border-radius:20px;">
-      <img src="assets/images/keepsake-pins.png" style="height:80px; margin-bottom:1rem;">
-      <h3 style="color:#6b21a8;">Collectable Pins</h3>
-      <p>Inspired by each VentPal bird’s unique strengths.</p>
-    </article>
-
-    <article style="padding:2rem; background:white; border-radius:20px;">
-      <img src="assets/images/keepsake-tee.png" style="height:80px; margin-bottom:1rem;">
-      <h3 style="color:#6b21a8;">Flock Tees</h3>
-      <p>A wearable reminder of your child’s emotional journey.</p>
-    </article>
-
-  </div>
-
-  <a href="https://keepsakes.ventpals.com" class="contrast" style="margin-top:3rem; display:inline-block; padding:1rem 2.5rem; background:#22c55e; color:white; border-radius:50px; font-size:1.2rem; font-weight:700;">
-    Visit the Marketplace
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer style="padding:3rem; text-align:center; color:#666;">
-  <p class="logo" style="font-size:1.1rem;">
-    <span class="vent">Vent</span><span class="pals">Pals</span> • A nonprofit initiative
-  </p>
-</footer>
-
-<!-- MOBILE FLIP SUPPORT -->
-<script>
-  document.querySelectorAll('.flip-card').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('flip-active');
+  <!-- MOBILE FLIP SUPPORT -->
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flip-active');
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
