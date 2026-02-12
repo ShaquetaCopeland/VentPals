@@ -351,8 +351,10 @@
    =========================== */
 
 .vp-keepsakes-logo {
-  height: 130px;
-  margin-bottom: 1.5rem;
+  height: 260px;              /* strong, section‑header presence */
+  display: block;
+  margin: 0 auto 1.5rem;
+  object-fit: contain;
 }
 
 .vp-keepsakes-grid {
