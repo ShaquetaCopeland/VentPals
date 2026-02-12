@@ -266,14 +266,6 @@
    FEELINGS GRID + FLIP CARDS
    =========================== */
 
-.vp-feelings-grid {
-  max-width: 820px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
-}
-
 .flip-card {
   width: 170px;
   height: 170px;
@@ -281,132 +273,36 @@
   position: relative;
   cursor: pointer;
   margin: 0 auto;
+  overflow: hidden; /* THIS is the missing piece */
 }
 
 .flip-inner {
   width: 100%;
   height: 100%;
   transition: transform 0.6s ease;
-  transform-style: preserve-3d !important;
+  transform-style: preserve-3d;
   position: relative;
-}
-
-.flip-card:hover .flip-inner,
-.flip-card.flip-active .flip-inner {
-  transform: rotateY(180deg) !important;
 }
 
 .flip-front,
 .flip-back {
   position: absolute;
+  inset: 0; /* ensures both sides stay inside the card */
   width: 100%;
   height: 100%;
-  border-radius: var(--vp-radius-pill);
+  border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  backface-visibility: hidden !important;
+  backface-visibility: hidden;
   padding: 1rem;
-  box-shadow: 0 10px 25px rgba(148, 163, 184, 0.5);
 }
 
 .flip-back {
   transform: rotateY(180deg);
-  border-radius: var(--vp-radius-card);
-}
-
-.flip-front img,
-.flip-back img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.vp-feeling-emoji {
-  font-size: 2.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.vp-feeling-bird {
-  height: 60px;
-  margin-bottom: 0.4rem;
-}
-
-/* Angry */
-.vp-feeling-front-angry {
-  background: #fecaca;
-}
-
-.vp-feeling-label-angry {
-  color: #7f1d1d;
-  font-weight: 600;
-}
-
-.vp-feeling-back-angry {
-  background: #fee2e2;
-}
-
-.vp-feeling-back-title-angry,
-.vp-feeling-back-text-angry {
-  color: #7f1d1d;
-}
-
-/* Sad */
-.vp-feeling-front-sad {
-  background: #bfdbfe;
-}
-
-.vp-feeling-label-sad {
-  color: #1e3a8a;
-  font-weight: 600;
-}
-
-.vp-feeling-back-sad {
-  background: #dbeafe;
-}
-
-.vp-feeling-back-title-sad,
-.vp-feeling-back-text-sad {
-  color: #1e3a8a;
-}
-
-/* Happy */
-.vp-feeling-front-happy {
-  background: #fef08a;
-}
-
-.vp-feeling-label-happy {
-  color: #854d0e;
-  font-weight: 600;
-}
-
-.vp-feeling-back-happy {
-  background: #fef9c3;
-}
-
-.vp-feeling-back-title-happy,
-.vp-feeling-back-text-happy {
-  color: #854d0e;
-}
-
-/* Anxious */
-.vp-feeling-front-anxious {
-  background: #bbf7d0;
-}
-
-.vp-feeling-label-anxious {
-  color: #065f46;
-  font-weight: 600;
-}
-
-.vp-feeling-back-anxious {
-  background: #dcfce7;
-}
-
-.vp-feeling-back-title-anxious,
-.vp-feeling-back-text-anxious {
-  color: #065f46;
+  border-radius: 26px; /* your canon back shape */
+  overflow: hidden; /* prevents text from spilling */
 }
 
 /* ===========================
