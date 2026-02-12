@@ -433,51 +433,28 @@
    FOOTER + SOCIALS
    =========================== */
 
-.vp-footer {
-  padding: 2.5rem 1.5rem 3rem;
-  text-align: center;
-  color: var(--vp-text-muted);
-}
+<footer class="vp-footer">
+  <p class="logo vp-footer-logo">
+    <span class="vent">Vent</span><span class="pals">Pals</span> • A nonprofit initiative
+  </p>
 
-.vp-footer-logo {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
+  <div class="vp-footer-socials">
+    <a href="https://facebook.com/ventpals"
+       class="vp-social-btn vp-social-fb"
+       target="_blank"
+       rel="noopener noreferrer">
+      fb
+    </a>
 
-.vp-footer-socials {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-}
+    <a href="https://www.instagram.com/ventpals_ig"
+       class="vp-social-btn vp-social-ig"
+       target="_blank"
+       rel="noopener noreferrer">
+      ig
+    </a>
+  </div>
+</footer>
 
-.vp-social-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--vp-radius-pill);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #ffffff;
-  box-shadow: 0 8px 18px rgba(148, 163, 184, 0.6);
-}
-
-.vp-social-fb {
-  background: #1877f2;
-}
-
-.vp-social-ig {
-  background: radial-gradient(
-    circle at 30% 30%,
-    #fdf497 0,
-    #fd5949 45%,
-    #d6249f 70%,
-    #285aeb 100%
-  );
-}
 
 /* ===========================
    RESPONSIVE
