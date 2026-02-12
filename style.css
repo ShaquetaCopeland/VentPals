@@ -1,11 +1,66 @@
-/* GLOBAL BASE */
+/* ===========================
+   VENTPALS DESIGN TOKENS
+   =========================== */
+
+:root {
+  /* Brand colors */
+  --vp-green: #22c55e;
+  --vp-green-dark: #16a34a;
+  --vp-purple: #7c3aed;
+  --vp-purple-deep: #6b21a8;
+  --vp-purple-darker: #581c87;
+
+  /* Neutrals / ink */
+  --vp-ink: #2e1a47;
+  --vp-text-soft: #4b5563;
+  --vp-text-muted: #6b7280;
+
+  /* Backgrounds */
+  --vp-bg-cloud-top: #fdf2ff;
+  --vp-bg-cloud-mid: #e0f2fe;
+  --vp-bg-cloud-bottom: #ede9fe;
+  --vp-surface: #ffffff;
+
+  /* Shadows */
+  --vp-shadow-soft: 0 12px 30px rgba(148, 163, 184, 0.35);
+  --vp-shadow-strong: 0 18px 40px rgba(148, 163, 184, 0.45);
+
+  /* Radii */
+  --vp-radius-pill: 999px;
+  --vp-radius-card: 26px;
+  --vp-radius-cloud: 40px;
+
+  /* Spacing scale */
+  --vp-space-xs: 0.5rem;
+  --vp-space-sm: 0.75rem;
+  --vp-space-md: 1.5rem;
+  --vp-space-lg: 2rem;
+  --vp-space-xl: 2.5rem;
+  --vp-space-2xl: 3.5rem;
+  --vp-space-3xl: 4.5rem;
+
+  /* Typography */
+  --vp-font-family: 'Baloo 2', cursive;
+  --vp-h1: 3rem;
+  --vp-h2: 2.1rem;
+  --vp-body: 1rem;
+}
+
+/* ===========================
+   GLOBAL BASE
+   =========================== */
 
 .vp-body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  background: radial-gradient(circle at top, #fdf2ff 0, #e0f2fe 40%, #ede9fe 80%);
-  font-family: 'Baloo 2', cursive !important;
+  background: radial-gradient(
+    circle at top,
+    var(--vp-bg-cloud-top) 0,
+    var(--vp-bg-cloud-mid) 40%,
+    var(--vp-bg-cloud-bottom) 80%
+  );
+  font-family: var(--vp-font-family) !important;
   text-align: center;
 }
 
@@ -17,22 +72,24 @@
 }
 
 .logo .vent {
-  color: #22c55e !important;
+  color: var(--vp-green) !important;
 }
 
 .logo .pals {
-  color: #7c3aed !important;
+  color: var(--vp-purple) !important;
 }
 
-/* NAV */
+/* ===========================
+   NAVIGATION
+   =========================== */
 
 .vp-nav {
   max-width: 1100px;
-  margin: 1.5rem auto 0;
-  padding: 1.5rem 2rem;
-  border-radius: 999px;
+  margin: var(--vp-space-lg) auto 0;
+  padding: var(--vp-space-lg) var(--vp-space-lg);
+  border-radius: var(--vp-radius-pill);
   background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 12px 30px rgba(148, 163, 184, 0.35);
+  box-shadow: var(--vp-shadow-soft);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +99,7 @@
 .vp-nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--vp-space-sm);
   text-decoration: none;
 }
 
@@ -69,10 +126,12 @@
 }
 
 .vp-nav-links a:hover {
-  color: #7c3aed;
+  color: var(--vp-purple);
 }
 
-/* HERO */
+/* ===========================
+   HERO
+   =========================== */
 
 .vp-hero {
   padding: 4rem 1.5rem 3rem;
@@ -85,10 +144,10 @@
 
 .vp-hero-cloud {
   position: relative;
-  background: #ffffff;
-  border-radius: 40px;
+  background: var(--vp-surface);
+  border-radius: var(--vp-radius-cloud);
   padding: 2.5rem 1.5rem 3rem;
-  box-shadow: 0 18px 40px rgba(148, 163, 184, 0.45);
+  box-shadow: var(--vp-shadow-strong);
   overflow: hidden;
 }
 
@@ -116,24 +175,26 @@
 }
 
 .vp-hero-title {
-  font-size: 3rem;
+  font-size: var(--vp-h1);
   margin: 0.25rem 0 0.75rem;
 }
 
 .vp-hero-pebble-line {
   font-size: 1.1rem;
-  color: #4b5563;
+  color: var(--vp-text-soft);
   margin-bottom: 1.75rem;
 }
 
-/* BUTTONS */
+/* ===========================
+   BUTTONS
+   =========================== */
 
 .vp-btn-primary,
 .vp-btn-secondary,
 .vp-btn-green {
   display: inline-block;
   padding: 0.9rem 2.4rem;
-  border-radius: 999px;
+  border-radius: var(--vp-radius-pill);
   font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
@@ -141,62 +202,69 @@
   cursor: pointer;
 }
 
+/* Primary (purple) */
 .vp-btn-primary {
-  background: #7c3aed;
+  background: var(--vp-purple);
   color: #ffffff;
   box-shadow: 0 10px 25px rgba(124, 58, 237, 0.45);
 }
 
 .vp-btn-primary:hover {
-  background: #6d28d9;
+  background: var(--vp-purple-deep);
 }
 
+/* Secondary (deep purple) */
 .vp-btn-secondary {
   margin-top: 2.5rem;
-  background: #6b21a8;
+  background: var(--vp-purple-deep);
   color: #ffffff;
   box-shadow: 0 10px 25px rgba(107, 33, 168, 0.4);
 }
 
 .vp-btn-secondary:hover {
-  background: #581c87;
+  background: var(--vp-purple-darker);
 }
 
+/* Green CTA */
 .vp-btn-green {
   margin-top: 2.5rem;
-  background: #22c55e;
+  background: var(--vp-green);
   color: #ffffff;
   box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
 }
 
 .vp-btn-green:hover {
-  background: #16a34a;
+  background: var(--vp-green-dark);
 }
 
-/* SECTIONS */
+/* ===========================
+   SECTIONS
+   =========================== */
 
 .vp-section {
-  padding: 4.5rem 1.5rem 3.5rem;
+  padding: var(--vp-space-3xl) 1.5rem var(--vp-space-2xl);
 }
 
 .vp-section-title {
-  font-size: 2.1rem;
-  color: #6b21a8;
+  font-size: var(--vp-h2);
+  color: var(--vp-purple-deep);
   margin-bottom: 0.75rem;
 }
 
 .vp-section-subtitle {
-  color: #4b5563;
+  color: var(--vp-text-soft);
   margin-bottom: 2.5rem;
 }
 
 .vp-section-subtitle-wide {
   max-width: 640px;
   margin: 0.75rem auto 2.75rem;
-  color: #4b5563;
+  color: var(--vp-text-soft);
 }
 
-/* FEELINGS GRID */
+/* ===========================
+   FEELINGS GRID + FLIP CARDS
+   =========================== */
 
 .vp-feelings-grid {
   max-width: 820px;
@@ -205,8 +273,6 @@
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
 }
-
-/* FLIP CARDS */
 
 .flip-card {
   width: 170px;
@@ -235,7 +301,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 999px;
+  border-radius: var(--vp-radius-pill);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,7 +313,7 @@
 
 .flip-back {
   transform: rotateY(180deg);
-  border-radius: 26px;
+  border-radius: var(--vp-radius-card);
 }
 
 .flip-front img,
@@ -256,8 +322,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-/* FEELING COLORS */
 
 .vp-feeling-emoji {
   font-size: 2.4rem;
@@ -270,7 +334,6 @@
 }
 
 /* Angry */
-
 .vp-feeling-front-angry {
   background: #fecaca;
 }
@@ -290,7 +353,6 @@
 }
 
 /* Sad */
-
 .vp-feeling-front-sad {
   background: #bfdbfe;
 }
@@ -310,7 +372,6 @@
 }
 
 /* Happy */
-
 .vp-feeling-front-happy {
   background: #fef08a;
 }
@@ -330,7 +391,6 @@
 }
 
 /* Anxious */
-
 .vp-feeling-front-anxious {
   background: #bbf7d0;
 }
@@ -349,7 +409,9 @@
   color: #065f46;
 }
 
-/* HOW IT WORKS */
+/* ===========================
+   HOW IT WORKS
+   =========================== */
 
 .vp-section-cloud {
   position: relative;
@@ -361,9 +423,9 @@
   inset: 10% 5% auto 5%;
   height: 70%;
   background: rgba(255, 255, 255, 0.85);
-  border-radius: 40px;
+  border-radius: var(--vp-radius-cloud);
   z-index: -1;
-  box-shadow: 0 18px 40px rgba(148, 163, 184, 0.45);
+  box-shadow: var(--vp-shadow-strong);
 }
 
 .vp-steps-grid {
@@ -374,11 +436,13 @@
   gap: 2rem;
 }
 
-.vp-step-card {
-  background: #ffffff;
-  border-radius: 26px;
+/* Shared card style for steps + keepsakes */
+.vp-step-card,
+.vp-keepsake-card {
+  background: var(--vp-surface);
+  border-radius: var(--vp-radius-card);
   padding: 2rem 1.5rem;
-  box-shadow: 0 12px 30px rgba(148, 163, 184, 0.45);
+  box-shadow: var(--vp-shadow-strong);
 }
 
 .vp-step-bird {
@@ -386,7 +450,9 @@
   margin-bottom: 0.75rem;
 }
 
-/* KEEPSAKES */
+/* ===========================
+   KEEPSAKES
+   =========================== */
 
 .vp-keepsakes-logo {
   height: 130px;
@@ -401,19 +467,14 @@
   gap: 2rem;
 }
 
-.vp-keepsake-card {
-  background: #ffffff;
-  border-radius: 26px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 12px 30px rgba(148, 163, 184, 0.45);
-}
-
 .vp-keepsake-img {
   height: 80px;
   margin-bottom: 0.75rem;
 }
 
-/* FLOATING BIRDS */
+/* ===========================
+   FLOATING BIRDS
+   =========================== */
 
 .float {
   animation: float 4s ease-in-out infinite;
@@ -470,12 +531,14 @@
   animation: birdBreathing 3s ease-in-out infinite;
 }
 
-/* FOOTER + SOCIALS */
+/* ===========================
+   FOOTER + SOCIALS
+   =========================== */
 
 .vp-footer {
   padding: 2.5rem 1.5rem 3rem;
   text-align: center;
-  color: #6b7280;
+  color: var(--vp-text-muted);
 }
 
 .vp-footer-logo {
@@ -492,7 +555,7 @@
 .vp-social-btn {
   width: 36px;
   height: 36px;
-  border-radius: 999px;
+  border-radius: var(--vp-radius-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -509,10 +572,18 @@
 }
 
 .vp-social-ig {
-  background: radial-gradient(circle at 30% 30%, #fdf497 0, #fd5949 45%, #d6249f 70%, #285aeb 100%);
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fdf497 0,
+    #fd5949 45%,
+    #d6249f 70%,
+    #285aeb 100%
+  );
 }
 
-/* RESPONSIVE */
+/* ===========================
+   RESPONSIVE
+   =========================== */
 
 @media (max-width: 768px) {
   .vp-nav {
