@@ -1,491 +1,380 @@
-/* ===========================
-   VENTPALS DESIGN TOKENS
-   =========================== */
-
-:root {
-  /* Brand colors */
-  --vp-green: #22c55e;
-  --vp-green-dark: #16a34a;
-  --vp-purple: #7c3aed;
-  --vp-purple-deep: #6b21a8;
-  --vp-purple-darker: #581c87;
-
-  /* Neutrals / ink */
-  --vp-ink: #2e1a47;
-  --vp-text-soft: #4b5563;
-  --vp-text-muted: #6b7280;
-
-  /* Backgrounds */
-  --vp-bg-cloud-top: #fdf2ff;
-  --vp-bg-cloud-mid: #e0f2fe;
-  --vp-bg-cloud-bottom: #ede9fe;
-  --vp-surface: #ffffff;
-
-  /* Shadows */
-  --vp-shadow-soft: 0 12px 30px rgba(148, 163, 184, 0.35);
-  --vp-shadow-strong: 0 18px 40px rgba(148, 163, 184, 0.45);
-
-  /* Radii */
-  --vp-radius-pill: 999px;
-  --vp-radius-card: 26px;
-  --vp-radius-cloud: 40px;
-
-  /* Spacing scale */
-  --vp-space-xs: 0.5rem;
-  --vp-space-sm: 0.75rem;
-  --vp-space-md: 1.5rem;
-  --vp-space-lg: 2rem;
-  --vp-space-xl: 2.5rem;
-  --vp-space-2xl: 3.5rem;
-  --vp-space-3xl: 4.5rem;
-
-  /* Typography */
-  --vp-font-family: 'Baloo 2', cursive;
-  --vp-h1: 3rem;
-  --vp-h2: 2.1rem;
-  --vp-body: 1rem;
-}
-
-/* ===========================
-   GLOBAL BASE
-   =========================== */
-
-.vp-body {
+/* -------------------------------------------------------
+   GLOBAL RESET + BASE
+------------------------------------------------------- */
+* {
   margin: 0;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.vp-body {
+  font-family: 'Baloo 2', sans-serif;
+  background: #ffffff;
+  color: #333;
   overflow-x: hidden;
-  background: radial-gradient(
-    circle at top,
-    var(--vp-bg-cloud-top) 0,
-    var(--vp-bg-cloud-mid) 40%,
-    var(--vp-bg-cloud-bottom) 80%
-  );
-  font-family: var(--vp-font-family) !important;
-  text-align: center;
+  line-height: 1.4;
 }
 
-/* LOGO */
-
-.logo {
-  font-weight: 700 !important;
-  letter-spacing: -1px;
+/* Brand Colors */
+:root {
+  --vp-purple: #A259FF;
+  --vp-green: #7ED957;
+  --vp-yellow: #FFEB99;
+  --vp-soft-cloud: #F7F4FF;
+  --vp-shadow: rgba(0, 0, 0, 0.12);
 }
 
-.logo .vent {
-  color: var(--vp-green) !important;
-}
-
-.logo .pals {
-  color: var(--vp-purple) !important;
-}
-
-/* ===========================
+/* -------------------------------------------------------
    NAVIGATION
-   =========================== */
-
+------------------------------------------------------- */
 .vp-nav {
-  max-width: 1100px;
-  margin: var(--vp-space-lg) auto 0;
-  padding: var(--vp-space-lg) var(--vp-space-lg);
-  border-radius: var(--vp-radius-pill);
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: var(--vp-shadow-soft);
+  width: 100%;
+  padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(10px);
 }
 
 .vp-nav-logo {
   display: flex;
   align-items: center;
-  gap: var(--vp-space-sm);
+  gap: 0.6rem;
   text-decoration: none;
 }
 
 .vp-logo-img {
-  height: 52px;
+  height: 48px;
 }
 
 .vp-logo-text {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
+
+.vent { color: var(--vp-purple); }
+.pals { color: var(--vp-green); }
 
 .vp-nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  font-size: 0.95rem;
+  gap: 1.4rem;
 }
 
 .vp-nav-links a {
   text-decoration: none;
-  color: #4b5563;
+  font-size: 1.1rem;
+  color: #444;
+  transition: opacity 0.2s ease;
 }
 
 .vp-nav-links a:hover {
-  color: var(--vp-purple);
+  opacity: 0.7;
 }
 
-/* ===========================
-   HERO
-   =========================== */
+/* -------------------------------------------------------
+   DECORATIVE BIRDS (anchored safely)
+------------------------------------------------------- */
+.vp-bird-layer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  z-index: 1;
+}
 
+.vp-bird {
+  position: absolute;
+  pointer-events: none;
+  width: 120px;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.vp-bird-top-left { top: 20px; left: 20px; }
+.vp-bird-top-right { top: 40px; right: 20px; }
+.vp-bird-mid-left { top: 260px; left: -10px; }
+.vp-bird-mid-right { top: 320px; right: -10px; }
+
+/* -------------------------------------------------------
+   HERO SECTION (storybook)
+------------------------------------------------------- */
 .vp-hero {
-  padding: 4rem 1.5rem 3rem;
+  padding: 4rem 1rem 6rem;
+  background: linear-gradient(135deg, #EDE6FF, #D8F1FF);
+  display: flex;
+  justify-content: center;
 }
 
 .vp-hero-inner {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 1100px;
+  width: 100%;
 }
 
 .vp-hero-cloud {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 8px 20px var(--vp-shadow);
   position: relative;
-  background: var(--vp-surface);
-  border-radius: var(--vp-radius-cloud);
-  padding: 2.5rem 1.5rem 3rem;
-  box-shadow: var(--vp-shadow-strong);
-  overflow: hidden;
 }
 
 .vp-hero-bird-wrap {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .vp-hero-bird {
-  height: 90px;
+  width: 140px;
+  animation: breathing 4s ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
 }
 
 .vp-hero-bubble {
-  margin-top: 2.5rem;
+  text-align: center;
 }
 
 .vp-hero-welcome {
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #9ca3af;
-  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 .vp-hero-title {
-  font-size: var(--vp-h1);
-  margin: 0.25rem 0 0.75rem;
+  font-size: 3.2rem;
+  margin: 0.4rem 0;
 }
 
 .vp-hero-pebble-line {
-  font-size: 1.1rem;
-  color: var(--vp-text-soft);
-  margin-bottom: 1.75rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.6rem;
 }
 
-/* ===========================
-   BUTTONS
-   =========================== */
-
-.vp-btn-primary,
-.vp-btn-secondary,
-.vp-btn-green {
-  display: inline-block;
-  padding: 0.9rem 2.4rem;
-  border-radius: var(--vp-radius-pill);
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Primary (purple) */
 .vp-btn-primary {
   background: var(--vp-purple);
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.45);
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px var(--vp-shadow);
+  transition: transform 0.2s ease;
 }
 
 .vp-btn-primary:hover {
-  background: var(--vp-purple-deep);
+  transform: translateY(-3px);
 }
 
-/* Secondary (deep purple) */
-.vp-btn-secondary {
-  margin-top: 2.5rem;
-  background: var(--vp-purple-deep);
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(107, 33, 168, 0.4);
-}
-
-.vp-btn-secondary:hover {
-  background: var(--vp-purple-darker);
-}
-
-/* Green CTA */
-.vp-btn-green {
-  margin-top: 2.5rem;
-  background: var(--vp-green);
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
-}
-
-.vp-btn-green:hover {
-  background: var(--vp-green-dark);
-}
-
-/* ===========================
-   SECTIONS
-   =========================== */
-
+/* -------------------------------------------------------
+   SECTION BASE
+------------------------------------------------------- */
 .vp-section {
-  padding: var(--vp-space-3xl) 1.5rem var(--vp-space-2xl);
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .vp-section-title {
-  font-size: var(--vp-h2);
-  color: var(--vp-purple-deep);
-  margin-bottom: 0.75rem;
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
 }
 
-.vp-section-subtitle {
-  color: var(--vp-text-soft);
-  margin-bottom: 2.5rem;
-}
-
+.vp-section-subtitle,
 .vp-section-subtitle-wide {
-  max-width: 640px;
-  margin: 0.75rem auto 2.75rem;
-  color: var(--vp-text-soft);
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0.5rem auto 2rem;
 }
 
-/* ===========================
-   FEELINGS GRID + FLIP CARDS
-   =========================== */
+/* -------------------------------------------------------
+   FEELINGS GRID (modern)
+------------------------------------------------------- */
+.vp-feelings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
 .flip-card {
-  width: 170px;
-  height: 170px;
-  perspective: 1200px;
-  position: relative;
+  perspective: 1000px;
   cursor: pointer;
-  margin: 0 auto;
-  overflow: hidden; /* THIS is the missing piece */
 }
 
 .flip-inner {
   width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease;
+  height: 220px;
+  transition: transform 0.6s;
   transform-style: preserve-3d;
   position: relative;
+}
+
+.flip-card.flip-active .flip-inner {
+  transform: rotateY(180deg);
 }
 
 .flip-front,
 .flip-back {
   position: absolute;
-  inset: 0; /* ensures both sides stay inside the card */
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-front {
+  background: white;
+  box-shadow: 0 4px 12px var(--vp-shadow);
+}
+
+.flip-back {
+  background: var(--vp-soft-cloud);
+  transform: rotateY(180deg);
+  padding: 1rem;
+  text-align: center;
+}
+
+.vp-feeling-emoji {
+  font-size: 3rem;
+}
+
+.vp-feeling-label {
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
+}
+
+/* -------------------------------------------------------
+   HOW IT WORKS (clean)
+------------------------------------------------------- */
+.vp-section-clean {
+  background: #fafafa;
+  border-radius: 40px;
+  padding: 4rem 2rem;
+}
+
+.vp-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vp-step-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--vp-shadow);
+}
+
+.vp-step-bird {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+/* -------------------------------------------------------
+   KEEPSAKES (storybook accent)
+------------------------------------------------------- */
+.vp-section-cloud {
+  background: var(--vp-soft-cloud);
+  border-radius: 40px;
+  padding: 4rem 2rem;
+}
+
+.vp-keepsakes-logo {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 260px;
+}
+
+.vp-keepsakes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vp-keepsake-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--vp-shadow);
+}
+
+.vp-keepsake-img {
+  width: 140px;
+  margin-bottom: 1rem;
+}
+
+.vp-btn-green {
+  display: inline-block;
+  background: var(--vp-green);
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px var(--vp-shadow);
+  transition: transform 0.2s ease;
+}
+
+.vp-btn-green:hover {
+  transform: translateY(-3px);
+}
+
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
+.vp-footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin-top: 4rem;
+}
+
+.vp-footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.vp-social-btn {
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  backface-visibility: hidden;
-  padding: 1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 10px var(--vp-shadow);
+  transition: transform 0.2s ease;
 }
 
-.flip-back {
-  transform: rotateY(180deg);
-  border-radius: 26px; /* your canon back shape */
-  overflow: hidden; /* prevents text from spilling */
+.vp-social-btn:hover {
+  transform: translateY(-3px);
 }
 
-/* ===========================
-   HOW IT WORKS
-   =========================== */
+.vp-social-fb { background: #1877F2; }
+.vp-social-ig { background: var(--vp-purple); }
 
-.vp-section-cloud {
-  position: relative;
-}
-
-.vp-section-cloud::before {
-  content: "";
-  position: absolute;
-  inset: 10% 5% auto 5%;
-  height: 70%;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: var(--vp-radius-cloud);
-  z-index: -1;
-  box-shadow: var(--vp-shadow-strong);
-}
-
-.vp-steps-grid {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-/* Shared card style for steps + keepsakes */
-.vp-step-card,
-.vp-keepsake-card {
-  background: var(--vp-surface);
-  border-radius: var(--vp-radius-card);
-  padding: 2rem 1.5rem;
-  box-shadow: var(--vp-shadow-strong);
-}
-
-.vp-step-bird {
-  height: 80px;
-  margin-bottom: 0.75rem;
-}
-
-/* ===========================
-   KEEPSAKES
-   =========================== */
-
-.vp-keepsakes-logo {
-  height: 260px;              /* strong, section‑header presence */
-  display: block;
-  margin: 0 auto 1.5rem;
-  object-fit: contain;
-}
-
-.vp-keepsakes-grid {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-.vp-keepsake-img {
-  height: 80px;
-  margin-bottom: 0.75rem;
-}
-
-/* ===========================
-   FLOATING BIRDS
-   =========================== */
-
-.float {
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.vp-bird-top-left {
-  position: absolute;
-  top: 40px;
-  left: 20px;
-  height: 90px;
-  opacity: 0.85;
-}
-
-.vp-bird-top-right {
-  position: absolute;
-  top: 120px;
-  right: 20px;
-  height: 110px;
-  opacity: 0.85;
-  transform: scaleX(-1);
-}
-
-.vp-bird-mid-left {
-  position: absolute;
-  top: 620px;
-  left: 30px;
-  height: 90px;
-  opacity: 0.85;
-}
-
-.vp-bird-mid-right {
-  position: absolute;
-  top: 1150px;
-  right: 30px;
-  height: 110px;
-  opacity: 0.85;
-  transform: scaleX(-1);
-}
-
-/* BIRD BREATHING */
-
-@keyframes birdBreathing {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-  100% { transform: translateY(0); }
-}
-
-.bird-breathing {
-  animation: birdBreathing 3s ease-in-out infinite;
-}
-
-/* ===========================
-   FOOTER + SOCIALS
-   =========================== */
-
-<footer class="vp-footer">
-  <p class="logo vp-footer-logo">
-    <span class="vent">Vent</span><span class="pals">Pals</span> • A nonprofit initiative
-  </p>
-
-  <div class="vp-footer-socials">
-    <a href="https://facebook.com/ventpals"
-       class="vp-social-btn vp-social-fb"
-       target="_blank"
-       rel="noopener noreferrer">
-      fb
-    </a>
-
-    <a href="https://www.instagram.com/ventpals_ig"
-       class="vp-social-btn vp-social-ig"
-       target="_blank"
-       rel="noopener noreferrer">
-      ig
-    </a>
-  </div>
-</footer>
-
-
-/* ===========================
-   RESPONSIVE
-   =========================== */
-
-@media (max-width: 768px) {
-  .vp-nav {
-    flex-direction: column;
-    gap: 0.75rem;
-    border-radius: 30px;
-  }
-
-  .vp-nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-    font-size: 0.85rem;
-  }
-
-  .vp-hero-cloud {
-    padding: 2.2rem 1.2rem 2.6rem;
-  }
-
-  .vp-hero-title {
-    font-size: 2.4rem;
-  }
-
-  .vp-bird-top-left,
-  .vp-bird-top-right,
-  .vp-bird-mid-left,
-  .vp-bird-mid-right {
-    display: none;
-  }
+/* -------------------------------------------------------
+   RESPONSIVE TWEAKS
+------------------------------------------------------- */
+@media (max-width: 600px) {
+  .vp-bird { width: 90px; }
+  .vp-hero-title { font-size: 2.4rem; }
+  .vp-keepsakes-logo { width: 200px; }
 }
