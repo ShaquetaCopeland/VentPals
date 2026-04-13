@@ -1,0 +1,33 @@
+body {
+  background: #f7f3e9;
+  font-family: 'Poppins', sans-serif;
+}
+
+.world-map {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.map-image {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.map-button {
+  position: absolute;
+  padding: 10px 15px;
+  background: #fff8d6;
+  border: 2px solid #e8c46c;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.map-button:hover {
+  background: #ffeaa7;
+  transform: scale(1.05);
+}
