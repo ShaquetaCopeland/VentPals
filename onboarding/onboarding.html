@@ -1,1 +1,633 @@
-<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"stylesheet\" href=\"onboarding.css\">\n    <title>VentPals Onboarding</title>\n</head>\n<body>\n    <h1>Welcome to VentPals!</h1>\n    <p>Your adventure begins here. Explore the world and its wonders!</p>\n    <script src=\"onboarding.js\"></script>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to VentPals – Setup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="onboarding.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --purple: #8B5CF6;
+      --yellow: #F59E0B;
+      --pink:   #EC4899;
+      --ink:    #1F2937;
+      --muted:  #6B7280;
+      --bg:     linear-gradient(135deg, #f5e6ff 0%, #fff8d6 50%, #e0f4ff 100%);
+    }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Progress dots ── */
+    .progress-bar {
+      display: flex; gap: 8px; padding: 20px 0 0;
+    }
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(139,92,246,0.25);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active   { background: var(--purple); transform: scale(1.3); }
+    .dot.complete { background: rgba(139,92,246,0.5); }
+
+    /* ── Step container ── */
+    .step {
+      display: none;
+      width: 100%; max-width: 580px;
+      padding: 20px 18px 40px;
+      animation: fadeIn 0.35s ease;
+    }
+    .step.active { display: block; }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+
+    /* ── Common section card ── */
+    .card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(17,24,39,0.07);
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(17,24,39,0.09);
+      padding: 28px 24px;
+      margin-bottom: 18px;
+    }
+    .card-icon { font-size: 56px; text-align: center; margin-bottom: 14px; animation: floaty 3.5s ease-in-out infinite; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    h1 { color: var(--purple); font-size: clamp(1.5rem,4vw,2rem); font-weight: 800; letter-spacing:-0.02em; margin-bottom: 8px; }
+    h2 { color: var(--purple); font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    p  { color: var(--muted);  font-size: 0.93rem; line-height: 1.6; }
+
+    /* ── Inputs ── */
+    label { display:block; font-weight:700; font-size:13px; color:#5B4B8A; margin-bottom:6px; }
+    input, select {
+      width:100%; padding:12px;
+      border-radius:14px; border:2px solid rgba(17,24,39,0.12);
+      background:#fff; font-size:14px;
+    }
+    input:focus, select:focus {
+      outline:none;
+      border-color:rgba(139,92,246,0.5);
+      box-shadow:0 0 0 4px rgba(139,92,246,0.1);
+    }
+    .hint { font-size:12px; color:var(--muted); margin-top:5px; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      width:100%; padding:14px;
+      border-radius:999px; border:none; cursor:pointer;
+      font-family:inherit; font-weight:800; font-size:15px;
+      background: linear-gradient(135deg, var(--yellow), var(--pink));
+      color:#fff;
+      box-shadow: 0 10px 24px rgba(236,72,153,0.2);
+      transition: transform .15s ease, box-shadow .2s;
+    }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(236,72,153,0.28); }
+    .btn-primary:disabled { opacity:0.5; cursor:not-allowed; transform:none; }
+
+    .btn-secondary {
+      width:100%; padding:13px;
+      border-radius:999px; border:2px solid rgba(139,92,246,0.3);
+      background:transparent; cursor:pointer;
+      font-family:inherit; font-weight:700; font-size:14px;
+      color:var(--purple);
+      transition: background .15s;
+    }
+    .btn-secondary:hover { background:rgba(139,92,246,0.07); }
+
+    /* ── Bird selection grid ── */
+    .bird-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .bird-option {
+      background: rgba(255,255,255,0.85);
+      border: 2px solid rgba(17,24,39,0.1);
+      border-radius: 18px;
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .bird-option:hover   { border-color: var(--purple); background: #faf5ff; transform:scale(1.03); }
+    .bird-option.selected { border-color: var(--purple); background: #faf5ff; box-shadow: 0 0 0 3px rgba(139,92,246,0.2); }
+    .bird-option .bird-emoji { font-size: 32px; margin-bottom: 6px; }
+    .bird-option .bird-name  { font-size: 12px; font-weight: 700; color: #5B4B8A; }
+    .bird-option .bird-trait { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+    /* ── Avatar customisation ── */
+    .colour-grid {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .colour-chip {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .colour-chip.selected { border-color: var(--ink); transform:scale(1.15); }
+
+    /* ── Privacy checklist ── */
+    .privacy-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: #f8faff; border-radius: 14px; padding: 14px;
+      margin-bottom: 10px;
+    }
+    .privacy-icon { font-size: 22px; flex-shrink:0; }
+
+    /* ── Parent code display ── */
+    .parent-code-box {
+      background: #faf5ff;
+      border: 3px dashed rgba(139,92,246,0.4);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+    .parent-code-text {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      margin: 8px 0;
+    }
+    .copy-btn {
+      background: var(--purple); color:#fff;
+      border:none; border-radius:999px;
+      padding: 8px 20px; font-size:13px; font-weight:700;
+      cursor:pointer; margin-top:12px;
+      transition: background .15s;
+    }
+    .copy-btn:hover { background: #7c3aed; }
+
+    /* ── Alert ── */
+    .alert {
+      display:none; border-radius:14px; padding:12px;
+      font-size:13px; border:1px solid rgba(239,68,68,0.25);
+      background:rgba(239,68,68,0.08); color:#991B1B;
+      margin-bottom:12px;
+    }
+    .alert.show { display:block; }
+
+    /* ── Power word result ── */
+    .power-word-reveal {
+      background: linear-gradient(135deg,#fdf2f8,#f0f9ff);
+      border-radius:16px; padding:18px; text-align:center;
+      margin-top:12px;
+    }
+    .power-word-big { font-size:1.8rem; font-weight:800; color:var(--purple); }
+
+    @media (max-width: 400px) {
+      .bird-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress dots -->
+  <div class="progress-bar" id="progressBar">
+    <div class="dot active" id="dot-1"></div>
+    <div class="dot"        id="dot-2"></div>
+    <div class="dot"        id="dot-3"></div>
+    <div class="dot"        id="dot-4"></div>
+    <div class="dot"        id="dot-5"></div>
+    <div class="dot"        id="dot-6"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       STEP 1 — WELCOME
+  ════════════════════════════════════ -->
+  <div class="step active" id="step-1">
+    <div class="card" style="text-align:center;">
+      <div class="card-icon">🐦</div>
+      <h1>Welcome to VentPals!</h1>
+      <p style="margin-bottom:20px;">
+        This is your safe, gentle place to understand your feelings.
+        In the next few steps, you'll choose your bird, create your name,
+        and set up your very own emotional world.
+      </p>
+      <p style="margin-bottom:28px; font-size:0.85rem; color:#a78bfa;">
+        No email needed. No strangers. Just you, your feelings, and your VentPal.
+      </p>
+      <button class="btn-primary" onclick="goTo(2)">Let's Begin 🌱</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       STEP 2 — CHOOSE YOUR BIRD
+  ════════════════════════════════════ -->
+  <div class="step" id="step-2">
+    <div class="card">
+      <h1 style="text-align:center; margin-bottom:6px;">Choose Your VentPal 🪶</h1>
+      <p style="text-align:center; margin-bottom:20px;">
+        Each bird helps with a different kind of feeling. Pick the one that feels most like <em>you</em>.
+      </p>
+      <div id="alertBird" class="alert">Please choose a bird before continuing.</div>
+      <div class="bird-grid" id="birdGrid"></div>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button class="btn-secondary" onclick="goTo(1)">← Back</button>
+      <button class="btn-primary"   onclick="confirmBird()">This is my bird →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       STEP 3 — CREATE YOUR NAME
+  ════════════════════════════════════ -->
+  <div class="step" id="step-3">
+    <div class="card">
+      <h1 style="text-align:center; margin-bottom:6px;">Create Your Name ✨</h1>
+      <p style="text-align:center; margin-bottom:20px;">
+        Your VentPals name keeps you safe. Choose a fun nickname — not your real name.
+      </p>
+      <div id="alertName" class="alert"></div>
+
+      <div style="margin-bottom:16px;">
+        <label for="nicknameInput">Your Nickname</label>
+        <input id="nicknameInput" type="text" placeholder="e.g. Star, Moon, River…" maxlength="20" autocomplete="off" />
+        <div class="hint">3–20 characters. No real names.</div>
+      </div>
+
+      <button class="btn-primary" id="genWordBtn" onclick="generatePowerWord()" style="margin-bottom:14px;">
+        Generate My PowerWord ⚡
+      </button>
+
+      <div id="powerWordResult" class="power-word-reveal" style="display:none;">
+        <p style="font-size:13px; color:var(--muted); margin-bottom:4px;">Your PowerWord:</p>
+        <div class="power-word-big" id="powerWordDisplay"></div>
+        <p style="font-size:13px; color:var(--muted); margin-top:8px;">
+          Your full VentPals name will be:
+          <strong id="fullNamePreview" style="color:var(--purple);"></strong>
+        </p>
+      </div>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button class="btn-secondary" onclick="goTo(2)">← Back</button>
+      <button class="btn-primary"   onclick="confirmName()" id="nameNextBtn" disabled>I love this name →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       STEP 4 — CUSTOMIZE YOUR AVATAR
+  ════════════════════════════════════ -->
+  <div class="step" id="step-4">
+    <div class="card">
+      <h1 style="text-align:center; margin-bottom:6px;">Your Look 🎨</h1>
+      <p style="text-align:center; margin-bottom:20px;">
+        Give your bird a colour and choose your pronouns — totally optional, totally yours.
+      </p>
+
+      <!-- Bird colour -->
+      <label style="margin-bottom:10px;">Bird Colour</label>
+      <div class="colour-grid" id="colourGrid" style="margin-bottom:20px;"></div>
+
+      <!-- Pronouns -->
+      <div style="margin-bottom:8px;">
+        <label for="pronounSelect">Pronouns (optional)</label>
+        <select id="pronounSelect">
+          <option value="">Prefer not to say</option>
+          <option value="she/her">She / Her</option>
+          <option value="he/him">He / Him</option>
+          <option value="they/them">They / Them</option>
+          <option value="ze/zir">Ze / Zir</option>
+          <option value="any">Any / All</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button class="btn-secondary" onclick="goTo(3)">← Back</button>
+      <button class="btn-primary"   onclick="confirmAvatar()">Looking good →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       STEP 5 — PRIVACY & SAFE SHARING
+  ════════════════════════════════════ -->
+  <div class="step" id="step-5">
+    <div class="card">
+      <h1 style="text-align:center; margin-bottom:6px;">Staying Safe 🔒</h1>
+      <p style="text-align:center; margin-bottom:20px;">
+        Before you begin, let's go over a few important rules about your privacy.
+      </p>
+
+      <div class="privacy-item">
+        <div class="privacy-icon">🙈</div>
+        <div>
+          <strong>Your feelings are private.</strong>
+          <p>Only you see what you write — unless you choose to share it with someone you trust.</p>
+        </div>
+      </div>
+      <div class="privacy-item">
+        <div class="privacy-icon">🚫</div>
+        <div>
+          <strong>No strangers, ever.</strong>
+          <p>VentPals has no public posts. No one can find you, message you, or join your circle unless you invite them.</p>
+        </div>
+      </div>
+      <div class="privacy-item">
+        <div class="privacy-icon">👨‍👩‍👧</div>
+        <div>
+          <strong>Parents help keep you safe.</strong>
+          <p>A parent or guardian will link to your account. They can see who you've shared with — but only if you choose to share.</p>
+        </div>
+      </div>
+      <div class="privacy-item">
+        <div class="privacy-icon">💜</div>
+        <div>
+          <strong>You are always in control.</strong>
+          <p>You choose who to talk to, what to share, and when. VentPals never forces you to share anything.</p>
+        </div>
+      </div>
+      <div class="privacy-item">
+        <div class="privacy-icon">🆘</div>
+        <div>
+          <strong>If something feels wrong, tell a trusted adult.</strong>
+          <p>VentPals is here to help, but it's not a crisis service. If you ever feel unsafe, please talk to a trusted grown-up straight away.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; display:flex; align-items:center; gap:10px;">
+        <input type="checkbox" id="privacyCheck" style="width:20px;height:20px;flex-shrink:0;cursor:pointer;" />
+        <label for="privacyCheck" style="cursor:pointer; font-size:14px; font-weight:600; color:#5B4B8A;">
+          I understand and agree to these safety rules.
+        </label>
+      </div>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button class="btn-secondary" onclick="goTo(4)">← Back</button>
+      <button class="btn-primary"   onclick="confirmPrivacy()">I understand →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       STEP 6 — YOUR PARENT CODE
+  ════════════════════════════════════ -->
+  <div class="step" id="step-6">
+    <div class="card" style="text-align:center;">
+      <div class="card-icon">🎉</div>
+      <h1>Almost ready!</h1>
+      <p style="margin-bottom:20px;">
+        Your VentPals world is set up. Now you need a parent or guardian to link their account — this keeps you safe.
+      </p>
+
+      <div class="parent-code-box">
+        <p style="font-size:13px; color:var(--muted); margin-bottom:4px;">Your Parent Code:</p>
+        <div class="parent-code-text" id="parentCodeDisplay"></div>
+        <p style="font-size:12px; color:var(--muted); margin-top:8px;">
+          Share this code with your parent or guardian.<br/>
+          They'll use it when they sign up at <strong>VentPals → Parent Signup</strong>.
+        </p>
+        <button class="copy-btn" onclick="copyCode()" id="copyBtn">Copy Code</button>
+      </div>
+
+      <div style="margin-top:20px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:14px; padding:14px; text-align:left;">
+        <p style="font-size:13px; color:#166534;">
+          ✅ <strong>What happens next?</strong><br/>
+          Your parent signs up with this code. Once they do, your account becomes fully active.
+          Until then, you can still explore VentPals!
+        </p>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:4px;">
+      <button class="btn-secondary" onclick="goTo(5)">← Back</button>
+      <button class="btn-primary"   onclick="finishOnboarding()">Start My Journey 🚀</button>
+    </div>
+  </div>
+
+  <script src="onboarding.js"></script>
+  <script>
+    /* ───────────────────────────────
+       DATA
+    ─────────────────────────────── */
+    const BIRDS = [
+      { id:'aura',     name:'Aura',     emoji:'🕊️',  trait:'Calm & Gentle',        color:'#c084fc' },
+      { id:'breezy',   name:'Breezy',   emoji:'🍃',  trait:'Thoughtful & Quiet',   color:'#6ee7b7' },
+      { id:'clover',   name:'Clover',   emoji:'🍀',  trait:'Safe & Grounded',      color:'#4ade80' },
+      { id:'cove',     name:'Cove',     emoji:'🌊',  trait:'Shelter & Comfort',    color:'#60a5fa' },
+      { id:'drift',    name:'Drift',    emoji:'🌙',  trait:'Reflective',           color:'#818cf8' },
+      { id:'echo',     name:'Echo',     emoji:'🔔',  trait:'Validation',           color:'#f9a8d4' },
+      { id:'flamez',   name:'Flamez',   emoji:'🔥',  trait:'Bold & Expressive',    color:'#fb923c' },
+      { id:'flare',    name:'Flare',    emoji:'⚡',  trait:'Motivated & Brave',    color:'#fbbf24' },
+      { id:'flicker',  name:'Flicker',  emoji:'💫',  trait:'Hopeful & Curious',    color:'#a78bfa' },
+      { id:'guardian', name:'Guardian', emoji:'🛡️',  trait:'Protective',           color:'#94a3b8' },
+      { id:'lumen',    name:'Lumen',    emoji:'💡',  trait:'Insight & Clarity',    color:'#fde68a' },
+      { id:'nova',     name:'Nova',     emoji:'🌟',  trait:'Perspective & Growth', color:'#fdba74' },
+      { id:'pebble',   name:'Pebble',   emoji:'🪨',  trait:'Gentle Guidance',      color:'#d1d5db' },
+      { id:'sable',    name:'Sable',    emoji:'⭐',  trait:'Resilience & Strength',color:'#78716c' },
+      { id:'solace',   name:'Solace',   emoji:'🌿',  trait:'Comfort & Soothing',   color:'#86efac' },
+      { id:'twig',     name:'Twig',     emoji:'🌱',  trait:'Early Growth',         color:'#a3e635' },
+    ];
+
+    const POWER_WORDS = [
+      'Brightcrest','Stormwing','Softglow','Embercrest','Starstep','Willowcrest',
+      'Dewdrop','Sunstride','Moonfeather','Cloudstep','Rainbrook','Duskwing',
+      'Dawnrise','Sparkstep','Boldcrest','Calmwing','Swiftpath','Dreamroot',
+      'Heartstone','Lightpaw','Firesong','Wavecrest','Skyperch','Rustlewind',
+    ];
+
+    const COLOURS = [
+      { name:'Default', hex:'#c084fc' },
+      { name:'Blue',    hex:'#60a5fa' },
+      { name:'Pink',    hex:'#f9a8d4' },
+      { name:'Green',   hex:'#4ade80' },
+      { name:'Gold',    hex:'#fbbf24' },
+      { name:'Teal',    hex:'#2dd4bf' },
+      { name:'Orange',  hex:'#fb923c' },
+    ];
+
+    /* ───────────────────────────────
+       STATE
+    ─────────────────────────────── */
+    const state = {
+      step:          1,
+      selectedBird:  null,
+      nickname:      '',
+      powerWord:     '',
+      displayName:   '',
+      pronouns:      '',
+      colour:        COLOURS[0].hex,
+      parentCode:    '',
+    };
+
+    /* ───────────────────────────────
+       STEP NAVIGATION
+    ─────────────────────────────── */
+    function goTo(n) {
+      document.getElementById('step-' + state.step).classList.remove('active');
+      document.getElementById('dot-'  + state.step).classList.remove('active');
+      if (n > state.step) document.getElementById('dot-' + state.step).classList.add('complete');
+
+      state.step = n;
+      document.getElementById('step-' + n).classList.add('active');
+      document.getElementById('dot-'  + n).classList.add('active');
+      window.scrollTo({ top:0, behavior:'smooth' });
+    }
+
+    /* ───────────────────────────────
+       STEP 2 — BIRD GRID
+    ─────────────────────────────── */
+    function buildBirdGrid() {
+      const grid = document.getElementById('birdGrid');
+      BIRDS.forEach(bird => {
+        const el = document.createElement('div');
+        el.className = 'bird-option';
+        el.id = 'bird-' + bird.id;
+        el.innerHTML = `
+          <div class="bird-emoji">${bird.emoji}</div>
+          <div class="bird-name">${bird.name}</div>
+          <div class="bird-trait">${bird.trait}</div>
+        `;
+        el.addEventListener('click', () => {
+          document.querySelectorAll('.bird-option').forEach(b => b.classList.remove('selected'));
+          el.classList.add('selected');
+          state.selectedBird = bird;
+          document.getElementById('alertBird').classList.remove('show');
+        });
+        grid.appendChild(el);
+      });
+    }
+
+    function confirmBird() {
+      if (!state.selectedBird) {
+        document.getElementById('alertBird').classList.add('show');
+        return;
+      }
+      goTo(3);
+    }
+
+    /* ───────────────────────────────
+       STEP 3 — NAME
+    ─────────────────────────────── */
+    function generatePowerWord() {
+      const nick = document.getElementById('nicknameInput').value.trim();
+      const alertEl = document.getElementById('alertName');
+
+      if (nick.length < 3) {
+        alertEl.textContent = 'Please enter a nickname of at least 3 characters.';
+        alertEl.classList.add('show');
+        return;
+      }
+      alertEl.classList.remove('show');
+
+      const word = POWER_WORDS[Math.floor(Math.random() * POWER_WORDS.length)];
+      state.powerWord = word;
+      state.nickname  = nick;
+      state.displayName = nick + ' ' + word;
+
+      document.getElementById('powerWordDisplay').textContent = word;
+      document.getElementById('fullNamePreview').textContent   = state.displayName;
+      document.getElementById('powerWordResult').style.display = 'block';
+      document.getElementById('nameNextBtn').disabled = false;
+    }
+
+    function confirmName() {
+      if (!state.powerWord) {
+        document.getElementById('alertName').textContent = 'Please generate your PowerWord first.';
+        document.getElementById('alertName').classList.add('show');
+        return;
+      }
+      goTo(4);
+    }
+
+    /* ───────────────────────────────
+       STEP 4 — AVATAR
+    ─────────────────────────────── */
+    function buildColourGrid() {
+      const grid = document.getElementById('colourGrid');
+      COLOURS.forEach((c, i) => {
+        const chip = document.createElement('div');
+        chip.className = 'colour-chip' + (i === 0 ? ' selected' : '');
+        chip.style.background = c.hex;
+        chip.title = c.name;
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('.colour-chip').forEach(x => x.classList.remove('selected'));
+          chip.classList.add('selected');
+          state.colour = c.hex;
+        });
+        grid.appendChild(chip);
+      });
+    }
+
+    function confirmAvatar() {
+      state.pronouns = document.getElementById('pronounSelect').value;
+      goTo(5);
+    }
+
+    /* ───────────────────────────────
+       STEP 5 — PRIVACY
+    ─────────────────────────────── */
+    function confirmPrivacy() {
+      if (!document.getElementById('privacyCheck').checked) {
+        alert('Please read and check the safety rules before continuing.');
+        return;
+      }
+      // Generate parent code
+      state.parentCode = generateCode();
+      document.getElementById('parentCodeDisplay').textContent = state.parentCode;
+      goTo(6);
+    }
+
+    function generateCode() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let code = 'VP-';
+      for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+      return code;
+    }
+
+    /* ───────────────────────────────
+       STEP 6 — PARENT CODE + FINISH
+    ─────────────────────────────── */
+    function copyCode() {
+      navigator.clipboard.writeText(state.parentCode).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copied! ✓';
+        setTimeout(() => { btn.textContent = 'Copy Code'; }, 2000);
+      }).catch(() => {
+        prompt('Copy this code:', state.parentCode);
+      });
+    }
+
+    function finishOnboarding() {
+      // Enrich the existing user object (set by signup.html)
+      const raw  = localStorage.getItem('ventpals_user');
+      const user = raw ? JSON.parse(raw) : {};
+
+      Object.assign(user, {
+        birdId:      state.selectedBird.id,
+        birdEmoji:   state.selectedBird.emoji,
+        birdName:    state.selectedBird.name,
+        nickname:    state.nickname,
+        powerWord:   state.powerWord,
+        displayName: state.displayName,
+        pronouns:    state.pronouns,
+        avatarColour:state.colour,
+        parentCode:  state.parentCode,
+        stage:       'baby',
+        status:      'pending',
+      });
+
+      localStorage.setItem('ventpals_user',               JSON.stringify(user));
+      localStorage.setItem('ventpals_onboarding_complete','true');
+
+      window.location.href = '../dashboard.html';
+    }
+
+    /* ───────────────────────────────
+       INIT
+    ─────────────────────────────── */
+    buildBirdGrid();
+    buildColourGrid();
+  </script>
+</body>
+</html>

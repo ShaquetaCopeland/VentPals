@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Butterfly Hug – VentPals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(to bottom right, #fdf2f8, #f0f9ff); }
+    .float { animation: float 4s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    .step-card { transition: all 0.3s ease; }
+    .step-card.active { border: 2px solid #a855f7; background: #faf5ff; transform: scale(1.02); }
+    .step-card.done { opacity: 0.55; }
+
+    @keyframes tap-left  { 0%,100% { transform: rotate(-10deg); } 50% { transform: rotate(0deg); } }
+    @keyframes tap-right { 0%,100% { transform: rotate(10deg);  } 50% { transform: rotate(0deg); } }
+    .tap-l { display: inline-block; animation: tap-left  1s ease-in-out infinite; }
+    .tap-r { display: inline-block; animation: tap-right 1s ease-in-out infinite; }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
+        <span class="font-bold text-lg text-purple-700">VentPals</span>
+      </a>
+      <a href="calming-skills.html" class="text-purple-600 hover:text-purple-800 text-sm font-semibold">← Back to Calming Skills</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="text-center py-10 px-4">
+    <div class="text-6xl float mb-4">🦋</div>
+    <h1 class="text-3xl font-bold text-purple-700 mb-2">Butterfly Hug</h1>
+    <p class="text-gray-600 text-sm max-w-md mx-auto">
+      A gentle self-hug that helps your body feel steady and safe. You can do this anywhere, anytime.
+    </p>
+  </section>
+
+  <!-- STEPS -->
+  <section class="max-w-md mx-auto px-6 pb-20 space-y-6">
+
+    <!-- Animated demo -->
+    <div class="bg-white rounded-3xl shadow p-6 text-center">
+      <div class="text-6xl mb-3">
+        <span class="tap-l">🤚</span>
+        <span class="text-4xl">💜</span>
+        <span class="tap-r">🤚</span>
+      </div>
+      <p class="text-purple-700 text-sm font-semibold">Like butterfly wings, gently tapping</p>
+    </div>
+
+    <!-- Steps -->
+    <div class="bg-white rounded-3xl shadow p-6 space-y-5">
+      <h2 class="text-lg font-semibold text-purple-700">Follow these steps:</h2>
+
+      <div id="step-1" class="step-card rounded-2xl p-4 bg-gray-50 border border-gray-200">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">1️⃣</span>
+          <div>
+            <p class="font-semibold text-gray-800">Cross your arms over your chest</p>
+            <p class="text-sm text-gray-600 mt-1">Place each hand on the opposite shoulder — like you're giving yourself a hug.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-2" class="step-card rounded-2xl p-4 bg-gray-50 border border-gray-200">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">2️⃣</span>
+          <div>
+            <p class="font-semibold text-gray-800">Close your eyes (or look down softly)</p>
+            <p class="text-sm text-gray-600 mt-1">Take a slow, gentle breath in.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-3" class="step-card rounded-2xl p-4 bg-gray-50 border border-gray-200">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">3️⃣</span>
+          <div>
+            <p class="font-semibold text-gray-800">Tap one hand, then the other</p>
+            <p class="text-sm text-gray-600 mt-1">Slowly alternate — left, right, left, right. Like butterfly wings opening and closing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-4" class="step-card rounded-2xl p-4 bg-gray-50 border border-gray-200">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">4️⃣</span>
+          <div>
+            <p class="font-semibold text-gray-800">Keep breathing slowly</p>
+            <p class="text-sm text-gray-600 mt-1">Continue for 10–20 gentle taps. Feel your body getting calmer with each one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-5" class="step-card rounded-2xl p-4 bg-gray-50 border border-gray-200">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">5️⃣</span>
+          <div>
+            <p class="font-semibold text-gray-800">Stop and notice</p>
+            <p class="text-sm text-gray-600 mt-1">Take one more deep breath. Notice how your body feels. Even a little calmer counts.</p>
+          </div>
+        </div>
+      </div>
+
+      <button id="startGuide"
+              class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full mt-2">
+        Guide Me Through It
+      </button>
+    </div>
+
+    <!-- Why it works -->
+    <div class="bg-purple-50 rounded-3xl p-6">
+      <p class="text-purple-800 text-sm leading-relaxed">
+        🦋 <strong>Why it works:</strong> The gentle tapping helps your brain switch from "danger mode" to "safe mode." Your body and mind start working together — calming things down from the inside.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="space-y-3">
+      <a href="calming-skills.html"
+         class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full text-center">
+        Try Another Skill
+      </a>
+      <a href="dashboard.html"
+         class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-full text-center">
+        Back to Dashboard
+      </a>
+    </div>
+
+  </section>
+
+  <footer class="py-6 text-center text-gray-500 text-xs">VentPals • The Journey of Growing Up.</footer>
+
+  <script>
+    const stepIds = ['step-1','step-2','step-3','step-4','step-5'];
+    const msgs = [
+      'Cross your arms and settle in 🤗',
+      'Close your eyes and breathe in slowly…',
+      'Now tap: left… right… left… right…',
+      'Keep going, breathing slow and easy 💜',
+      'One last breath… and notice how you feel 🦋'
+    ];
+
+    document.getElementById('startGuide').addEventListener('click', function () {
+      this.disabled = true;
+      this.textContent = 'Starting…';
+      let i = 0;
+
+      function advance() {
+        if (i > 0) stepIds.slice(0, i).forEach(id => {
+          document.getElementById(id).classList.remove('active');
+          document.getElementById(id).classList.add('done');
+        });
+
+        if (i >= stepIds.length) {
+          document.getElementById('startGuide').textContent = 'Well done 💜';
+          return;
+        }
+
+        const el = document.getElementById(stepIds[i]);
+        el.classList.add('active');
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        i++;
+        setTimeout(advance, 4500);
+      }
+
+      advance();
+    });
+  </script>
+</body>
+</html>
