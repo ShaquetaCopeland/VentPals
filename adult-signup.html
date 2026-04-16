@@ -308,6 +308,9 @@
         firstName, lastName, email,
         relationship,
         parentCode,
+        // NOTE: btoa() is used here for the localStorage demo only.
+        // A real deployment MUST replace this with a server-side hashed credential
+        // (bcrypt / PBKDF2) stored in a secure backend — never in localStorage.
         passwordHash: btoa(password),
         role: 'parent',
         createdAt: new Date().toISOString()

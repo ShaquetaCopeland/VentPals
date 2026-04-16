@@ -198,6 +198,8 @@
         return;
       }
 
+      // NOTE: atob() decodes the demo-only localStorage credential.
+      // A real deployment MUST verify credentials server-side with proper hashing.
       if (atob(parent.passwordHash) !== password) {
         showError('Incorrect password. Please try again.');
         return;
