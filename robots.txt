@@ -1,0 +1,46 @@
+User-agent: *
+
+# Disallow authenticated app pages
+Disallow: /dashboard.html
+Disallow: /profile.html
+Disallow: /settings.html
+Disallow: /circles-dashboard.html
+Disallow: /world.html
+Disallow: /calming-skills.html
+Disallow: /breathing.html
+Disallow: /butterfly-hug.html
+Disallow: /grounding.html
+Disallow: /water.html
+Disallow: /feeling-reflection.html
+Disallow: /feeling-selected.html
+Disallow: /start-with-a-feeling.html
+Disallow: /nest-hub.html
+Disallow: /bird-growth.html
+Disallow: /keepsakes.html
+Disallow: /rewards.html
+Disallow: /avatar-customization.html
+Disallow: /naming.html
+Disallow: /notifications.html
+Disallow: /app-switcher.html
+Disallow: /onboarding/
+Disallow: /world/
+
+# Disallow all nest pages
+Disallow: /aura-nest.html
+Disallow: /breezy-nest.html
+Disallow: /clover-nest.html
+Disallow: /cove-nest.html
+Disallow: /drift-nest.html
+Disallow: /echo-nest.html
+Disallow: /flamez-nest.html
+Disallow: /flare-nest.html
+Disallow: /flicker-nest.html
+Disallow: /guardian-nest.html
+Disallow: /lumen-nest.html
+Disallow: /nova-nest.html
+Disallow: /pebble-nest.html
+Disallow: /sable-nest.html
+Disallow: /solace-nest.html
+Disallow: /twig-nest.html
+
+Sitemap: https://www.ventpals.com/sitemap.xml

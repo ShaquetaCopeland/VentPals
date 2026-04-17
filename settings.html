@@ -50,11 +50,11 @@
         This is the name your VentPal and your Nests will see.
       </p>
 
-      <input type="text"
+      <input id="settingsDisplayName" type="text"
              placeholder="Enter your display name"
              class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4">
 
-      <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
+      <button id="saveNameBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
         Save Name
       </button>
     </div>
@@ -64,10 +64,10 @@
       <h2 class="text-xl font-semibold text-purple-700 mb-3">Your VentPal</h2>
 
       <div class="flex items-center gap-4 mb-4">
-        <div class="text-5xl">🕊️</div>
+        <div id="settingsBirdEmoji" class="text-5xl">🐦</div>
         <div>
-          <p class="font-semibold text-purple-700">Aura</p>
-          <p class="text-xs text-gray-600">Calm • Steady • Gentle</p>
+          <p id="settingsBirdName" class="font-semibold text-purple-700">—</p>
+          <p class="text-xs text-gray-600">Your VentPal companion</p>
         </div>
       </div>
 
@@ -85,10 +85,10 @@
       </p>
 
       <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 text-center mb-4">
-        <p class="text-2xl font-bold text-purple-700 tracking-widest">A7Q‑92F</p>
+        <p id="settingsParentCode" class="text-2xl font-bold text-purple-700 tracking-widest">—</p>
       </div>
 
-      <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full">
+      <button id="settingsCopyBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full">
         Copy Code
       </button>
 
@@ -125,6 +125,56 @@
   </footer>
 
   <script>
+    let user = {};
+    try { user = JSON.parse(localStorage.getItem('ventpals_user') || '{}'); } catch(e) { console.error('Could not load user data:', e); }
+
+    const displayNameInput = document.getElementById('settingsDisplayName');
+    if (user.displayName || user.nickname) {
+      displayNameInput.value = user.displayName || user.nickname;
+    }
+
+    const birdEmoji = user.birdEmoji || '🐦';
+    const birdName  = user.birdName  || user.birdId || '—';
+    document.getElementById('settingsBirdEmoji').textContent = birdEmoji;
+    document.getElementById('settingsBirdName').textContent  = birdName;
+
+    const parentCode = user.parentCode || '—';
+    document.getElementById('settingsParentCode').textContent = parentCode;
+
+    document.getElementById('saveNameBtn').addEventListener('click', () => {
+      try {
+        const val = displayNameInput.value.trim();
+        if (!val) return;
+        user.displayName = val;
+        localStorage.setItem('ventpals_user', JSON.stringify(user));
+        const btn = document.getElementById('saveNameBtn');
+        btn.textContent = 'Saved ✓';
+        setTimeout(() => { btn.textContent = 'Save Name'; }, 2000);
+      } catch(e) {}
+    });
+
+    document.getElementById('settingsCopyBtn').addEventListener('click', () => {
+      const code = user.parentCode || '';
+      if (!code) return;
+      function flash() {
+        const btn = document.getElementById('settingsCopyBtn');
+        btn.textContent = 'Copied! ✓';
+        setTimeout(() => { btn.textContent = 'Copy Code'; }, 2000);
+      }
+      function fallback(c) {
+        const ta = document.createElement('textarea');
+        ta.value = c; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try { document.execCommand('copy'); flash(); } catch(e) { prompt('Copy this code:', c); }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code).then(flash).catch(() => fallback(code));
+      } else {
+        fallback(code);
+      }
+    });
+
     document.getElementById("logoutBtn").addEventListener("click", () => {
       localStorage.removeItem("ventpals_logged_in");
       localStorage.removeItem("ventpals_parent_logged_in");
