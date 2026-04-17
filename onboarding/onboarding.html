@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to VentPals – Setup</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,12 +12,12 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --purple: #8B5CF6;
-      --yellow: #F59E0B;
-      --pink:   #EC4899;
-      --ink:    #1F2937;
+      --purple: #A259FF;
+      --yellow: #FFEB99;
+      --green:  #7ED957;
+      --ink:    #2E1A47;
       --muted:  #6B7280;
-      --bg:     linear-gradient(135deg, #f5e6ff 0%, #fff8d6 50%, #e0f4ff 100%);
+      --bg:     linear-gradient(135deg, #F7F4FF 0%, #EDE6FF 55%, #f0fdf4 100%);
     }
     body {
       font-family: 'Poppins', system-ui, sans-serif;
@@ -86,12 +87,12 @@
       width:100%; padding:14px;
       border-radius:999px; border:none; cursor:pointer;
       font-family:inherit; font-weight:800; font-size:15px;
-      background: linear-gradient(135deg, var(--yellow), var(--pink));
+      background: linear-gradient(135deg, var(--purple), var(--green));
       color:#fff;
-      box-shadow: 0 10px 24px rgba(236,72,153,0.2);
+      box-shadow: 0 10px 24px rgba(162,89,255,0.2);
       transition: transform .15s ease, box-shadow .2s;
     }
-    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(236,72,153,0.28); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(162,89,255,0.28); }
     .btn-primary:disabled { opacity:0.5; cursor:not-allowed; transform:none; }
 
     .btn-secondary {
@@ -181,7 +182,7 @@
 
     /* ── Power word result ── */
     .power-word-reveal {
-      background: linear-gradient(135deg,#fdf2f8,#f0f9ff);
+      background: linear-gradient(135deg,#F7F4FF,#f0f9ff);
       border-radius:16px; padding:18px; text-align:center;
       margin-top:12px;
     }
