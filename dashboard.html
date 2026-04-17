@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dashboard • VentPals</title>
+  <title>Dashboard &bull; VentPals</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
@@ -16,17 +16,19 @@
 
       <!-- Avatar + Welcome -->
       <div class="flex items-center gap-4">
-        <img src="assets/images/avatar-placeholder.png" class="h-20 w-20 rounded-full border-4 border-white shadow-md">
+        <div id="avatarWrap"
+             class="h-20 w-20 rounded-full border-4 border-white shadow-md bg-purple-100 flex items-center justify-center overflow-hidden">
+          <!-- avatar populated by script -->
+        </div>
         <div>
-          <h1 class="text-3xl font-extrabold text-purple-800">Welcome back, Friend!</h1>
+          <h1 id="welcomeMsg" class="text-3xl font-extrabold text-purple-800">Welcome back!</h1>
           <p class="text-purple-700 text-base">Your VentPal is excited to see you.</p>
         </div>
       </div>
 
-      <!-- VentPal (Nestling Flicker) -->
-      <div class="flex flex-col items-center">
-        <img src="assets/images/flicker-nestling.png" class="h-24">
-        <p class="text-purple-700 font-semibold mt-2">Flicker • Nestling Stage</p>
+      <!-- VentPal bird -->
+      <div class="flex flex-col items-center" id="ventpalWrap">
+        <!-- populated by script -->
       </div>
 
     </div>
@@ -37,24 +39,26 @@
 
     <!-- VENTPAL JOURNEY -->
     <section class="bg-white rounded-3xl shadow-md p-6">
-      <h2 class="text-2xl font-bold text-purple-800 mb-4">Your VentPal’s Journey</h2>
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">Your VentPal&rsquo;s Journey</h2>
 
       <div class="flex flex-col md:flex-row items-center gap-6">
-        <img src="assets/images/flicker-nestling.png" class="h-24">
+        <img id="journeyBird" src="assets/images/aura-nestling.png" class="h-24" alt="Your VentPal">
 
         <div class="flex-1">
-          <p class="text-gray-700 mb-3">
-            Flicker grows with you as you explore your feelings. Keep reflecting to help your VentPal grow from baby → nestling → feathered → percher.
+          <p id="journeyText" class="text-gray-700 mb-3">
+            Your VentPal grows with you as you explore your feelings. Keep reflecting to help your bird grow
+            from baby &rarr; nestling &rarr; feathered &rarr; percher.
           </p>
 
           <!-- Progress Bar -->
           <div class="w-full bg-purple-100 rounded-full h-4 mb-4">
-            <div class="bg-purple-400 h-4 rounded-full" style="width: 35%;"></div>
+            <div id="progressBar" class="bg-purple-400 h-4 rounded-full" style="width: 25%;"></div>
           </div>
 
-          <button class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
-            Grow Together
-          </button>
+          <a id="growBtn" href="bird-growth.html"
+             class="inline-block bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
+            View Growth
+          </a>
         </div>
       </div>
     </section>
@@ -65,28 +69,32 @@
 
       <p class="text-gray-700 mb-4">How are you feeling right now?</p>
 
-      <!-- Feeling Picker -->
       <div class="grid grid-cols-3 sm:grid-cols-6 gap-4 mb-6">
-        <button class="bg-yellow-100 hover:bg-yellow-200 p-4 rounded-xl text-center">😊</button>
-        <button class="bg-blue-100 hover:bg-blue-200 p-4 rounded-xl text-center">😢</button>
-        <button class="bg-red-100 hover:bg-red-200 p-4 rounded-xl text-center">😡</button>
-        <button class="bg-purple-100 hover:bg-purple-200 p-4 rounded-xl text-center">😰</button>
-        <button class="bg-green-100 hover:bg-green-200 p-4 rounded-xl text-center">😶</button>
-        <button class="bg-pink-100 hover:bg-pink-200 p-4 rounded-xl text-center">🤗</button>
+        <a href="feeling-selected.html?feeling=Happy&emoji=%F0%9F%98%8A"
+           class="bg-yellow-100 hover:bg-yellow-200 p-4 rounded-xl text-center text-2xl">&#128522;</a>
+        <a href="feeling-selected.html?feeling=Sad&emoji=%F0%9F%98%A2"
+           class="bg-blue-100 hover:bg-blue-200 p-4 rounded-xl text-center text-2xl">&#128546;</a>
+        <a href="feeling-selected.html?feeling=Angry&emoji=%F0%9F%98%A1"
+           class="bg-red-100 hover:bg-red-200 p-4 rounded-xl text-center text-2xl">&#128545;</a>
+        <a href="feeling-selected.html?feeling=Worried&emoji=%F0%9F%98%B0"
+           class="bg-purple-100 hover:bg-purple-200 p-4 rounded-xl text-center text-2xl">&#128176;</a>
+        <a href="feeling-selected.html?feeling=Invisible&emoji=%F0%9F%91%A4"
+           class="bg-green-100 hover:bg-green-200 p-4 rounded-xl text-center text-2xl">&#128100;</a>
+        <a href="feeling-selected.html?feeling=Grateful&emoji=%F0%9F%A4%97"
+           class="bg-pink-100 hover:bg-pink-200 p-4 rounded-xl text-center text-2xl">&#129303;</a>
       </div>
 
-      <button class="bg-yellow-300 hover:bg-yellow-400 text-purple-800 font-bold py-3 px-6 rounded-full shadow">
-        Reflect with Flicker
-      </button>
+      <a href="start-with-a-feeling.html"
+         class="inline-block bg-yellow-300 hover:bg-yellow-400 text-purple-800 font-bold py-3 px-6 rounded-full shadow">
+        Start With a Feeling
+      </a>
     </section>
 
-    <!-- CIRCLES -->
+    <!-- SAFE NESTS -->
     <section class="bg-white rounded-3xl shadow-md p-6">
       <h2 class="text-2xl font-bold text-purple-800 mb-4">Your Safe Nests</h2>
 
       <div class="grid md:grid-cols-2 gap-6">
-
-        <!-- Nest Card -->
         <div class="bg-purple-50 rounded-2xl p-4 shadow">
           <h3 class="text-lg font-bold text-purple-800">Mom</h3>
           <p class="text-gray-700 text-sm mb-3">Always here to listen.</p>
@@ -102,30 +110,55 @@
             Share a Reflection
           </button>
         </div>
-
       </div>
 
-      <button class="mt-6 bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
-        Add a Nest
-      </button>
+      <a href="circles-dashboard.html"
+         class="inline-block mt-6 bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
+        View All Nests
+      </a>
     </section>
 
     <!-- KEEPSAKES -->
     <section class="bg-white rounded-3xl shadow-md p-6">
-      <h2 class="text-2xl font-bold text-purple-800 mb-4">Your Keepsakes</h2>
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">Keepsakes</h2>
 
-      <p class="text-gray-700 mb-4">These keepsakes celebrate your emotional growth.</p>
+      <p class="text-gray-700 mb-4">Real VentPals gear you can wear and use every day.</p>
 
-      <!-- Keepsake Scroll -->
-      <div class="flex gap-4 overflow-x-auto pb-2">
-        <img src="assets/images/keepsake-1.png" class="h-20">
-        <img src="assets/images/keepsake-2.png" class="h-20">
-        <img src="assets/images/keepsake-3.png" class="h-20">
+      <div class="flex gap-6 overflow-x-auto pb-2 items-end">
+        <div class="text-center flex-shrink-0">
+          <img src="assets/images/keepsakes-tee.png"
+               class="h-20 object-contain"
+               alt="VentPals T-Shirt"
+               onerror="this.style.display='none'">
+          <p class="text-xs text-gray-500 mt-1">T-Shirt</p>
+        </div>
+        <div class="text-center flex-shrink-0">
+          <img src="assets/images/keepsakes-pins.png"
+               class="h-20 object-contain"
+               alt="VentPals Pins"
+               onerror="this.style.display='none'">
+          <p class="text-xs text-gray-500 mt-1">Pins</p>
+        </div>
+        <div class="text-center flex-shrink-0">
+          <img src="assets/images/keepsakes-sticker.png"
+               class="h-20 object-contain"
+               alt="VentPals Sticker"
+               onerror="this.style.display='none'">
+          <p class="text-xs text-gray-500 mt-1">Stickers</p>
+        </div>
+        <div class="text-center flex-shrink-0">
+          <div class="h-20 w-20 bg-purple-50 rounded-xl flex items-center justify-center text-3xl">&#127861;</div>
+          <p class="text-xs text-gray-500 mt-1">Mug</p>
+        </div>
+        <div class="text-center flex-shrink-0">
+          <div class="h-20 w-20 bg-purple-50 rounded-xl flex items-center justify-center text-3xl">&#129355;</div>
+          <p class="text-xs text-gray-500 mt-1">Sweatshirt</p>
+        </div>
       </div>
 
-      <a href="https://ventpals-keepsakes-marketplace.myshopify.com"
+      <a href="keepsakes.html"
          class="inline-block mt-4 bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-2 px-4 rounded-full shadow">
-        Visit the Keepsakes Marketplace
+        Shop Keepsakes
       </a>
     </section>
 
@@ -134,17 +167,21 @@
       <h2 class="text-2xl font-bold text-purple-800 mb-4">Quick Actions</h2>
 
       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="start-with-a-feeling.html" class="bg-yellow-200 hover:bg-yellow-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+        <a href="start-with-a-feeling.html"
+           class="bg-yellow-200 hover:bg-yellow-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
           Start With a Feeling
         </a>
-        <a href="meet-the-flock.html" class="bg-blue-200 hover:bg-blue-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
-          Meet the Birds
+        <a href="world.html"
+           class="bg-blue-200 hover:bg-blue-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+          &#127758; Explore the World
         </a>
-        <a href="how-it-works.html" class="bg-pink-200 hover:bg-pink-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
-          How It Works
+        <a href="circles-dashboard.html"
+           class="bg-pink-200 hover:bg-pink-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+          &#127962; My Nests
         </a>
-        <a href="https://ventpals-keepsakes-marketplace.myshopify.com" class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
-          Marketplace
+        <a href="calming-skills.html"
+           class="bg-purple-200 hover:bg-purple-300 text-purple-800 font-bold py-3 px-4 rounded-xl text-center shadow">
+          Calming Skills
         </a>
       </div>
     </section>
@@ -152,8 +189,72 @@
   </main>
 
   <footer class="py-8 text-center text-gray-600 text-sm">
-    <p>VentPals • Helping kids understand their feelings, one bird at a time.</p>
+    <p>VentPals &bull; Helping kids understand their feelings, one bird at a time.</p>
   </footer>
+
+  <script>
+    // Load user from localStorage and personalise dashboard
+    const BIRDS = {
+      aura:     { name:'Aura',     emoji:'\u{1F54A}\uFE0F', color:'#c084fc' },
+      breezy:   { name:'Breezy',   emoji:'\u{1F343}',       color:'#6ee7b7' },
+      clover:   { name:'Clover',   emoji:'\u{1F340}',       color:'#4ade80' },
+      cove:     { name:'Cove',     emoji:'\u{1F30A}',       color:'#60a5fa' },
+      drift:    { name:'Drift',    emoji:'\u{1F319}',       color:'#818cf8' },
+      echo:     { name:'Echo',     emoji:'\u{1F514}',       color:'#f9a8d4' },
+      flamez:   { name:'Flamez',   emoji:'\u{1F525}',       color:'#fb923c' },
+      flare:    { name:'Flare',    emoji:'\u26A1',          color:'#fbbf24' },
+      flicker:  { name:'Flicker',  emoji:'\u{1F4AB}',       color:'#a78bfa' },
+      guardian: { name:'Guardian', emoji:'\u{1F6E1}\uFE0F', color:'#94a3b8' },
+      lumen:    { name:'Lumen',    emoji:'\u{1F4A1}',       color:'#fde68a' },
+      nova:     { name:'Nova',     emoji:'\u{1F31F}',       color:'#fdba74' },
+      pebble:   { name:'Pebble',   emoji:'\u{1FAA8}',       color:'#d1d5db' },
+      sable:    { name:'Sable',    emoji:'\u2B50',          color:'#78716c' },
+      solace:   { name:'Solace',   emoji:'\u{1F33F}',       color:'#86efac' },
+      twig:     { name:'Twig',     emoji:'\u{1F331}',       color:'#a3e635' },
+    };
+    const STAGE_PROGRESS = { baby: 10, nestling: 35, feathered: 65, percher: 90 };
+
+    let user = {};
+    try { user = JSON.parse(localStorage.getItem('ventpals_user') || '{}'); } catch(e) {}
+
+    const birdId   = user.birdId   || 'aura';
+    const nickname = user.nickname  || user.username || 'Friend';
+    const stage    = user.stage    || 'baby';
+    const bird     = BIRDS[birdId] || BIRDS.aura;
+
+    // Welcome message
+    document.getElementById('welcomeMsg').textContent = 'Welcome back, ' + nickname + '!';
+
+    // Header VentPal
+    const ventpalWrap = document.getElementById('ventpalWrap');
+    ventpalWrap.innerHTML = `
+      <img src="assets/images/${birdId}-nestling.png"
+           class="h-24"
+           alt="${bird.name}"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div style="display:none;font-size:56px;">${bird.emoji}</div>
+      <p class="text-purple-700 font-semibold mt-2">${bird.name} &bull; ${stage.charAt(0).toUpperCase()+stage.slice(1)} Stage</p>
+    `;
+
+    // Avatar
+    const avatarWrap = document.getElementById('avatarWrap');
+    avatarWrap.innerHTML = `
+      <img src="assets/images/${birdId}-baby.png"
+           class="h-full w-full object-cover"
+           alt="Avatar"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div style="display:none;font-size:36px;" class="flex items-center justify-center w-full h-full">${bird.emoji}</div>
+    `;
+
+    // Journey section
+    document.getElementById('journeyBird').src = 'assets/images/' + birdId + '-nestling.png';
+    document.getElementById('journeyBird').alt = bird.name;
+    document.getElementById('journeyText').innerHTML =
+      `<strong>${bird.name}</strong> grows with you as you explore your feelings. Keep reflecting to help
+       your VentPal grow from baby &rarr; nestling &rarr; feathered &rarr; percher.`;
+    document.getElementById('progressBar').style.width = (STAGE_PROGRESS[stage] || 10) + '%';
+    document.getElementById('growBtn').href = 'bird-growth.html';
+  </script>
 
 </body>
 </html>

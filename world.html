@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VentPals World – VentPals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(ellipse at top, #e0e7ff 0%, #f0fdf4 50%, #fdf2f8 100%);
+      min-height: 100vh;
+    }
+
+    .zone-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+    .zone-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(139,92,246,0.18);
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    /* Zone panel overlay */
+    #zonePanel {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+    }
+    #zonePanel.open { display: flex; }
+  </style>
+</head>
+
+<body class="text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" class="h-8" alt="VentPals Logo">
+        <span class="font-bold text-lg text-purple-700">VentPals</span>
+      </a>
+
+      <button class="sm:hidden text-purple-700 text-2xl" id="menuToggle">&#9776;</button>
+
+      <ul id="mobileMenu"
+          class="hidden sm:flex flex-col sm:flex-row gap-4 text-sm font-semibold text-purple-700 sm:static absolute right-4 top-14 bg-white/90 sm:bg-transparent p-4 sm:p-0 rounded-xl shadow sm:shadow-none">
+        <li><a href="profile.html"  class="hover:text-purple-900">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-purple-900">Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    document.getElementById('menuToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+  </script>
+
+  <!-- HEADER -->
+  <section class="text-center py-12 px-4">
+    <div class="text-7xl float mb-4 select-none">&#127758;</div>
+    <h1 class="text-4xl font-extrabold text-purple-700 mb-2">VentPals World</h1>
+    <p class="text-gray-600 max-w-xl mx-auto text-sm">
+      Explore the world of VentPals. Each zone is a different emotional landscape &#8212;
+      pick the one that matches how you feel right now.
+    </p>
+  </section>
+
+  <!-- WORLD MAP IMAGE (optional visual anchor) -->
+  <section class="max-w-2xl mx-auto px-4 mb-6">
+    <div class="rounded-3xl overflow-hidden shadow-lg bg-purple-50 flex items-center justify-center p-4 min-h-40">
+      <img src="assets/world-map-placeholder.png"
+           alt="VentPals World Map"
+           class="max-h-56 w-full object-contain rounded-2xl"
+           onerror="this.parentElement.innerHTML='<p class=\'text-purple-400 text-sm font-semibold py-12 px-8 text-center\'>&#127752; World map coming soon &#8212; explore the zones below!</p>'">
+    </div>
+  </section>
+
+  <!-- ZONES GRID -->
+  <section class="max-w-4xl mx-auto px-4 pb-20">
+    <h2 class="text-xl font-bold text-purple-700 mb-6 text-center">Choose a Zone</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="zonesGrid">
+      <!-- Populated by script -->
+    </div>
+
+    <!-- BACK -->
+    <div class="text-center mt-10">
+      <a href="dashboard.html"
+         class="inline-block text-purple-600 hover:text-purple-800 font-semibold text-sm">
+        &#8592; Back to Dashboard
+      </a>
+    </div>
+  </section>
+
+  <!-- ZONE DETAIL PANEL -->
+  <div id="zonePanel">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full mx-4 text-center">
+      <div id="panelEmoji" class="text-7xl mb-4">&#127758;</div>
+      <h2 id="panelName"  class="text-2xl font-bold text-purple-700 mb-2"></h2>
+      <p  id="panelDesc"  class="text-gray-600 text-sm mb-2"></p>
+      <p  id="panelFeeling" class="text-purple-500 text-sm font-semibold italic mb-6"></p>
+
+      <div class="flex flex-col gap-3">
+        <a id="panelAction" href="#"
+           class="block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
+          Enter Zone
+        </a>
+        <button onclick="closePanel()"
+                class="block bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-3 rounded-full">
+          Back to World
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-gray-500 text-xs">
+    VentPals &#8226; The Journey of Growing Up.
+  </footer>
+
+  <script>
+    const ZONES = [
+      {
+        id:      'nesting-tree',
+        name:    'Nesting Tree',
+        emoji:   '\u{1F333}',
+        color:   'from-green-100 to-emerald-50',
+        border:  'border-green-300',
+        feeling: 'Feeling: Calm, Safe, or Tired',
+        desc:    'A cosy place high in the branches where you can rest, breathe, and just be yourself. No pressure here.',
+        action:  { label: 'Visit Your Nest', href: 'circles-dashboard.html' },
+      },
+      {
+        id:      'feelings-forest',
+        name:    'Feelings Forest',
+        emoji:   '\u{1F332}',
+        color:   'from-teal-50 to-green-50',
+        border:  'border-teal-300',
+        feeling: 'Feeling: Confused, Sad, or Curious',
+        desc:    'Deep in the forest of feelings, every emotion has a name and a home. Start with a feeling and explore what it means.',
+        action:  { label: 'Start With a Feeling', href: 'start-with-a-feeling.html' },
+      },
+      {
+        id:      'quiet-caves',
+        name:    'Quiet Caves',
+        emoji:   '\u{1F3D4}\uFE0F',
+        color:   'from-indigo-50 to-purple-50',
+        border:  'border-indigo-300',
+        feeling: 'Feeling: Overwhelmed, Anxious, or Reflective',
+        desc:    'A hushed and peaceful underground space. Come here to think slowly, journal, and listen to yourself.',
+        action:  { label: 'Try a Reflection', href: 'feeling-reflection.html' },
+      },
+      {
+        id:      'firefly-meadow',
+        name:    'Firefly Meadow',
+        emoji:   '\u2728',
+        color:   'from-amber-50 to-yellow-50',
+        border:  'border-amber-300',
+        feeling: 'Feeling: Hopeful, Grateful, or Playful',
+        desc:    'When tiny lights flicker in the dark, it means hope is near. Firefly Meadow is full of wonder and small joys.',
+        action:  { label: 'Meet the Flock', href: 'meet-the-flock.html' },
+      },
+      {
+        id:      'sky-bridge',
+        name:    'Sky Bridge',
+        emoji:   '\u{1F308}',
+        color:   'from-sky-50 to-blue-50',
+        border:  'border-sky-300',
+        feeling: 'Feeling: Brave, Growing, or Stuck',
+        desc:    'A rainbow bridge stretching between where you are and where you\'re going. Take a step. The view is worth it.',
+        action:  { label: 'Practice Calming Skills', href: 'calming-skills.html' },
+      },
+      {
+        id:      'sparkle-stream',
+        name:    'Sparkle Stream',
+        emoji:   '\u{1F4A7}',
+        color:   'from-cyan-50 to-sky-50',
+        border:  'border-cyan-300',
+        feeling: 'Feeling: Anxious, Heavy, or Restless',
+        desc:    'Let worries float downstream like leaves. The Sparkle Stream washes away what you no longer need to carry.',
+        action:  { label: 'Try Calming Skills', href: 'calming-skills.html' },
+      },
+    ];
+
+    const grid = document.getElementById('zonesGrid');
+
+    ZONES.forEach(zone => {
+      const card = document.createElement('div');
+      card.className = `zone-card bg-gradient-to-br ${zone.color} border-2 ${zone.border} rounded-3xl p-6 shadow-sm`;
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', 'Open ' + zone.name);
+      card.innerHTML = `
+        <div class="text-5xl mb-3 text-center">${zone.emoji}</div>
+        <h3 class="font-bold text-purple-700 text-lg text-center mb-1">${zone.name}</h3>
+        <p class="text-xs text-gray-500 text-center italic mb-3">${zone.feeling}</p>
+        <p class="text-sm text-gray-600 text-center">${zone.desc}</p>
+        <div class="mt-4 text-center">
+          <span class="inline-block bg-white/80 text-purple-700 font-semibold text-xs py-1 px-4 rounded-full shadow-sm">
+            Enter Zone &#8594;
+          </span>
+        </div>
+      `;
+      card.addEventListener('click', () => openPanel(zone));
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openPanel(zone); });
+      grid.appendChild(card);
+    });
+
+    function openPanel(zone) {
+      document.getElementById('panelEmoji').textContent   = zone.emoji;
+      document.getElementById('panelName').textContent    = zone.name;
+      document.getElementById('panelDesc').textContent    = zone.desc;
+      document.getElementById('panelFeeling').textContent = zone.feeling;
+      const btn = document.getElementById('panelAction');
+      btn.textContent = zone.action.label;
+      btn.href        = zone.action.href;
+      document.getElementById('zonePanel').classList.add('open');
+    }
+
+    function closePanel() {
+      document.getElementById('zonePanel').classList.remove('open');
+    }
+
+    // Close on backdrop click
+    document.getElementById('zonePanel').addEventListener('click', function(e) {
+      if (e.target === this) closePanel();
+    });
+  </script>
+
+</body>
+</html>
