@@ -107,7 +107,7 @@
     VentPals • The Journey of Growing Up.
   </footer>
 
-  <!-- SCRIPT: Inject feeling name + emoji from URL params -->
+  <!-- SCRIPT: Inject feeling name + emoji from URL params, save reflection -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const feeling = params.get("feeling");
@@ -119,6 +119,29 @@
     if (emoji) {
       document.getElementById("feelingEmoji").textContent = emoji;
     }
+
+    document.getElementById("saveReflection").addEventListener("click", () => {
+      const text = document.getElementById("reflectionInput").value.trim();
+      if (!text) return;
+
+      const reflections = JSON.parse(localStorage.getItem("ventpals_reflections") || "[]");
+      reflections.unshift({
+        text,
+        feeling: params.get("feeling") || "Unnamed",
+        emoji:   params.get("emoji")   || "💛",
+        date:    new Date().toISOString()
+      });
+      localStorage.setItem("ventpals_reflections", JSON.stringify(reflections));
+
+      const btn = document.getElementById("saveReflection");
+      const original = btn.textContent;
+      btn.textContent = "Saved ✓";
+      btn.style.background = "#16a34a";
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = "";
+      }, 2000);
+    });
   </script>
 
 </body>

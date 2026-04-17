@@ -110,7 +110,7 @@
 
     <!-- LOGOUT -->
     <div class="bg-white rounded-3xl shadow p-8 text-center">
-      <button class="w-full bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-3 rounded-full">
+      <button id="logoutBtn" class="w-full bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-3 rounded-full">
         Log Out
       </button>
     </div>
@@ -121,6 +121,15 @@
   <footer class="py-6 text-center text-gray-500 text-xs">
     VentPals • The Journey of Growing Up.
   </footer>
+
+  <script>
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("ventpals_logged_in");
+      localStorage.removeItem("ventpals_parent_logged_in");
+      localStorage.removeItem("ventpals_parent_email");
+      window.location.href = "login.html";
+    });
+  </script>
 
 </body>
 </html>

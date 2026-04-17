@@ -1,5 +1,5 @@
 // chat.js
-import { auth, db, onAuthStateChanged } from '../../firebase-config.js';
+import { auth, db, onAuthStateChanged } from './firebase-config.js';
 import {
   ref,
   push,
