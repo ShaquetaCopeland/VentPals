@@ -180,3 +180,138 @@
           <span class="mark" aria-hidden="true">🐦</span>
           <span>VentPals</span>
         </a>
+        <a class="back" href="index.html">← Back</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" aria-label="Create account">
+      <div class="card-head">
+        <div class="icon" aria-hidden="true">🐣</div>
+        <h1>Create Your Account</h1>
+        <p class="subtitle">Your safe place to understand your feelings starts here.</p>
+      </div>
+
+      <form id="signupForm">
+        <div id="errorBox" class="alert" role="alert"></div>
+
+        <div class="row">
+          <div>
+            <label for="firstName">First name</label>
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Alex" required />
+          </div>
+          <div>
+            <label for="age">Age</label>
+            <select id="age" name="age" required>
+              <option value="">Select&hellip;</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" autocomplete="username"
+                 placeholder="StarKid42" required maxlength="30" />
+          <div class="hint">This is how you&rsquo;ll log in. No real name needed.</div>
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password"
+                 placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required minlength="6" />
+          <div class="hint">At least 6 characters.</div>
+        </div>
+
+        <div>
+          <label for="confirmPassword">Confirm password</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password"
+                 placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required minlength="6" />
+        </div>
+
+        <button class="btn" type="submit">Create My Account &#x1F426;</button>
+      </form>
+
+      <div class="foot">
+        Already have an account? <a href="login.html">Log in</a>
+        <div style="margin-top:10px; font-size:12px;">
+          Are you a grown&#8209;up? <a href="adult-signup.html">Parent Sign Up</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    VentPals &bull; The Journey of Growing Up.
+  </footer>
+
+  <script>
+    function showError(msg) {
+      const box = document.getElementById('errorBox');
+      box.textContent = msg;
+      box.classList.add('show');
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const firstName       = document.getElementById('firstName').value.trim();
+      const age             = document.getElementById('age').value;
+      const username        = document.getElementById('username').value.trim();
+      const password        = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (username.length < 3) {
+        showError('Username must be at least 3 characters.');
+        return;
+      }
+      if (password.length < 6) {
+        showError('Password must be at least 6 characters.');
+        return;
+      }
+      if (password !== confirmPassword) {
+        showError('Passwords do not match. Please try again.');
+        return;
+      }
+
+      // Check if a child account already exists on this device
+      const existing = localStorage.getItem('ventpals_user');
+      if (existing) {
+        try {
+          const prev = JSON.parse(existing);
+          if (prev.username && prev.username.toLowerCase() === username.toLowerCase()) {
+            showError('That username is already taken on this device. Please choose another or log in.');
+            return;
+          }
+        } catch(err) {}
+      }
+
+      const user = {
+        firstName,
+        username,
+        age,
+        createdAt: new Date().toISOString(),
+      };
+
+      // NOTE: btoa() is used here for the localStorage demo only.
+      // A real deployment MUST replace this with server-side hashing (bcrypt / PBKDF2).
+      localStorage.setItem('ventpals_user',          JSON.stringify(user));
+      localStorage.setItem('ventpals_password_hash', btoa(password));
+      localStorage.setItem('ventpals_logged_in',     'true');
+
+      window.location.href = 'onboarding/onboarding.html';
+    });
+  </script>
+</body>
+</html>
