@@ -85,7 +85,7 @@
       <!-- Baby Stage -->
       <div id="stage-baby" class="bg-white rounded-3xl shadow p-6 border-2">
         <div class="flex items-center gap-4">
-          <img src="assets/images/bird-baby.png" class="h-20" alt="Baby Stage">
+          <img id="img-baby" src="assets/images/aura-baby.png" class="h-20" alt="Baby Stage">
           <div>
             <h3 class="text-lg font-semibold text-purple-700">Baby</h3>
             <p class="text-gray-600 text-sm">This is where your journey begins — soft, new, and full of possibility.</p>
@@ -96,7 +96,7 @@
       <!-- Nestling Stage -->
       <div id="stage-nestling" class="bg-white rounded-3xl shadow p-6 border-2">
         <div class="flex items-center gap-4">
-          <img src="assets/images/bird-nestling.png" class="h-20" alt="Nestling Stage">
+          <img id="img-nestling" src="assets/images/aura-nestling.png" class="h-20" alt="Nestling Stage">
           <div>
             <h3 class="text-lg font-semibold text-purple-700">Nestling</h3>
             <p class="text-gray-600 text-sm">You’re learning, growing, and finding your voice — one gentle step at a time.</p>
@@ -107,7 +107,7 @@
       <!-- Feathered Stage -->
       <div id="stage-feathered" class="bg-white rounded-3xl shadow p-6 border-2">
         <div class="flex items-center gap-4">
-          <img src="assets/images/bird-feathered.png" class="h-20" alt="Feathered Stage">
+          <img id="img-feathered" src="assets/images/aura-feathered.png" class="h-20" alt="Feathered Stage">
           <div>
             <h3 class="text-lg font-semibold text-purple-700">Feathered</h3>
             <p class="text-gray-600 text-sm">You’re becoming more confident and steady — your feelings make more sense now.</p>
@@ -118,7 +118,7 @@
       <!-- Percher Stage -->
       <div id="stage-percher" class="bg-white rounded-3xl shadow p-6 border-2">
         <div class="flex items-center gap-4">
-          <img src="assets/images/bird-percher.png" class="h-20" alt="Percher Stage">
+          <img id="img-percher" src="assets/images/aura-percher.png" class="h-20" alt="Percher Stage">
           <div>
             <h3 class="text-lg font-semibold text-purple-700">Percher</h3>
             <p class="text-gray-600 text-sm">This is your bird’s calm, wise form — steady, grounded, and always here for you.</p>
@@ -132,7 +132,7 @@
     <div class="bg-white rounded-3xl shadow p-6 space-y-4">
       <a href="circle-hub.html"
          class="block text-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        Back to My Circle
+        Back to My Nest
       </a>
 
       <a href="dashboard.html"
@@ -148,21 +148,34 @@
     VentPals • The Journey of Growing Up.
   </footer>
 
-  <!-- SCRIPT: Highlight current stage -->
+  <!-- SCRIPT: Highlight current stage + load user’s bird images -->
   <script>
     const params = new URLSearchParams(window.location.search);
-    const stage = params.get("stage");
-    const bird = params.get("bird");
-    const emoji = params.get("emoji");
+    const stageParam = params.get("stage");
 
-    if (bird) document.getElementById("birdName").textContent = bird + "’s Growth";
-    if (emoji) document.getElementById("birdEmoji").textContent = emoji;
+    // Resolve bird id: URL param → localStorage → fallback 'aura'
+    let birdId = params.get("bird");
+    if (!birdId) {
+      try {
+        const stored = JSON.parse(localStorage.getItem('ventpals_user') || '{}');
+        birdId = stored.birdId || 'aura';
+      } catch(e) { birdId = 'aura'; }
+    }
+    const birdName = birdId.charAt(0).toUpperCase() + birdId.slice(1);
 
-    if (stage) {
-      document.getElementById("stage-" + stage).classList.add("stage-active");
+    document.getElementById("birdName").textContent = birdName + "’s Growth";
+
+    // Set correct bird images for all four stages
+    ['baby', 'nestling', 'feathered', 'percher'].forEach(stage => {
+      const img = document.getElementById('img-' + stage);
+      if (img) img.src = 'assets/images/' + birdId + '-' + stage + '.png';
+    });
+
+    if (stageParam) {
+      document.getElementById("stage-" + stageParam).classList.add("stage-active");
 
       const stages = ["baby", "nestling", "feathered", "percher"];
-      const currentIndex = stages.indexOf(stage);
+      const currentIndex = stages.indexOf(stageParam);
 
       stages.forEach((s, i) => {
         if (i < currentIndex) {
