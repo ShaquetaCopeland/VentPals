@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Echo’s Nest – VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    body { font-family:'Inter',sans-serif; background:linear-gradient(to bottom right,#fdf2f8,#fff1f2); }
+    body { font-family:'Inter',sans-serif; background:linear-gradient(to bottom right,#F7F4FF,#F7F4FF); }
     .float { animation:float 4s ease-in-out infinite; }
     @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
     #changeBirdModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:50; align-items:center; justify-content:center; }
@@ -81,8 +82,8 @@
       <h2 class="text-xl font-semibold text-purple-700 mb-3">Reflect with Echo</h2>
       <p class="text-gray-500 text-sm mb-3 italic">“Is there a feeling you have been keeping inside that you haven’t told anyone? You can write it here.”</p>
       <textarea id="nestReflection" placeholder="Write something here…"
-                class="w-full border-pink-200 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 mb-4" rows="4"></textarea>
-      <button onclick="saveReflection()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-full">
+                class="w-full border-purple-200 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 mb-4" rows="4"></textarea>
+      <button onclick="saveReflection()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
         Save to My Nest
       </button>
       <p id="saveMsg" class="text-center text-sm text-green-600 mt-2 hidden">Saved! ✓</p>

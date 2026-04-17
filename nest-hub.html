@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="assets/images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reflect on Your Feeling – VentPals</title>
+  <title>Your Nest – VentPals</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -53,51 +53,59 @@
   <!-- HEADER -->
   <section class="text-center py-10 px-4">
     <div class="relative overflow-visible h-24 sm:h-32">
-      <div id="feelingEmoji"
+      <div id="nestEmoji"
            class="absolute top-6 left-4 sm:top-10 sm:left-20 text-4xl sm:text-6xl float">
-        😊
+        🐦
       </div>
     </div>
 
-    <h1 id="feelingName" class="text-3xl font-bold text-purple-700 mb-2">
-      How Are You Feeling?
+    <h1 id="nestName" class="text-3xl font-bold text-purple-700 mb-2">
+      My Nest
     </h1>
 
     <p class="text-gray-600 max-w-xl mx-auto text-sm">
-      Take a moment to think about your feeling. You can write anything — a thought, a moment, or what your feeling is trying to tell you.
+      This is your special space with your VentPal. Everything you’ve shared together lives here.
     </p>
   </section>
 
   <!-- MAIN CONTENT -->
   <section class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-10">
 
-    <!-- REFLECTION CARD -->
-    <div class="bg-white rounded-3xl shadow p-6">
-      <h2 class="text-xl font-semibold text-purple-700 mb-3">Your Reflection</h2>
-
-      <textarea id="reflectionInput"
-                placeholder="Write about your feeling here..."
-                class="w-full border border-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4"
-                rows="5"></textarea>
-
-      <button id="saveReflection"
-              class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
-        Save Reflection
-      </button>
+    <!-- BIRD CARD -->
+    <div class="bg-white rounded-3xl shadow p-6 text-center">
+      <img id="nestImage" src="assets/images/aura-percher.png"
+           class="mx-auto h-40 mb-4" alt="Bird">
+      <p id="nestRole" class="text-purple-700 font-semibold text-lg">Your VentPal</p>
+      <p class="text-gray-600 text-sm mt-2">
+        You can come here anytime to write, reflect, and grow with your bird.
+      </p>
     </div>
 
-    <!-- WHAT NEXT -->
-    <div class="bg-white rounded-3xl shadow p-6 space-y-4">
-      <h2 class="text-xl font-semibold text-purple-700">What would you like to do next?</h2>
+    <!-- SAVED ENTRIES -->
+    <div class="bg-white rounded-3xl shadow p-6">
+      <h2 class="text-xl font-semibold text-purple-700 mb-4">Your Saved Entries</h2>
 
-      <a href="calming-skills.html"
-         class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-full">
-        Try a Calming Skill
+      <div id="entriesList" class="space-y-4">
+        <!-- Entries will be injected here -->
+      </div>
+
+      <p id="noEntriesMessage" class="text-gray-500 text-sm text-center mt-4">
+        You haven’t added anything yet. Your VentPal is ready when you are.
+      </p>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="bg-white rounded-3xl shadow p-6 space-y-4">
+      <h2 class="text-xl font-semibold text-purple-700">What would you like to do?</h2>
+
+      <a href="start-feeling.html"
+         class="block text-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full">
+        Add a New Reflection
       </a>
 
       <a href="dashboard.html"
          class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-full">
-        Go Back to Dashboard
+        Back to Dashboard
       </a>
     </div>
 
@@ -108,41 +116,34 @@
     VentPals • The Journey of Growing Up.
   </footer>
 
-  <!-- SCRIPT: Inject feeling name + emoji from URL params, save reflection -->
+  <!-- SCRIPT: Inject bird data + entries -->
   <script>
     const params = new URLSearchParams(window.location.search);
-    const feeling = params.get("feeling");
+    const bird = params.get("bird");
     const emoji = params.get("emoji");
+    const role = params.get("role");
+    const image = params.get("image");
 
-    if (feeling) {
-      document.getElementById("feelingName").textContent = feeling;
-    }
-    if (emoji) {
-      document.getElementById("feelingEmoji").textContent = emoji;
-    }
+    if (bird) document.getElementById("nestName").textContent = bird + "'s Nest";
+    if (emoji) document.getElementById("nestEmoji").textContent = emoji;
+    if (role) document.getElementById("nestRole").textContent = role;
+    if (image) document.getElementById("nestImage").src = image;
 
-    document.getElementById("saveReflection").addEventListener("click", () => {
-      const text = document.getElementById("reflectionInput").value.trim();
-      if (!text) return;
+    // Placeholder for saved entries (to be replaced with backend later)
+    const entries = [];
 
-      const reflections = JSON.parse(localStorage.getItem("ventpals_reflections") || "[]");
-      reflections.unshift({
-        text,
-        feeling: params.get("feeling") || "Unnamed",
-        emoji:   params.get("emoji")   || "💛",
-        date:    new Date().toISOString()
+    const entriesList = document.getElementById("entriesList");
+    const noEntriesMessage = document.getElementById("noEntriesMessage");
+
+    if (entries.length > 0) {
+      noEntriesMessage.style.display = "none";
+      entries.forEach(text => {
+        const card = document.createElement("div");
+        card.className = "bg-purple-50 border border-purple-200 rounded-xl p-4 text-sm";
+        card.textContent = text;
+        entriesList.appendChild(card);
       });
-      localStorage.setItem("ventpals_reflections", JSON.stringify(reflections));
-
-      const btn = document.getElementById("saveReflection");
-      const original = btn.textContent;
-      btn.textContent = "Saved ✓";
-      btn.style.background = "#16a34a";
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = "";
-      }, 2000);
-    });
+    }
   </script>
 
 </body>
