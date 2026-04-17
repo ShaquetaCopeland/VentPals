@@ -46,7 +46,10 @@ onAuthStateChanged(auth, (user) => {
 function displayMessage(text, sender) {
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("message");
-  messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  const strong = document.createElement("strong");
+  strong.textContent = sender + ":";
+  messageDiv.appendChild(strong);
+  messageDiv.appendChild(document.createTextNode(" " + text));
   chatWindow.appendChild(messageDiv);
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
