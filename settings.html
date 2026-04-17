@@ -126,7 +126,7 @@
 
   <script>
     let user = {};
-    try { user = JSON.parse(localStorage.getItem('ventpals_user') || '{}'); } catch(e) {}
+    try { user = JSON.parse(localStorage.getItem('ventpals_user') || '{}'); } catch(e) { console.error('Could not load user data:', e); }
 
     const displayNameInput = document.getElementById('settingsDisplayName');
     if (user.displayName || user.nickname) {

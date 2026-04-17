@@ -148,7 +148,7 @@
 
   <script>
     let user = {};
-    try { user = JSON.parse(localStorage.getItem('ventpals_user') || '{}'); } catch(e) {}
+    try { user = JSON.parse(localStorage.getItem('ventpals_user') || '{}'); } catch(e) { console.error('Could not load user data:', e); }
 
     const displayName = user.displayName || user.nickname || '—';
     document.getElementById('profileDisplayName').textContent = displayName;
