@@ -415,7 +415,7 @@
 
     function getPinValue(rowId) {
       return Array.from(document.getElementById(rowId).querySelectorAll('.pin-digit'))
-        .map(d => d.value).join('');
+        .map(digit => digit.value).join('');
     }
 
     document.getElementById('savePinBtn').addEventListener('click', () => {
@@ -434,7 +434,7 @@
         pinBox.textContent = "The two codes don't match — try again!";
         pinBox.classList.add('show');
         // Clear confirm row and refocus
-        document.querySelectorAll('#pinRow2 .pin-digit').forEach(d => { d.value = ''; });
+        document.querySelectorAll('#pinRow2 .pin-digit').forEach(digit => { digit.value = ''; });
         document.querySelector('#pinRow2 .pin-digit').focus();
         return;
       }

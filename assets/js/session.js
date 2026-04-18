@@ -20,7 +20,10 @@
 
   /* ── 1. Resolve root path (handles pages inside subdirectories) ── */
   function resolveRoot() {
-    var depth = (window.location.pathname.match(/\//g) || []).length - 1;
+    // Count path segments before the filename to determine directory depth
+    var parts = window.location.pathname.split('/').filter(Boolean);
+    // Remove the filename (last segment)
+    var depth = Math.max(0, parts.length - 1);
     return depth > 0 ? '../'.repeat(depth) : '';
   }
 

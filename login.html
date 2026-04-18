@@ -286,10 +286,17 @@
 
     function getPin() {
       return Array.from(document.getElementById('pinRow').querySelectorAll('.pin-digit'))
-        .map(d => d.value).join('');
+        .map(digit => digit.value).join('');
     }
 
     // Show "no PIN" hint if account exists but has no PIN
+    // Attach the "set PIN" link handler once, outside the blur callback
+    document.getElementById('setPinLink').addEventListener('click', function (ev) {
+      ev.preventDefault();
+      localStorage.setItem('ventpals_logged_in', 'true');
+      window.location.href = 'set-pin.html';
+    });
+
     function checkForNoPinAccount() {
       const identifier = document.getElementById('identifier').value.trim();
       if (!identifier) return;
@@ -300,17 +307,7 @@
                       (identifier.toLowerCase() === String(user.username || '').toLowerCase());
       const hasPinStored = !!localStorage.getItem('ventpals_pin_hash');
       const hint = document.getElementById('noPinHint');
-      if (idMatch && !hasPinStored) {
-        // Pre-set the redirect link to log them in and go to set-pin
-        document.getElementById('setPinLink').addEventListener('click', (ev) => {
-          ev.preventDefault();
-          localStorage.setItem('ventpals_logged_in', 'true');
-          window.location.href = 'set-pin.html';
-        });
-        hint.style.display = '';
-      } else {
-        hint.style.display = 'none';
-      }
+      hint.style.display = (idMatch && !hasPinStored) ? '' : 'none';
     }
     document.getElementById('identifier').addEventListener('blur', checkForNoPinAccount);
 

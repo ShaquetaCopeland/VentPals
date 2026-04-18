@@ -261,7 +261,7 @@
 
     function getPin(rowId) {
       return Array.from(document.getElementById(rowId).querySelectorAll('.pin-digit'))
-        .map(function (d) { return d.value; })
+        .map(function (digit) { return digit.value; })
         .join('');
     }
 
@@ -278,6 +278,9 @@
       }
       if (pin1 !== pin2) {
         showError('The two codes don\'t match. Try again!');
+        // Clear confirm row and refocus on first digit
+        document.querySelectorAll('#pinRow2 .pin-digit').forEach(function (digit) { digit.value = ''; });
+        document.querySelector('#pinRow2 .pin-digit').focus();
         return;
       }
 
