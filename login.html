@@ -122,6 +122,35 @@
       box-shadow: 0 0 0 4px rgba(139,92,246,0.12);
     }
 
+    /* ── PIN row ── */
+    .pin-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .pin-digit {
+      width: 56px;
+      height: 64px;
+      border-radius: 14px;
+      border: 2px solid rgba(17,24,39,0.12);
+      background: #fff;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--text-dark);
+      caret-color: var(--primary);
+      padding: 0;
+      -moz-appearance: textfield;
+    }
+    .pin-digit::-webkit-outer-spin-button,
+    .pin-digit::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .pin-digit:focus {
+      outline:none;
+      border-color: rgba(139,92,246,0.55);
+      box-shadow: 0 0 0 4px rgba(139,92,246,0.12);
+    }
+    .hint { color: var(--muted); font-size: 12px; margin-top: 6px; }
+
     .alert {
       display:none;
       border-radius: 16px;
@@ -193,17 +222,29 @@
         <div id="errorBox" class="alert" role="alert"></div>
 
         <div>
-          <label for="identifier">Email or username</label>
-          <input id="identifier" name="identifier" type="text" autocomplete="username" placeholder="you@example.com or StarKid" required />
+          <label for="identifier">Username</label>
+          <input id="identifier" name="identifier" type="text" autocomplete="username" placeholder="StarKid42" required />
+          <div class="hint">Enter the username you created your account with.</div>
         </div>
 
         <div>
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+          <label>Your 4-digit secret code</label>
+          <div class="pin-row" id="pinRow">
+            <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 1" />
+            <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 2" />
+            <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 3" />
+            <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 4" />
+          </div>
+          <div class="hint" style="text-align:center;">The 4-digit code you created when you signed up.</div>
         </div>
 
-        <button class="btn" type="submit">Log in</button>
+        <button class="btn" type="submit">Log In 🚀</button>
       </form>
+
+      <div class="foot" id="noPinHint" style="display:none; border-top:none; padding-top:0;">
+        <span style="font-size:13px; color:var(--muted);">Don't have a secret code yet?</span>
+        <a href="set-pin.html" id="setPinLink" style="display:inline-block; margin-left:4px;">Set one now →</a>
+      </div>
 
       <div class="foot">
         New here? <a href="signup.html">Create an account</a>
@@ -225,33 +266,105 @@
       box.classList.add('show');
     }
 
+    // ── PIN digit auto-advance ──
+    (function wirePinRow() {
+      const digits = document.getElementById('pinRow').querySelectorAll('.pin-digit');
+      digits.forEach((input, idx) => {
+        input.addEventListener('input', () => {
+          const val = input.value.replace(/[^0-9]/g, '');
+          input.value = val ? val[val.length - 1] : '';
+          if (val && idx < digits.length - 1) digits[idx + 1].focus();
+        });
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && idx > 0) digits[idx - 1].focus();
+        });
+        input.addEventListener('keypress', (e) => {
+          if (!/[0-9]/.test(e.key)) e.preventDefault();
+        });
+      });
+    })();
+
+    function getPin() {
+      return Array.from(document.getElementById('pinRow').querySelectorAll('.pin-digit'))
+        .map(d => d.value).join('');
+    }
+
+    // Show "no PIN" hint if account exists but has no PIN
+    function checkForNoPinAccount() {
+      const identifier = document.getElementById('identifier').value.trim();
+      if (!identifier) return;
+      const storedUser = localStorage.getItem('ventpals_user');
+      if (!storedUser) return;
+      const user = JSON.parse(storedUser);
+      const idMatch = (identifier.toLowerCase() === String(user.email    || '').toLowerCase()) ||
+                      (identifier.toLowerCase() === String(user.username || '').toLowerCase());
+      const hasPinStored = !!localStorage.getItem('ventpals_pin_hash');
+      const hint = document.getElementById('noPinHint');
+      if (idMatch && !hasPinStored) {
+        // Pre-set the redirect link to log them in and go to set-pin
+        document.getElementById('setPinLink').addEventListener('click', (ev) => {
+          ev.preventDefault();
+          localStorage.setItem('ventpals_logged_in', 'true');
+          window.location.href = 'set-pin.html';
+        });
+        hint.style.display = '';
+      } else {
+        hint.style.display = 'none';
+      }
+    }
+    document.getElementById('identifier').addEventListener('blur', checkForNoPinAccount);
+
     document.getElementById('loginForm').addEventListener('submit', (e) => {
       e.preventDefault();
 
       const identifier = document.getElementById('identifier').value.trim();
-      const password = document.getElementById('password').value;
+      const enteredPin = getPin();
 
       const storedUser = localStorage.getItem('ventpals_user');
-      const storedPw = localStorage.getItem('ventpals_password_hash');
-
-      if (!storedUser || !storedPw) {
+      if (!storedUser) {
         showError('No account found on this device yet. Please sign up first.');
         return;
       }
 
       const user = JSON.parse(storedUser);
-      const correctPw = atob(storedPw);
 
-      const idMatch = (identifier.toLowerCase() === String(user.email || '').toLowerCase()) ||
+      const idMatch = (identifier.toLowerCase() === String(user.email    || '').toLowerCase()) ||
                       (identifier.toLowerCase() === String(user.username || '').toLowerCase());
 
-      if (!idMatch || password !== correctPw) {
-        showError('Invalid email/username or password. Please try again.');
+      if (!idMatch) {
+        showError('Username not found. Please check and try again.');
+        return;
+      }
+
+      const storedPinHash = localStorage.getItem('ventpals_pin_hash');
+
+      if (storedPinHash) {
+        // ── PIN login ──
+        if (enteredPin.length !== 4) {
+          showError('Please enter your 4-digit secret code.');
+          return;
+        }
+        if (btoa(enteredPin) !== storedPinHash) {
+          showError('That secret code is wrong. Try again!');
+          return;
+        }
+      } else {
+        // ── No PIN set yet: log in and redirect to set-pin ──
+        localStorage.setItem('ventpals_logged_in', 'true');
+        window.location.href = 'set-pin.html';
         return;
       }
 
       localStorage.setItem('ventpals_logged_in', 'true');
-      window.location.href = 'app-switcher.html';
+
+      // Resume last page if present
+      const lastUrl = localStorage.getItem('ventpals_last_url');
+      const allowed = lastUrl &&
+                      lastUrl.indexOf('login')        === -1 &&
+                      lastUrl.indexOf('signup')       === -1 &&
+                      lastUrl.indexOf('set-pin')      === -1 &&
+                      lastUrl.indexOf('app-switcher') === -1;
+      window.location.href = allowed ? lastUrl : 'app-switcher.html';
     });
   </script>
 </body>
