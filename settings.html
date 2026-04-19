@@ -277,16 +277,20 @@
       const timeIn  = document.getElementById('notifTime');
       const status  = document.getElementById('notifStatus');
 
+      function setTimeRowVisible(on) {
+        timeRow.classList.toggle('vp-hidden', !on);
+      }
+
       const enabled = native.Notifications.isEnabled();
-      toggle.checked                                         = enabled;
-      timeRow.classList.toggle('vp-hidden', !enabled);
-      timeIn.value           = native.Notifications.getTime();
+      toggle.checked = enabled;
+      timeIn.value   = native.Notifications.getTime();
+      setTimeRowVisible(enabled);
 
       toggle.addEventListener('change', () => {
         native.Haptics.tap();
         const on = toggle.checked;
         native.Notifications.setEnabled(on);
-        timeRow.classList.toggle('vp-hidden', !on);
+        setTimeRowVisible(on);
         if (on) {
           status.textContent = '✓ Reminder set for ' + timeIn.value;
           status.classList.remove('hidden');
