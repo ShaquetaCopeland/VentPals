@@ -82,8 +82,10 @@ function injectNativeBridgeLoader(wwwDir) {
 
   walkHtml(wwwDir, (filePath) => {
     let html = fs.readFileSync(filePath, 'utf8');
-    // Inject before </head> if not already present
-    if (!html.includes('native-bridge.js') && html.includes('</head>')) {
+    // Inject before </head> if not already present.
+    // Check for both relative ("assets/js/native-bridge.js") and absolute
+    // ("/assets/js/native-bridge.js") references to avoid double-injection.
+    if (!html.includes('assets/js/native-bridge.js') && html.includes('</head>')) {
       html = html.replace('</head>', snippet + '\n</head>');
       fs.writeFileSync(filePath, html, 'utf8');
     }

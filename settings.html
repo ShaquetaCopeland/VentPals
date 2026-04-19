@@ -44,6 +44,7 @@
     }
     .toggle-track input:checked + .toggle-slider { background:#A259FF; }
     .toggle-track input:checked + .toggle-slider:before { transform:translateX(24px); }
+    .vp-hidden { display: none; }
   </style>
 </head>
 
@@ -169,7 +170,7 @@
         </label>
       </div>
 
-      <div id="notifTimeRow" class="flex items-center gap-3" style="display:none!important;">
+      <div id="notifTimeRow" class="vp-hidden flex items-center gap-3">
         <label class="text-sm font-semibold text-gray-700 flex-1" for="notifTime">Reminder time</label>
         <input type="time" id="notifTime"
                class="border border-purple-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -277,15 +278,15 @@
       const status  = document.getElementById('notifStatus');
 
       const enabled = native.Notifications.isEnabled();
-      toggle.checked         = enabled;
-      timeRow.style.display  = enabled ? 'flex' : 'none';
+      toggle.checked                                         = enabled;
+      timeRow.classList.toggle('vp-hidden', !enabled);
       timeIn.value           = native.Notifications.getTime();
 
       toggle.addEventListener('change', () => {
         native.Haptics.tap();
         const on = toggle.checked;
         native.Notifications.setEnabled(on);
-        timeRow.style.display = on ? 'flex' : 'none';
+        timeRow.classList.toggle('vp-hidden', !on);
         if (on) {
           status.textContent = '✓ Reminder set for ' + timeIn.value;
           status.classList.remove('hidden');
