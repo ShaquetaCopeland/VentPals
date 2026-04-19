@@ -170,6 +170,50 @@
       color: rgba(31,41,55,0.65);
       font-size: 12px;
     }
+
+    /* ── PIN modal overlay ── */
+    .pin-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .pin-overlay.show { display: flex; }
+    .pin-modal {
+      background: #fff;
+      border-radius: 26px;
+      box-shadow: 0 24px 64px rgba(17,24,39,0.18);
+      padding: 32px 28px;
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+    }
+    .pin-modal .icon { font-size: 48px; margin-bottom: 12px; animation: floaty 4s ease-in-out infinite; }
+    .pin-modal h2 { color: var(--primary); font-size: 1.45rem; font-weight: 800; margin-bottom: 8px; }
+    .pin-modal .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 22px; line-height: 1.5; }
+    .pin-row { display: flex; gap: 10px; justify-content: center; margin-bottom: 6px; }
+    .pin-digit {
+      width: 56px;
+      height: 64px;
+      border-radius: 14px;
+      border: 2px solid rgba(17,24,39,0.12);
+      background: #fff;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--text-dark);
+      caret-color: var(--primary);
+      -moz-appearance: textfield;
+    }
+    .pin-digit::-webkit-outer-spin-button,
+    .pin-digit::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .pin-digit:focus { outline:none; border-color: rgba(139,92,246,0.55); box-shadow: 0 0 0 4px rgba(139,92,246,0.12); }
+    .pin-label { font-weight: 700; font-size: 13px; color: var(--text-dark); margin-bottom: 8px; display: block; }
+    .pin-section { margin-bottom: 18px; }
   </style>
 </head>
 <body>
@@ -252,6 +296,39 @@
     </section>
   </main>
 
+  <!-- PIN creation modal (shown after account creation) -->
+  <div class="pin-overlay" id="pinOverlay" role="dialog" aria-modal="true" aria-labelledby="pinModalTitle">
+    <div class="pin-modal">
+      <div class="icon" aria-hidden="true">🔑</div>
+      <h2 id="pinModalTitle">Create Your Secret Code!</h2>
+      <p class="subtitle">Pick a 4-digit secret code you'll remember. You'll use it to log back in — just like a special password!</p>
+
+      <div id="pinErrorBox" class="alert" role="alert" style="margin-bottom:14px;"></div>
+
+      <div class="pin-section">
+        <span class="pin-label">Choose 4 numbers</span>
+        <div class="pin-row" id="pinRow1">
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 1" />
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 2" />
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 3" />
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="PIN digit 4" />
+        </div>
+      </div>
+
+      <div class="pin-section">
+        <span class="pin-label">Type them again to make sure</span>
+        <div class="pin-row" id="pinRow2">
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="Confirm PIN digit 1" />
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="Confirm PIN digit 2" />
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="Confirm PIN digit 3" />
+          <input class="pin-digit" type="number" min="0" max="9" inputmode="numeric" autocomplete="off" aria-label="Confirm PIN digit 4" />
+        </div>
+      </div>
+
+      <button class="btn" id="savePinBtn" style="margin-top:6px;">Save My Secret Code 🔐</button>
+    </div>
+  </div>
+
   <footer>
     VentPals &bull; The Journey of Growing Up.
   </footer>
@@ -309,6 +386,68 @@
       localStorage.setItem('ventpals_user',          JSON.stringify(user));
       localStorage.setItem('ventpals_password_hash', btoa(password));
       localStorage.setItem('ventpals_logged_in',     'true');
+
+      // Show the PIN creation modal instead of redirecting immediately
+      document.getElementById('pinOverlay').classList.add('show');
+      const firstDigit = document.querySelector('#pinRow1 .pin-digit');
+      if (firstDigit) setTimeout(() => firstDigit.focus(), 50);
+    });
+
+    // ── PIN digit auto-advance ──
+    function wirePinRow(rowId) {
+      const digits = document.getElementById(rowId).querySelectorAll('.pin-digit');
+      digits.forEach((input, idx) => {
+        input.addEventListener('input', () => {
+          const val = input.value.replace(/[^0-9]/g, '');
+          input.value = val ? val[val.length - 1] : '';
+          if (val && idx < digits.length - 1) digits[idx + 1].focus();
+        });
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && idx > 0) digits[idx - 1].focus();
+        });
+        input.addEventListener('keypress', (e) => {
+          if (!/[0-9]/.test(e.key)) e.preventDefault();
+        });
+      });
+    }
+    wirePinRow('pinRow1');
+    wirePinRow('pinRow2');
+
+    function getPinValue(rowId) {
+      return Array.from(document.getElementById(rowId).querySelectorAll('.pin-digit'))
+        .map(digit => digit.value).join('');
+    }
+
+    document.getElementById('savePinBtn').addEventListener('click', () => {
+      const pinBox = document.getElementById('pinErrorBox');
+      pinBox.classList.remove('show');
+
+      const pin1 = getPinValue('pinRow1');
+      const pin2 = getPinValue('pinRow2');
+
+      if (pin1.length !== 4) {
+        pinBox.textContent = 'Please enter all 4 digits for your secret code.';
+        pinBox.classList.add('show');
+        return;
+      }
+      if (pin1 !== pin2) {
+        pinBox.textContent = "The two codes don't match — try again!";
+        pinBox.classList.add('show');
+        // Clear confirm row and refocus
+        document.querySelectorAll('#pinRow2 .pin-digit').forEach(digit => { digit.value = ''; });
+        document.querySelector('#pinRow2 .pin-digit').focus();
+        return;
+      }
+
+      // Store encoded PIN
+      localStorage.setItem('ventpals_pin_hash', btoa(pin1));
+
+      // Mark pin as set in user object
+      try {
+        const user = JSON.parse(localStorage.getItem('ventpals_user') || '{}');
+        user.hasPin = true;
+        localStorage.setItem('ventpals_user', JSON.stringify(user));
+      } catch(err) {}
 
       window.location.href = 'onboarding/onboarding.html';
     });
