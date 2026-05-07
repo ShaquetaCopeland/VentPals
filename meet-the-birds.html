@@ -3,10 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="assets/images/logo.png">
-  <meta http-equiv="refresh" content="0;url=meet-the-flock.html" />
+  <meta http-equiv="refresh" content="5;url=meet-the-flock.html" />
   <title>Meet the Birds – VentPals</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; }
+    nav {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 600;
+    }
+    .nav-links a {
+      color: #7e22ce;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: #581c87; }
+    .nonprofit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #9333ea;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .nonprofit-btn:hover { background: #7e22ce; }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="meet-the-flock.html">Meet the Birds</a>…</p>
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="meet-the-flock.html">Birds</a>
+    </div>
+    <a href="https://nonprofit.ventpals.com"
+       class="nonprofit-btn"
+       target="_blank" rel="noopener">
+      <span aria-hidden="true">🤍</span>
+      Nonprofit Home
+    </a>
+  </nav>
+  <p style="padding: 16px;">
+    Redirecting to <a href="meet-the-flock.html">Meet the Birds</a>…
+  </p>
 </body>
 </html>
